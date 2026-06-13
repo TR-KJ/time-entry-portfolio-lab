@@ -249,3 +249,196 @@ FOMC_STOP_DATES = FOMC当日 + FOMC前日
 - トレード数が減りすぎていないか
 - 合計pipsだけでなくMax DDとRoMDが改善しているか
 - 実運用期間のDDを後付けで避けるだけのフィルタになっていないか
+
+## 2026-06-13：portfolio_backtest_v1_1_engine_fix.py 作成
+
+### 目的
+
+現行マスター16ロジックのバックテストコードについて、既存Gemini版の条件ズレを修正し、今後の追加ロジック・フィルタ検証の土台となる本命コード v1.1 を作成する。
+
+本バージョンでは、GA / EA / AU / オージー絡み中国実需ロジックはまだ追加しない。
+
+まずは現行16ロジックを正しく再現することを目的とする。
+
+---
+
+### ファイル
+
+```text
+src/portfolio_backtest_v1_1_engine_fix.py
+```
+
+---
+
+### v1.1での主な修正内容
+
+#### 1. UJ_Short_Coreを本命仕様へ修正
+
+既存コードでは、UJ_Short_Coreの通常日エントリーが `07:53` になっていた。
+
+正しい仕様は以下。
+
+```text
+通常日Entry：08:04
+通常日SL/TP：SL50 / TPなし
+```
+
+また、ゴトー日は以下。
+
+```text
+ゴトー日Entry：09:55
+ゴトー日SL/TP：SL20 / TP50
+```
+
+v1.1では、日付によりEntry時刻・SL/TPを分岐するように修正した。
+
+---
+
+#### 2. UJ_Short_Coreの末日停止はカレンダー末日を正式採用
+
+比較用コードでは以下2パターンが存在していた。
+
+```text
+12A：カレンダー末日停止
+12B：最終営業日停止
+```
+
+本命版では、ユーザー判断により以下を正式採用した。
+
+```text
+カレンダー末日停止
+```
+
+そのため、12A/12Bの二重計上は廃止し、本命ロジックは以下のみとする。
+
+```text
+12_UJ_Short_Core
+```
+
+---
+
+#### 3. UJ_Fix_MidWeekの曜日を水曜・木曜で維持
+
+Pythonの `weekday()` は以下。
+
+```text
+月曜=0
+火曜=1
+水曜=2
+木曜=3
+金曜=4
+```
+
+仕様では「毎月25日以降の水曜・木曜」であるため、v1.1では以下を採用する。
+
+```python
+wd in [2, 3]
+```
+
+---
+
+#### 4. SL/TP同一足判定はSL優先を維持
+
+1分足の同一足内でSLとTPの両方に到達した場合、保守的にSLを優先する。
+
+```text
+same_bar_policy = sl_first
+```
+
+この仕様は、PFを過度に良く見せないための安全側判定として維持する。
+
+---
+
+#### 5. スプレッド処理は現行方式を維持
+
+現行コードでは、エントリー価格を不利にずらすことでスプレッドを反映している。
+
+```text
+spread_mode = entry_adjust
+```
+
+Longの場合：
+
+```python
+entry_price = open + spread
+```
+
+Shortの場合：
+
+```python
+entry_price = open - spread
+```
+
+v1.1では既存結果との比較を優先し、この方式を維持する。
+
+---
+
+### v1.1で追加した集計
+
+以下の期間別集計を出力する。
+
+```text
+Full：2015/01/01〜2026/05/31
+Legacy IS：2015/01/01〜2025/12/31
+Legacy OOS：2026/01/01〜2026/05/31
+Strict IS：2015/01/01〜2024/12/31
+Strict OOS：2025/01/01〜2026/05/31
+```
+
+用途：
+
+```text
+Legacy IS / OOS
+= 既存Gemini資料との比較用
+
+Strict IS / OOS
+= 今後のフィルタ検証用
+```
+
+---
+
+### 出力CSV
+
+Colab上で以下を出力する。
+
+```text
+/content/Portfolio_Integration_Results_v1_1_engine_fix.csv
+/content/Portfolio_Period_Summary_v1_1_engine_fix.csv
+/content/Portfolio_Strategy_Summary_v1_1_engine_fix.csv
+/content/Portfolio_ExitReason_Summary_v1_1_engine_fix.csv
+```
+
+---
+
+### 今後の予定
+
+次バージョンでは、追加ロジックを実装する。
+
+予定ファイル：
+
+```text
+src/portfolio_backtest_v1_2_add_aussie_logic.py
+```
+
+追加予定：
+
+```text
+GA：GBP/AUD追加ロジック
+EA：EUR/AUD追加ロジック
+AU：AUD/USD中国実需ロジック
+AJ：中国実需ロジック
+EURAUD：中国実需ロジック
+GBPAUD：中国実需ロジック
+```
+
+その後、以下のフィルタ検証に進む。
+
+```text
+前日値幅フィルタ
+当日ここまでの値幅フィルタ
+エントリー前リターンフィルタ
+ATRフィルタ
+通貨エクスポージャー制限
+同時保有数制限
+指標前後フィルタ
+```
