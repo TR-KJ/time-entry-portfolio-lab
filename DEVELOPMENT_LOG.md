@@ -576,3 +576,63 @@ Portfolio_Integration_Results_v1_1_engine_fix.csv
 - Strict OOS：2025/01/01〜2026/03/31
 
 前回の `2026-05` 表記はラベル上の誤りであり、実際のCSVデータは2026年3月末まで。
+
+## 2026-06-13：2026 Q1分析 v1 実行結果
+
+### 対象
+
+`portfolio_backtest_v1_1_engine_fix.py` の現行マスター16ロジック。
+
+### Q1 2026 Total
+
+- Trades：183
+- WinRate：51.91%
+- PF：1.091
+- TotalPips：+297.2
+- MaxDD：583.7
+- RoMD：0.51
+
+### 主な悪化要因
+
+Q1で特に悪かったロジック：
+
+- `1_EJ_Log1`：-287.1 pips / PF 0.344
+- `12_UJ_Short_Core`：-94.6 pips / PF 0.621
+- `8_AJ_Core1`：-75.2 pips / PF 0.831
+- `9_AJ_Core2`：-44.0 pips / PF 0.651
+- `5_GJ_Port_Log2`：-43.6 pips / PF 0.953
+
+### Q1で支えたロジック
+
+- `4_GJ_Port_Log1`：+262.5 pips / PF 2.022
+- `3_EJ_NightBlitz_21`：+186.4 pips / PF 3.033
+- `13_UJ_Fix_MidWeek`：+89.0 pips / PF 53.353
+- `2_EJ_NightBlitz_20`：+83.8 pips / PF 1.408
+- `7_GJ_Mon_Blitz`：+81.8 pips / PF 1.376
+
+### ワースト日
+
+- 2026-03-30：-308.3 pips
+- 2026-02-24：-220.6 pips
+- 2026-01-26：-184.6 pips
+- 2026-01-30：-140.0 pips
+- 2026-03-05：-130.3 pips
+
+### 除外テストの示唆
+
+Q1だけを見ると、以下を除外した場合に改善が大きい。
+
+- `1_EJ_Log1`除外：RoMD +0.63
+- `8_AJ_Core1`除外：RoMD +0.49
+- `5_GJ_Port_Log2`除外：RoMD +0.30
+- `12_UJ_Short_Core`除外：RoMD +0.24
+
+ただし、これらは長期では主力ロジックも含むため、即停止ではなくフィルタ候補として扱う。
+
+### 次の方針
+
+クロス円単体でのフィルタ実装にはまだ進まない。
+
+次に `v1.2_add_aussie_logic.py` を作成し、EA / GA / AU / オージー絡みロジックを追加する。
+
+その後、オージー系込みのQ1分析を行い、クロス円単体と比較したうえでフィルタ検証へ進む。
