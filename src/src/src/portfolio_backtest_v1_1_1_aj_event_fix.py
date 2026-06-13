@@ -490,7 +490,7 @@ def print_summary_table(df_res):
         {
             'label': 'Full 2015-01 to 2026-03',
             'start': '2015-01-01',
-            'end': '2026-03-31'
+            'end': '2026-03-31 23:59:59'
         },
         {
             'label': 'Legacy IS 2015-01 to 2025-12',
@@ -500,7 +500,7 @@ def print_summary_table(df_res):
         {
             'label': 'Legacy OOS 2026-01 to 2026-03',
             'start': '2026-01-01',
-            'end': '2026-03-31'
+            'end': '2026-03-31 23:59:59'
         },
         {
             'label': 'Strict IS 2015-01 to 2024-12',
@@ -510,7 +510,7 @@ def print_summary_table(df_res):
         {
             'label': 'Strict OOS 2025-01 to 2026-03',
             'start': '2025-01-01',
-            'end': '2026-03-31'
+            'end': '2026-03-31 23:59:59'
         }
     ]
 
