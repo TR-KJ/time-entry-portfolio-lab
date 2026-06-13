@@ -488,9 +488,9 @@ def calc_summary(df, label):
 def print_summary_table(df_res):
     periods = [
         {
-            'label': 'Full 2015-01 to 2026-05',
+            'label': 'Full 2015-01 to 2026-03',
             'start': '2015-01-01',
-            'end': '2026-05-31'
+            'end': '2026-03-31'
         },
         {
             'label': 'Legacy IS 2015-01 to 2025-12',
@@ -498,9 +498,9 @@ def print_summary_table(df_res):
             'end': '2025-12-31'
         },
         {
-            'label': 'Legacy OOS 2026-01 to 2026-05',
+            'label': 'Legacy OOS 2026-01 to 2026-03',
             'start': '2026-01-01',
-            'end': '2026-05-31'
+            'end': '2026-03-31'
         },
         {
             'label': 'Strict IS 2015-01 to 2024-12',
@@ -508,9 +508,9 @@ def print_summary_table(df_res):
             'end': '2024-12-31'
         },
         {
-            'label': 'Strict OOS 2025-01 to 2026-05',
+            'label': 'Strict OOS 2025-01 to 2026-03',
             'start': '2025-01-01',
-            'end': '2026-05-31'
+            'end': '2026-03-31'
         }
     ]
 
