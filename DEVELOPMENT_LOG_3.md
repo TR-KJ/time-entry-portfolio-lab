@@ -533,3 +533,233 @@ RejectedRate
 H1 ATR P70を全体適用するよりも、
 防御力と成長力のバランスが良いロジック別ATRフィルタを探す。
 ```
+
+## 2026-06-14：ロジック別ATRフィルタ探索 v1
+
+### 対象
+
+H1 ATR P70全体適用よりも良い構成を探すため、ロジック別ATRフィルタ探索を実施した。
+
+作成コード：
+
+```text
+src/money_filter_logic_atr_select_v1.py
+```
+
+保存先：
+
+```text
+results/money_filter_logic_atr_select_v1/
+```
+
+主な出力CSV：
+
+```text
+LogicATR_Portfolio_Comparison_Summary.csv
+LogicATR_Strategy_Selection.csv
+LogicATR_Plateau_Summary.csv
+LogicATR_Strategy_Option_Evaluation.csv
+```
+
+---
+
+### 探索方針
+
+各ロジックごとに、以下のATR条件を比較した。
+
+```text
+NONE
+P70
+P75
+P80
+P85
+P90
+P95
+```
+
+評価では、単純に一番良い数値だけを採用するのではなく、以下を重視した。
+
+```text
+FullとOOSの両方で改善するか
+Q1だけ改善していないか
+トレード数が少なすぎないか
+パーセンタイル別の成績がプラトーになっているか
+SinglePeakになっていないか
+```
+
+---
+
+### ポートフォリオ比較
+
+| Portfolio | Accepted | Rejected | Full MoneyRoMD | OOS MoneyRoMD | Q1 MoneyRoMD | OOS MaxDDPct | Q1 MaxDDPct |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Base_NoFilter | 15,265 | 0 | 6.32 | 5.82 | 1.75 | 25.76% | 15.12% |
+| Global_H1_ATR_P70 | 10,557 | 4,708 | 11.99 | 8.97 | 3.25 | 16.74% | 8.23% |
+| Global_H1_ATR_P75 | 11,349 | 3,916 | 9.64 | 7.81 | 2.81 | 17.02% | 11.92% |
+| Global_H1_ATR_P80 | 12,128 | 3,137 | 7.88 | 6.20 | 1.95 | 19.79% | 14.16% |
+| LogicSpecific_ATR_Selected | 13,972 | 1,293 | 7.20 | 6.64 | 2.29 | 24.10% | 14.54% |
+
+---
+
+### 結果
+
+ロジック別ATR選択は、Baseよりは改善したものの、Global H1 ATR P70には届かなかった。
+
+特に、OOSとQ1のMaxDDPctではGlobal P70が明確に優位だった。
+
+```text
+Global H1 ATR P70
+OOS MaxDDPct：16.74%
+Q1 MaxDDPct：8.23%
+
+LogicSpecific ATR Selected
+OOS MaxDDPct：24.10%
+Q1 MaxDDPct：14.54%
+```
+
+---
+
+### ロジック別選択が弱くなった理由
+
+ロジック別選択では、選ばれた条件がかなり緩くなった。
+
+```text
+NONE：14ロジック
+P95：5ロジック
+P75：3ロジック
+P90：2ロジック
+P80：2ロジック
+P85：2ロジック
+```
+
+結果として、除外率は以下になった。
+
+```text
+LogicSpecific ATR Selected：RejectedRate 8.47%
+Global H1 ATR P70：RejectedRate 30.84%
+```
+
+つまり、LogicSpecificは「高ATRでも稼ぐロジックを残す」方向に寄ったため、成長力は戻ったが、防御力が弱くなった。
+
+---
+
+### プラトー確認
+
+プラトー判定では、SinglePeakが多かった。
+
+```text
+SinglePeak：15ロジック
+TooFewValidChoices：6ロジック
+Plateau：3ロジック
+StrongPlateau：3ロジック
+WeakPlateau：1ロジック
+```
+
+多くのロジックで、P70〜P95のどこか一点だけが良く見える状態だった。
+
+これは過剰最適化リスクが高いため、ロジック別ATR選択を本命採用するには不十分と判断した。
+
+---
+
+### 判断
+
+現時点では、ロジック別ATR選択は本命採用しない。
+
+採用候補の優先順位は以下。
+
+```text
+第1候補：Global H1 ATR P70
+第2候補：Global H1 ATR P75
+第3候補：Base_NoFilter
+保留：LogicSpecific ATR Selected
+```
+
+---
+
+## スプレッド処理について
+
+初期のGemini作成コードでは、スプレッドは以下の形で反映されていた。
+
+```python
+ep = o[s_idx] + spread if is_long else o[s_idx] - spread
+```
+
+これは、エントリー価格を不利にすることでスプレッド分を反映する方式であり、現時点では以下の扱いとする。
+
+```text
+spread_mode = entry_adjust
+```
+
+今後の改善候補としては以下がある。
+
+```text
+1. entry_adjust方式として明記する
+2. Bid/Ask方式に変更したバージョンと比較する
+3. 通貨ペアごとのスプレッド設定を外部CSVで管理する
+```
+
+ただし、現段階ではまだ不要。
+
+現在は手法・フィルタ・資金管理の大枠を決める段階であり、すでにスプレッドは簡易的に反映済み。
+
+そのため、Bid/Ask方式や外部CSV管理は、最終精密検証フェーズで実施する。
+
+---
+
+## 現時点の結論
+
+暫定本命は以下。
+
+```text
+Global H1 ATR P70
+```
+
+意味：
+
+```text
+H1 ATR(14) が、Strict IS期間の同ペア分布で70パーセンタイル以下の時だけエントリー
+```
+
+位置づけ：
+
+```text
+防御型フィルタ
+高ボラ時の大きな資金変動を抑える
+週次複利・損失額固定型との相性が良い
+```
+
+---
+
+## 次にやること
+
+次は、Global H1 ATR P70を暫定本命として、リスク率比較に進む。
+
+比較候補：
+
+```text
+1.0% risk
+1.5% risk
+2.0% risk
+```
+
+見る指標：
+
+```text
+FinalEquity
+NetProfitYen
+MaxDDPct
+MoneyRoMD
+Worst WeekReturnPct
+Monthly Return
+Yearly Return
+OOS
+Q1 2026
+```
+
+目的：
+
+```text
+Global H1 ATR P70を使った場合に、
+実運用としてリスク率2%が妥当か、
+または1.0%〜1.5%程度に落とすべきかを確認する。
+```
