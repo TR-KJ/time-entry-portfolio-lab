@@ -1,0 +1,9 @@
+CategoryColumn,Category,Decision,Trades,WinRate,PF,TotalPips,MaxDD,RoMD,AvgPips
+Group,China_Demand,Accepted,39,48.72,1.605,237.7,237.6,1.0,6.09
+Group,China_Demand,Rejected,25,48.0,1.171,75.9,230.1,0.33,3.04
+Group,CrossJPY_16,Accepted,82,56.1,1.063,90.8,285.6,0.32,1.11
+Group,CrossJPY_16,Rejected,102,49.02,1.157,286.4,308.4,0.93,2.81
+Group,EA_Rev4,Accepted,31,61.29,2.385,478.5,164.8,2.9,15.44
+Group,EA_Rev4,Rejected,29,44.83,0.745,-180.7,264.1,-0.68,-6.23
+Group,GA,Accepted,30,60.0,1.944,354.0,140.5,2.52,11.8
+Group,GA,Rejected,10,40.0,1.082,16.2,193.8,0.08,1.62
