@@ -763,3 +763,162 @@ Global H1 ATR P70を使った場合に、
 実運用としてリスク率2%が妥当か、
 または1.0%〜1.5%程度に落とすべきかを確認する。
 ```
+
+## 2026-06-14：Global H1 ATR P70 リスク率比較
+
+### 対象
+
+暫定本命フィルタである以下を対象に、損失額固定型・週次複利運用でリスク率比較を行った。
+
+```text
+Global H1 ATR P70
+```
+
+意味：
+
+```text
+H1 ATR(14) が、Strict IS期間の同ペア分布で70パーセンタイル以下の時だけエントリー
+```
+
+作成コード：
+
+```text
+src/money_risk_compare_global_atr_p70_v1.py
+```
+
+保存先：
+
+```text
+results/money_risk_compare_global_atr_p70_v1/
+```
+
+主な出力CSV：
+
+```text
+RiskCompare_Global_H1_ATR_P70_PeriodSummary.csv
+RiskCompare_Global_H1_ATR_P70_WeeklySummary.csv
+RiskCompare_Global_H1_ATR_P70_WorstWeeks.csv
+RiskCompare_Global_H1_ATR_P70_WorstMonths.csv
+```
+
+---
+
+### 比較条件
+
+以下のリスク率を比較した。
+
+```text
+1.0%
+1.5%
+2.0%
+```
+
+共通条件：
+
+| Item | Value |
+|---|---:|
+| 初期資金 | 500,000円 |
+| 複利更新 | 月曜06:00 JST |
+| ロット計算 | 週初残高 × リスク率 |
+| 同時保有時 | 各トレード同じ週の固定リスク額 |
+
+---
+
+### リスク率比較結果
+
+| Risk | Full MaxDDPct | OOS MaxDDPct | Q1 MaxDDPct | Worst Week | Worst Month |
+|---:|---:|---:|---:|---:|---:|
+| 1.0% | 23.21% | 8.67% | 4.23% | -10.80% | 約-10.82% |
+| 1.5% | 33.19% | 12.78% | 6.26% | -16.20% | -16.31% |
+| 2.0% | 42.18% | 16.74% | 8.23% | -21.60% | -21.64% |
+
+---
+
+### 判断
+
+2.0%は成長力は大きいが、実運用では攻めすぎと判断。
+
+```text
+Worst Week：-21.60%
+Worst Month：-21.64%
+```
+
+週単位・月単位で20%超のマイナスを許容する必要があり、実運用の精神的負荷が高い。
+
+現実的な候補は以下。
+
+```text
+第1候補：Global H1 ATR P70 + 1.0% risk
+第2候補：Global H1 ATR P70 + 1.5% risk
+非推奨：Global H1 ATR P70 + 2.0% risk
+```
+
+---
+
+### 運用イメージ
+
+現時点では、以下の段階運用が現実的。
+
+```text
+Phase 1：デモ口座 1.0%想定でEA挙動確認
+Phase 2：少額リアル 0.5%〜1.0%
+Phase 3：安定後に1.0%固定
+Phase 4：十分な実績後に1.5%を検討
+```
+
+---
+
+### 現時点の本命設定
+
+バックテスト上の暫定本命：
+
+```text
+Global H1 ATR P70 + 1.0% risk
+```
+
+攻める場合の候補：
+
+```text
+Global H1 ATR P70 + 1.5% risk
+```
+
+---
+
+### 次にやること
+
+次はEA化 Step 1 に進む。
+
+当初は 13_UJ_Fix_MidWeek を候補にしていたが、出現回数が少ないため、最初の挙動確認にはやや不向きと判断。
+
+EA化 Step 1 の候補は以下へ変更する。
+
+```text
+22_GA_C_2
+```
+
+理由：
+
+```text
+週1回程度の出現がある
+SL/TPあり
+翌日決済あり
+GBPAUDの非JPYペア処理を確認できる
+Step 1として時間エントリー・時間決済・SL/TP・pip処理の確認に向いている
+```
+
+EA化は、PineConnectorではなくMQL5で直接実装する方針。
+
+理由：
+
+```text
+時間指定エントリー
+時間指定決済
+SL/TP
+曜日・日付条件
+指標停止
+Global H1 ATR P70
+週次複利ロット管理
+複数ロジックのMagic Number管理
+```
+
+これらをMT5内で完結させる方が安定するため。
