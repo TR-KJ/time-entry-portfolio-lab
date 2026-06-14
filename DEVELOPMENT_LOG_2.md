@@ -265,3 +265,123 @@ v1.2_add_aussie_logic.py
 ```
 
 EA / GA / AU / オージー絡み中国実需ロジックを追加する。
+
+## 2026-06-14：v1.2 Q1分析結果を保存
+
+### 対象
+
+以下のv1.2コードを実行し、クロス円16ロジックにオージー系12ロジックを追加した28ロジック構成でバックテストを実施した。
+
+```text
+src/portfolio_backtest_v1_2_add_aussie_logic.py
+```
+
+追加内容：
+
+```text
+EA：EUR/AUD Rev.4 4ロジック
+GA：GBP/AUD 4ロジック
+中国実需系 4ロジック
+```
+
+---
+
+### 重要修正
+
+v1.2作成時に、JPYペアと非JPYペアでpip換算が異なる問題を修正した。
+
+```text
+JPYペア：pip_size = 0.01
+非JPYペア：pip_size = 0.0001
+```
+
+また、スプレッドは価格値ではなくpips指定に統一した。
+
+```text
+spread_pips → spread_price = spread_pips * pip_size
+```
+
+これにより、EURAUD / GBPAUD / AUDUSD のSL/TP・損益計算が正しくなるように修正した。
+
+---
+
+### v1.2 全体結果
+
+v1.2の主要結果は以下。
+
+```text
+Full 2015/01〜2026/03
+Trades：15,265
+WinRate：54.48%
+PF：1.368
+TotalPips：+86,558.7
+MaxDD：2,201.7
+RoMD：39.31
+```
+
+2026 Q1では、クロス円のみのv1.1.1より改善した。
+
+```text
+v1.1.1 Q1：+377.2 pips / PF 1.116 / MaxDD 506.3 / RoMD 0.75
+v1.2 Q1：+1,358.8 pips / PF 1.237 / MaxDD 600.0 / RoMD 2.26
+```
+
+---
+
+### v1.2 Q1分析結果の保存先
+
+Q1分析結果は以下へ保存した。
+
+```text
+results/q1_2026_analysis_v2_with_aussie/
+```
+
+保存CSV：
+
+```text
+Q1_2026_Total_Summary.csv
+Q1_2026_Strategy_Summary.csv
+Q1_2026_Monthly_Summary.csv
+Q1_2026_Daily_Summary.csv
+Q1_2026_Exclusion_Test.csv
+Q1_2026_Drawdown_Timeline.csv
+Q1_2026_Drawdown_Window_Trades.csv
+Q1_2026_Group_Summary.csv
+Q1_2026_Pair_Summary.csv
+Q1_2026_Direction_Summary.csv
+Q1_2026_Pair_Direction_Summary.csv
+```
+
+---
+
+### 所感
+
+オージー系追加により、2026 Q1の成績は大きく改善した。
+
+特にGAと中国実需系がQ1の補完として機能した。
+
+一方で、2026年2月には集中DDが残っている。
+
+```text
+2026年2月：PF 0.870 / Total -276.6 pips / MaxDD 600.0
+```
+
+このため、次はロジック単体の停止ではなく、同時被弾を抑えるフィルタ検証へ進む。
+
+---
+
+### 次にやること
+
+次はフィルタ検証 v1 に進む。
+
+優先候補：
+
+```text
+1. 同日トレード数制限
+2. 同一方向JPYエクスポージャー制限
+3. 同一方向AUDエクスポージャー制限
+4. 前日値幅フィルタ
+5. 直近24時間値幅フィルタ
+```
+
+まずは、2026年2月のような複数ロジック同時被弾を抑えるため、同時リスク制限系から検証する。
