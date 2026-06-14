@@ -1,3 +1,13 @@
+第1候補：V2_H1_ATR14_Pips_LTE_P70
+
+第2候補：V2_H1_ATR14_Pips_LTE_P75
+
+第3候補：V2_Range24hPips_LTE_P70
+
+保留：V2_Range24hPips_LTE_P85
+
+除外寄り：Filter v1系
+
 #スプレッド処理方式を変更して精密検証
 
 ただし、最終工程
