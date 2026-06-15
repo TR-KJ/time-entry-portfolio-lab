@@ -263,3 +263,253 @@ Global H1 ATR P70 + 1.0% risk
 ```text
 Global H1 ATR P70 + 1.5% risk
 ```
+
+## 2026-06-15：EA Step 2B 設定管理型2戦略EAテスト完了
+
+### 対象EA
+
+```text
+time_entry_step2b_config_managed_2strategies.mq5
+```
+
+### 対象ロジック
+
+Step 2Bでは、以下の2戦略を設定管理型EAとして実装・テストした。
+
+```text
+22_GA_C_2
+5_GJ_Port_Log2
+```
+
+---
+
+## Step 2B の目的
+
+Step 1Cでは、2戦略を1つのEAに統合したが、コードは戦略ごとの個別関数ベタ書きだった。
+
+Step 2Bでは、今後の多ロジック化に向けて、以下のような設定管理型へ移行した。
+
+```text
+StrategyName
+StrategyCode
+Symbol
+MagicNumber
+Direction
+Entry曜日
+Entry時刻
+Exit方式
+Exit時刻
+SL
+TP
+有効/無効
+Comment
+```
+
+これにより、エントリー判定・決済判定・注文処理・Magic管理・Global Variable管理を共通化する方針とした。
+
+---
+
+## 実装した主な構造
+
+### StrategyConfig
+
+各ロジックを以下のような構造体で管理。
+
+```text
+enabled
+strategy_name
+strategy_code
+symbol
+magic
+direction
+trade_sunday〜trade_saturday
+entry_hour
+entry_minute
+exit_mode
+exit_weekday
+exit_hour
+exit_minute
+sl_pips
+tp_pips
+one_entry_per_day
+comment
+```
+
+### 共通化した処理
+
+```text
+JST時刻変換
+pip size判定
+lot正規化
+SymbolSelect
+Entry時刻判定
+Exit時刻判定
+Long / Short注文
+SL / TP設定
+TPなし発注
+Magic Number別ポジション管理
+Global Variableによる同日重複エントリー防止
+時間決済
+```
+
+---
+
+## 22_GA_C_2 設定
+
+| Field | Value |
+|---|---|
+| StrategyName | 22_GA_C_2 |
+| Symbol | GBPAUD |
+| Direction | Long |
+| Entry | 木曜 16:56 JST |
+| Exit | 金曜 01:15 JST |
+| SL | 70 pips |
+| TP | 80 pips |
+| Magic Number | 22002 |
+| Comment | 22_GA_C_2_step2b |
+
+---
+
+## 5_GJ_Port_Log2 設定
+
+| Field | Value |
+|---|---|
+| StrategyName | 5_GJ_Port_Log2 |
+| Symbol | GBPJPY |
+| Direction | Short |
+| Entry | 火・木・金 09:55 JST |
+| Exit | 当日 23:55 JST |
+| SL | 90 pips |
+| TP | なし |
+| Magic Number | 50002 |
+| Comment | 5_GJ_Port_Log2_step2b |
+
+---
+
+## テスト用設定
+
+任意の時刻でテストできるよう、以下のinputを使用。
+
+```text
+InpTestMode = true
+InpTestModeIgnoreEntryWeekday = true
+InpTestModeIgnoreExitWeekday = true
+InpUseTestTimes = true
+```
+
+これにより、両戦略のEntry / Exit時刻を一括でテスト用時刻に上書きできるようにした。
+
+---
+
+## コンパイル結果
+
+```text
+0 errors, 0 warnings
+```
+
+コンパイルは正常に完了。
+
+---
+
+## テスト結果
+
+Step 2BのテストはOK。
+
+確認できた内容：
+
+```text
+EAが正常に起動する
+GBPAUD / GBPJPY の両方を認識する
+22_GA_C_2 がBuyエントリーする
+22_GA_C_2 にSL/TPが入る
+22_GA_C_2 が時間決済する
+5_GJ_Port_Log2 がSellエントリーする
+5_GJ_Port_Log2 にSLが入る
+5_GJ_Port_Log2 はTPなしで発注される
+5_GJ_Port_Log2 が時間決済する
+Magic Numberがロジック別に分かれる
+Global Variableがロジック別に作成される
+同日重複エントリーを防止する
+```
+
+エキスパートログで以下のような出力を確認。
+
+```text
+[Step2B 22_GA_C_2] BUY entry success...
+[Step2B 5_GJ_Port_Log2] SELL entry success...
+[Step2B 22_GA_C_2] Time exit success...
+[Step2B 5_GJ_Port_Log2] Time exit success...
+```
+
+---
+
+## Step 2B 判定
+
+Step 2Bは合格。
+
+Step 1Cの2戦略ベタ書きEAから、設定管理型EAへの移行に成功した。
+
+これにより、今後の複数ロジック追加に向けた土台ができた。
+
+---
+
+## 注意点
+
+Step 2Bはまだ検証用EAであり、本番運用には使用しない。
+
+未実装の機能：
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+```
+
+また、同じ日に再テストする場合は、Global Variableが残るため、必要に応じてF3から以下のような変数を削除する。
+
+```text
+TE_STEP2B_22_GA_C2_GBPAUD_22002_日付
+TE_STEP2B_5_GJ_Log2_GBPJPY_50002_日付
+```
+
+---
+
+## 次にやること
+
+次は Step 2C として、5〜8ロジック程度まで拡張する。
+
+候補：
+
+```text
+22_GA_C_2
+5_GJ_Port_Log2
+21_GA_B_3
+23_GA_F_2
+24_GA_D_1
+17_EA_1B_Wed_Short
+18_EA_2_MonWed_Short
+19_EA_3_WedThu_Long
+```
+
+Step 2Cの目的：
+
+```text
+設定管理型EAでロジック数を増やしても安定して動くか確認する
+GA / EA / GJ の複数ペアを扱う
+Long / Short を複数混在させる
+TPあり / TPなしを混在させる
+当日決済 / 翌日決済を混在させる
+Magic Number管理をさらに確認する
+```
+
+Step 2Cでも、まだ以下は実装しない。
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+```
