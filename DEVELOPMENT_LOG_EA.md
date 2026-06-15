@@ -663,3 +663,202 @@ Global H1 ATR P70
 週次複利ロット計算
 全28ロジック対応
 ```
+
+## 2026-06-15：EA Step 1C 2戦略統合EAテスト完了
+
+### 対象EA
+
+```text
+time_entry_step1c_GA_GJ_2strategies.mq5
+```
+
+### 対象ロジック
+
+Step 1Cでは、以下の2戦略を1つのEAに統合して動作確認した。
+
+```text
+22_GA_C_2
+5_GJ_Port_Log2
+```
+
+---
+
+## 22_GA_C_2 仕様
+
+| Item | Value |
+|---|---|
+| Pair | GBPAUD |
+| Direction | Long |
+| Entry | 木曜 16:56 JST |
+| Exit | 金曜 01:15 JST |
+| SL | 70 pips |
+| TP | 80 pips |
+| Lot | 0.01固定 |
+| Magic Number | 22002 |
+| ATR Filter | なし |
+| Event Filter | なし |
+| Weekly Compounding | なし |
+
+---
+
+## 5_GJ_Port_Log2 仕様
+
+| Item | Value |
+|---|---|
+| Pair | GBPJPY |
+| Direction | Short |
+| Entry | 火・木・金 09:55 JST |
+| Exit | 当日 23:55 JST |
+| SL | 90 pips |
+| TP | なし |
+| Lot | 0.01固定 |
+| Magic Number | 50002 |
+| ATR Filter | なし |
+| Event Filter | なし |
+| Weekly Compounding | なし |
+
+---
+
+## Step 1C の目的
+
+Step 1Cでは、2戦略を1つのEA内で管理できるかを確認した。
+
+確認対象は以下。
+
+```text
+複数戦略を同一EA内で管理できるか
+複数通貨ペアを扱えるか
+Long / Short を同時に扱えるか
+TPあり / TPなし を同時に扱えるか
+Magic Numberをロジック別に分けて管理できるか
+Global Variableでロジック別に同日重複エントリーを防止できるか
+```
+
+---
+
+## テスト用設定
+
+Step 1Cでは、任意の日・任意の時刻にテストできるよう、以下のテスト用inputを使用した。
+
+```text
+InpTestMode = true
+InpTestModeIgnoreEntryWeekday = true
+InpTestModeIgnoreExitWeekday = true
+```
+
+これにより、本来の曜日条件・決済曜日条件を一時的に無視して、数分後のEntry / Exit時刻へ変更してテストした。
+
+---
+
+## コンパイル結果
+
+```text
+0 errors, 0 warnings
+```
+
+コンパイルは正常に完了。
+
+---
+
+## チャート適用
+
+EAは1つのチャートにのみ適用する方針とした。
+
+```text
+GBPAUD / GBPJPY の両方にEAを入れると重複管理になるためNG
+```
+
+また、MT5の気配値表示に以下の2銘柄を表示しておく必要がある。
+
+```text
+GBPAUD
+GBPJPY
+```
+
+---
+
+## テスト結果
+
+Step 1CのテストはOK。
+
+確認できた内容：
+
+```text
+22_GA_C_2 のBuyエントリー成功
+22_GA_C_2 のSL/TP設定成功
+22_GA_C_2 の時間決済成功
+
+5_GJ_Port_Log2 のSellエントリー成功
+5_GJ_Port_Log2 のSL設定成功
+5_GJ_Port_Log2 のTPなし発注成功
+5_GJ_Port_Log2 の時間決済成功
+```
+
+エキスパートログで、以下のようなログを確認。
+
+```text
+[Step1C 22_GA_C_2] BUY entry success...
+[Step1C 5_GJ_Port_Log2] SELL entry success...
+[Step1C 22_GA_C_2] Time exit success...
+[Step1C 5_GJ_Port_Log2] Time exit success...
+```
+
+---
+
+## Step 1C 判定
+
+Step 1Cは合格。
+
+確認できた項目：
+
+```text
+1つのEAで2戦略を管理できる
+GBPAUDとGBPJPYの複数通貨ペアを扱える
+LongとShortを同一EA内で扱える
+TPありとTPなしを同一EA内で扱える
+Magic Numberでロジック別に管理できる
+Global Variableでロジック別に同日重複エントリーを防止できる
+時間エントリーと時間決済が両戦略で機能する
+```
+
+---
+
+## 注意点
+
+Step 1Cはまだ検証用EAであり、本番運用には使用しない。
+
+未実装の機能：
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+```
+
+また、テスト後に本来仕様へ戻す場合は以下にする。
+
+```text
+InpTestMode = false
+InpTestModeIgnoreEntryWeekday = false
+InpTestModeIgnoreExitWeekday = false
+```
+
+---
+
+## 次にやること
+
+次は Step 2 に進む。
+
+Step 2では、Step 1Cのような個別関数ベタ書きから、複数ロジックを管理しやすい構造へ整理する。
+
+予定：
+
+```text
+Step 2A：複数ロジック対応の仕様設計
+Step 2B：2戦略を設定管理型にリファクタリング
+Step 2C：5〜8ロジック程度まで増やせる形にする
+```
+
+Step 2以降の記録は、新規ファイル `DEVELOPMENT_LOG_EA_2.md` に記録する。
