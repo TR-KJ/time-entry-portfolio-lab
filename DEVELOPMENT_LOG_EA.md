@@ -171,3 +171,232 @@ Step 6：全28ロジック化
 ```
 
 リアル口座への移行は、デモ口座で十分に挙動確認した後に行う。
+
+## 2026-06-15：EA Step 1A 22_GA_C_2 単体テスト完了
+
+### 対象EA
+
+```text
+time_entry_22_GA_C_2_step1a.mq5
+```
+
+### 対象ロジック
+
+```text
+22_GA_C_2
+```
+
+| Item | Value |
+|---|---|
+| Pair | GBPAUD |
+| Direction | Long |
+| Entry | 木曜 16:56 JST |
+| Exit | 金曜 01:15 JST |
+| SL | 70 pips |
+| TP | 80 pips |
+| Lot | 0.01固定 |
+| Magic Number | 22002 |
+| JST Offset | MT5サーバー時間 + 6時間 |
+| ATR Filter | なし |
+| Event Filter | なし |
+| Weekly Compounding | なし |
+
+---
+
+### Step 1A の目的
+
+Step 1Aでは、勝ち負けではなく、EAの基本動作確認を目的とした。
+
+確認対象は以下。
+
+```text
+指定時刻にエントリーするか
+指定時刻に時間決済するか
+SL/TPが正しく入るか
+同日重複エントリーを防止できるか
+Magic Numberで対象ポジションを管理できるか
+GBPAUDの非JPYペアでpip計算が機能するか
+MT5サーバー時間とJSTのズレをinputで制御できるか
+```
+
+---
+
+### 実施内容
+
+MetaEditorで新規EAを作成し、以下のファイル名で保存。
+
+```text
+time_entry_22_GA_C_2_step1a.mq5
+```
+
+当初、`Scripts` フォルダに保存されていたため、MT5ナビゲーターの「エキスパートアドバイザ」に表示されなかった。
+
+その後、保存先を以下へ変更。
+
+```text
+MQL5/Experts/
+```
+
+再コンパイル後、MT5ナビゲーターにEAが表示されることを確認。
+
+---
+
+### コンパイル結果
+
+```text
+0 errors, 0 warnings
+```
+
+コンパイルは正常に完了。
+
+---
+
+### チャート適用
+
+OANDA MT5デモ口座で、以下のチャートにEAを適用。
+
+```text
+GBPAUD
+```
+
+チャート右上にEA名と自動売買アイコンが表示されることを確認。
+
+---
+
+### 初期化ログ
+
+エキスパートログで以下を確認。
+
+```text
+EA initialized.
+Symbol=GBPAUD
+ExpectedSymbol=GBPAUD
+JST Offset Hours=6
+MagicNumber=22002
+FixedLot=0.01
+automated trading is enabled
+```
+
+これにより、EAが正常に起動し、自動売買も許可されていることを確認。
+
+---
+
+### エントリーテスト
+
+実際の木曜16:56 JSTを待たず、テスト用にEntry時刻を数分後へ変更し、デモ口座で強制エントリーテストを実施。
+
+結果、指定時刻にGBPAUDのBuyポジションが建つことを確認。
+
+エキスパートログ：
+
+```text
+BUY entry success. Lot=0.01, Ask=..., SL=..., TP=...
+```
+
+また、エントリー後に以下のログが複数回表示された。
+
+```text
+skip entry: already entered today
+```
+
+これは、同日重複エントリー防止が正常に機能していることを示す。
+
+---
+
+### 時間決済テスト
+
+エントリー後、Exit時刻を数分後へ変更し、時間決済テストを実施。
+
+結果、指定時刻にポジションが決済されることを確認。
+
+エキスパートログ：
+
+```text
+Time exit success
+```
+
+---
+
+### Step 1A 判定
+
+Step 1Aは合格。
+
+確認できた項目：
+
+```text
+GBPAUDチャートでEAが起動する
+自動売買が有効になっている
+指定時刻にBuyエントリーする
+SL/TPが設定される
+同日重複エントリーを防止する
+指定時刻に時間決済する
+Magic Numberで対象ポジションを管理する
+非JPYペアのpip計算が機能している
+```
+
+---
+
+### 注意点・今後の改善候補
+
+現在のStep 1Aでは、エントリー時間帯中に `skip entry: already entered today` が複数回ログ出力される。
+
+これは仕様上問題ないが、実運用ではログが多くなるため、今後以下を検討する。
+
+```text
+skip系ログを1回だけ表示する
+InpPrintDebug=false の時はskip系ログを抑制する
+ログ出力レベルを分ける
+```
+
+また、Step 1Aでは以下は未実装。
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+複数ロジック管理
+全28ロジック対応
+```
+
+---
+
+### 次にやること
+
+次は Step 1B として、以下の単体EAを作成する。
+
+```text
+5_GJ_Port_Log2
+```
+
+仕様：
+
+| Item | Value |
+|---|---|
+| Pair | GBPJPY |
+| Direction | Short |
+| Entry | 火・木・金 09:55 JST |
+| Exit | 当日 23:55 JST |
+| SL | 90 pips |
+| TP | なし |
+| Lot | 0.01固定 |
+| Magic Number | 50002 |
+| ATR Filter | なし |
+| Event Filter | なし |
+| Weekly Compounding | なし |
+
+Step 1Bの目的：
+
+```text
+JPYペアのpip計算確認
+Shortエントリー確認
+TPなしロジック確認
+当日時間決済確認
+複数曜日エントリー条件確認
+```
+
+Step 1Bが完了したら、Step 1Cとして以下に進む。
+
+```text
+22_GA_C_2 と 5_GJ_Port_Log2 の2戦略統合EA
+```
