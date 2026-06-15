@@ -513,3 +513,255 @@ Global H1 ATR P70
 週次複利ロット計算
 全28ロジック対応
 ```
+
+## 2026-06-15：EA Step 2C 設定管理型8戦略EAテスト完了
+
+### 対象EA
+
+```text
+time_entry_step2c_config_managed_8strategies.mq5
+```
+
+### 対象ロジック
+
+Step 2Cでは、以下の8戦略を設定管理型EAへ追加した。
+
+```text
+22_GA_C_2
+5_GJ_Port_Log2
+21_GA_B_3
+23_GA_F_2
+24_GA_D_1
+17_EA_1B_Wed_Short
+18_EA_2_MonWed_Short
+19_EA_3_WedThu_Long
+```
+
+---
+
+## Step 2C の目的
+
+Step 2Bでは、設定管理型EAで2戦略を管理できることを確認した。
+
+Step 2Cでは、ロジック数を8戦略まで増やし、設定管理型EAが複数ロジックでも安定して動作するかを確認した。
+
+確認対象：
+
+```text
+複数ロジック同時管理
+複数通貨ペア管理
+GBPAUD / GBPJPY / EURAUD の処理
+Long / Short の混在
+TPあり / TPなし の混在
+当日決済 / 翌日決済 の混在
+Magic Number別管理
+Global Variableによるロジック別同日重複エントリー防止
+```
+
+---
+
+## 追加したロジック一覧
+
+| Strategy | Pair | Direction | Entry | Exit | SL | TP | Magic |
+|---|---|---|---|---|---:|---:|---:|
+| 22_GA_C_2 | GBPAUD | Long | 木曜 16:56 JST | 金曜 01:15 JST | 70 | 80 | 22002 |
+| 5_GJ_Port_Log2 | GBPJPY | Short | 火・木・金 09:55 JST | 当日 23:55 JST | 90 | なし | 50002 |
+| 21_GA_B_3 | GBPAUD | Long | 月曜 21:02 JST | 翌日 10:00 JST | 220 | 100 | 21003 |
+| 23_GA_F_2 | GBPAUD | Short | 金曜 19:42 JST | 当日 22:45 JST | 90 | 200 | 23002 |
+| 24_GA_D_1 | GBPAUD | Long | 金曜 22:44 JST | 翌日 03:08 JST | 90 | 200 | 24001 |
+| 17_EA_1B_Wed_Short | EURAUD | Short | 水曜 09:59 JST | 当日 20:58 JST | 70 | 175 | 17001 |
+| 18_EA_2_MonWed_Short | EURAUD | Short | 月・火・水 09:59 JST | 翌日 05:26 JST | 90 | 180 | 18002 |
+| 19_EA_3_WedThu_Long | EURAUD | Long | 水・木 20:56 JST | 翌日 10:00 JST | 90 | なし | 19003 |
+
+---
+
+## 実装内容
+
+Step 2Bの設定管理型構造を維持したまま、`StrategyConfig strategies[8]` として8戦略へ拡張した。
+
+主な構造：
+
+```text
+StrategyConfig
+SetStrategy()
+SetWeekdays()
+TryEntry()
+TryExit()
+ClosePositionsByConfig()
+RunStrategies()
+```
+
+共通化された処理：
+
+```text
+JST時刻変換
+SymbolSelect
+pip size判定
+lot正規化
+Entry時刻判定
+Exit時刻判定
+Long / Short注文
+SL / TP設定
+TPなし発注
+Magic Number別ポジション管理
+Global Variableによる同日重複エントリー防止
+時間決済
+```
+
+---
+
+## テスト用設定
+
+任意の時刻で8戦略をテストできるよう、以下のinputを使用した。
+
+```text
+InpTestMode = true
+InpTestModeIgnoreEntryWeekday = true
+InpTestModeIgnoreExitWeekday = true
+InpUseTestTimes = true
+```
+
+これにより、全有効ロジックのEntry / Exit時刻を一括でテスト用時刻に上書きできるようにした。
+
+---
+
+## コンパイル結果
+
+```text
+0 errors, 0 warnings
+```
+
+コンパイルは正常に完了。
+
+---
+
+## テスト結果
+
+Step 2CのテストはOK。
+
+8戦略同時稼働で動作確認した。
+
+確認できた内容：
+
+```text
+EAが正常に起動する
+GBPAUD / GBPJPY / EURAUD を認識する
+8戦略を同時に管理できる
+Long / Short が混在しても動作する
+TPあり / TPなし が混在しても動作する
+当日決済 / 翌日決済 が混在しても動作する
+Magic Numberがロジック別に分かれる
+Global Variableがロジック別に作成される
+同日重複エントリーを防止する
+時間エントリーと時間決済が機能する
+```
+
+エキスパートログで、各戦略のエントリー成功・時間決済成功を確認。
+
+```text
+BUY entry success
+SELL entry success
+Time exit success
+```
+
+---
+
+## Step 2C 判定
+
+Step 2Cは合格。
+
+設定管理型EAで、8戦略まで拡張しても安定して動作することを確認できた。
+
+これにより、複数ロジック管理の基本構造はかなり固まった。
+
+---
+
+## 注意点
+
+Step 2Cはまだ検証用EAであり、本番運用には使用しない。
+
+未実装の機能：
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+UJ特殊日付条件
+EJ / AJ / AU / China系ロジック
+```
+
+また、同じ日に再テストする場合は、Global Variableが残るため、必要に応じてF3から以下のような変数を削除する。
+
+```text
+TE_STEP2C_22_GA_C2_GBPAUD_22002_日付
+TE_STEP2C_5_GJ_Log2_GBPJPY_50002_日付
+TE_STEP2C_21_GA_B3_GBPAUD_21003_日付
+TE_STEP2C_23_GA_F2_GBPAUD_23002_日付
+TE_STEP2C_24_GA_D1_GBPAUD_24001_日付
+TE_STEP2C_17_EA_1B_EURAUD_17001_日付
+TE_STEP2C_18_EA_2_EURAUD_18002_日付
+TE_STEP2C_19_EA_3_EURAUD_19003_日付
+```
+
+---
+
+## 次にやること
+
+次は Step 2D として、UJ特殊日付ロジックに対応する。
+
+対象候補：
+
+```text
+12_UJ_Short_Core
+13_UJ_Fix_MidWeek
+14_UJ_Sat_3rd
+15_UJ_Sat_Aug
+16_UJ_T10A
+```
+
+特に `12_UJ_Short_Core` は、以下のように条件が複雑なため、最初に対応する価値が高い。
+
+```text
+毎月20日〜末日
+21日・22日停止
+カレンダー末日停止
+水曜停止
+8月全停止
+ゴトー日は09:55 Entry / SL20 / TP50
+通常日は08:04 Entry / SL50 / TPなし
+```
+
+Step 2Dでは、日付条件モードをEAに追加する。
+
+追加予定の考え方：
+
+```text
+曜日条件だけでなく、日付条件を扱えるようにする
+毎月N日条件を扱う
+毎月N日以降条件を扱う
+月末停止条件を扱う
+月指定停止を扱う
+曜日停止を扱う
+ゴトー日と通常日のEntry時刻・SL/TP分岐を扱う
+```
+
+テスト用には、以下のような強制モードを用意する。
+
+```text
+日付条件を無視してテスト
+ゴトー日モードを強制
+通常日モードを強制
+Entry/Exit時刻をテスト用に上書き
+```
+
+Step 2Dでも、まだ以下は実装しない。
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+```
