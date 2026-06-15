@@ -400,3 +400,266 @@ Step 1Bが完了したら、Step 1Cとして以下に進む。
 ```text
 22_GA_C_2 と 5_GJ_Port_Log2 の2戦略統合EA
 ```
+
+## 2026-06-15：EA Step 1B 5_GJ_Port_Log2 単体テスト完了
+
+### 対象EA
+
+```text
+time_entry_5_GJ_Port_Log2_step1b_testable.mq5
+```
+
+### 対象ロジック
+
+```text
+5_GJ_Port_Log2
+```
+
+| Item | Value |
+|---|---|
+| Pair | GBPJPY |
+| Direction | Short |
+| Entry | 火・木・金 09:55 JST |
+| Exit | 当日 23:55 JST |
+| SL | 90 pips |
+| TP | なし |
+| Lot | 0.01固定 |
+| Magic Number | 50002 |
+| JST Offset | MT5サーバー時間 + 6時間 |
+| ATR Filter | なし |
+| Event Filter | なし |
+| Weekly Compounding | なし |
+
+---
+
+### Step 1B の目的
+
+Step 1Bでは、5_GJ_Port_Log2 単体EAの基本動作確認を行った。
+
+主な確認対象は以下。
+
+```text
+GBPJPYのJPYペアpip計算
+Shortエントリー
+TPなし発注
+SL設定
+当日時間決済
+複数曜日エントリー条件
+Magic Number管理
+同日重複エントリー防止
+```
+
+---
+
+### テスト用変更
+
+通常仕様では、5_GJ_Port_Log2 は火・木・金のみエントリー対象。
+
+ただし、テストを任意の日に実施できるよう、以下のinputを追加したテスト版を使用した。
+
+```text
+InpTestModeIgnoreWeekday = true
+```
+
+これにより、火・木・金以外の日でも、指定したEntry時刻でテストエントリーできるようにした。
+
+---
+
+### コンパイル結果
+
+```text
+0 errors, 0 warnings
+```
+
+コンパイルは正常に完了。
+
+---
+
+### チャート適用
+
+OANDA MT5デモ口座で、以下のチャートにEAを適用。
+
+```text
+GBPJPY
+```
+
+チャート右上にEA名と自動売買アイコンが表示されることを確認。
+
+---
+
+### 初期化ログ
+
+エキスパートログで以下を確認。
+
+```text
+EA initialized.
+Symbol=GBPJPY
+ExpectedSymbol=GBPJPY
+JST Offset Hours=6
+MagicNumber=50002
+FixedLot=0.01
+Strategy=5_GJ_Port_Log2
+Direction=Short
+TP=None
+TestModeIgnoreWeekday=true
+```
+
+EAが正常に起動し、テストモードも有効になっていることを確認。
+
+---
+
+### エントリーテスト
+
+実際のエントリー時刻を待たず、テスト用にEntry時刻を数分後へ変更し、デモ口座で強制エントリーテストを実施。
+
+結果、指定時刻にGBPJPYのSellポジションが建つことを確認。
+
+エキスパートログ：
+
+```text
+SELL entry success. Lot=0.01, Bid=..., SL=..., TP=None
+```
+
+---
+
+### ポジション確認
+
+MT5下部の「取引」タブで以下を確認。
+
+```text
+銘柄：GBPJPY
+タイプ：sell
+数量：0.01
+S/L：設定あり
+T/P：なし
+```
+
+これにより、以下を確認できた。
+
+```text
+GBPJPY Short 0.01 が建った
+SL 90pips が設定された
+TPなしで発注された
+```
+
+---
+
+### 同日重複エントリー防止
+
+テスト中、EAを削除して再度チャートへ入れ直した際、エントリーがスキップされた。
+
+原因は、Global Variableに「同日エントリー済み」の記録が残っていたため。
+
+該当仕様：
+
+```text
+Global Variableで同日重複エントリーを防止
+EAをチャートから削除してもGlobal Variableは残る
+```
+
+再テスト時は、MT5で以下を実施。
+
+```text
+F3
+↓
+グローバル変数
+↓
+TE_5_GJ_PORT_LOG2_STEP1B_TESTABLE_GBPJPY_50002_日付
+↓
+削除
+```
+
+これにより、同日中でも再テストが可能になった。
+
+---
+
+### 時間決済テスト
+
+エントリー後、Exit時刻を数分後へ変更し、時間決済テストを実施。
+
+結果、指定時刻にポジションが決済されることを確認。
+
+エキスパートログ：
+
+```text
+Time exit success
+```
+
+---
+
+### Step 1B 判定
+
+Step 1Bは合格。
+
+確認できた項目：
+
+```text
+GBPJPYチャートでEAが起動する
+指定時刻にSellエントリーする
+GBPJPY Short 0.01が建つ
+SL 90pipsが設定される
+TPなしで発注される
+指定時刻に時間決済する
+Magic Numberで対象ポジションを管理する
+同日重複エントリーを防止する
+Global Variable削除で再テスト可能
+JPYペアのpip計算が機能している
+```
+
+---
+
+### 注意点・今後の改善候補
+
+Step 1Bテスト版では、以下のinputを使用した。
+
+```text
+InpTestModeIgnoreWeekday = true
+```
+
+本番運用時は必ず以下に戻す。
+
+```text
+InpTestModeIgnoreWeekday = false
+```
+
+また、テスト後は本来設定に戻す。
+
+```text
+InpEntryHourJST = 9
+InpEntryMinuteJST = 55
+InpExitHourJST = 23
+InpExitMinuteJST = 55
+InpMagicNumber = 50002
+```
+
+---
+
+### 次にやること
+
+次は Step 1C として、以下の2戦略を1つのEAに統合する。
+
+```text
+22_GA_C_2
+5_GJ_Port_Log2
+```
+
+Step 1Cの目的：
+
+```text
+複数戦略を同一EA内で管理できるか
+複数通貨ペアを扱えるか
+Long/Shortを同時に扱えるか
+TPあり/TPなしを同時に扱えるか
+Magic Numberをロジック別に分けて管理できるか
+Global Variableでロジック別に同日重複エントリーを防止できるか
+```
+
+Step 1Cでは、まだ以下は実装しない。
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+```
