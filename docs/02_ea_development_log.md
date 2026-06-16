@@ -1630,3 +1630,342 @@ Global H1 ATR P70
 週次複利ロット計算
 全28ロジック対応
 ```
+
+## 2026-06-15：EA Step 2D 12_UJ_Short_Core 単体テスト完了
+
+### 対象EA
+
+```text
+time_entry_step2d_uj_short_core_test.mq5
+```
+
+### 対象ロジック
+
+```text
+12_UJ_Short_Core
+```
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Lot | 0.01固定 |
+| Magic Number | 12001 |
+| ATR Filter | なし |
+| Event Filter | なし |
+| Weekly Compounding | なし |
+
+---
+
+## Step 2D の目的
+
+Step 2Dでは、UJ系ロジックで必要になる特殊日付条件に対応するため、まず最も複雑な `12_UJ_Short_Core` を単体EAとして実装・テストした。
+
+`12_UJ_Short_Core` は、通常の曜日指定だけではなく、以下のような日付条件・分岐条件を持つ。
+
+```text
+毎月20日〜月末
+21日停止
+22日停止
+カレンダー末日停止
+水曜日停止
+8月全停止
+20日・25日・30日はゴトー日モード
+ゴトー日と通常日でEntry時刻・SL/TPが変わる
+```
+
+---
+
+## 確定仕様
+
+### 稼働日条件
+
+```text
+毎月20日〜月末まで
+```
+
+ただし、以下は停止。
+
+```text
+21日
+22日
+カレンダー末日
+水曜日
+8月全期間
+```
+
+---
+
+### ゴトー日判定
+
+```text
+20日・25日・30日のみ
+```
+
+重要仕様：
+
+```text
+12_UJ_Short_Core のゴトー日判定は、バックテスト再現性を優先し、初期版ではカレンダー日付の20日・25日・30日のみとする。
+前倒しゴトー日は未実装。
+必要であれば、後続バージョンで InpUseForwardGotoDay を追加し、別途検証する。
+```
+
+---
+
+## モード別仕様
+
+### ゴトー日モード
+
+| Item | Value |
+|---|---|
+| Entry | 09:55 JST |
+| Exit | 14:56 JST |
+| Direction | Short |
+| SL | 20 pips |
+| TP | 50 pips |
+
+---
+
+### 通常日モード
+
+| Item | Value |
+|---|---|
+| Entry | 08:04 JST |
+| Exit | 14:56 JST |
+| Direction | Short |
+| SL | 50 pips |
+| TP | なし |
+
+---
+
+## テスト用input
+
+Step 2Dでは、実際の日付を待たずにモード確認できるよう、以下のテスト用inputを追加した。
+
+```text
+InpTestMode
+InpTestModeIgnoreDateRules
+InpUseTestTimes
+InpForceGotoMode
+InpForceNormalMode
+```
+
+---
+
+## 単体テスト結果
+
+### 1. ゴトー日モード強制テスト
+
+設定：
+
+```text
+InpTestMode = true
+InpTestModeIgnoreDateRules = true
+InpUseTestTimes = true
+InpForceGotoMode = true
+InpForceNormalMode = false
+```
+
+結果：
+
+```text
+SELL entry success. Mode=GOTO
+Time exit success
+```
+
+確認できた内容：
+
+```text
+USDJPY Short 0.01 が建つ
+SL 20pips が設定される
+TP 50pips が設定される
+指定時刻に時間決済される
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+### 2. 通常日モード強制テスト
+
+設定：
+
+```text
+InpTestMode = true
+InpTestModeIgnoreDateRules = true
+InpUseTestTimes = true
+InpForceGotoMode = false
+InpForceNormalMode = true
+```
+
+結果：
+
+```text
+SELL entry success. Mode=NORMAL
+Time exit success
+```
+
+確認できた内容：
+
+```text
+USDJPY Short 0.01 が建つ
+SL 50pips が設定される
+TPなしで発注される
+指定時刻に時間決済される
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+## Step 2D 判定
+
+Step 2Dの単体モードテストは合格。
+
+確認できた項目：
+
+```text
+USDJPY Shortエントリー
+ゴトー日モードのSL/TP分岐
+通常日モードのSL/TP分岐
+TPあり / TPなし の切り替え
+時間決済
+Magic Number管理
+Global Variableによる同日重複エントリー防止
+```
+
+---
+
+## 残課題
+
+Step 2Dでは、強制モードテストによりゴトー日・通常日の注文仕様は確認できた。
+
+ただし、本来の日付条件そのものは、実際の日付を待たないと確認しづらい。
+
+確認が必要な日付条件：
+
+```text
+20日 → ゴトー日モード
+25日 → ゴトー日モード
+30日 → ゴトー日モード
+23日など → 通常日モード
+21日 → 停止
+22日 → 停止
+水曜日 → 停止
+8月 → 停止
+カレンダー月末 → 停止
+```
+
+---
+
+# Step 2D.1：疑似JST日付テスト版
+
+### 目的
+
+実際の日付を待たずに、EA内部だけ疑似JST日時を使って `12_UJ_Short_Core` の日付条件を検証する。
+
+作成予定EA：
+
+```text
+time_entry_step2d1_uj_short_core_mock_date_test.mq5
+```
+
+---
+
+## Step 2D.1 で追加する機能
+
+以下のinputを追加する。
+
+```text
+InpUseMockJstDateTime
+InpMockYear
+InpMockMonth
+InpMockDay
+InpMockHour
+InpMockMinute
+```
+
+これにより、EA内部の判定時刻を任意の日付・時刻に固定できるようにする。
+
+---
+
+## Step 2D.1 テスト条件
+
+### テスト方針
+
+各テストでは、`InpUseMockJstDateTime = true` とし、疑似JST日時を設定して日付条件を確認する。
+
+エントリーさせたいテストでは、Mock時刻をそのモードのEntry時刻に合わせる。
+
+---
+
+### テスト一覧
+
+| Test | Mock DateTime JST | 期待結果 |
+|---|---|---|
+| 20日ゴトー日 | 2026-02-20 09:55 | GOTOでEntry |
+| 25日ゴトー日 | 2026-06-25 09:55 | GOTOでEntry |
+| 30日ゴトー日 | 2026-07-30 09:55 | GOTOでEntry |
+| 通常日 | 2026-06-23 08:04 | NORMALでEntry |
+| 21日停止 | 2026-06-21 09:55 | Entryしない |
+| 22日停止 | 2026-06-22 09:55 | Entryしない |
+| 水曜停止 | 2026-06-24 08:04 | Entryしない |
+| 8月停止 | 2026-08-25 09:55 | Entryしない |
+| 月末停止 | 2026-07-31 08:04 | Entryしない |
+| 20日未満停止 | 2026-06-19 08:04 | Entryしない |
+
+---
+
+## 注意点
+
+30日ゴトー日を確認する場合、30日がカレンダー月末になる月は避ける。
+
+理由：
+
+```text
+カレンダー月末停止がゴトー日判定より優先されるため
+```
+
+そのため、30日ゴトー日テストでは、31日まである月の30日を使う。
+
+例：
+
+```text
+2026-07-30
+```
+
+---
+
+## Step 2D.1 判定基準
+
+以下が確認できれば合格。
+
+```text
+20日・25日・30日がGOTOになる
+通常稼働日がNORMALになる
+21日・22日は停止する
+水曜日は停止する
+8月は停止する
+カレンダー月末は停止する
+20日未満は停止する
+```
+
+Step 2D.1が合格したら、次はUJ5ロジック対応へ進む。
+
+候補：
+
+```text
+12_UJ_Short_Core
+13_UJ_Fix_MidWeek
+14_UJ_Sat_3rd
+15_UJ_Sat_Aug
+16_UJ_T10A
+```
