@@ -1,0 +1,659 @@
+## 2026-06-15：EA Step 2F.1 13ロジック統合仕様整理
+
+### 目的
+
+Step 2Fでは、これまで個別に確認してきた以下を1つの設定管理型EAへ統合する。
+
+```text
+Step 2C：既存8ロジック
+Step 2E：UJ 5ロジック
+```
+
+合計：
+
+```text
+13ロジック
+```
+
+Step 2F.1では、コード作成前に、13ロジック統合EAの仕様を整理する。
+
+---
+
+# Step 2F 統合対象
+
+## 既存8ロジック
+
+```text
+22_GA_C_2
+5_GJ_Port_Log2
+21_GA_B_3
+23_GA_F_2
+24_GA_D_1
+17_EA_1B_Wed_Short
+18_EA_2_MonWed_Short
+19_EA_3_WedThu_Long
+```
+
+## UJ 5ロジック
+
+```text
+12_UJ_Short_Core
+13_UJ_Fix_MidWeek
+14_UJ_Sat_3rd
+15_UJ_Sat_Aug
+16_UJ_T10A
+```
+
+---
+
+# 13ロジック一覧
+
+| No | Strategy | Pair | Direction | Entry | Exit | SL | TP | Magic |
+|---:|---|---|---|---|---|---:|---:|---:|
+| 17 | 17_EA_1B_Wed_Short | EURAUD | Short | 水曜 09:59 JST | 当日 20:58 JST | 70 | 175 | 17001 |
+| 18 | 18_EA_2_MonWed_Short | EURAUD | Short | 月・火・水 09:59 JST | 翌日 05:26 JST | 90 | 180 | 18002 |
+| 19 | 19_EA_3_WedThu_Long | EURAUD | Long | 水・木 20:56 JST | 翌日 10:00 JST | 90 | なし | 19003 |
+| 21 | 21_GA_B_3 | GBPAUD | Long | 月曜 21:02 JST | 翌日 10:00 JST | 220 | 100 | 21003 |
+| 22 | 22_GA_C_2 | GBPAUD | Long | 木曜 16:56 JST | 金曜 01:15 JST | 70 | 80 | 22002 |
+| 23 | 23_GA_F_2 | GBPAUD | Short | 金曜 19:42 JST | 当日 22:45 JST | 90 | 200 | 23002 |
+| 24 | 24_GA_D_1 | GBPAUD | Long | 金曜 22:44 JST | 翌日 03:08 JST | 90 | 200 | 24001 |
+| 5 | 5_GJ_Port_Log2 | GBPJPY | Short | 火・木・金 09:55 JST | 当日 23:55 JST | 90 | なし | 50002 |
+| 12 | 12_UJ_Short_Core | USDJPY | Short | 条件分岐 | 14:56 JST | 条件分岐 | 条件分岐 | 12001 |
+| 13 | 13_UJ_Fix_MidWeek | USDJPY | Long | 18:04 JST | 22:03 JST | 95 | 95 | 13001 |
+| 14 | 14_UJ_Sat_3rd | USDJPY | Short | 20:01 JST | 翌日 03:08 JST | 45 | 70 | 14001 |
+| 15 | 15_UJ_Sat_Aug | USDJPY | Short | 19:00 JST | 当日 23:30 JST | 20 | 35 | 15001 |
+| 16 | 16_UJ_T10A | USDJPY | Long | 02:58 JST | 当日 09:50 JST | 45 | 110 | 16001 |
+
+---
+
+# 対象通貨ペア
+
+Step 2Fでは、以下4ペアを扱う。
+
+```text
+EURAUD
+GBPAUD
+GBPJPY
+USDJPY
+```
+
+MT5の気配値表示には、最低限この4銘柄を表示しておく。
+
+```text
+EURAUD
+GBPAUD
+GBPJPY
+USDJPY
+```
+
+---
+
+# EAファイル名
+
+Step 2F.2で作成するEAファイル名は以下とする。
+
+```text
+time_entry_step2f2_config_managed_13strategies.mq5
+```
+
+---
+
+# Step 2Fの目的
+
+Step 2Fでは、以下を確認する。
+
+```text
+設定管理型EAで13ロジックを管理できるか
+EURAUD / GBPAUD / GBPJPY / USDJPYを同時に扱えるか
+Long / Shortが混在しても動作するか
+TPあり / TPなしが混在しても動作するか
+当日決済 / 翌日決済 / 曜日指定決済が混在しても動作するか
+通常曜日ロジックとUJ特殊日付ロジックが共存できるか
+日またぎExit修正が統合EAでも機能するか
+Magic Numberを13ロジックで分けて管理できるか
+Global Variableによる同日重複エントリー防止がロジック別に機能するか
+```
+
+---
+
+# 既存8ロジック仕様
+
+## 17_EA_1B_Wed_Short
+
+| Field | Value |
+|---|---|
+| Pair | EURAUD |
+| Direction | Short |
+| Entry | 水曜 09:59 JST |
+| Exit | 当日 20:58 JST |
+| SL | 70 pips |
+| TP | 175 pips |
+| Magic | 17001 |
+| Special Rule | RULE_NONE |
+
+---
+
+## 18_EA_2_MonWed_Short
+
+| Field | Value |
+|---|---|
+| Pair | EURAUD |
+| Direction | Short |
+| Entry | 月・火・水 09:59 JST |
+| Exit | 翌日 05:26 JST |
+| SL | 90 pips |
+| TP | 180 pips |
+| Magic | 18002 |
+| Special Rule | RULE_NONE |
+
+---
+
+## 19_EA_3_WedThu_Long
+
+| Field | Value |
+|---|---|
+| Pair | EURAUD |
+| Direction | Long |
+| Entry | 水・木 20:56 JST |
+| Exit | 翌日 10:00 JST |
+| SL | 90 pips |
+| TP | なし |
+| Magic | 19003 |
+| Special Rule | RULE_NONE |
+
+---
+
+## 21_GA_B_3
+
+| Field | Value |
+|---|---|
+| Pair | GBPAUD |
+| Direction | Long |
+| Entry | 月曜 21:02 JST |
+| Exit | 翌日 10:00 JST |
+| SL | 220 pips |
+| TP | 100 pips |
+| Magic | 21003 |
+| Special Rule | RULE_NONE |
+
+---
+
+## 22_GA_C_2
+
+| Field | Value |
+|---|---|
+| Pair | GBPAUD |
+| Direction | Long |
+| Entry | 木曜 16:56 JST |
+| Exit | 金曜 01:15 JST |
+| SL | 70 pips |
+| TP | 80 pips |
+| Magic | 22002 |
+| Special Rule | RULE_NONE |
+
+---
+
+## 23_GA_F_2
+
+| Field | Value |
+|---|---|
+| Pair | GBPAUD |
+| Direction | Short |
+| Entry | 金曜 19:42 JST |
+| Exit | 当日 22:45 JST |
+| SL | 90 pips |
+| TP | 200 pips |
+| Magic | 23002 |
+| Special Rule | RULE_NONE |
+
+---
+
+## 24_GA_D_1
+
+| Field | Value |
+|---|---|
+| Pair | GBPAUD |
+| Direction | Long |
+| Entry | 金曜 22:44 JST |
+| Exit | 翌日 03:08 JST |
+| SL | 90 pips |
+| TP | 200 pips |
+| Magic | 24001 |
+| Special Rule | RULE_NONE |
+
+---
+
+## 5_GJ_Port_Log2
+
+| Field | Value |
+|---|---|
+| Pair | GBPJPY |
+| Direction | Short |
+| Entry | 火・木・金 09:55 JST |
+| Exit | 当日 23:55 JST |
+| SL | 90 pips |
+| TP | なし |
+| Magic | 50002 |
+| Special Rule | RULE_NONE |
+
+---
+
+# UJ 5ロジック仕様
+
+## 12_UJ_Short_Core
+
+| Field | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Entry | 条件分岐 |
+| Exit | 14:56 JST |
+| SL | 条件分岐 |
+| TP | 条件分岐 |
+| Magic | 12001 |
+| Special Rule | RULE_UJ_SHORT_CORE |
+
+### 稼働日条件
+
+```text
+毎月20日〜月末まで
+```
+
+ただし、以下は停止。
+
+```text
+21日
+22日
+水曜日
+8月全期間
+カレンダー月末
+```
+
+### ゴトー日判定
+
+```text
+20日
+25日
+30日
+```
+
+重要仕様：
+
+```text
+前倒しゴトー日は未実装
+```
+
+### GOTOモード
+
+| Item | Value |
+|---|---|
+| Entry | 09:55 JST |
+| Exit | 14:56 JST |
+| SL | 20 pips |
+| TP | 50 pips |
+
+### NORMALモード
+
+| Item | Value |
+|---|---|
+| Entry | 08:04 JST |
+| Exit | 14:56 JST |
+| SL | 50 pips |
+| TP | なし |
+
+---
+
+## 13_UJ_Fix_MidWeek
+
+| Field | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Long |
+| Entry | 18:04 JST |
+| Exit | 22:03 JST |
+| SL | 95 pips |
+| TP | 95 pips |
+| Magic | 13001 |
+| Special Rule | RULE_UJ_FIX_MIDWEEK |
+
+稼働条件：
+
+```text
+毎月25日以降
+水曜日・木曜日のみ
+```
+
+EA条件：
+
+```text
+day >= 25
+weekday == Wednesday or Thursday
+```
+
+---
+
+## 14_UJ_Sat_3rd
+
+| Field | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Entry | 20:01 JST |
+| Exit | 翌日 03:08 JST |
+| SL | 45 pips |
+| TP | 70 pips |
+| Magic | 14001 |
+| Special Rule | RULE_UJ_SAT_3RD |
+
+稼働条件：
+
+```text
+毎月3日のみ
+```
+
+EA条件：
+
+```text
+day == 3
+```
+
+注意：
+
+```text
+Entry 20:01 / Exit 翌日03:08 の日またぎ決済。
+Step 2E.2 FIX1で、Entry直後に即Time exitしないよう修正済み。
+Step 2Fでもこの日またぎExit修正を必ず反映する。
+```
+
+---
+
+## 15_UJ_Sat_Aug
+
+| Field | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Entry | 19:00 JST |
+| Exit | 23:30 JST |
+| SL | 20 pips |
+| TP | 35 pips |
+| Magic | 15001 |
+| Special Rule | RULE_UJ_SAT_AUG |
+
+稼働条件：
+
+```text
+8月1日〜10日のみ
+```
+
+EA条件：
+
+```text
+month == 8
+day <= 10
+```
+
+---
+
+## 16_UJ_T10A
+
+| Field | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Long |
+| Entry | 02:58 JST |
+| Exit | 09:50 JST |
+| SL | 45 pips |
+| TP | 110 pips |
+| Magic | 16001 |
+| Special Rule | RULE_UJ_T10A |
+
+稼働条件：
+
+```text
+毎月10日
+ただし水曜日は停止
+```
+
+EA条件：
+
+```text
+day == 10
+weekday != Wednesday
+```
+
+---
+
+# Special Rule一覧
+
+Step 2Fでは以下のルールを使う。
+
+```text
+RULE_NONE
+RULE_UJ_SHORT_CORE
+RULE_UJ_FIX_MIDWEEK
+RULE_UJ_SAT_3RD
+RULE_UJ_SAT_AUG
+RULE_UJ_T10A
+```
+
+対応：
+
+```text
+RULE_NONE             → 通常曜日ロジック
+RULE_UJ_SHORT_CORE    → 12_UJ_Short_Core
+RULE_UJ_FIX_MIDWEEK  → 13_UJ_Fix_MidWeek
+RULE_UJ_SAT_3RD      → 14_UJ_Sat_3rd
+RULE_UJ_SAT_AUG      → 15_UJ_Sat_Aug
+RULE_UJ_T10A         → 16_UJ_T10A
+```
+
+---
+
+# Exit判定
+
+Step 2Fでは、Step 2E.2 FIX1で修正した日またぎExit判定を採用する。
+
+## 通常Exit
+
+```text
+Entry時刻よりExit時刻が後の場合：
+同日Exitとして扱う
+```
+
+例：
+
+```text
+Entry 19:00
+Exit 23:30
+```
+
+## 日またぎExit
+
+```text
+Entry時刻よりExit時刻が前の場合：
+翌日Exitとして扱う
+```
+
+例：
+
+```text
+Entry 20:01
+Exit 翌日03:08
+Entry 22:44
+Exit 翌日03:08
+Entry 09:59
+Exit 翌日05:26
+Entry 20:56
+Exit 翌日10:00
+```
+
+重要：
+
+```text
+日またぎロジックでは、Entry日の夜に即Time exitしないこと。
+```
+
+---
+
+# ログ方針
+
+Step 2Fでも、ログが多くなりすぎないよう以下を採用する。
+
+```text
+InpPrintDebug = true
+InpPrintSkipLogs = false
+InpPrintRuleRejectLogs = true
+```
+
+## Skipログ
+
+通常は非表示。
+
+```text
+Skip entry: already entered today
+Skip entry: position already exists
+```
+
+必要なときのみ、以下で表示する。
+
+```text
+InpPrintSkipLogs = true
+```
+
+## 日付条件Rejectログ
+
+テスト中は表示。
+
+```text
+InpPrintRuleRejectLogs = true
+```
+
+本番寄りテストでは、必要に応じて `false` にする。
+
+---
+
+# テスト方針
+
+Step 2F.2でコード作成後、以下の順でテストする。
+
+## Test 1：既存8ロジックだけON
+
+目的：
+
+```text
+Step 2C相当の動作が維持されているか確認
+```
+
+設定：
+
+```text
+既存8ロジック = true
+UJ5ロジック = false
+```
+
+テスト方法：
+
+```text
+InpUseTestTimes = true
+任意のEntry/Exit時刻で一括テスト
+```
+
+期待：
+
+```text
+既存8ロジックがEntryする
+時間決済する
+```
+
+---
+
+## Test 2：UJ5ロジックだけON
+
+目的：
+
+```text
+Step 2E相当の動作が維持されているか確認
+```
+
+設定：
+
+```text
+既存8ロジック = false
+UJ5ロジック = true
+```
+
+テスト方法：
+
+```text
+InpUseMockJstDateTime = true
+各UJロジックのMock日付テスト
+```
+
+期待：
+
+```text
+UJ5ロジックがStep 2Eと同じ挙動をする
+14_UJ_Sat_3rdが即Time exitしない
+```
+
+---
+
+## Test 3：13ロジック同時ON
+
+目的：
+
+```text
+13ロジックを同じEA内で管理できるか確認
+```
+
+設定：
+
+```text
+既存8ロジック = true
+UJ5ロジック = true
+```
+
+注意：
+
+```text
+全ロジックを同じMock時刻・同じTestTimeで同時Entryさせる必要はない。
+まずはEA起動、各ロジック認識、エラーなしを確認する。
+その後、代表ロジックを個別ONにしてEntry確認する。
+```
+
+---
+
+# Step 2F.2で作るEA
+
+ファイル名：
+
+```text
+time_entry_step2f2_config_managed_13strategies.mq5
+```
+
+方針：
+
+```text
+Step 2Cの8ロジック構造
++
+Step 2E.2 FIX1のUJ5ロジック構造
++
+日またぎExit修正
++
+Skipログ制御
+```
+
+---
+
+# Step 2Fではまだ実装しないもの
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+```
+
+これらは後続Stepで追加する。
