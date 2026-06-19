@@ -706,3 +706,473 @@ Step 2E.1：UJ 5ロジック仕様整理
 Step 2E.2：UJ 5ロジック単体/統合テスト版コード作成
 Step 2E.3：Mock日付テストで各UJロジックを確認
 ```
+
+## 2026-06-15：EA Step 2E.1 UJ 5ロジック仕様整理
+
+### 目的
+
+Step 2Eでは、USDJPY系の以下5ロジックを設定管理型EAへ追加する。
+
+```text
+12_UJ_Short_Core
+13_UJ_Fix_MidWeek
+14_UJ_Sat_3rd
+15_UJ_Sat_Aug
+16_UJ_T10A
+```
+
+Step 2D.2では、すでに `12_UJ_Short_Core` を設定管理型EAへ統合し、特殊日付条件・GOTO/NORMAL分岐が動作することを確認済み。
+
+Step 2Eでは、残りのUJ系ロジックを追加し、USDJPY内で複数の特殊日付ロジックを扱える構造へ拡張する。
+
+---
+
+# UJ 5ロジック一覧
+
+| No | Strategy | Pair | Direction | Entry | Exit | SL | TP | Magic |
+|---:|---|---|---|---|---|---:|---:|---:|
+| 12 | 12_UJ_Short_Core | USDJPY | Short | 条件分岐 | 14:56 JST | 条件分岐 | 条件分岐 | 12001 |
+| 13 | 13_UJ_Fix_MidWeek | USDJPY | Long | 18:04 JST | 22:03 JST | 95 | 95 | 13001 |
+| 14 | 14_UJ_Sat_3rd | USDJPY | Short | 20:01 JST | 翌日 03:08 JST | 45 | 70 | 14001 |
+| 15 | 15_UJ_Sat_Aug | USDJPY | Short | 19:00 JST | 23:30 JST | 20 | 35 | 15001 |
+| 16 | 16_UJ_T10A | USDJPY | Long | 02:58 JST | 09:50 JST | 45 | 110 | 16001 |
+
+---
+
+# 12_UJ_Short_Core
+
+## 基本仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Magic Number | 12001 |
+| Lot | 0.01固定 |
+| Special Rule | RULE_UJ_SHORT_CORE |
+
+---
+
+## 稼働日条件
+
+```text
+毎月20日〜月末まで
+```
+
+ただし、以下は停止。
+
+```text
+21日
+22日
+水曜日
+8月全期間
+カレンダー月末
+```
+
+---
+
+## ゴトー日判定
+
+```text
+20日
+25日
+30日
+```
+
+重要仕様：
+
+```text
+前倒しゴトー日は未実装
+```
+
+メモ：
+
+```text
+12_UJ_Short_Core のゴトー日判定は、バックテスト再現性を優先し、初期版ではカレンダー日付の20日・25日・30日のみとする。
+前倒しゴトー日は未実装。
+必要であれば、後続バージョンで InpUseForwardGotoDay を追加し、別途検証する。
+```
+
+---
+
+## GOTOモード
+
+| Item | Value |
+|---|---|
+| Entry | 09:55 JST |
+| Exit | 14:56 JST |
+| SL | 20 pips |
+| TP | 50 pips |
+
+---
+
+## NORMALモード
+
+| Item | Value |
+|---|---|
+| Entry | 08:04 JST |
+| Exit | 14:56 JST |
+| SL | 50 pips |
+| TP | なし |
+
+---
+
+# 13_UJ_Fix_MidWeek
+
+## 基本仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Long |
+| Magic Number | 13001 |
+| Lot | 0.01固定 |
+| Entry | 18:04 JST |
+| Exit | 22:03 JST |
+| SL | 95 pips |
+| TP | 95 pips |
+
+---
+
+## 稼働日条件
+
+```text
+毎月25日以降
+水曜日・木曜日のみ
+```
+
+EA条件：
+
+```text
+day >= 25
+weekday == Wednesday or Thursday
+```
+
+曜日番号メモ：
+
+```text
+Sunday = 0
+Monday = 1
+Tuesday = 2
+Wednesday = 3
+Thursday = 4
+Friday = 5
+Saturday = 6
+```
+
+---
+
+## 停止条件
+
+現時点のStep 2Eでは、指標停止はまだ実装しない。
+
+本来のバックテストでは、UJ共通の重要イベントフィルター対象。
+
+```text
+US CPI
+US NFP
+FOMC
+BOJ
+年末年始
+```
+
+ただし、EA開発ステップ上は、指標停止は後続Stepで追加する。
+
+```text
+Step 4：指標停止・年末年始停止追加
+```
+
+---
+
+# 14_UJ_Sat_3rd
+
+## 基本仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Magic Number | 14001 |
+| Lot | 0.01固定 |
+| Entry | 20:01 JST |
+| Exit | 翌日 03:08 JST |
+| SL | 45 pips |
+| TP | 70 pips |
+
+---
+
+## 稼働日条件
+
+```text
+毎月3日のみ
+```
+
+EA条件：
+
+```text
+day == 3
+```
+
+---
+
+## 停止条件
+
+現時点のStep 2Eでは、指標停止はまだ実装しない。
+
+本来のバックテストでは、UJ共通の重要イベントフィルター対象。
+
+```text
+US CPI
+US NFP
+FOMC
+BOJ
+年末年始
+```
+
+---
+
+# 15_UJ_Sat_Aug
+
+## 基本仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Magic Number | 15001 |
+| Lot | 0.01固定 |
+| Entry | 19:00 JST |
+| Exit | 23:30 JST |
+| SL | 20 pips |
+| TP | 35 pips |
+
+---
+
+## 稼働日条件
+
+```text
+8月1日〜10日のみ
+```
+
+EA条件：
+
+```text
+month == 8
+day <= 10
+```
+
+---
+
+## 停止条件
+
+現時点のStep 2Eでは、指標停止はまだ実装しない。
+
+本来のバックテストでは、UJ共通の重要イベントフィルター対象。
+
+```text
+US CPI
+US NFP
+FOMC
+BOJ
+年末年始
+```
+
+---
+
+# 16_UJ_T10A
+
+## 基本仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Long |
+| Magic Number | 16001 |
+| Lot | 0.01固定 |
+| Entry | 02:58 JST |
+| Exit | 09:50 JST |
+| SL | 45 pips |
+| TP | 110 pips |
+
+---
+
+## 稼働日条件
+
+```text
+毎月10日
+ただし水曜日は停止
+```
+
+EA条件：
+
+```text
+day == 10
+weekday != Wednesday
+```
+
+---
+
+## 停止条件
+
+現時点のStep 2Eでは、指標停止はまだ実装しない。
+
+本来のバックテストでは、16_UJ_T10A は以下の停止条件。
+
+```text
+年末年始
+BOJ
+```
+
+ただし、EA開発ステップ上は、指標停止は後続Stepで追加する。
+
+```text
+Step 4：指標停止・年末年始停止追加
+```
+
+---
+
+# Step 2E 実装方針
+
+## 追加するSpecial Rule
+
+Step 2D.2では、以下を追加済み。
+
+```text
+RULE_UJ_SHORT_CORE
+```
+
+Step 2Eでは、UJ系ロジック用に以下の特殊ルールを追加する。
+
+```text
+RULE_UJ_FIX_MIDWEEK
+RULE_UJ_SAT_3RD
+RULE_UJ_SAT_AUG
+RULE_UJ_T10A
+```
+
+想定：
+
+```text
+RULE_UJ_SHORT_CORE    → 12_UJ_Short_Core
+RULE_UJ_FIX_MIDWEEK  → 13_UJ_Fix_MidWeek
+RULE_UJ_SAT_3RD      → 14_UJ_Sat_3rd
+RULE_UJ_SAT_AUG      → 15_UJ_Sat_Aug
+RULE_UJ_T10A         → 16_UJ_T10A
+```
+
+---
+
+# Step 2E テスト方針
+
+Step 2Eでは、まずUJだけONにしてテストする。
+
+```text
+既存8ロジックはOFF
+UJ 5ロジックのみON
+```
+
+---
+
+## テスト方法
+
+Step 2D.1と同じく、疑似JST日時を使って日付条件を確認する。
+
+共通設定：
+
+```text
+InpTestMode = true
+InpUseMockJstDateTime = true
+InpUseTestTimes = false
+```
+
+エントリーさせるテストでは、Mock時刻を本来のEntry時刻に合わせる。
+
+---
+
+# UJ 5ロジック Mock日付テスト一覧
+
+| No | Strategy | Mock DateTime JST | 期待結果 |
+|---:|---|---|---|
+| 12-1 | 12_UJ_Short_Core GOTO | 2026-02-20 09:55 | USDJPY Short / Mode=GOTO |
+| 12-2 | 12_UJ_Short_Core NORMAL | 2026-06-23 08:04 | USDJPY Short / Mode=NORMAL |
+| 13-1 | 13_UJ_Fix_MidWeek 水曜 | 2026-06-25 18:04 | USDJPY Long |
+| 13-2 | 13_UJ_Fix_MidWeek 25日未満停止 | 2026-06-24 18:04 | Entryしない |
+| 14-1 | 14_UJ_Sat_3rd | 2026-06-03 20:01 | USDJPY Short |
+| 14-2 | 14_UJ_Sat_3rd 3日以外停止 | 2026-06-04 20:01 | Entryしない |
+| 15-1 | 15_UJ_Sat_Aug | 2026-08-05 19:00 | USDJPY Short |
+| 15-2 | 15_UJ_Sat_Aug 8月以外停止 | 2026-07-05 19:00 | Entryしない |
+| 15-3 | 15_UJ_Sat_Aug 11日以降停止 | 2026-08-11 19:00 | Entryしない |
+| 16-1 | 16_UJ_T10A | 2026-07-10 02:58 | USDJPY Long |
+| 16-2 | 16_UJ_T10A 10日以外停止 | 2026-07-11 02:58 | Entryしない |
+| 16-3 | 16_UJ_T10A 水曜停止 | 2026-06-10 02:58 | Entryしない |
+
+---
+
+## 注意：13_UJ_Fix_MidWeek のテスト日
+
+`13_UJ_Fix_MidWeek` は「25日以降の水・木」条件。
+
+テスト日には、25日以降かつ水曜または木曜の日付を使う。
+
+例：
+
+```text
+2026-06-25 18:04
+```
+
+この日付は木曜日想定。
+
+---
+
+## 注意：16_UJ_T10A の水曜停止
+
+`16_UJ_T10A` は10日でも水曜日なら停止。
+
+水曜停止テストでは、10日かつ水曜日の日付を使う。
+
+例：
+
+```text
+2026-06-10 02:58
+```
+
+期待結果：
+
+```text
+Entryしない
+```
+
+---
+
+# Step 2E 判定基準
+
+以下が確認できれば、Step 2Eは合格。
+
+```text
+12_UJ_Short_Core GOTOがEntryする
+12_UJ_Short_Core NORMALがEntryする
+13_UJ_Fix_MidWeekが条件日にEntryする
+13_UJ_Fix_MidWeekが25日未満で停止する
+14_UJ_Sat_3rdが3日にEntryする
+14_UJ_Sat_3rdが3日以外で停止する
+15_UJ_Sat_Augが8月1〜10日にEntryする
+15_UJ_Sat_Augが8月以外で停止する
+15_UJ_Sat_Augが8月11日以降で停止する
+16_UJ_T10Aが10日・水曜以外でEntryする
+16_UJ_T10Aが10日以外で停止する
+16_UJ_T10Aが水曜の10日で停止する
+```
+
+---
+
+# Step 2Eではまだ実装しないもの
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+```
+
+これらは後続Stepで追加する。
