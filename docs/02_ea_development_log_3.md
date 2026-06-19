@@ -657,3 +657,210 @@ Global H1 ATR P70
 ```
 
 これらは後続Stepで追加する。
+
+## 2026-06-15：EA Step 2F 13ロジック統合EAテスト完了
+
+### 対象EA
+
+```text
+time_entry_step2f2_config_managed_13strategies.mq5
+```
+
+### 対象ロジック
+
+Step 2Fでは、既存8ロジックとUJ5ロジックを統合し、合計13ロジックの設定管理型EAを作成・テストした。
+
+```text
+既存8ロジック
+17_EA_1B_Wed_Short
+18_EA_2_MonWed_Short
+19_EA_3_WedThu_Long
+21_GA_B_3
+22_GA_C_2
+23_GA_F_2
+24_GA_D_1
+5_GJ_Port_Log2
+
+UJ5ロジック
+12_UJ_Short_Core
+13_UJ_Fix_MidWeek
+14_UJ_Sat_3rd
+15_UJ_Sat_Aug
+16_UJ_T10A
+```
+
+---
+
+## Step 2F の目的
+
+以下を1つのEA内で共存させることを確認した。
+
+```text
+EURAUD / GBPAUD / GBPJPY / USDJPY の複数通貨ペア管理
+Long / Short の混在
+TPあり / TPなし の混在
+通常曜日ロジックとUJ特殊日付ロジックの共存
+日またぎExit対応
+Magic Number別管理
+Global Variableによる同日重複エントリー防止
+```
+
+---
+
+## 実装内容
+
+Step 2Cの既存8ロジック構造に、Step 2E.2 FIX1のUJ5ロジックを統合した。
+
+主な反映内容：
+
+```text
+StrategyConfig strategies[13]
+RULE_NONE
+RULE_UJ_SHORT_CORE
+RULE_UJ_FIX_MIDWEEK
+RULE_UJ_SAT_3RD
+RULE_UJ_SAT_AUG
+RULE_UJ_T10A
+日またぎExit修正
+Skipログ制御
+Mock JST日時テスト
+```
+
+---
+
+## テスト結果
+
+### Test 1：既存8ロジックのみON
+
+設定：
+
+```text
+既存8ロジック = true
+UJ5ロジック = false
+InpUseTestTimes = true
+InpUseMockJstDateTime = false
+```
+
+結果：
+
+```text
+OK
+```
+
+確認内容：
+
+```text
+既存8ロジックがStep 2C相当で動作
+複数通貨ペア管理OK
+Entry / Time exit OK
+```
+
+---
+
+### Test 2：UJ5ロジックのみON
+
+設定：
+
+```text
+既存8ロジック = false
+UJ5ロジック = true
+InpUseMockJstDateTime = true
+InpUseTestTimes = false
+```
+
+結果：
+
+```text
+OK
+```
+
+確認内容：
+
+```text
+12_UJ_Short_Core GOTO / NORMAL OK
+13_UJ_Fix_MidWeek OK
+14_UJ_Sat_3rd OK
+15_UJ_Sat_Aug OK
+16_UJ_T10A OK
+14_UJ_Sat_3rdの日またぎExit修正もOK
+```
+
+---
+
+### Test 3：13ロジック全ON
+
+設定：
+
+```text
+既存8ロジック = true
+UJ5ロジック = true
+```
+
+結果：
+
+```text
+OK
+```
+
+確認内容：
+
+```text
+13ロジック全ONでEA起動OK
+4通貨ペア認識OK
+初期化ログOK
+代表エントリーOK
+```
+
+補足：
+
+```text
+代表エントリー確認時、12_UJ_Short_Coreだけでなく5_GJ_Port_Log2も同時にエントリーした。
+これはMock時刻09:55とGJのEntry時刻09:55が一致し、かつ曜日無視設定だったため。
+コードミスではなく、テスト設定上の自然な挙動と判断。
+```
+
+---
+
+## Step 2F 判定
+
+Step 2Fは合格。
+
+確認済み：
+
+```text
+Step 2C：既存8ロジック OK
+Step 2E：UJ5ロジック OK
+Step 2F：13ロジック統合EA OK
+```
+
+---
+
+## 注意点
+
+Step 2Fはまだ検証用EAであり、本番運用には使用しない。
+
+未実装：
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+```
+
+---
+
+## 次にやること
+
+次は Step 2G として、残り15ロジックの仕様整理に進む。
+
+予定：
+
+```text
+Step 2G.1：残り15ロジックの仕様整理
+Step 2G.2：追加しやすい順にグループ分け
+Step 2H：次の5〜8ロジック追加
+```
+
+当面は、Global H1 ATR P70・指標停止・週次複利より先に、全ロジックの時間エントリー/時間決済/SLTP/Magic管理を完成させる。
