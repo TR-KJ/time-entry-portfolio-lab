@@ -357,3 +357,200 @@ Global H1 ATR P70
 ```
 
 次は `Step 2H.2：23ロジック統合EAコード作成` に進む。
+
+## 2026-06-15：EA Step 2H 23ロジック統合EAテスト完了
+
+### 対象EA
+
+```text
+time_entry_step2h2_config_managed_23strategies.mq5
+```
+
+### 目的
+
+Step 2Hでは、Step 2Fで完成した13ロジック統合EAに、EJ/GJ/AJ/EAの通常曜日系10ロジックを追加し、合計23ロジックの設定管理型EAとして動作確認した。
+
+---
+
+## 追加した10ロジック
+
+```text
+1_EJ_Log1
+2_EJ_NightBlitz_20
+3_EJ_NightBlitz_21
+4_GJ_Port_Log1
+6_GJ_Old_Mon
+7_GJ_Mon_Blitz
+8_AJ_Core1
+10_AJ_SatA
+11_AJ_SatB
+20_EA_1A_MonTue_Short
+```
+
+---
+
+## Step 2H後の構成
+
+```text
+Step 2F：既存13ロジック
+Step 2H：追加10ロジック
+合計：23ロジック
+```
+
+対象通貨ペア：
+
+```text
+EURAUD
+GBPAUD
+GBPJPY
+USDJPY
+EURJPY
+AUDJPY
+```
+
+---
+
+## 実装内容
+
+```text
+StrategyConfig strategies[23]
+通常曜日系10ロジックをRULE_NONEとして追加
+EURJPY / AUDJPY を新規対応
+日またぎExit修正を維持
+Skipログ制御を維持
+Magic Number別管理を維持
+```
+
+---
+
+## テスト結果
+
+### Test 1：追加10ロジック一括Entry/Exit
+
+設定：
+
+```text
+追加10ロジック = true
+既存13ロジック = false
+InpUseTestTimes = true
+InpUseMockJstDateTime = false
+```
+
+確認結果：
+
+```text
+10ロジックがEntryした
+4通貨ペアを扱えた
+Long / Shortが正しく建った
+SL / TPが入った
+Exit時刻でTime exit successが出た
+取引タブからポジションが消えた
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+### Test 2：日またぎExit代表テスト
+
+対象：
+
+```text
+1_EJ_Log1
+11_AJ_SatB
+```
+
+確認結果：
+
+```text
+Entry直後にTime exitしない
+取引タブにポジションが残る
+手動決済で確認完了
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+### Test 3：23ロジック全ON起動確認
+
+確認結果：
+
+```text
+23ロジック全ONで起動した
+6通貨ペアを認識した
+23ロジック分の初期化ログが出た
+エラーが出なかった
+不要な大量エントリーが発生しなかった
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+## Step 2H 判定
+
+Step 2Hは合格。
+
+確認済み：
+
+```text
+Step 2F：13ロジック統合EA OK
+Step 2H：23ロジック統合EA OK
+```
+
+---
+
+## 注意点
+
+Step 2Hはまだ検証用EAであり、本番運用には使用しない。
+
+未実装：
+
+```text
+9_AJ_Core2の追加日付停止
+China系4ロジック
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック本番版
+```
+
+---
+
+## 次にやること
+
+次は Step 2I として、China系4ロジックを整理・追加する。
+
+対象：
+
+```text
+25_AU_China_Demand
+26_AJ_China_Demand
+27_EA_China_Demand
+28_GA_China_Demand
+```
+
+条件メモ：
+
+```text
+25_AU：平日 かつ（9〜15日 または 25日〜月末）
+26_AJ：平日 かつ 9〜15日
+27_EA：平日 かつ 9〜15日
+28_GA：平日 かつ 9〜15日
+```
+
+Step 2Iでは、上記の日付範囲条件をSpecial Ruleとして追加する。
