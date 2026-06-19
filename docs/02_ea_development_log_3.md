@@ -864,3 +864,266 @@ Step 2H：次の5〜8ロジック追加
 ```
 
 当面は、Global H1 ATR P70・指標停止・週次複利より先に、全ロジックの時間エントリー/時間決済/SLTP/Magic管理を完成させる。
+
+## 2026-06-15：EA Step 2G.1 残り15ロジック仕様整理
+
+### 目的
+
+Step 2Fで13ロジック統合EAが合格したため、次は残り15ロジックの仕様を整理する。
+
+現在EA化済み：
+
+```text
+既存8 + UJ5 = 13ロジック
+```
+
+残り：
+
+```text
+EJ 3ロジック
+GJ 3ロジック
+AJ 4ロジック
+EA 1ロジック
+China系 4ロジック
+
+合計15ロジック
+```
+
+---
+
+# 残り15ロジック一覧
+
+| No | Strategy | Pair | Direction | Entry | Exit | SL | TP | Magic案 |
+|---:|---|---|---|---|---|---:|---:|---:|
+| 1 | 1_EJ_Log1 | EURJPY | Long | 月・水 13:55 | 翌日 04:55 | 70 | 250 | 10001 |
+| 2 | 2_EJ_NightBlitz_20 | EURJPY | Long | 月・水 20:56 | 翌日 04:45 | 45 | 70 | 20001 |
+| 3 | 3_EJ_NightBlitz_21 | EURJPY | Long | 月・水 21:56 | 翌日 05:27 | 75 | 70 | 30001 |
+| 4 | 4_GJ_Port_Log1 | GBPJPY | Long | 火・水 00:00 | 当日 08:55 | 130 | 90 | 40001 |
+| 6 | 6_GJ_Old_Mon | GBPJPY | Long | 月 15:45 | 当日 22:50 | 50 | 210 | 60001 |
+| 7 | 7_GJ_Mon_Blitz | GBPJPY | Long | 月 18:02 | 当日 23:02 | 130 | 250 | 70001 |
+| 8 | 8_AJ_Core1 | AUDJPY | Long | 月 08:01 | 当日 22:46 | 70 | 110 | 80001 |
+| 9 | 9_AJ_Core2 | AUDJPY | Short | 木 17:14 | 翌日 01:14 | 30 | 80 | 90001 |
+| 10 | 10_AJ_SatA | AUDJPY | Short | 金 10:58 | 当日 13:51 | 50 | 25 | 10002 |
+| 11 | 11_AJ_SatB | AUDJPY | Short | 金 18:57 | 翌日 01:43 | 55 | 95 | 11001 |
+| 20 | 20_EA_1A_MonTue_Short | EURAUD | Short | 月・火 10:01 | 当日 16:00 | 50 | 125 | 20002 |
+| 25 | 25_AU_China_Demand | AUDUSD | Long | 条件日 10:00 | 当日 15:50 | 40 | 40 | 25001 |
+| 26 | 26_AJ_China_Demand | AUDJPY | Long | 条件日 10:00 | 当日 15:50 | 45 | 80 | 26001 |
+| 27 | 27_EA_China_Demand | EURAUD | Short | 条件日 10:00 | 当日 15:50 | 60 | 60 | 27001 |
+| 28 | 28_GA_China_Demand | GBPAUD | Short | 条件日 10:00 | 当日 16:10 | 75 | 70 | 28001 |
+
+---
+
+# 通貨ペア
+
+残り15ロジックで追加・使用する通貨ペア：
+
+```text
+EURJPY
+GBPJPY
+AUDJPY
+EURAUD
+AUDUSD
+GBPAUD
+```
+
+Step 2Fまでに使用済みの通貨ペア：
+
+```text
+EURAUD
+GBPAUD
+GBPJPY
+USDJPY
+```
+
+新規で必要になる通貨ペア：
+
+```text
+EURJPY
+AUDJPY
+AUDUSD
+```
+
+---
+
+# 通常曜日系ロジック
+
+以下は、基本的に曜日＋時刻で管理できる。
+
+```text
+1_EJ_Log1
+2_EJ_NightBlitz_20
+3_EJ_NightBlitz_21
+4_GJ_Port_Log1
+6_GJ_Old_Mon
+7_GJ_Mon_Blitz
+8_AJ_Core1
+10_AJ_SatA
+11_AJ_SatB
+20_EA_1A_MonTue_Short
+```
+
+ただし、指標停止・月停止・日付停止は後続Stepで実装する。
+
+---
+
+# 要注意ロジック
+
+## 9_AJ_Core2
+
+基本仕様：
+
+```text
+Pair：AUDJPY
+Direction：Short
+Entry：木曜 17:14 JST
+Exit：翌日 01:14 JST
+SL：30
+TP：80
+```
+
+バックテスト上の追加停止条件：
+
+```text
+6月停止
+9月停止
+1日停止
+20日停止
+26日以降停止
+```
+
+Step 2G時点では、まず曜日・時刻・SLTPのみ整理。  
+追加日付停止は後続で実装候補。
+
+---
+
+# China系ロジック
+
+China系は曜日だけでなく、日付範囲条件を持つ。
+
+## 25_AU_China_Demand
+
+```text
+Pair：AUDUSD
+Direction：Long
+Entry：10:00 JST
+Exit：15:50 JST
+SL：40
+TP：40
+```
+
+稼働条件：
+
+```text
+平日
+かつ
+9日〜15日 または 25日〜月末
+```
+
+---
+
+## 26_AJ_China_Demand
+
+```text
+Pair：AUDJPY
+Direction：Long
+Entry：10:00 JST
+Exit：15:50 JST
+SL：45
+TP：80
+```
+
+稼働条件：
+
+```text
+平日
+かつ
+9日〜15日
+```
+
+---
+
+## 27_EA_China_Demand
+
+```text
+Pair：EURAUD
+Direction：Short
+Entry：10:00 JST
+Exit：15:50 JST
+SL：60
+TP：60
+```
+
+稼働条件：
+
+```text
+平日
+かつ
+9日〜15日
+```
+
+---
+
+## 28_GA_China_Demand
+
+```text
+Pair：GBPAUD
+Direction：Short
+Entry：10:00 JST
+Exit：16:10 JST
+SL：75
+TP：70
+```
+
+稼働条件：
+
+```text
+平日
+かつ
+9日〜15日
+```
+
+---
+
+# Step 2G.2 方針
+
+次は、残り15ロジックを追加しやすい順にグループ分けする。
+
+おすすめ順：
+
+```text
+Step 2H：EJ/GJ/AJの通常曜日系 10ロジック追加
+Step 2I：China系 4ロジック追加
+Step 2J：9_AJ_Core2など追加日付停止の精密化
+```
+
+または安全重視なら：
+
+```text
+Step 2H：EJ/GJの6ロジック追加
+Step 2I：AJの4ロジック追加
+Step 2J：China系4ロジック追加
+Step 2K：20_EA_1A追加・全28統合
+```
+
+---
+
+# Step 2G時点ではまだ実装しないもの
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック本番版
+```
+
+まずは全ロジックの以下を完成させる。
+
+```text
+時間エントリー
+時間決済
+SL/TP
+Magic Number
+通貨ペア管理
+同日重複エントリー防止
+```
