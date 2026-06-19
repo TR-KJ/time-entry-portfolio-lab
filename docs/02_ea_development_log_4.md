@@ -554,3 +554,308 @@ Global H1 ATR P70
 ```
 
 Step 2Iでは、上記の日付範囲条件をSpecial Ruleとして追加する。
+
+## 2026-06-16：EA Step 2I.1 China系4ロジック仕様整理
+
+### 目的
+
+Step 2Iでは、Step 2Hで完成した23ロジック統合EAに、China系4ロジックを追加する。
+
+追加対象：
+
+```text
+25_AU_China_Demand
+26_AJ_China_Demand
+27_EA_China_Demand
+28_GA_China_Demand
+```
+
+Step 2I追加後は以下になる。
+
+```text
+Step 2H：23ロジック
+Step 2I：+4ロジック
+合計：27ロジック
+```
+
+---
+
+# China系4ロジック一覧
+
+| No | Strategy | Pair | Direction | Entry | Exit | SL | TP | Magic |
+|---:|---|---|---|---|---|---:|---:|---:|
+| 25 | 25_AU_China_Demand | AUDUSD | Long | 条件日 10:00 JST | 当日 15:50 JST | 40 | 40 | 25001 |
+| 26 | 26_AJ_China_Demand | AUDJPY | Long | 条件日 10:00 JST | 当日 15:50 JST | 45 | 80 | 26001 |
+| 27 | 27_EA_China_Demand | EURAUD | Short | 条件日 10:00 JST | 当日 15:50 JST | 60 | 60 | 27001 |
+| 28 | 28_GA_China_Demand | GBPAUD | Short | 条件日 10:00 JST | 当日 16:10 JST | 75 | 70 | 28001 |
+
+---
+
+# 追加通貨ペア
+
+Step 2Iで新規追加される通貨ペア：
+
+```text
+AUDUSD
+```
+
+Step 2I後にEAで扱う通貨ペア：
+
+```text
+EURAUD
+GBPAUD
+GBPJPY
+USDJPY
+EURJPY
+AUDJPY
+AUDUSD
+```
+
+MT5の気配値表示には、上記7銘柄を表示しておく。
+
+---
+
+# 25_AU_China_Demand
+
+```text
+Pair：AUDUSD
+Direction：Long
+Entry：10:00 JST
+Exit：15:50 JST
+SL：40 pips
+TP：40 pips
+Magic：25001
+```
+
+稼働条件：
+
+```text
+平日 かつ（9〜15日 または 25日〜月末）
+```
+
+コード条件イメージ：
+
+```text
+weekday is Monday〜Friday
+AND
+(
+  day >= 9 AND day <= 15
+  OR
+  day >= 25
+)
+```
+
+Special Rule：
+
+```text
+RULE_CHINA_AU_DEMAND
+```
+
+---
+
+# 26_AJ_China_Demand
+
+```text
+Pair：AUDJPY
+Direction：Long
+Entry：10:00 JST
+Exit：15:50 JST
+SL：45 pips
+TP：80 pips
+Magic：26001
+```
+
+稼働条件：
+
+```text
+平日 かつ 9〜15日
+```
+
+コード条件イメージ：
+
+```text
+weekday is Monday〜Friday
+AND
+day >= 9 AND day <= 15
+```
+
+Special Rule：
+
+```text
+RULE_CHINA_9_15
+```
+
+---
+
+# 27_EA_China_Demand
+
+```text
+Pair：EURAUD
+Direction：Short
+Entry：10:00 JST
+Exit：15:50 JST
+SL：60 pips
+TP：60 pips
+Magic：27001
+```
+
+稼働条件：
+
+```text
+平日 かつ 9〜15日
+```
+
+コード条件イメージ：
+
+```text
+weekday is Monday〜Friday
+AND
+day >= 9 AND day <= 15
+```
+
+Special Rule：
+
+```text
+RULE_CHINA_9_15
+```
+
+---
+
+# 28_GA_China_Demand
+
+```text
+Pair：GBPAUD
+Direction：Short
+Entry：10:00 JST
+Exit：16:10 JST
+SL：75 pips
+TP：70 pips
+Magic：28001
+```
+
+稼働条件：
+
+```text
+平日 かつ 9〜15日
+```
+
+コード条件イメージ：
+
+```text
+weekday is Monday〜Friday
+AND
+day >= 9 AND day <= 15
+```
+
+Special Rule：
+
+```text
+RULE_CHINA_9_15
+```
+
+---
+
+# Special Rule追加方針
+
+Step 2Iでは、以下のSpecial Ruleを追加する。
+
+```text
+RULE_CHINA_AU_DEMAND
+RULE_CHINA_9_15
+```
+
+対応：
+
+```text
+RULE_CHINA_AU_DEMAND
+→ 25_AU_China_Demand
+
+RULE_CHINA_9_15
+→ 26_AJ_China_Demand
+→ 27_EA_China_Demand
+→ 28_GA_China_Demand
+```
+
+---
+
+# Step 2I.2 実装方針
+
+Step 2Hの23ロジックEAに、China系4ロジックを追加する。
+
+```text
+StrategyConfig strategies[27]
+```
+
+追加4ロジックは、曜日条件だけではなく日付範囲条件を持つため、`RULE_NONE` ではなくSpecial Ruleで管理する。
+
+---
+
+# Step 2I.2 テスト方針
+
+## Test 1：China系4ロジックのみON
+
+```text
+既存23ロジック = false
+China系4ロジック = true
+```
+
+Mock JST日時を使って、条件日エントリーを確認する。
+
+---
+
+## Test 2：25_AU条件確認
+
+25_AUは条件が2ブロックあるため、以下を確認する。
+
+```text
+9〜15日でEntryする
+25日〜月末でEntryする
+16〜24日はEntryしない
+土日はEntryしない
+```
+
+---
+
+## Test 3：26/27/28 条件確認
+
+26/27/28は共通で以下を確認する。
+
+```text
+9〜15日でEntryする
+16日以降はEntryしない
+土日はEntryしない
+```
+
+---
+
+## Test 4：27ロジック全ON起動確認
+
+```text
+既存23ロジック = true
+China系4ロジック = true
+```
+
+確認：
+
+```text
+27ロジック全ONでEA起動OK
+7通貨ペア認識OK
+初期化ログOK
+エラーなし
+不要な大量エントリーなし
+```
+
+---
+
+# Step 2Iではまだ実装しないもの
+
+```text
+9_AJ_Core2の追加日付停止
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック本番版
+```
+
+次は `Step 2I.2：China系4ロジック追加コード作成` に進む。
