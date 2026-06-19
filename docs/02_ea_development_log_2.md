@@ -1176,3 +1176,462 @@ Global H1 ATR P70
 ```
 
 これらは後続Stepで追加する。
+
+## 2026-06-15：EA Step 2E UJ 5ロジック対応テスト完了
+
+### 対象EA
+
+```text
+time_entry_step2e2_uj_5logic_test.mq5
+time_entry_step2e2_uj_5logic_test_fix1.mq5
+```
+
+### 対象ロジック
+
+Step 2Eでは、USDJPY系の以下5ロジックを対象にした。
+
+```text
+12_UJ_Short_Core
+13_UJ_Fix_MidWeek
+14_UJ_Sat_3rd
+15_UJ_Sat_Aug
+16_UJ_T10A
+```
+
+---
+
+## Step 2E の目的
+
+Step 2Dでは、`12_UJ_Short_Core` の特殊日付条件とGOTO/NORMAL分岐を確認した。
+
+Step 2Eでは、USDJPY系の5ロジックをまとめてEA化し、以下を確認した。
+
+```text
+USDJPY内で複数ロジックを管理できるか
+Magic Numberをロジック別に分けられるか
+複数の日付条件ロジックを扱えるか
+Long / Shortを混在できるか
+TPあり / TPなしを混在できるか
+日またぎ決済を正しく扱えるか
+```
+
+---
+
+## UJ 5ロジック仕様
+
+| No | Strategy | Pair | Direction | Entry | Exit | SL | TP | Magic |
+|---:|---|---|---|---|---|---:|---:|---:|
+| 12 | 12_UJ_Short_Core | USDJPY | Short | 条件分岐 | 14:56 JST | 条件分岐 | 条件分岐 | 12001 |
+| 13 | 13_UJ_Fix_MidWeek | USDJPY | Long | 18:04 JST | 22:03 JST | 95 | 95 | 13001 |
+| 14 | 14_UJ_Sat_3rd | USDJPY | Short | 20:01 JST | 翌日 03:08 JST | 45 | 70 | 14001 |
+| 15 | 15_UJ_Sat_Aug | USDJPY | Short | 19:00 JST | 23:30 JST | 20 | 35 | 15001 |
+| 16 | 16_UJ_T10A | USDJPY | Long | 02:58 JST | 09:50 JST | 45 | 110 | 16001 |
+
+---
+
+## 12_UJ_Short_Core 仕様
+
+### 稼働日条件
+
+```text
+毎月20日〜月末まで
+```
+
+ただし、以下は停止。
+
+```text
+21日
+22日
+水曜日
+8月全期間
+カレンダー月末
+```
+
+### ゴトー日判定
+
+```text
+20日
+25日
+30日
+```
+
+重要仕様：
+
+```text
+前倒しゴトー日は未実装
+```
+
+メモ：
+
+```text
+12_UJ_Short_Core のゴトー日判定は、バックテスト再現性を優先し、初期版ではカレンダー日付の20日・25日・30日のみとする。
+前倒しゴトー日は未実装。
+必要であれば、後続バージョンで InpUseForwardGotoDay を追加し、別途検証する。
+```
+
+### GOTOモード
+
+| Item | Value |
+|---|---|
+| Entry | 09:55 JST |
+| Exit | 14:56 JST |
+| SL | 20 pips |
+| TP | 50 pips |
+
+### NORMALモード
+
+| Item | Value |
+|---|---|
+| Entry | 08:04 JST |
+| Exit | 14:56 JST |
+| SL | 50 pips |
+| TP | なし |
+
+---
+
+## 13_UJ_Fix_MidWeek 仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Long |
+| Entry | 18:04 JST |
+| Exit | 22:03 JST |
+| SL | 95 pips |
+| TP | 95 pips |
+| Magic Number | 13001 |
+
+稼働条件：
+
+```text
+毎月25日以降
+水曜日・木曜日のみ
+```
+
+EA条件：
+
+```text
+day >= 25
+weekday == Wednesday or Thursday
+```
+
+---
+
+## 14_UJ_Sat_3rd 仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Entry | 20:01 JST |
+| Exit | 翌日 03:08 JST |
+| SL | 45 pips |
+| TP | 70 pips |
+| Magic Number | 14001 |
+
+稼働条件：
+
+```text
+毎月3日のみ
+```
+
+EA条件：
+
+```text
+day == 3
+```
+
+---
+
+## 15_UJ_Sat_Aug 仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Short |
+| Entry | 19:00 JST |
+| Exit | 23:30 JST |
+| SL | 20 pips |
+| TP | 35 pips |
+| Magic Number | 15001 |
+
+稼働条件：
+
+```text
+8月1日〜10日のみ
+```
+
+EA条件：
+
+```text
+month == 8
+day <= 10
+```
+
+---
+
+## 16_UJ_T10A 仕様
+
+| Item | Value |
+|---|---|
+| Pair | USDJPY |
+| Direction | Long |
+| Entry | 02:58 JST |
+| Exit | 09:50 JST |
+| SL | 45 pips |
+| TP | 110 pips |
+| Magic Number | 16001 |
+
+稼働条件：
+
+```text
+毎月10日
+ただし水曜日は停止
+```
+
+EA条件：
+
+```text
+day == 10
+weekday != Wednesday
+```
+
+---
+
+## Skipログ制御
+
+Step 2E.2では、エキスパートタブがログで埋まらないよう、以下のinputを追加した。
+
+```text
+InpPrintSkipLogs = false
+```
+
+これにより、通常時は以下のログを非表示にできる。
+
+```text
+Skip entry: already entered today
+Skip entry: position already exists
+```
+
+必要な場合のみ、`InpPrintSkipLogs = true` にして原因確認できるようにした。
+
+停止理由ログについては、テスト時に確認しやすいよう以下で制御する。
+
+```text
+InpPrintRuleRejectLogs = true
+```
+
+---
+
+## Step 2E.2 初回テスト
+
+### テスト条件
+
+共通設定：
+
+```text
+InpTestMode = true
+InpUseMockJstDateTime = true
+InpPrintSkipLogs = false
+InpPrintRuleRejectLogs = true
+```
+
+各テストでは、対象ロジックのみ `true`、他ロジックは `false` にした。
+
+---
+
+## テスト結果一覧
+
+| No | Strategy | Mock DateTime JST | 期待結果 | 結果 |
+|---:|---|---|---|---|
+| 12-1 | 12_UJ_Short_Core GOTO | 2026-02-20 09:55 | USDJPY Short / Mode=GOTO | OK |
+| 12-2 | 12_UJ_Short_Core NORMAL | 2026-06-23 08:04 | USDJPY Short / Mode=NORMAL | OK |
+| 13-1 | 13_UJ_Fix_MidWeek | 2026-06-25 18:04 | USDJPY Long | OK |
+| 13-2 | 13_UJ_Fix_MidWeek 停止 | 2026-06-24 18:04 | Entryしない | OK |
+| 14-1 | 14_UJ_Sat_3rd | 2026-06-03 20:01 | USDJPY Short | OK。ただし即Time exit発生 |
+| 14-2 | 14_UJ_Sat_3rd 停止 | 2026-06-04 20:01 | Entryしない | OK |
+| 15-1 | 15_UJ_Sat_Aug | 2026-08-05 19:00 | USDJPY Short | OK |
+| 15-2 | 15_UJ_Sat_Aug 停止 | 2026-07-05 19:00 | Entryしない | OK |
+| 15-3 | 15_UJ_Sat_Aug 停止 | 2026-08-11 19:00 | Entryしない | OK |
+| 16-1 | 16_UJ_T10A | 2026-07-10 02:58 | USDJPY Long | OK |
+| 16-2 | 16_UJ_T10A 停止 | 2026-07-11 02:58 | Entryしない | OK |
+| 16-3 | 16_UJ_T10A 水曜停止 | 2026-06-10 02:58 | Entryしない | OK |
+
+---
+
+## 発見した問題：14_UJ_Sat_3rdの日またぎ決済
+
+`14_UJ_Sat_3rd` は以下の仕様。
+
+```text
+Entry：20:01 JST
+Exit：翌日 03:08 JST
+```
+
+初回コードでは、Exit判定が単純に以下の考え方だった。
+
+```text
+現在時刻 >= Exit時刻
+```
+
+そのため、Mock時刻が `20:01` のとき、`03:08` はすでに過ぎていると判定され、エントリー直後に `Time exit success` が発生した。
+
+これは日またぎ決済ロジックのバグと判断。
+
+---
+
+## 修正内容：Step 2E.2 FIX1
+
+修正版EA：
+
+```text
+time_entry_step2e2_uj_5logic_test_fix1.mq5
+```
+
+修正内容：
+
+```text
+日またぎExit判定を追加
+Entry時刻よりExit時刻が早い場合は、翌日決済として扱う
+Entry日の夜には即決済しない
+```
+
+追加した考え方：
+
+```text
+Entry 20:01
+Exit 翌日 03:08
+
+この場合、20:01直後にはExitしない。
+翌日03:08以降にExitする。
+```
+
+---
+
+## Step 2E.2 FIX1 再テスト
+
+### 再テスト対象
+
+```text
+14-1  2026-06-03 20:01  14_UJ_Sat_3rd
+```
+
+設定：
+
+```text
+InpEnable_12_UJ_Short_Core = false
+InpEnable_13_UJ_Fix_MidWeek = false
+InpEnable_14_UJ_Sat_3rd = true
+InpEnable_15_UJ_Sat_Aug = false
+InpEnable_16_UJ_T10A = false
+```
+
+Mock日時：
+
+```text
+InpMockYear = 2026
+InpMockMonth = 6
+InpMockDay = 3
+InpMockHour = 20
+InpMockMinute = 1
+```
+
+期待結果：
+
+```text
+SELL entry success
+取引タブに USDJPY sell 0.01 が残る
+Time exit success が即時には出ない
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+## Step 2E 判定
+
+Step 2Eは合格。
+
+最終判定：
+
+```text
+Step 2E.2 初回：日付条件テストはOK。ただし14_UJ_Sat_3rdの日またぎ決済バグあり
+Step 2E.2 FIX1：14_UJ_Sat_3rdの日またぎExit修正OK
+```
+
+確認済み：
+
+```text
+12_UJ_Short_Core：OK
+13_UJ_Fix_MidWeek：OK
+14_UJ_Sat_3rd：OK（日またぎExit修正済み）
+15_UJ_Sat_Aug：OK
+16_UJ_T10A：OK
+```
+
+---
+
+## 注意点
+
+Step 2Eはまだ検証用EAであり、本番運用には使用しない。
+
+未実装の機能：
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+全28ロジック対応
+既存8ロジックとの完全統合
+```
+
+また、同じMock日付で再テストする場合は、Global Variableが残るため、必要に応じてF3から以下のような変数を削除する。
+
+```text
+TE_STEP2E2_FIX1_12_UJ_Short_Core_USDJPY_12001_日付
+TE_STEP2E2_FIX1_13_UJ_Fix_MidWeek_USDJPY_13001_日付
+TE_STEP2E2_FIX1_14_UJ_Sat_3rd_USDJPY_14001_日付
+TE_STEP2E2_FIX1_15_UJ_Sat_Aug_USDJPY_15001_日付
+TE_STEP2E2_FIX1_16_UJ_T10A_USDJPY_16001_日付
+```
+
+---
+
+## 次にやること
+
+次は Step 2F として、以下を統合する。
+
+```text
+Step 2Cの既存8ロジック
++
+Step 2EのUJ 5ロジック
+```
+
+合計：
+
+```text
+13ロジック
+```
+
+Step 2Fの目的：
+
+```text
+既存8ロジックとUJ5ロジックを1つの設定管理型EAへ統合する
+GBPAUD / GBPJPY / EURAUD / USDJPY を同時に扱う
+通常曜日系ロジックと特殊日付系ロジックを共存させる
+日またぎExit修正を統合EAにも反映する
+Magic Numberを13ロジックで分けて管理する
+```
+
+推奨フロー：
+
+```text
+Step 2F.1：13ロジック統合仕様整理
+Step 2F.2：13ロジック統合EAコード作成
+Step 2F.3：既存8ロジック + UJ5ロジックの代表テスト
+```
