@@ -1206,3 +1206,405 @@ Global H1 ATR P70
 ```
 
 まずは28ロジックの時間エントリー、時間決済、SL/TP、Magic管理を完成させる。
+
+## 2026-06-16：EA Step 2J.2 9_AJ_Core2 仮合格ログ
+
+### 対象EA
+
+```text
+time_entry_step2j2_config_managed_28strategies.mq5
+```
+
+### 対象ロジック
+
+```text
+9_AJ_Core2
+```
+
+---
+
+## 目的
+
+Step 2J.2では、27ロジック統合EAに最後の1ロジックである `9_AJ_Core2` を追加し、28ロジック統合EAとして動作確認する。
+
+---
+
+## 9_AJ_Core2 仕様
+
+| Item | Value |
+|---|---|
+| Pair | AUDJPY |
+| Direction | Short |
+| Entry | 木曜 17:14 JST |
+| Exit | 翌日 01:14 JST |
+| SL | 30 pips |
+| TP | 80 pips |
+| Magic | 90001 |
+| Special Rule | RULE_AJ_CORE2 |
+
+---
+
+## 追加停止条件
+
+`9_AJ_Core2` は以下の停止条件を持つ。
+
+```text
+6月停止
+9月停止
+1日停止
+20日停止
+26日以降停止
+木曜以外停止
+```
+
+EA条件としては以下。
+
+```text
+month != 6
+month != 9
+day != 1
+day != 20
+day < 26
+weekday == Thursday
+```
+
+---
+
+## 実装内容
+
+Step 2J.2で以下を追加した。
+
+```text
+InpEnable_9_AJ_Core2
+RULE_AJ_CORE2
+IsAJCore2ActiveDate()
+StrategyConfig strategies[28]
+9_AJ_Core2 の SetStrategy
+```
+
+---
+
+## テスト結果
+
+### コンパイル
+
+```text
+OK
+```
+
+---
+
+### Test 2：停止条件確認
+
+土曜日のため実注文テストは行わず、停止条件テストを実施。
+
+確認済み：
+
+```text
+6月停止
+9月停止
+1日停止
+20日停止
+26日以降停止
+木曜以外停止
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+### Test 3：28ロジック全ON起動確認
+
+確認済み：
+
+```text
+28ロジック全ONで起動した
+7通貨ペアを認識した
+28ロジック分の初期化ログが出た
+9_AJ_Core2も表示された
+エラーが出なかった
+不要な大量エントリーが発生しなかった
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+## Step 2J.2 判定
+
+Step 2J.2は **仮合格** とする。
+
+理由：
+
+```text
+9_AJ_Core2の停止条件はOK
+28ロジック全ON起動確認もOK
+ただし、土曜日のため9_AJ_Core2のentry successは未確認
+```
+
+---
+
+## 未完了タスク
+
+月曜日に以下を確認する。
+
+```text
+9_AJ_Core2 の entry success
+AUDJPY sell 0.01 が建つ
+SL30 / TP80 が入る
+Entry直後にTime exitしない
+手動決済できる
+```
+
+また、Step 2Iからの未完了タスクとして、China系4本のentry success確認も月曜日に行う。
+
+```text
+25_AU：AUDUSD buy 0.01
+26_AJ：AUDJPY buy 0.01
+27_EA：EURAUD sell 0.01
+28_GA：GBPAUD sell 0.01
+```
+
+---
+
+# 月曜日に行うEntry確認手順
+
+## 共通準備
+
+対象EA：
+
+```text
+time_entry_step2j2_config_managed_28strategies.mq5
+```
+
+気配値表示に以下を表示しておく。
+
+```text
+EURAUD
+GBPAUD
+GBPJPY
+USDJPY
+EURJPY
+AUDJPY
+AUDUSD
+```
+
+EAはどれか1枚のチャートにのみ入れる。
+
+---
+
+## A. 9_AJ_Core2 Entry確認
+
+### Enable設定
+
+`9_AJ_Core2` だけ true。  
+他の27ロジックはすべて false。
+
+```text
+InpEnable_9_AJ_Core2 = true
+```
+
+China系もOFF。
+
+```text
+InpEnable_25_AU_China_Demand = false
+InpEnable_26_AJ_China_Demand = false
+InpEnable_27_EA_China_Demand = false
+InpEnable_28_GA_China_Demand = false
+```
+
+既存ロジックもすべて false。
+
+```text
+InpEnable_17_EA_1B = false
+InpEnable_18_EA_2 = false
+InpEnable_19_EA_3 = false
+InpEnable_21_GA_B3 = false
+InpEnable_22_GA_C2 = false
+InpEnable_23_GA_F2 = false
+InpEnable_24_GA_D1 = false
+InpEnable_5_GJ_Log2 = false
+InpEnable_12_UJ_Short_Core = false
+InpEnable_13_UJ_Fix_MidWeek = false
+InpEnable_14_UJ_Sat_3rd = false
+InpEnable_15_UJ_Sat_Aug = false
+InpEnable_16_UJ_T10A = false
+InpEnable_1_EJ_Log1 = false
+InpEnable_2_EJ_NightBlitz_20 = false
+InpEnable_3_EJ_NightBlitz_21 = false
+InpEnable_4_GJ_Port_Log1 = false
+InpEnable_6_GJ_Old_Mon = false
+InpEnable_7_GJ_Mon_Blitz = false
+InpEnable_8_AJ_Core1 = false
+InpEnable_10_AJ_SatA = false
+InpEnable_11_AJ_SatB = false
+InpEnable_20_EA_1A = false
+```
+
+### テスト設定
+
+```text
+InpTestMode = true
+InpUseMockJstDateTime = true
+InpUseTestTimes = false
+InpTestModeIgnoreEntryWeekday = false
+InpTestModeIgnoreExitWeekday = true
+InpPrintSkipLogs = false
+InpPrintRuleRejectLogs = true
+```
+
+### Mock日時
+
+木曜・停止条件外の日付を使う。
+
+```text
+InpMockYear = 2026
+InpMockMonth = 7
+InpMockDay = 2
+InpMockHour = 17
+InpMockMinute = 14
+```
+
+期待結果：
+
+```text
+SELL entry success. Symbol=AUDJPY
+AUDJPY sell 0.01 が建つ
+SL30 / TP80 が入る
+Time exit success が即時には出ない
+```
+
+確認後、手動決済する。
+
+---
+
+## B. China系4本 Entry確認
+
+### Enable設定
+
+China系4本だけ true。  
+それ以外の24ロジックはすべて false。
+
+```text
+InpEnable_25_AU_China_Demand = true
+InpEnable_26_AJ_China_Demand = true
+InpEnable_27_EA_China_Demand = true
+InpEnable_28_GA_China_Demand = true
+```
+
+`9_AJ_Core2` はOFF。
+
+```text
+InpEnable_9_AJ_Core2 = false
+```
+
+既存23ロジックもすべて false。
+
+```text
+InpEnable_17_EA_1B = false
+InpEnable_18_EA_2 = false
+InpEnable_19_EA_3 = false
+InpEnable_21_GA_B3 = false
+InpEnable_22_GA_C2 = false
+InpEnable_23_GA_F2 = false
+InpEnable_24_GA_D1 = false
+InpEnable_5_GJ_Log2 = false
+InpEnable_12_UJ_Short_Core = false
+InpEnable_13_UJ_Fix_MidWeek = false
+InpEnable_14_UJ_Sat_3rd = false
+InpEnable_15_UJ_Sat_Aug = false
+InpEnable_16_UJ_T10A = false
+InpEnable_1_EJ_Log1 = false
+InpEnable_2_EJ_NightBlitz_20 = false
+InpEnable_3_EJ_NightBlitz_21 = false
+InpEnable_4_GJ_Port_Log1 = false
+InpEnable_6_GJ_Old_Mon = false
+InpEnable_7_GJ_Mon_Blitz = false
+InpEnable_8_AJ_Core1 = false
+InpEnable_10_AJ_SatA = false
+InpEnable_11_AJ_SatB = false
+InpEnable_20_EA_1A = false
+```
+
+### テスト設定
+
+```text
+InpTestMode = true
+InpUseMockJstDateTime = true
+InpUseTestTimes = false
+InpTestModeIgnoreEntryWeekday = false
+InpTestModeIgnoreExitWeekday = true
+InpPrintSkipLogs = false
+InpPrintRuleRejectLogs = true
+```
+
+### Mock日時
+
+平日かつ9〜15日の条件日を使う。
+
+```text
+InpMockYear = 2026
+InpMockMonth = 6
+InpMockDay = 10
+InpMockHour = 10
+InpMockMinute = 0
+```
+
+期待結果：
+
+```text
+BUY entry success. Symbol=AUDUSD
+BUY entry success. Symbol=AUDJPY
+SELL entry success. Symbol=EURAUD
+SELL entry success. Symbol=GBPAUD
+```
+
+取引タブで確認：
+
+```text
+AUDUSD buy 0.01
+AUDJPY buy 0.01
+EURAUD sell 0.01
+GBPAUD sell 0.01
+```
+
+SL/TP確認：
+
+```text
+25_AU：SL40 / TP40
+26_AJ：SL45 / TP80
+27_EA：SL60 / TP60
+28_GA：SL75 / TP70
+```
+
+確認後、手動決済する。
+
+---
+
+## 月曜日確認後の判定
+
+月曜日に以下が確認できれば、Step 2I / Step 2J を正式合格とする。
+
+```text
+China系4本 entry success OK
+9_AJ_Core2 entry success OK
+SL / TP OK
+方向 OK
+手動決済 OK
+```
+
+その後、次工程へ進む。
+
+```text
+Step 3：28ロジック統合EAの整理版作成
+または
+Step 4：Global H1 ATR P70 追加検討
+```
