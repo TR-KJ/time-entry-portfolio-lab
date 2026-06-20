@@ -859,3 +859,153 @@ Global H1 ATR P70
 ```
 
 次は `Step 2I.2：China系4ロジック追加コード作成` に進む。
+
+## 2026-06-16：EA Step 2I China系4ロジック 仮合格ログ
+
+### 対象EA
+
+```text
+time_entry_step2i2_config_managed_27strategies.mq5
+```
+
+### 対象ロジック
+
+```text
+25_AU_China_Demand
+26_AJ_China_Demand
+27_EA_China_Demand
+28_GA_China_Demand
+```
+
+---
+
+## Step 2I の目的
+
+Step 2Hで完成した23ロジック統合EAに、China系4ロジックを追加し、27ロジック統合EAとして動作確認する。
+
+---
+
+## 追加した4ロジック
+
+| No | Strategy | Pair | Direction | Entry | Exit | SL | TP | Magic |
+|---:|---|---|---|---|---|---:|---:|---:|
+| 25 | 25_AU_China_Demand | AUDUSD | Long | 10:00 JST | 15:50 JST | 40 | 40 | 25001 |
+| 26 | 26_AJ_China_Demand | AUDJPY | Long | 10:00 JST | 15:50 JST | 45 | 80 | 26001 |
+| 27 | 27_EA_China_Demand | EURAUD | Short | 10:00 JST | 15:50 JST | 60 | 60 | 27001 |
+| 28 | 28_GA_China_Demand | GBPAUD | Short | 10:00 JST | 16:10 JST | 75 | 70 | 28001 |
+
+---
+
+## China系条件
+
+```text
+25_AU：平日 かつ（9〜15日 または 25日〜月末）
+26_AJ：平日 かつ 9〜15日
+27_EA：平日 かつ 9〜15日
+28_GA：平日 かつ 9〜15日
+```
+
+---
+
+## テスト結果
+
+### Test 1：China系4ロジックのみON
+
+結果：
+
+```text
+条件OK → 発注処理まで到達
+ただし土曜日で market closed のため、entry success は未確認
+```
+
+判定：
+
+```text
+条件判定は概ねOK
+実注文確認は月曜日に持ち越し
+```
+
+---
+
+### 停止条件テスト
+
+確認済み：
+
+```text
+25_AUの16〜24日停止
+25_AUの土日停止
+26/27/28の16日以降停止
+26/27/28の土日停止
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+### Test 4：27ロジック全ON起動確認
+
+確認済み：
+
+```text
+27ロジック全ONで起動した
+7通貨ペアを認識した
+27ロジック分の初期化ログが出た
+エラーが出なかった
+不要な大量エントリーが発生しなかった
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+## Step 2I 判定
+
+Step 2Iは **仮合格** とする。
+
+理由：
+
+```text
+China系4ロジックの条件判定はOK
+停止条件テストもOK
+27ロジック全ON起動確認もOK
+ただし、土曜日のため China系4本の entry success は未確認
+```
+
+---
+
+## 未完了タスク
+
+月曜日に以下を必ず確認する。
+
+```text
+25_AU：AUDUSD buy 0.01 が建つ
+26_AJ：AUDJPY buy 0.01 が建つ
+27_EA：EURAUD sell 0.01 が建つ
+28_GA：GBPAUD sell 0.01 が建つ
+
+SL / TP が入る
+方向が正しい
+手動決済できる
+エキスパートログに entry success が出る
+```
+
+---
+
+## 次にやること
+
+China系4本の実注文テストは月曜日に持ち越し。
+
+開発は先に進め、次は以下を実施する。
+
+```text
+Step 2J.1：9_AJ_Core2 仕様整理
+Step 2J.2：9_AJ_Core2追加コード作成
+```
