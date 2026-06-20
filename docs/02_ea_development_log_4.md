@@ -1009,3 +1009,200 @@ China系4本の実注文テストは月曜日に持ち越し。
 Step 2J.1：9_AJ_Core2 仕様整理
 Step 2J.2：9_AJ_Core2追加コード作成
 ```
+
+## 2026-06-16：EA Step 2J.1 9_AJ_Core2仕様整理
+
+### 目的
+
+Step 2Jでは、残り1ロジックである `9_AJ_Core2` を27ロジック統合EAへ追加し、28ロジック統合EAを作成する。
+
+現在の状態：
+
+```text
+Step 2I：27ロジック統合EAまで作成
+残り：9_AJ_Core2
+```
+
+---
+
+# 9_AJ_Core2 基本仕様
+
+| Item | Value |
+|---|---|
+| Strategy | 9_AJ_Core2 |
+| Pair | AUDJPY |
+| Direction | Short |
+| Entry | 木曜 17:14 JST |
+| Exit | 翌日 01:14 JST |
+| SL | 30 pips |
+| TP | 80 pips |
+| Magic | 90001 |
+
+---
+
+## 通常条件
+
+```text
+木曜日 17:14 JST に Short
+翌日 01:14 JST に時間決済
+```
+
+日またぎ決済：
+
+```text
+Entry：木曜 17:14
+Exit：金曜 01:14
+```
+
+Step 2F以降で実装済みの日またぎExit判定を使用する。
+
+---
+
+# 追加停止条件
+
+`9_AJ_Core2` は通常曜日ロジックではなく、以下の追加停止条件を持つ。
+
+```text
+6月停止
+9月停止
+1日停止
+20日停止
+26日以降停止
+```
+
+EA条件としては以下。
+
+```text
+month != 6
+month != 9
+day != 1
+day != 20
+day < 26
+```
+
+つまり稼働可能日は、
+
+```text
+6月・9月ではない
+かつ
+1日・20日ではない
+かつ
+25日以前
+かつ
+木曜日
+```
+
+---
+
+# Special Rule
+
+`9_AJ_Core2` は追加日付停止を持つため、`RULE_NONE` ではなく専用Special Ruleで管理する。
+
+追加予定：
+
+```text
+RULE_AJ_CORE2
+```
+
+対応：
+
+```text
+RULE_AJ_CORE2 → 9_AJ_Core2
+```
+
+---
+
+# Step 2J.2 実装方針
+
+Step 2Iの27ロジックEAに `9_AJ_Core2` を追加する。
+
+```text
+StrategyConfig strategies[28]
+```
+
+追加内容：
+
+```text
+InpEnable_9_AJ_Core2
+RULE_AJ_CORE2
+IsAJCore2ActiveDate()
+SetStrategyで9_AJ_Core2を追加
+```
+
+---
+
+# Step 2J.2 テスト方針
+
+## Test 1：9_AJ_Core2 Entry確認
+
+Mock JSTで木曜条件を作る。
+
+例：
+
+```text
+2026-07-02 17:14
+```
+
+期待：
+
+```text
+AUDJPY sell 0.01 が建つ
+SL30 / TP80 が入る
+Entry直後にTime exitしない
+```
+
+---
+
+## Test 2：停止条件確認
+
+以下を確認する。
+
+```text
+6月停止
+9月停止
+1日停止
+20日停止
+26日以降停止
+木曜以外停止
+```
+
+---
+
+## Test 3：28ロジック全ON起動確認
+
+確認項目：
+
+```text
+28ロジック全ONで起動する
+7通貨ペアを認識する
+28ロジック分の初期化ログが出る
+エラーが出ない
+不要な大量エントリーが発生しない
+```
+
+---
+
+# 注意点
+
+China系4ロジックの実注文テストは月曜日に未完了。
+
+Step 2Jを進めるが、以下は必ず残タスクとして扱う。
+
+```text
+China系4本の entry success 確認
+25_AU / 26_AJ / 27_EA / 28_GA のSL/TP確認
+```
+
+---
+
+# Step 2Jではまだ実装しないもの
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+本番用ロット管理
+```
+
+まずは28ロジックの時間エントリー、時間決済、SL/TP、Magic管理を完成させる。
