@@ -596,3 +596,459 @@ ATRフィルタOFFでStep 3 Clean版と同じ挙動確認
 ATRフィルタONで代表ロジックのPass/Reject確認
 28ロジック全ON起動確認
 ```
+
+## 2026-06-17：EA Step 4.3 28ロジックClean版へのATR P70フィルタ追加 仕様整理
+
+### 目的
+
+Step 4.3では、Step 3.2で正式合格した28ロジック統合EA Clean版に、Step 4.2で単体テスト済みの `Global H1 ATR P70` フィルタを組み込む。
+
+ベースEA：
+
+```text
+time_entry_step3_config_managed_28strategies_clean.mq5
+```
+
+Step 4.3で作成するEA：
+
+```text
+time_entry_step4_3_config_managed_28strategies_atr_p70.mq5
+```
+
+---
+
+# Step 4.3 の基本方針
+
+Step 4.3では、28ロジックの既存仕様は変更しない。
+
+維持するもの：
+
+```text
+28ロジック構成
+通貨ペア
+Direction
+Entry時刻
+Exit時刻
+SL
+TP
+Magic Number
+Special Rule
+日またぎExit判定
+Mock JST日時テスト
+TestTime一括テスト
+Global Variableによる同日重複エントリー防止
+```
+
+追加するもの：
+
+```text
+Global H1 ATR P70 フィルタ
+ATRフィルタON/OFF input
+ATR判定ログ
+```
+
+---
+
+# ATRフィルタの意味
+
+各ロジックの通貨ペアごとに、H1 ATRを取得し、過去ATRのP70以上かどうかを判定する。
+
+判定：
+
+```text
+Current H1 ATR >= H1 ATR P70
+```
+
+結果：
+
+```text
+true  → Entry許可
+false → Entry停止
+```
+
+---
+
+# ATR対象
+
+ATR対象は、各ロジックの `cfg.symbol` とする。
+
+例：
+
+```text
+5_GJ_Port_Log2      → GBPJPY
+25_AU_China_Demand → AUDUSD
+9_AJ_Core2         → AUDJPY
+```
+
+ポートフォリオ全体共通の単一ATRではなく、ロジックごとの通貨ペアATRを見る。
+
+---
+
+# ATR仕様
+
+Step 4.2単体テストEAで確認済みの仕様を採用する。
+
+```text
+Timeframe：H1
+ATR Period：14
+P70 Lookback：500
+Percentile：70.0
+UseClosedBar：true
+判定：CurrentATR >= P70
+```
+
+使用足：
+
+```text
+現在ATR：H1の1本前の確定足ATR
+P70計算：H1の確定足ATR 500本
+```
+
+MQL5想定：
+
+```text
+CopyBuffer(..., start_pos = 1, count = 500)
+```
+
+---
+
+# 追加input案
+
+Step 4.3では以下のinputを追加する。
+
+```text
+input bool   InpUseGlobalAtrP70Filter = true;
+input int    InpAtrPeriod = 14;
+input int    InpAtrP70LookbackBars = 500;
+input double InpAtrPercentile = 70.0;
+input bool   InpAtrUseClosedBar = true;
+input bool   InpPrintAtrFilterLogs = true;
+```
+
+---
+
+# ATRフィルタOFF時の挙動
+
+```text
+InpUseGlobalAtrP70Filter = false
+```
+
+の場合、ATRフィルタは完全に無効化する。
+
+この場合、Step 3 Clean版と同じ挙動になる。
+
+目的：
+
+```text
+ATR追加後の原因切り分けをしやすくする
+Step 3 Clean版との差分確認をしやすくする
+ATRフィルタ以外の動作確認をしやすくする
+```
+
+---
+
+# ATRフィルタON時の挙動
+
+```text
+InpUseGlobalAtrP70Filter = true
+```
+
+の場合、Entry直前にATR判定を行う。
+
+判定OK：
+
+```text
+CurrentATR >= P70
+→ Entry続行
+```
+
+判定NG：
+
+```text
+CurrentATR < P70
+→ Entry停止
+```
+
+---
+
+# 組み込み位置
+
+Step 3 Clean版では、すでに以下の拡張ポイントを用意している。
+
+```text
+bool PassEntryFilters(StrategyConfig &cfg, datetime jst_time)
+```
+
+Step 4.3では、この中にATR P70判定を追加する。
+
+処理順：
+
+```text
+TryEntry()
+↓
+IsEntryTime()
+↓
+PassEntryFilters()
+   └ PassGlobalAtrP70Filter()
+↓
+AlreadyEnteredToday()
+↓
+HasOpenPosition()
+↓
+SendBuyOrder / SendSellOrder
+```
+
+---
+
+# PassEntryFilters の役割
+
+Step 4.3時点では、PassEntryFilters内でATRフィルタのみを実行する。
+
+想定：
+
+```text
+bool PassEntryFilters(StrategyConfig &cfg, datetime jst_time)
+{
+   if(!PassGlobalAtrP70Filter(cfg, jst_time))
+   {
+      return false;
+   }
+
+   return true;
+}
+```
+
+将来的には以下もここに追加予定。
+
+```text
+指標停止
+年末年始停止
+その他ポートフォリオ共通フィルタ
+```
+
+---
+
+# 追加予定関数
+
+Step 4.3で追加する主な関数：
+
+```text
+bool CreateAtrHandle(string symbol, int &handle)
+bool GetCurrentAtr(string symbol, int handle, double &current_atr)
+bool GetAtrP70(string symbol, int handle, double &p70_value, int &copied_bars)
+bool CalculatePercentile(double &values[], int count, double percentile, double &result)
+bool PassGlobalAtrP70Filter(StrategyConfig &cfg, datetime jst_time)
+double ToPips(string symbol, double price_value)
+```
+
+ただし、MQL5ではハンドル管理をシンプルにするため、初期版では判定時に `iATR()` ハンドルを作成し、使用後に `IndicatorRelease()` する方針でもよい。
+
+理由：
+
+```text
+Step 4.3初期版は安全性と読みやすさを優先
+まずは動作確認を優先
+高速化は必要になってから検討
+```
+
+---
+
+# ATRログ方針
+
+`InpPrintAtrFilterLogs = true` の場合、Entry判定時にATRログを出す。
+
+Pass時：
+
+```text
+ATR PASS. Symbol=GBPJPY, ATR_Pips=28.4, P70_Pips=24.1
+```
+
+Reject時：
+
+```text
+ATR REJECT. Symbol=GBPJPY, ATR_Pips=18.7, P70_Pips=24.1
+```
+
+エラー時：
+
+```text
+ATR filter error. Symbol=GBPJPY, reason=...
+```
+
+---
+
+# ATR取得エラー時の扱い
+
+初期方針では、ATR取得に失敗した場合は **Entry停止** とする。
+
+理由：
+
+```text
+ATRフィルタONなのにATRが取得できない状態でEntryするのは危険
+安全側に倒す
+```
+
+つまり、
+
+```text
+ATR取得失敗
+P70計算失敗
+CopiedBars不足
+Invalid ATR value
+```
+
+の場合は `false` を返し、Entryしない。
+
+ただし、`InpUseGlobalAtrP70Filter = false` の場合は、ATR取得自体を行わない。
+
+---
+
+# テスト方針
+
+## Test 1：コンパイル
+
+```text
+0 errors
+0 warnings
+```
+
+---
+
+## Test 2：ATRフィルタOFFでStep 3 Clean版相当確認
+
+設定：
+
+```text
+InpUseGlobalAtrP70Filter = false
+```
+
+確認：
+
+```text
+通常代表 5_GJ_Port_Log2 Entry/Exit OK
+UJ代表 12_UJ_Short_Core Entry OK
+China代表 25_AU_China_Demand Entry OK
+AJ代表 9_AJ_Core2 Entry OK
+```
+
+目的：
+
+```text
+ATRフィルタOFFならStep 3 Clean版と同じように動くことを確認
+```
+
+---
+
+## Test 3：ATRフィルタONで代表ロジック確認
+
+設定：
+
+```text
+InpUseGlobalAtrP70Filter = true
+InpPrintAtrFilterLogs = true
+```
+
+代表：
+
+```text
+5_GJ_Port_Log2
+25_AU_China_Demand
+9_AJ_Core2
+```
+
+確認：
+
+```text
+ATR PASS / ATR REJECT ログが出る
+Pass時はEntryする
+Reject時はEntryしない
+```
+
+注意：
+
+```text
+現在相場のATR状態によってPass/Rejectは変わる
+PassになるかRejectになるかは固定ではない
+```
+
+---
+
+## Test 4：28ロジック全ON起動確認
+
+設定：
+
+```text
+28ロジック全ON
+InpUseGlobalAtrP70Filter = true
+InpPrintAtrFilterLogs = false
+```
+
+確認：
+
+```text
+EA起動OK
+7通貨ペア認識OK
+28ロジック初期化ログOK
+エラーなし
+不要な大量エントリーなし
+```
+
+---
+
+# 重要な注意点
+
+Step 4.3時点では、Python検証側との完全一致はまだ未確認。
+
+今後確認が必要：
+
+```text
+ATR期間がPython側と一致しているか
+P70算出期間がPython側と一致しているか
+P70計算方法がPython側と一致しているか
+確定足ベースでよいか
+判定条件 CurrentATR >= P70 でよいか
+```
+
+ただし、Step 4.2でMT5上のATR取得・P70計算自体は全7通貨ペアで確認済み。
+
+---
+
+# Step 4.3ではまだ実装しないもの
+
+```text
+指標停止
+年末年始停止
+週次複利ロット計算
+本番用ロット管理
+外部CSV設定
+ATRハンドルの高度なキャッシュ管理
+```
+
+Step 4.3では、まずATR P70フィルタの組み込みと動作確認に集中する。
+
+---
+
+# Step 4.3 判定基準
+
+以下が確認できれば、Step 4.3を合格とする。
+
+```text
+コンパイルOK
+ATRフィルタOFFでStep 3 Clean版相当の代表Entry確認OK
+ATRフィルタONでATR PASS / REJECTログ確認OK
+Pass時のEntry OK
+Reject時のEntry停止 OK
+28ロジック全ON起動確認OK
+```
+
+---
+
+# 次にやること
+
+次は、Step 4.3コード作成に進む。
+
+予定ファイル名：
+
+```text
+time_entry_step4_3_config_managed_28strategies_atr_p70.mq5
+```
