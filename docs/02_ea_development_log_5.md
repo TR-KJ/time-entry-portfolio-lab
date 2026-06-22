@@ -360,3 +360,178 @@ Step 2I / Step 2J 正式合格ログ
 ↓
 Step 3.2 整理版EAコード作成
 ```
+
+## 2026-06-17：EA Step 2I / Step 2J 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step2j2_config_managed_28strategies.mq5
+```
+
+---
+
+## 目的
+
+Step 2I / Step 2Jで未完了だった実注文確認を行い、28ロジック統合EAを正式合格とする。
+
+対象：
+
+```text
+Step 2I：China系4ロジック
+Step 2J：9_AJ_Core2
+```
+
+---
+
+# Step 2I：China系4ロジック 正式確認
+
+## 対象ロジック
+
+```text
+25_AU_China_Demand
+26_AJ_China_Demand
+27_EA_China_Demand
+28_GA_China_Demand
+```
+
+## 確認内容
+
+以下を確認した。
+
+```text
+China系4本 entry success OK
+
+25_AU：AUDUSD buy 0.01 OK
+26_AJ：AUDJPY buy 0.01 OK
+27_EA：EURAUD sell 0.01 OK
+28_GA：GBPAUD sell 0.01 OK
+
+SL / TP OK
+方向 OK
+手動決済 OK
+```
+
+## 判定
+
+```text
+Step 2I 正式合格
+```
+
+---
+
+# Step 2J：9_AJ_Core2 正式確認
+
+## 対象ロジック
+
+```text
+9_AJ_Core2
+```
+
+## 仕様
+
+| Item | Value |
+|---|---|
+| Pair | AUDJPY |
+| Direction | Short |
+| Entry | 木曜 17:14 JST |
+| Exit | 翌日 01:14 JST |
+| SL | 30 pips |
+| TP | 80 pips |
+| Magic | 90001 |
+| Special Rule | RULE_AJ_CORE2 |
+
+## 確認内容
+
+以下を確認した。
+
+```text
+9_AJ_Core2 entry success OK
+AUDJPY sell 0.01 OK
+
+SL / TP OK
+方向 OK
+手動決済 OK
+Entry直後にTime exitしない OK
+```
+
+## 判定
+
+```text
+Step 2J 正式合格
+```
+
+---
+
+# 28ロジック統合EA 正式合格
+
+## 確認済み
+
+```text
+28ロジック統合EA コンパイルOK
+28ロジック全ON起動OK
+7通貨ペア認識OK
+China系4本 entry success OK
+9_AJ_Core2 entry success OK
+SL / TP OK
+方向 OK
+手動決済 OK
+日またぎ即決済なし OK
+```
+
+## 判定
+
+```text
+Step 2J.2：28ロジック統合EA 正式合格
+```
+
+---
+
+# 現在の到達点
+
+```text
+Step 2F：13ロジック統合EA OK
+Step 2H：23ロジック統合EA OK
+Step 2I：China系4ロジック 正式合格
+Step 2J：9_AJ_Core2 正式合格
+Step 2J.2：28ロジック統合EA 正式合格
+```
+
+---
+
+# 注意点
+
+現時点のEAは、28ロジックの時間エントリー・時間決済・SL/TP・Magic管理を確認するための統合検証版。
+
+まだ本番運用には使用しない。
+
+未実装：
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+本番用ロット管理
+外部CSV設定
+```
+
+---
+
+# 次にやること
+
+次は Step 3.2 として、28ロジック統合EAの整理版コードを作成する。
+
+予定ファイル名：
+
+```text
+time_entry_step3_config_managed_28strategies_clean.mq5
+```
+
+Step 3.2の目的：
+
+```text
+Step 2J.2の機能を維持したままコード構造を整理する
+今後のGlobal H1 ATR P70追加に備える
+指標停止・年末年始停止・週次複利ロット管理を追加しやすい土台にする
+```
