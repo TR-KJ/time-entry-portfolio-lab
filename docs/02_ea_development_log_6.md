@@ -428,3 +428,171 @@ Step 4.2：ATR取得ロジックの単体テストEA作成
 ```text
 time_entry_step4_2_atr_p70_test.mq5
 ```
+
+## 2026-06-17：EA Step 4.2 ATR P70単体テストEA 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step4_2_atr_p70_test.mq5
+```
+
+---
+
+## 目的
+
+Step 4.2では、28ロジック統合EAへ `Global H1 ATR P70` フィルタを組み込む前に、単体テストEAで以下を確認した。
+
+```text
+H1 ATRを取得できるか
+過去ATRからP70を計算できるか
+ATR値をpips換算できるか
+CurrentATR >= P70 の判定ができるか
+28ロジックEAで使用する全通貨ペアで動作するか
+```
+
+このEAは売買せず、エキスパートログにATR関連情報を出力するテスト専用EA。
+
+---
+
+## テスト設定
+
+基本設定：
+
+```text
+InpAtrTimeframe = PERIOD_H1
+InpAtrPeriod = 14
+InpAtrP70LookbackBars = 500
+InpPercentile = 70.0
+InpUseClosedBar = true
+InpPrintOnInit = true
+InpPrintEveryTimer = true
+InpTimerSeconds = 10
+```
+
+判定条件：
+
+```text
+CurrentATR >= P70
+```
+
+判定結果：
+
+```text
+true  → ATRフィルタ通過想定
+false → ATRフィルタ停止想定
+```
+
+---
+
+## 確認したログ項目
+
+各通貨ペアで以下が表示されることを確認した。
+
+```text
+ATR P70 Test initialized
+Symbol
+Timeframe=H1
+ATR Period=14
+P70 Lookback=500
+UseClosedBar=true
+BarsAvailable
+CopiedBars=500
+CurrentATR
+CurrentATR_Pips
+P70
+P70_Pips
+PassATR_CurrentATR_GTE_P70=true/false
+```
+
+---
+
+## テスト対象通貨ペア
+
+28ロジックEAで使用する全7通貨ペアを確認した。
+
+```text
+GBPJPY：OK
+AUDUSD：OK
+EURAUD：OK
+USDJPY：OK
+EURJPY：OK
+AUDJPY：OK
+GBPAUD：OK
+```
+
+---
+
+## 確認結果
+
+全7通貨ペアで以下を確認した。
+
+```text
+H1 ATR取得 OK
+過去500本取得 OK
+P70計算 OK
+pips換算 OK
+CurrentATR >= P70 判定 OK
+CopyBufferエラーなし
+Not enough ATR barsなし
+Invalid ATR valueなし
+```
+
+---
+
+## Step 4.2 判定
+
+Step 4.2は正式合格。
+
+```text
+ATR取得ロジック単体テスト OK
+P70計算 OK
+全対象通貨ペア OK
+```
+
+---
+
+## 注意点
+
+現時点では、Python検証側との完全一致はまだ未確認。
+
+今後確認が必要な項目：
+
+```text
+ATR期間がPython側と一致しているか
+P70算出期間がPython側と一致しているか
+P70計算方法がPython側と一致しているか
+確定足ベースでよいか
+判定条件が CurrentATR >= P70 でよいか
+```
+
+現時点のEA側暫定仕様：
+
+```text
+ATR期間：14
+P70算出期間：500
+使用足：H1確定足
+判定：CurrentATR >= P70
+対象：各ロジックの通貨ペア
+```
+
+---
+
+## 次にやること
+
+次は Step 4.3 として、28ロジックClean版EAへATR P70フィルタを組み込む。
+
+予定ファイル名：
+
+```text
+time_entry_step4_3_config_managed_28strategies_atr_p70.mq5
+```
+
+推奨フロー：
+
+```text
+Step 4.3仕様整理
+ATRフィルタOFFでStep 3 Clean版と同じ挙動確認
+ATRフィルタONで代表ロジックのPass/Reject確認
+28ロジック全ON起動確認
+```
