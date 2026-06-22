@@ -535,3 +535,279 @@ Step 2J.2の機能を維持したままコード構造を整理する
 今後のGlobal H1 ATR P70追加に備える
 指標停止・年末年始停止・週次複利ロット管理を追加しやすい土台にする
 ```
+
+## 2026-06-17：EA Step 3.2 28ロジック統合EA Clean版 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step3_config_managed_28strategies_clean.mq5
+```
+
+---
+
+## 目的
+
+Step 3.2では、Step 2J.2で正式合格した28ロジック統合EAをベースに、機能追加は行わず、コード構造を整理したClean版EAを作成・検証した。
+
+目的：
+
+```text
+Step 2J.2の挙動を維持する
+28ロジックの仕様を維持する
+今後のGlobal H1 ATR P70追加に備える
+指標停止・年末年始停止・週次複利ロット管理を追加しやすい構造にする
+```
+
+---
+
+## Step 3.2で維持した仕様
+
+以下はStep 2J.2から変更しない。
+
+```text
+28ロジック構成
+通貨ペア
+Direction
+Entry時刻
+Exit時刻
+SL
+TP
+Magic Number
+Special Rule
+日またぎExit判定
+Mock JST日時テスト
+TestTime一括テスト
+Skipログ制御
+Rule Rejectログ制御
+Global Variableによる同日重複エントリー防止
+```
+
+---
+
+## 整理内容
+
+主に以下の構造へ整理した。
+
+```text
+Logging
+Time helpers
+Calendar helpers
+Symbol / price / lot helpers
+Position / Global Variable helpers
+Strategy setup helpers
+Special Rule helpers
+Active date / filters
+Strategy dynamic parameters
+Entry / exit time checks
+Order helpers
+Trading flow
+Init logging
+Expert events
+```
+
+また、将来の拡張ポイントとして以下を用意した。
+
+```text
+PassEntryFilters()
+GetStrategyLot()
+```
+
+現時点では機能追加せず、どちらもStep 2J.2相当の挙動を維持する。
+
+---
+
+## テスト結果
+
+### Test 1：28ロジック全ON起動確認
+
+確認済み：
+
+```text
+28ロジック全ONで起動
+7通貨ペア認識
+28ロジック分の初期化ログ
+エラーなし
+不要な大量エントリーなし
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+### Test 2：通常ロジック代表 Entry/Exit確認
+
+対象：
+
+```text
+5_GJ_Port_Log2
+```
+
+確認済み：
+
+```text
+GBPJPY sell 0.01
+SLあり
+TPなし
+Sell方向
+Time exit success
+取引タブからポジション消滅
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+### Test 3：UJ特殊代表確認
+
+対象：
+
+```text
+12_UJ_Short_Core
+```
+
+確認済み：
+
+```text
+USDJPY sell 0.01
+Mode=GOTO
+SL20pips相当
+TP50pips相当
+Sell方向
+手動決済OK
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+### Test 4：China代表確認
+
+対象：
+
+```text
+25_AU_China_Demand
+```
+
+確認済み：
+
+```text
+AUDUSD buy 0.01
+SL40pips相当
+TP40pips相当
+Buy方向
+手動決済OK
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+### Test 5：AJ特殊代表確認
+
+対象：
+
+```text
+9_AJ_Core2
+```
+
+確認済み：
+
+```text
+AUDJPY sell 0.01
+SL30pips相当
+TP80pips相当
+Sell方向
+Entry直後にTime exit successが出ない
+取引タブにポジションが残る
+手動決済OK
+```
+
+結果：
+
+```text
+OK
+```
+
+---
+
+## Step 3.2 判定
+
+Step 3.2 Clean版は正式合格。
+
+確認済み：
+
+```text
+コンパイルOK
+28ロジック全ON起動OK
+7通貨ペア認識OK
+28ロジック初期化ログOK
+通常代表 5_GJ_Port_Log2 Entry/Exit OK
+UJ代表 12_UJ_Short_Core Entry OK
+China代表 25_AU_China_Demand Entry OK
+AJ特殊代表 9_AJ_Core2 Entry OK
+SL / TP OK
+方向 OK
+手動決済 OK
+日またぎ即決済なし OK
+```
+
+---
+
+## 現在の到達点
+
+```text
+Step 2J.2：28ロジック統合EA 正式合格
+Step 3.2：28ロジック統合EA Clean版 正式合格
+```
+
+---
+
+## 注意点
+
+Step 3.2 Clean版は、28ロジックの時間エントリー・時間決済・SL/TP・Magic管理の土台として合格。
+
+ただし、まだ本番運用には使用しない。
+
+未実装：
+
+```text
+Global H1 ATR P70
+指標停止
+年末年始停止
+週次複利ロット計算
+本番用ロット管理
+外部CSV設定
+```
+
+---
+
+## 次にやること
+
+次は Step 4 として、Global H1 ATR P70 のEA実装を検討する。
+
+推奨フロー：
+
+```text
+Step 4.1：Global H1 ATR P70 のEA実装仕様整理
+Step 4.2：ATR取得ロジックの単体テストEA
+Step 4.3：28ロジックClean版へATRフィルタ追加
+```
+
+いきなり28ロジックEAへATRを入れず、まずは小さいテストEAでMT5上のATR取得値を確認する。
