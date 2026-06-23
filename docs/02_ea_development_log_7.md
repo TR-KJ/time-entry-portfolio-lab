@@ -495,3 +495,316 @@ Step 5.1は仕様整理として完了。
 Python検証側で使っていたイベント日リストを確認
 Step 5.2でEAコードへイベント日リストを実装
 ```
+
+## 2026-06-17：EA Step 5.1 指標停止 仕様整理 修正版
+
+### 対象
+
+ベースEA：
+
+```text
+time_entry_step4_3_1_config_managed_28strategies_atr_p70_log_suppressed.mq5
+```
+
+Step 5.2作成EA：
+
+```text
+time_entry_step5_config_managed_28strategies_event_filter.mq5
+```
+
+---
+
+## 方針修正
+
+当初は「通貨別イベント停止」を想定していたが、提供されたPythonカレンダー生成コードでは、イベント停止が戦略ごとに細かく定義されていた。
+
+そのため、Step 5では以下の方針に変更する。
+
+```text
+通貨別イベント停止ではなく、
+Python検証コード準拠の戦略別イベント停止として実装する
+```
+
+---
+
+## 2026年イベント日リスト
+
+EA内に以下の2026年イベント日を `YYYYMMDD` の整数配列で実装する。
+
+```text
+FOMC
+US_NFP
+US_CPI
+BOJ
+BOE
+ECB
+RBA
+AU_CPI
+US_CPI発表週の水曜日
+```
+
+---
+
+## Python準拠の停止ルール
+
+### EJ系
+
+```text
+1_EJ_Log1
+→ 2月停止
+→ 1日停止
+→ US_CPI発表週の水曜日停止
+
+2_EJ_NightBlitz_20
+3_EJ_NightBlitz_21
+→ EVENTS_5_ECB停止
+```
+
+`EVENTS_5_ECB`：
+
+```text
+FOMC + US_NFP + US_CPI + BOJ + ECB
+```
+
+---
+
+### GJ系
+
+```text
+4_GJ_Port_Log1
+→ 12月停止
+→ 1日・2日・29日・30日・31日停止
+
+5_GJ_Port_Log2
+→ 18日・19日・27日停止
+→ EVENTS_5_BOE停止
+
+6_GJ_Old_Mon
+→ 1月・2月停止
+→ EVENTS_5_BOE停止
+
+7_GJ_Mon_Blitz
+→ EVENTS_5_BOE停止
+```
+
+`EVENTS_5_BOE`：
+
+```text
+FOMC + US_NFP + US_CPI + BOJ + BOE
+```
+
+---
+
+### AJ系
+
+```text
+8_AJ_Core1
+9_AJ_Core2
+10_AJ_SatA
+11_AJ_SatB
+→ EVENTS_7_AJ停止
+```
+
+`EVENTS_7_AJ`：
+
+```text
+FOMC + US_NFP + US_CPI + BOJ + ECB + RBA + AU_CPI
+```
+
+---
+
+### UJ系
+
+```text
+12_UJ_Short_Core
+13_UJ_Fix_MidWeek
+14_UJ_Sat_3rd
+15_UJ_Sat_Aug
+→ EVENTS_4停止
+
+16_UJ_T10A
+→ BOJ停止
+```
+
+`EVENTS_4`：
+
+```text
+FOMC + US_NFP + US_CPI + BOJ
+```
+
+---
+
+## 初期版で対象外にするロジック
+
+提供されたPythonカレンダー生成コードに停止条件が明示されていないため、初期版では以下はイベント停止対象外とする。
+
+```text
+17_EA_1B
+18_EA_2
+19_EA_3
+20_EA_1A
+21_GA_B_3
+22_GA_C_2
+23_GA_F_2
+24_GA_D_1
+25_AU_China_Demand
+26_AJ_China_Demand
+27_EA_China_Demand
+28_GA_China_Demand
+```
+
+必要であれば、後続Stepで個別にイベント停止条件を追加する。
+
+---
+
+## 追加input
+
+```text
+InpUseEventFilter = true
+InpPrintEventFilterLogs = true
+InpSuppressEventLogsOncePerDay = true
+
+InpStopOnUS_NFP = true
+InpStopOnUS_CPI = true
+InpStopOnFOMC = true
+InpStopOnBOJ = true
+InpStopOnBOE = true
+InpStopOnECB = true
+InpStopOnRBA = true
+InpStopOnAU_CPI = true
+```
+
+---
+
+## 組み込み位置
+
+Step 4.3.1の共通フィルタに追加する。
+
+```text
+PassEntryFilters()
+├ PassGlobalAtrP70Filter()
+└ PassPythonCalendarEventFilter()
+```
+
+---
+
+## Step 5.2 テスト方針
+
+### Test 1：コンパイル
+
+```text
+0 errors
+```
+
+### Test 2：イベントフィルタOFF確認
+
+```text
+InpUseEventFilter = false
+```
+
+期待：
+
+```text
+Step 4.3.1と同等挙動
+代表Entry OK
+```
+
+### Test 3：EJ停止確認
+
+代表：
+
+```text
+1_EJ_Log1
+```
+
+Mock日付：
+
+```text
+2026-06-10 13:55
+```
+
+期待：
+
+```text
+EVENT REJECT. Event=US_CPI_WEEK_WED
+Entryしない
+```
+
+### Test 4：GJ停止確認
+
+代表：
+
+```text
+5_GJ_Port_Log2
+```
+
+Mock日付：
+
+```text
+2026-06-18 09:55
+```
+
+期待：
+
+```text
+EVENT REJECT. Event=BOE
+Entryしない
+```
+
+### Test 5：AJ停止確認
+
+代表：
+
+```text
+9_AJ_Core2
+```
+
+Mock日付：
+
+```text
+2026-07-02 17:14
+```
+
+期待：
+
+```text
+EVENT REJECT. Event=US_NFP
+Entryしない
+```
+
+### Test 6：UJ停止確認
+
+代表：
+
+```text
+12_UJ_Short_Core
+```
+
+Mock日付：
+
+```text
+2026-06-17 09:55
+```
+
+期待：
+
+```text
+EVENT REJECT. Event=FOMC
+Entryしない
+```
+
+### Test 7：イベント対象外日Entry確認
+
+イベント対象外日で、ATR条件が通る場合にEntryすることを確認する。
+
+---
+
+## Step 5.1修正版 判定
+
+Python検証コード準拠の戦略別イベント停止として仕様を修正。
+
+次に実施すること：
+
+```text
+Step 5.2：イベントフィルタ実装EAのコンパイル・テスト
+```
