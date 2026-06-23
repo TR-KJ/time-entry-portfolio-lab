@@ -1052,3 +1052,356 @@ Reject時のEntry停止 OK
 ```text
 time_entry_step4_3_config_managed_28strategies_atr_p70.mq5
 ```
+
+## 2026-06-17：EA Step 4.3 ATR P70フィルタ統合版 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step4_3_config_managed_28strategies_atr_p70.mq5
+```
+
+---
+
+## 目的
+
+Step 4.3では、Step 3.2で正式合格した28ロジック統合EA Clean版に、Step 4.2で単体テスト済みの `Global H1 ATR P70` フィルタを組み込んだ。
+
+ベースEA：
+
+```text
+time_entry_step3_config_managed_28strategies_clean.mq5
+```
+
+Step 4.3 EA：
+
+```text
+time_entry_step4_3_config_managed_28strategies_atr_p70.mq5
+```
+
+---
+
+## 追加した機能
+
+以下のATRフィルタを追加した。
+
+```text
+Global H1 ATR P70
+```
+
+判定条件：
+
+```text
+Current H1 ATR >= H1 ATR P70
+```
+
+判定結果：
+
+```text
+true  → Entry許可
+false → Entry停止
+```
+
+ATR対象：
+
+```text
+各ロジックの cfg.symbol
+```
+
+使用設定：
+
+```text
+Timeframe：H1
+ATR Period：14
+P70 Lookback：500
+Percentile：70.0
+UseClosedBar：true
+判定：CurrentATR >= P70
+```
+
+---
+
+## 追加input
+
+```text
+InpUseGlobalAtrP70Filter
+InpAtrTimeframe
+InpAtrPeriod
+InpAtrP70LookbackBars
+InpAtrPercentile
+InpAtrUseClosedBar
+InpPrintAtrFilterLogs
+```
+
+---
+
+## テスト結果
+
+### 1. コンパイル
+
+```text
+OK
+```
+
+---
+
+### 2. ATRフィルタOFFで代表Entry/Exit確認
+
+設定：
+
+```text
+InpUseGlobalAtrP70Filter = false
+```
+
+確認結果：
+
+```text
+ATRフィルタOFFで代表Entry/Exit OK
+```
+
+確認内容：
+
+```text
+5_GJ_Port_Log2
+GBPJPY sell 0.01
+SLあり
+TPなし
+Time exit success
+取引タブからポジション消滅
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+### 3. ATRフィルタONでATR PASS確認
+
+設定：
+
+```text
+InpUseGlobalAtrP70Filter = true
+InpPrintAtrFilterLogs = true
+```
+
+確認結果：
+
+```text
+ATR PASSログ OK
+PASS時Entry OK
+CopiedBars=500 OK
+ATR_Pips / P70_Pips 表示 OK
+```
+
+ログ例：
+
+```text
+ATR PASS. Symbol=GBPJPY, TF=H1, ATR_Pips=..., P70.0_Pips=..., CopiedBars=500
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+### 4. ATRフィルタONでATR REJECT確認
+
+確認結果：
+
+```text
+ATR REJECTログ OK
+REJECT時Entry停止 OK
+CopiedBars=500 OK
+ATR_Pips / P70_Pips 表示 OK
+```
+
+ログ例：
+
+```text
+ATR REJECT. Symbol=GBPJPY, TF=H1, ATR_Pips=..., P70.0_Pips=..., CopiedBars=500
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+### 5. 28ロジック全ON起動確認
+
+確認結果：
+
+```text
+28ロジック全ON起動 OK
+7通貨ペア認識 OK
+28ロジック初期化ログ OK
+エラーなし
+不要な大量エントリーなし
+```
+
+対象通貨ペア：
+
+```text
+EURAUD
+GBPAUD
+GBPJPY
+USDJPY
+EURJPY
+AUDJPY
+AUDUSD
+```
+
+判定：
+
+```text
+OK
+```
+
+---
+
+## Step 4.3 判定
+
+Step 4.3は正式合格。
+
+確認済み：
+
+```text
+ATRフィルタOFFで代表Entry/Exit OK
+ATRフィルタONでATR PASSログ OK
+PASS時Entry OK
+ATRフィルタONでATR REJECTログ OK
+REJECT時Entry停止 OK
+28ロジック全ON起動 OK
+7通貨ペア認識 OK
+28ロジック初期化ログ OK
+エラーなし
+```
+
+---
+
+## 確認された課題
+
+Entry Window中に `OnTick()` / `OnTimer()` が複数回走るため、ATR PASSログが繰り返し出る。
+
+確認例：
+
+```text
+ATR PASS. Symbol=GBPJPY, TF=H1, ATR_Pips=..., P70.0_Pips=..., CopiedBars=500
+```
+
+上記が2分程度、数秒おきに出る。
+
+---
+
+## 原因
+
+現在の処理順では、Entry時刻ウィンドウ中に以下が繰り返し実行される。
+
+```text
+IsEntryTime()
+↓
+PassEntryFilters()
+   └ ATR PASS / REJECTログ出力
+↓
+AlreadyEnteredToday()
+↓
+HasOpenPosition()
+↓
+Entry
+```
+
+そのため、Entry Window中にATRログが複数回出る。
+
+---
+
+## 今後の改善案
+
+次に以下を検討する。
+
+```text
+Step 4.3.1：ATRログ抑制版
+```
+
+方針：
+
+```text
+売買挙動は変えず、ATRログだけ抑制する
+```
+
+候補：
+
+```text
+同日・同戦略・同Symbol・同MagicではATRログを1回だけ出す
+```
+
+または、
+
+```text
+AlreadyEnteredToday()
+HasOpenPosition()
+PassEntryFilters()
+```
+
+の順に変更し、すでにEntry済み/ポジション保有中の場合はATR判定に進まないようにする。
+
+---
+
+## ログ抑制版の注意点
+
+ログ抑制版では、売買判定そのものは変えない。
+
+変わるもの：
+
+```text
+ATRログの出る回数
+ATRログの出るタイミング
+```
+
+変えないもの：
+
+```text
+Entry条件
+ATR PASS / REJECT判定
+SL / TP
+Direction
+Magic Number
+日またぎExit
+時間決済
+同日重複エントリー防止
+```
+
+---
+
+## 現在の到達点
+
+```text
+Step 3.2：28ロジック統合EA Clean版 正式合格
+Step 4.2：ATR P70単体テストEA 正式合格
+Step 4.3：ATR P70フィルタ統合版 正式合格
+```
+
+---
+
+## 次にやること
+
+次は必要に応じて以下を実施する。
+
+```text
+Step 4.3.1：ATRログ抑制版
+```
+
+その後、次工程として以下を検討する。
+
+```text
+Step 5：指標停止
+Step 6：年末年始停止
+Step 7：週次複利ロット計算
+```
