@@ -521,3 +521,96 @@ Magic Number
 ```
 
 上記はStep 5.3版から維持する。
+
+## 2026-06-17：EA Step 6.3 停止ログ最終整理版 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step6_3_config_managed_28strategies_final_stop_logs.mq5
+```
+
+---
+
+## 目的
+
+Step 6.3では、Step 6.2で確認された停止ログ周りの課題を整理した。
+
+対応内容：
+
+```text
+Date rule reject の連続出力抑制
+一部停止条件でログが出ないケースの補正確認
+停止条件ログの最終確認
+```
+
+---
+
+## 修正内容
+
+以下を追加・整理した。
+
+```text
+InpSuppressRuleRejectLogsOncePerDay = true
+```
+
+同一日付・同一Strategy・同一Symbol・同一Magic・同一Reasonでは、`Date rule reject` を1回だけ出す方針とした。
+
+---
+
+## テスト結果
+
+確認済み：
+
+```text
+Test 2：Date rule reject June stop ログ抑制 OK
+Test 3：Date rule reject after 26th stop ログ抑制 OK
+Test 4：17_EA_1B 8月停止ログ OK
+Test 5：26_AJ_China_Demand 2月停止ログ OK
+Test 6：20_EA_1A 6/29月末営業日停止ログ OK
+Test 7：イベント対象外日Entry OK
+```
+
+---
+
+## 判定
+
+Step 6.3は正式合格。
+
+```text
+停止条件 OK
+停止ログ OK
+Date rule reject ログ抑制 OK
+EVENT REJECT ログ抑制 OK
+イベント対象外日のEntry OK
+売買挙動に問題なし
+```
+
+---
+
+## 現在の最新版EA
+
+```text
+time_entry_step6_3_config_managed_28strategies_final_stop_logs.mq5
+```
+
+---
+
+## 現在の到達点
+
+```text
+Step 3.2：28ロジックClean版 正式合格
+Step 4.3.1：ATR P70 + ATRログ抑制版 正式合格
+Step 5.3：master list準拠イベントフィルタ 正式合格
+Step 6.3：停止ログ最終整理版 正式合格
+```
+
+---
+
+## 次にやること
+
+次工程：
+
+```text
+Step 7：週次複利ロット計算
+```
