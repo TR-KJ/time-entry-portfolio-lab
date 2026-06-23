@@ -1405,3 +1405,86 @@ Step 5：指標停止
 Step 6：年末年始停止
 Step 7：週次複利ロット計算
 ```
+
+## 2026-06-17：EA Step 4.3.1 ATRログ抑制版 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step4_3_1_config_managed_28strategies_atr_p70_log_suppressed.mq5
+```
+
+---
+
+## 目的
+
+Step 4.3で正式合格したATR P70統合版について、Entry Window中にATR PASS / REJECTログが繰り返し出る問題を改善するため、ATRログ抑制版を作成した。
+
+---
+
+## 変更内容
+
+以下のinputを追加した。
+
+```text
+InpSuppressAtrLogsOncePerDay = true
+```
+
+同一日付・同一戦略・同一Symbol・同一Magicでは、ATR PASS / REJECT / ERRORログを1回だけ出す方針とした。
+
+---
+
+## テスト結果
+
+確認済み：
+
+```text
+コンパイルOK
+挙動確認OK
+ATRログ抑制OK
+売買挙動に問題なし
+```
+
+---
+
+## 判定
+
+Step 4.3.1は正式合格。
+
+```text
+Step 4.3：ATR P70統合版 正式合格
+Step 4.3.1：ATRログ抑制版 正式合格
+```
+
+---
+
+## 注意点
+
+ログ抑制版で変更したのは、ATRログの出力回数のみ。
+
+変更しないもの：
+
+```text
+Entry条件
+ATR PASS / REJECT判定
+SL / TP
+Direction
+Magic Number
+時間決済
+日またぎExit
+同日重複エントリー防止
+```
+
+---
+
+## 次にやること
+
+次工程候補：
+
+```text
+Step 5：指標停止
+Step 6：年末年始停止
+Step 7：週次複利ロット計算
+```
+
+優先順位としては、先に稼働停止日を固めるため、次は Step 5：指標停止 を検討する。
