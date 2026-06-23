@@ -454,3 +454,70 @@ Step 6.2：停止条件の最終確認テスト
 ```
 
 テスト後、問題がなければStep 6はコード修正なしで正式合格とする。
+
+## 2026-06-17：EA Step 6.3 停止ログ最終整理版 作成ログ
+
+### 対象EA
+
+```text
+time_entry_step6_3_config_managed_28strategies_final_stop_logs.mq5
+```
+
+---
+
+## 目的
+
+Step 6.2で確認された以下の課題に対応する。
+
+```text
+Date rule reject がEntry Window中に連続出力される
+一部停止条件でEntryしないがログが出ないケースがある
+```
+
+---
+
+## 修正内容
+
+以下を追加した。
+
+```text
+InpSuppressRuleRejectLogsOncePerDay = true
+```
+
+同一日付・同一Strategy・同一Symbol・同一Magic・同一Reasonでは、`Date rule reject` を1回だけ出すようにする。
+
+また、EVENT REJECTログは、同一EA稼働中に同一条件で1回だけ出るRuntime抑制へ整理した。
+
+---
+
+## 確認対象
+
+```text
+9_AJ_Core2 の Date rule reject ログ抑制
+17_EA_1B の8月停止ログ
+26_AJ_China_Demand の2月停止ログ
+20_EA_1A の月末3営業日前停止ログ
+イベント対象外日のEntry確認
+```
+
+---
+
+## 注意点
+
+今回の修正はログ整理が目的。
+
+売買挙動は変更しない。
+
+```text
+Entry条件
+Event停止判定
+ATR判定
+SL / TP
+Direction
+Magic Number
+時間決済
+日またぎExit
+同日重複エントリー防止
+```
+
+上記はStep 5.3版から維持する。
