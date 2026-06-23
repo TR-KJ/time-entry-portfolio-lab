@@ -614,3 +614,545 @@ Step 6.3：停止ログ最終整理版 正式合格
 ```text
 Step 7：週次複利ロット計算
 ```
+
+## 2026-06-17：EA Step 7.1 週次複利ロット計算 仕様整理
+
+### 対象EA
+
+現在の最新版EA：
+
+```text
+time_entry_step6_3_config_managed_28strategies_final_stop_logs.mq5
+```
+
+Step 7で作成予定のEA：
+
+```text
+time_entry_step7_config_managed_28strategies_weekly_compound_lot.mq5
+```
+
+---
+
+## 目的
+
+Step 7では、固定ロット `0.01` ではなく、口座残高または基準残高に応じてロットを自動計算する仕組みを追加する。
+
+ただし、完全な本番ロット管理にいきなり進まず、まずは以下を実装する。
+
+```text
+週次複利ロット計算
+固定損失額ベースのロット計算
+最小ロット・最大ロット・ロット刻み対応
+テスト用ログ出力
+固定ロット運用との切り替え
+```
+
+---
+
+# Step 7 の基本方針
+
+Step 7では、以下は変更しない。
+
+```text
+28ロジック構成
+Entry時刻
+Exit時刻
+Direction
+SL
+TP
+Magic Number
+ATR P70フィルタ
+イベント停止
+年末年始停止
+各種停止条件
+ログ抑制
+時間決済
+日またぎExit
+同日重複エントリー防止
+```
+
+変更するもの：
+
+```text
+注文ロット計算
+```
+
+現在：
+
+```text
+InpFixedLot = 0.01
+```
+
+Step 7後：
+
+```text
+固定ロットモード
+または
+週次複利ロットモード
+```
+
+を選べるようにする。
+
+---
+
+# ロット計算モード
+
+追加予定input：
+
+```text
+InpLotMode = 0
+```
+
+想定：
+
+```text
+0 = Fixed Lot
+1 = Weekly Compound Risk Lot
+```
+
+---
+
+# 固定ロットモード
+
+```text
+InpLotMode = 0
+```
+
+の場合は、これまで通り固定ロットを使う。
+
+```text
+InpFixedLot = 0.01
+```
+
+期待挙動：
+
+```text
+Step 6.3と同じロットでEntryする
+```
+
+---
+
+# 週次複利ロットモード
+
+```text
+InpLotMode = 1
+```
+
+の場合、週の開始時点の基準残高をもとに、各トレードの想定損失額を決める。
+
+基本式：
+
+```text
+RiskAmount = WeeklyBaseEquity × RiskPercent / 100
+Lot = RiskAmount / SL損失額
+```
+
+---
+
+# 週次基準残高
+
+週次複利では、毎トレードごとに残高を更新するのではなく、週単位で基準残高を固定する。
+
+方針：
+
+```text
+月曜日の週開始時点のAccount EquityまたはBalanceを基準にする
+その週の間は同じ基準残高を使う
+翌週になったら基準残高を更新する
+```
+
+追加予定input：
+
+```text
+InpWeeklyBaseUseEquity = true
+```
+
+```text
+true  → AccountInfoDouble(ACCOUNT_EQUITY)
+false → AccountInfoDouble(ACCOUNT_BALANCE)
+```
+
+初期方針：
+
+```text
+Equity基準
+```
+
+---
+
+# 週の定義
+
+JST基準で週を判定する。
+
+```text
+月曜日開始
+日曜日終了
+```
+
+週キー：
+
+```text
+YYYY + WeekNumber
+```
+
+または簡易的に、
+
+```text
+その週の月曜日の日付 YYYYMMDD
+```
+
+を使う。
+
+推奨：
+
+```text
+WeekStartDateKey
+```
+
+例：
+
+```text
+2026-06-17 → 週開始日 2026-06-15 → 20260615
+```
+
+---
+
+# 週次基準残高の保存
+
+EA再起動後も同じ週の基準残高を維持するため、Global Variableに保存する。
+
+Global Variable名案：
+
+```text
+TE_STEP7_WEEKLY_BASE_EQUITY_YYYYMMDD
+```
+
+例：
+
+```text
+TE_STEP7_WEEKLY_BASE_EQUITY_20260615
+```
+
+動作：
+
+```text
+同じ週のGVがあれば、それを使う
+なければ現在のEquity/Balanceで作成する
+次週になれば新しいGVを作成する
+```
+
+---
+
+# Risk Percent
+
+追加予定input：
+
+```text
+InpRiskPercentPerTrade = 0.5
+```
+
+意味：
+
+```text
+1トレードあたり、週次基準残高の0.5%をリスクにする
+```
+
+例：
+
+```text
+WeeklyBaseEquity = 1,000,000円
+RiskPercent = 0.5%
+RiskAmount = 5,000円
+```
+
+---
+
+# SLがないロジックの扱い
+
+現在の28ロジックには、TPなしのものはあるが、SLは基本的に全ロジックに設定されている。
+
+Step 7では、SL pips が `0` 以下の場合は安全側でEntry停止とする。
+
+```text
+SL pips <= 0
+→ Lot計算不可
+→ Entry停止
+```
+
+ただし、現行仕様では対象なしの想定。
+
+---
+
+# ロット計算に使うSL
+
+各ロジックの実際のSL pipsを使う。
+
+通常ロジック：
+
+```text
+cfg.sl_pips
+```
+
+UJ Short Core：
+
+```text
+GOTO：20 pips
+NORMAL：50 pips
+```
+
+既存関数：
+
+```text
+GetStrategySLPips(cfg, jst_time)
+```
+
+を使う。
+
+---
+
+# pips価値の計算
+
+MQL5上では、銘柄ごとに1ロットあたりのtick value / tick sizeを使って、SL pipsあたりの損失額を計算する。
+
+想定式：
+
+```text
+pip_size = GetPipSize(symbol)
+tick_value = SYMBOL_TRADE_TICK_VALUE
+tick_size = SYMBOL_TRADE_TICK_SIZE
+
+pip_value_per_lot = tick_value * (pip_size / tick_size)
+loss_per_lot = SL_pips * pip_value_per_lot
+
+lot = risk_amount / loss_per_lot
+```
+
+---
+
+# ロット正規化
+
+計算後、ブローカー仕様に合わせて正規化する。
+
+使用情報：
+
+```text
+SYMBOL_VOLUME_MIN
+SYMBOL_VOLUME_MAX
+SYMBOL_VOLUME_STEP
+```
+
+既存関数：
+
+```text
+NormalizeLot(symbol, lot)
+```
+
+を使用する。
+
+---
+
+# 最大ロット制限
+
+安全のため、EA側で最大ロットを制限する。
+
+追加予定input：
+
+```text
+InpMaxAutoLot = 1.0
+```
+
+動作：
+
+```text
+計算ロット > InpMaxAutoLot
+→ InpMaxAutoLot に丸める
+```
+
+初期値は慎重に設定する。
+
+---
+
+# 最小ロット未満の場合
+
+計算ロットがブローカー最小ロット未満の場合は、初期方針として最小ロットに丸める。
+
+```text
+calculated_lot < SYMBOL_VOLUME_MIN
+→ SYMBOL_VOLUME_MIN
+```
+
+ただし、安全運用では「最小ロット未満ならEntry停止」も検討可能。
+
+初期実装では以下をinput化する。
+
+```text
+InpAllowMinLotWhenBelowMinimum = true
+```
+
+---
+
+# ロット計算ログ
+
+追加予定input：
+
+```text
+InpPrintLotLogs = true
+```
+
+Entry直前に以下を表示する。
+
+```text
+LOT CALC. Strategy=5_GJ_Port_Log2, Symbol=GBPJPY, WeeklyBase=1000000, Risk%=0.50, RiskAmount=5000, SL=90.0, Lot=0.05
+```
+
+固定ロットモードでは以下。
+
+```text
+LOT FIXED. Strategy=5_GJ_Port_Log2, Symbol=GBPJPY, Lot=0.01
+```
+
+ログが多い場合は、後続で抑制を検討する。
+
+---
+
+# Step 7.2 単体テスト方針
+
+いきなり28ロジックEAへ完全組み込みせず、まずロット計算が妥当か確認する。
+
+ただし、既にEA構造が安定しているため、Step 7では以下の順で進める。
+
+```text
+Step 7.1：仕様整理
+Step 7.2：ロット計算テストEA または本EA組み込み版作成
+Step 7.3：固定ロットモード確認
+Step 7.4：週次複利モード確認
+```
+
+---
+
+# Step 7.2 作成予定EA
+
+```text
+time_entry_step7_config_managed_28strategies_weekly_compound_lot.mq5
+```
+
+ベース：
+
+```text
+time_entry_step6_3_config_managed_28strategies_final_stop_logs.mq5
+```
+
+---
+
+# Step 7 テスト方針
+
+## Test 1：コンパイル
+
+```text
+0 errors
+```
+
+---
+
+## Test 2：固定ロットモード確認
+
+設定：
+
+```text
+InpLotMode = 0
+InpFixedLot = 0.01
+```
+
+期待：
+
+```text
+Step 6.3と同じく 0.01 lot でEntryする
+```
+
+---
+
+## Test 3：週次複利ロットログ確認
+
+設定：
+
+```text
+InpLotMode = 1
+InpRiskPercentPerTrade = 0.5
+InpPrintLotLogs = true
+```
+
+期待：
+
+```text
+LOT CALC ログが出る
+WeeklyBaseEquity が表示される
+RiskAmount が表示される
+SL pips が表示される
+Lot が表示される
+```
+
+---
+
+## Test 4：ロットが発注に反映されるか確認
+
+代表：
+
+```text
+5_GJ_Port_Log2
+```
+
+期待：
+
+```text
+計算されたLotでGBPJPY sellが建つ
+```
+
+---
+
+## Test 5：UJ Short Core GOTO / NORMAL のSL別ロット確認
+
+対象：
+
+```text
+12_UJ_Short_Core
+```
+
+確認：
+
+```text
+GOTO：SL20 pipsでLot計算
+NORMAL：SL50 pipsでLot計算
+```
+
+期待：
+
+```text
+SL20の方がロット大きめ
+SL50の方がロット小さめ
+```
+
+---
+
+# Step 7ではまだ実装しないもの
+
+```text
+日次損失制限
+週次損失制限
+通貨別リスク上限
+同時ポジション合計リスク制限
+ポートフォリオ全体VaR管理
+```
+
+これらは、週次複利ロット計算が安定してから検討する。
+
+---
+
+# Step 7.1 判定
+
+Step 7.1は仕様整理として完了。
+
+次に行うこと：
+
+```text
+Step 7.2：週次複利ロット計算EAの作成
+```
