@@ -871,3 +871,82 @@ Date rule reject
 ```text
 Step 5.2.1：EVENT REJECTログ抑制修正版
 ```
+
+## 2026-06-17：EA Step 5.2.1 EVENT REJECTログ抑制版 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step5_2_1_config_managed_28strategies_event_filter_log_suppressed.mq5
+```
+
+---
+
+## 目的
+
+Step 5.2で確認された `EVENT REJECT` ログの連続出力を抑制するため、ログ抑制版を作成した。
+
+---
+
+## 修正内容
+
+同一日付・同一Strategy・同一Symbol・同一Magic・同一Eventでは、`EVENT REJECT` ログを1回だけ出すように修正。
+
+変更したもの：
+
+```text
+EVENT REJECTログの出力回数
+```
+
+変更しないもの：
+
+```text
+イベント停止判定
+Entryする / しない
+ATR判定
+SL / TP
+Direction
+Magic Number
+時間決済
+日またぎExit
+同日重複エントリー防止
+```
+
+---
+
+## テスト結果
+
+確認済み：
+
+```text
+Test 1：コンパイル OK
+Test 2：EJログ抑制 OK
+Test 3：GJログ抑制 OK
+Test 4：AJログ抑制 OK
+Test 5：イベント対象外日Entry OK
+```
+
+---
+
+## 判定
+
+Step 5.2.1は正式合格。
+
+```text
+イベント停止ロジック OK
+EVENT REJECTログ抑制 OK
+イベント対象外日のEntry OK
+売買挙動に問題なし
+```
+
+---
+
+## 次にやること
+
+次は、GitHub上の最新ルールセットとEA実装の整合性を確認する。
+
+```text
+EA実装と最新ルールセットの整合性チェック
+↓
+問題なければ Step 5 正式合格
+```
