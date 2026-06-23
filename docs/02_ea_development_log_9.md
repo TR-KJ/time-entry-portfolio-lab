@@ -453,3 +453,117 @@ Step 8.1は仕様整理として完了。
 ```text
 Step 8.2：本番前最小安全装置EAの作成
 ```
+
+## 2026-06-17：EA Step 8.3.1 本番前最小安全装置＋Skipログ抑制版 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step8_3_1_config_managed_28strategies_forward_test_ready_skiplog_compile_fixed.mq5
+```
+
+---
+
+## 目的
+
+Step 8では、デモ口座フォワードテスト開始前の最小安全装置として、以下を追加・確認した。
+
+```text
+EmergencyStop
+ロットモード確認ログ
+危険設定警告ログ
+Skip entryログ抑制
+```
+
+---
+
+## 実装内容
+
+追加・確認した機能：
+
+```text
+InpEmergencyStop
+LOT MODE CHECKログ
+RiskPercent高すぎ警告
+MaxAutoLot高すぎ警告
+Skip entry: emergency stop active のログ抑制
+Skip entry: already entered today のログ抑制
+```
+
+`InpEmergencyStop = true` の場合は、新規Entryのみ停止する。  
+既存ポジションのTime exitは維持する。
+
+---
+
+## テスト結果
+
+確認済み：
+
+```text
+コンパイル OK
+Test 2：EmergencyStop=false で通常Entry OK
+Test 3：EmergencyStop=true で新規Entry停止 OK
+Test 4：EmergencyStop=true でもTime exit OK
+Test 5：固定ロットモード確認ログ OK
+Test 6：週次複利モード確認ログ OK
+Test 6再確認：Skip entry: already entered today 連続出力なし OK
+Test 7-A：RiskPercent警告ログ OK
+Test 7-B：MaxAutoLot警告ログ OK
+```
+
+---
+
+## 判定
+
+Step 8.3.1は正式合格。
+
+```text
+EmergencyStop OK
+ロットモード確認ログ OK
+危険設定警告ログ OK
+Skipログ抑制 OK
+売買挙動に問題なし
+```
+
+---
+
+## 現在の最新版EA
+
+```text
+time_entry_step8_3_1_config_managed_28strategies_forward_test_ready_skiplog_compile_fixed.mq5
+```
+
+---
+
+## 現在の到達点
+
+```text
+28ロジック統合
+ATR P70フィルタ
+イベント停止
+年末年始・個別停止
+各種ログ抑制
+週次複利ロット計算
+EmergencyStop
+フォワードテスト前最小安全装置
+```
+
+---
+
+## 次にやること
+
+次工程候補：
+
+```text
+Step 9：デモ口座フォワードテスト準備
+```
+
+候補内容：
+
+```text
+本番/デモ用input初期値整理
+MT5設置手順
+稼働前チェックリスト
+フォワードテスト記録フォーマット
+GitHub保存
+```
