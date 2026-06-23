@@ -1499,3 +1499,102 @@ EVENT REJECTログ抑制OK
 ```text
 time_entry_step5_3_config_managed_28strategies_master_event_filter.mq5
 ```
+
+## 2026-06-17：EA Step 5.3 master list準拠イベントフィルタ 正式合格ログ
+
+### 対象EA
+
+```text
+time_entry_step5_3_config_managed_28strategies_master_event_filter.mq5
+```
+
+---
+
+## 目的
+
+Step 5.3では、GitHub上の最新ルールセット：
+
+```text
+docs/01_strategy_master_list.md
+```
+
+に合わせて、28ロジック全体のイベントフィルタ・個別停止条件を修正した。
+
+---
+
+## 主な修正内容
+
+```text
+AJ系：ECB停止を除外し、6 events for AJに修正
+EA系17〜20：EA Common Events追加
+GA系21〜24：GA Common Events追加
+China系25〜28：各China Events追加
+EA系：月末最終営業日・2営業日前・3営業日前停止を追加
+年末年始停止 12/25〜1/3 を追加
+EVENT REJECTログ抑制を維持
+```
+
+---
+
+## テスト結果
+
+確認済み：
+
+```text
+コンパイル OK
+AJ系ECB除外確認 OK
+EA Common Events停止 OK
+EA月末3営業日前停止 OK
+GA Common Events停止 OK
+AU Chinaイベント停止 OK
+EA Chinaイベント停止 OK
+GA Chinaイベント停止 OK
+EA系8月停止 OK
+AJ China 2月停止 OK
+年末年始停止 OK
+イベント対象外日Entry OK
+EVENT REJECTログ抑制 OK
+```
+
+---
+
+## 補足
+
+```text
+26_AJ_China_Demand は、2026年のBOJ / RBA / AU_CPI日と稼働日条件 9〜15日 が重なりにくいため、
+純粋なイベント停止テストは保留。
+
+ただし、AJ ChinaのExclude Month停止は確認済み。
+また、China系イベント判定ロジックは他China系で確認済み。
+```
+
+---
+
+## 判定
+
+Step 5.3は正式合格。
+
+```text
+Step 5：master list準拠イベントフィルタ実装 OK
+```
+
+---
+
+## 現在の到達点
+
+```text
+Step 3.2：28ロジックClean版 正式合格
+Step 4.3.1：ATR P70 + ATRログ抑制版 正式合格
+Step 5.3：master list準拠イベントフィルタ 正式合格
+```
+
+---
+
+## 次にやること
+
+次工程候補：
+
+```text
+Step 6：年末年始停止・その他停止条件の最終整理
+Step 7：週次複利ロット計算
+```
