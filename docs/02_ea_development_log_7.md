@@ -950,3 +950,552 @@ EA実装と最新ルールセットの整合性チェック
 ↓
 問題なければ Step 5 正式合格
 ```
+
+## 2026-06-17：EA Step 5.3 strategy_master_list準拠イベントフィルタ仕様整理
+
+### 対象
+
+現在の合格EA：
+
+```text
+time_entry_step5_2_1_config_managed_28strategies_event_filter_log_suppressed.mq5
+```
+
+Step 5.3で作成予定のEA：
+
+```text
+time_entry_step5_3_config_managed_28strategies_master_event_filter.mq5
+```
+
+---
+
+## 目的
+
+Step 5.3では、GitHub上の最新ルールセット：
+
+```text
+docs/01_strategy_master_list.md
+```
+
+に合わせて、28ロジック全体のイベントフィルタ・個別停止条件を整合させる。
+
+Step 5.2.1では、主にクロス円16ロジックのイベント停止を実装したが、最新マスターではEA系・GA系・China系にもイベント停止条件が定義されている。
+
+そのため、Step 5.3で以下を追加・修正する。
+
+---
+
+# Step 5.3 修正対象
+
+## 1. AJ系イベント定義の修正
+
+現在のStep 5.2.1では、AJ系イベントにECBが含まれている可能性がある。
+
+最新マスターでは、AJ系は以下の6イベント。
+
+```text
+US CPI
+US NFP
+FOMC
+BOJ
+RBA
+AUD CPI
+```
+
+修正方針：
+
+```text
+AJ系8〜11のEVENTS_7_AJからECBを除外
+名称も EVENT_RULE_AJ_6_EVENTS などへ整理
+```
+
+対象ロジック：
+
+```text
+8_AJ_Core1
+9_AJ_Core2
+10_AJ_SatA
+11_AJ_SatB
+```
+
+---
+
+## 2. EA系17〜20のイベント停止追加
+
+対象ロジック：
+
+```text
+17_EA_1B
+18_EA_2
+19_EA_3
+20_EA_1A
+```
+
+EA Common Events：
+
+```text
+US CPI
+US NFP
+FOMC
+ECB
+RBA
+AUD CPI
+```
+
+追加停止：
+
+```text
+月末最終営業日
+月末2営業日前
+月末3営業日前
+10月全停止
+年末年始 12/25〜1/3
+```
+
+個別停止：
+
+```text
+17_EA_1B：8月停止
+18_EA_2：1月・8月停止
+19_EA_3：個別停止なし
+20_EA_1A：8月停止
+```
+
+Step 5.3では、EA系の月末3営業日前停止も実装対象に含める。
+
+---
+
+## 3. GA系21〜24のイベント停止追加
+
+対象ロジック：
+
+```text
+21_GA_B_3
+22_GA_C_2
+23_GA_F_2
+24_GA_D_1
+```
+
+GA Common Events：
+
+```text
+US CPI
+US NFP
+FOMC
+BOE
+RBA
+AUD CPI
+```
+
+追加停止：
+
+```text
+年末年始 12/25〜1/3
+```
+
+注意：
+
+```text
+GAではECB停止は使用しない
+FOMCは当日のみ停止
+```
+
+---
+
+## 4. China系25〜28のイベント停止追加
+
+対象ロジック：
+
+```text
+25_AU_China_Demand
+26_AJ_China_Demand
+27_EA_China_Demand
+28_GA_China_Demand
+```
+
+### 25_AU_China_Demand
+
+```text
+Pair：AUDUSD
+Event Filter：RBA / AUD CPI / FOMC前日・当日
+Exclude Month：8月・10月
+Date Rule：9〜15日、25日〜月末
+```
+
+### 26_AJ_China_Demand
+
+```text
+Pair：AUDJPY
+Event Filter：BOJ / RBA / AUD CPI
+Exclude Month：2月・8月・10月
+Date Rule：9〜15日
+```
+
+### 27_EA_China_Demand
+
+```text
+Pair：EURAUD
+Event Filter：RBA / AUD CPI / FOMC前日・当日 / ECB
+Exclude Month：8月・10月
+Date Rule：9〜15日
+```
+
+### 28_GA_China_Demand
+
+```text
+Pair：GBPAUD
+Event Filter：RBA / AUD CPI / FOMC前日・当日 / BOE
+Exclude Month：8月・10月
+Date Rule：9〜15日
+```
+
+---
+
+# Step 5.3で追加するイベントルール案
+
+```text
+EVENT_RULE_NONE
+EVENT_RULE_EJ_LOG1
+EVENT_RULE_EVENTS_5_ECB
+EVENT_RULE_EVENTS_5_BOE
+EVENT_RULE_AJ_6_EVENTS
+EVENT_RULE_UJ_4_EVENTS
+EVENT_RULE_BOJ_ONLY
+
+EVENT_RULE_EA_COMMON
+EVENT_RULE_GA_COMMON
+EVENT_RULE_AU_CHINA
+EVENT_RULE_AJ_CHINA
+EVENT_RULE_EA_CHINA
+EVENT_RULE_GA_CHINA
+```
+
+---
+
+# イベント日リスト
+
+Step 5.3では、引き続き2026年イベント日をEA内にハードコードする。
+
+使用するイベント：
+
+```text
+US_CPI_2026
+US_NFP_2026
+FOMC_2026
+BOJ_2026
+BOE_2026
+ECB_2026
+RBA_2026
+AU_CPI_2026
+```
+
+追加で必要な派生日付：
+
+```text
+FOMC前日
+US_CPI発表週の水曜日
+月末最終営業日
+月末2営業日前
+月末3営業日前
+年末年始 12/25〜1/3
+```
+
+---
+
+# FOMC前日・当日停止
+
+Step 5.3では、China系の一部でFOMC前日・当日停止を実装する。
+
+対象：
+
+```text
+25_AU_China_Demand
+27_EA_China_Demand
+28_GA_China_Demand
+```
+
+判定：
+
+```text
+date == FOMC日
+または
+date == FOMC前日
+```
+
+---
+
+# EA系の月末3営業日前停止
+
+Step 5.3で実装する。
+
+対象：
+
+```text
+17_EA_1B
+18_EA_2
+19_EA_3
+20_EA_1A
+```
+
+停止対象：
+
+```text
+月末最終営業日
+月末2営業日前
+月末3営業日前
+```
+
+営業日の定義：
+
+```text
+月〜金
+土日を除外
+祝日は考慮しない
+```
+
+初期実装では、土日だけを除いた営業日ベースで判定する。
+
+関数案：
+
+```text
+bool IsLastBusinessDay(datetime jst_time)
+bool IsNthBusinessDayFromMonthEnd(datetime jst_time, int n)
+bool IsMonthEnd3BusinessDays(datetime jst_time)
+```
+
+判定イメージ：
+
+```text
+月末最終営業日 → n = 1
+月末2営業日前 → n = 2
+月末3営業日前 → n = 3
+```
+
+---
+
+# 年末年始停止
+
+Step 5.3では、最新マスター準拠の年末年始停止も共通的に入れる。
+
+停止期間：
+
+```text
+12/25〜1/3
+```
+
+対象：
+
+```text
+原則全28ロジック
+```
+
+---
+
+# Step 5.3で維持するもの
+
+以下は変更しない。
+
+```text
+28ロジック構成
+Entry時刻
+Exit時刻
+Direction
+SL
+TP
+Magic Number
+ATR P70フィルタ
+ATRログ抑制
+EVENT REJECTログ抑制
+時間決済
+日またぎExit
+同日重複エントリー防止
+```
+
+---
+
+# Step 5.3 テスト方針
+
+## Test 1：コンパイル
+
+```text
+0 errors
+```
+
+---
+
+## Test 2：AJ系ECB除外確認
+
+対象：
+
+```text
+9_AJ_Core2
+```
+
+テスト内容：
+
+```text
+ECB日だけではAJ系が停止しないことを確認
+```
+
+ただし、同日がUS CPI / NFP / FOMC / BOJ / RBA / AUD CPIと重なる場合は別日で確認する。
+
+---
+
+## Test 3：EA Common Events停止確認
+
+対象：
+
+```text
+17_EA_1B
+```
+
+確認：
+
+```text
+US CPI / NFP / FOMC / ECB / RBA / AUD CPI のいずれかでEVENT REJECT
+```
+
+---
+
+## Test 4：EA月末3営業日前停止確認
+
+対象：
+
+```text
+17_EA_1B または 20_EA_1A
+```
+
+確認：
+
+```text
+月末最終営業日
+月末2営業日前
+月末3営業日前
+でEVENT REJECT
+```
+
+---
+
+## Test 5：GA Common Events停止確認
+
+対象：
+
+```text
+22_GA_C_2
+```
+
+確認：
+
+```text
+BOE / RBA / AUD CPI / US CPI / NFP / FOMC でEVENT REJECT
+ECBでは停止しない
+```
+
+---
+
+## Test 6：China系イベント停止確認
+
+対象：
+
+```text
+25_AU_China_Demand
+26_AJ_China_Demand
+27_EA_China_Demand
+28_GA_China_Demand
+```
+
+確認：
+
+```text
+AU China：RBA / AUD CPI / FOMC前日・当日で停止
+AJ China：BOJ / RBA / AUD CPIで停止
+EA China：RBA / AUD CPI / FOMC前日・当日 / ECBで停止
+GA China：RBA / AUD CPI / FOMC前日・当日 / BOEで停止
+```
+
+---
+
+## Test 7：Exclude Month確認
+
+確認：
+
+```text
+AU China：8月・10月停止
+AJ China：2月・8月・10月停止
+EA China：8月・10月停止
+GA China：8月・10月停止
+```
+
+EA系：
+
+```text
+17_EA_1B：8月停止
+18_EA_2：1月・8月停止
+20_EA_1A：8月停止
+```
+
+---
+
+## Test 8：年末年始停止確認
+
+対象：
+
+```text
+任意の代表ロジック
+```
+
+確認：
+
+```text
+12/25〜1/3で停止
+```
+
+---
+
+## Test 9：イベント対象外日Entry確認
+
+対象：
+
+```text
+5_GJ_Port_Log2
+または
+25_AU_China_Demand
+```
+
+確認：
+
+```text
+イベント対象外日ではEVENT REJECTなし
+Entry条件を満たせばEntryする
+```
+
+---
+
+# Step 5.3 判定基準
+
+以下を確認できればStep 5.3を合格とする。
+
+```text
+コンパイルOK
+AJ系ECB除外OK
+EA Common Events停止OK
+EA月末3営業日前停止OK
+GA Common Events停止OK
+China系イベント停止OK
+Exclude Month停止OK
+年末年始停止OK
+イベント対象外日Entry OK
+EVENT REJECTログ抑制OK
+```
+
+---
+
+# 次にやること
+
+次はStep 5.3コード作成に進む。
+
+予定ファイル名：
+
+```text
+time_entry_step5_3_config_managed_28strategies_master_event_filter.mq5
+```
