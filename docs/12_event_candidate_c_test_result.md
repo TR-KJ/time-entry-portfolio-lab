@@ -1,0 +1,540 @@
+# Event Candidate C Test Result
+
+## 対象EA
+
+```text
+src/EA/time_entry_step9_2_event_candidate_c_28strategies.mq5
+```
+
+---
+
+## 目的
+
+Event Candidate C の実装後、以下が想定どおり動作するか確認する。
+
+```text
+1. InpUseEventCandidateC=false で現行Event Filter互換になる
+2. US CPI / NFP / BOJ が date_all_day で停止する
+3. FOMC が position_overlap で停止する
+4. FOMC が position_overlap 非該当なら通過する
+5. ATR OFF + Event Candidate C の組み合わせで動作する
+```
+
+---
+
+## 前提
+
+Event Candidate C は、現行Event Filterを残したまま、inputで切り替え可能にする方式。
+
+```text
+InpUseEventFilter = true
+InpUseEventCandidateC = false
+→ 現行Event Filter
+
+InpUseEventFilter = true
+InpUseEventCandidateC = true
+→ Event Candidate C
+```
+
+---
+
+## 共通テスト設定
+
+基本設定：
+
+```text
+InpUseWeekendMarketClosedGuard = true
+InpUseEventFilter = true
+InpPrintEventFilterLogs = true
+InpPrintDebug = true
+
+InpTestMode = true
+InpUseMockJstDateTime = true
+InpUseTestTimes = false
+```
+
+Event Candidate C単体を確認するため、原則としてATR FilterはOFFにする。
+
+```text
+InpUseGlobalAtrP70Filter = false
+InpPrintAtrFilterLogs = false
+```
+
+---
+
+# Test 1：InpUseEventCandidateC=false / 現行Event Filter互換
+
+## 目的
+
+`InpUseEventCandidateC=false` の場合、Candidate Cではなく現行Event Filter側で判定されることを確認する。
+
+## 条件
+
+```text
+InpUseEventFilter = true
+InpUseEventCandidateC = false
+InpUseGlobalAtrP70Filter = false
+InpUseWeekendMarketClosedGuard = true
+```
+
+## Strategy 1
+
+```text
+1_EJ_Log1
+```
+
+## 結果
+
+```text
+OK
+EVENT REJECT
+Reason: CPI week wed
+```
+
+## 補足
+
+`1_EJ_Log1` は、US CPI当日停止ではなく、CPI週水曜停止系の現行ルールで停止した。
+
+これはCandidate Cではなく、現行Event Filter側の既存ルールが動作している確認になる。
+
+---
+
+## Strategy 2
+
+```text
+5_GJ_Port_Log2
+```
+
+## 結果
+
+```text
+OK
+EVENT REJECT
+```
+
+---
+
+## 判定
+
+```text
+OK
+```
+
+`InpUseEventCandidateC=false` の場合、Candidate Cではなく現行Event Filter側で停止することを確認。
+
+---
+
+# Test 2：US CPI / NFP / BOJ date_all_day
+
+## 目的
+
+Event Candidate C ON時に、以下の重要イベントが `date_all_day` として停止されることを確認する。
+
+```text
+US_CPI
+US_NFP
+BOJ
+```
+
+---
+
+## Test 2-A：US CPI date_all_day
+
+### 条件
+
+```text
+InpUseEventCandidateC = true
+InpUseGlobalAtrP70Filter = false
+Strategy = 5_GJ_Port_Log2
+Event = US_CPI
+```
+
+### 結果
+
+```text
+OK
+EVENT REJECT
+```
+
+### 補足：1_EJ_Log1について
+
+`1_EJ_Log1` では、US CPI当日のrejectログは出なかった。
+
+これは異常ではなく、`1_EJ_Log1` がUS CPI当日停止ではなく、CPI week Wednesday系の特殊ルールを持つため。
+
+記録上は以下の扱いとする。
+
+```text
+5_GJ_Port_Log2：
+US CPI date_all_day 確認OK
+
+1_EJ_Log1：
+US CPI当日停止の確認対象からは除外
+CPI week Wednesday特殊ルールとして別扱い
+```
+
+---
+
+## Test 2-B：NFP date_all_day
+
+### 条件
+
+```text
+InpUseEventCandidateC = true
+InpUseGlobalAtrP70Filter = false
+Strategy = 5_GJ_Port_Log2
+Event = NFP
+```
+
+### 結果
+
+```text
+OK
+EVENT REJECT
+```
+
+### 判定
+
+```text
+NFP日がCandidate Cのdate_all_dayで停止することを確認。
+```
+
+---
+
+## Test 2-C：BOJ date_all_day
+
+### 条件
+
+```text
+InpUseEventCandidateC = true
+InpUseGlobalAtrP70Filter = false
+Strategy = 5_GJ_Port_Log2
+Event = BOJ
+```
+
+### 結果
+
+```text
+OK
+EVENT REJECT
+```
+
+### 判定
+
+```text
+BOJ日がCandidate Cのdate_all_dayで停止することを確認。
+```
+
+---
+
+# ここまでの判定
+
+```text
+Test 1：OK
+Test 2-A：OK
+Test 2-B：OK
+Test 2-C：OK
+```
+
+Event Candidate C の以下は確認済み。
+
+```text
+InpUseEventCandidateC=false で現行Event Filter互換
+US CPI / NFP / BOJ の date_all_day 停止
+```
+
+---
+
+# Test 3：FOMC position_overlap / 重なる場合だけ停止
+
+## 目的
+
+FOMCは、Candidate Cでは `date_all_day` ではなく `position_overlap` として扱う。
+
+つまり、FOMC日だから終日停止するのではなく、予定保有時間がFOMC停止ウィンドウと重なる場合のみ停止する。
+
+---
+
+## FOMC設定
+
+```text
+FOMC JST Date = 2026-07-30
+InpFomcEventHourJST = 3
+InpFomcEventMinuteJST = 0
+InpFomcPreMinutes = 180
+InpFomcPostMinutes = 180
+```
+
+停止ウィンドウ：
+
+```text
+2026-07-30 00:00 〜 2026-07-30 06:00
+```
+
+---
+
+## 確認したいこと
+
+予定ポジション保有時間が以下に重なる場合、停止する。
+
+```text
+Entry予定時刻 〜 Exit予定時刻
+と
+2026-07-30 00:00 〜 2026-07-30 06:00
+```
+
+---
+
+## 使用候補Strategy
+
+FOMC position_overlap確認には、FOMC対象かつ強制date_all_day対象ではないStrategyを使う。
+
+候補：
+
+```text
+27_EA_China_Demand
+28_GA_China_Demand
+13_UJ_Fix_MidWeek
+15_UJ_Sat_Aug
+```
+
+ただし、Date Ruleに先回りされないよう、Entry曜日・日付条件に注意する。
+
+---
+
+## 期待ログ
+
+予定保有時間がFOMCウィンドウに重なる場合、以下のようなログが出る。
+
+```text
+EVENT OVERLAP STOP
+Event=FOMC
+EventTime=2026.07.30 03:00
+WindowPre=180
+WindowPost=180
+```
+
+その後、汎用ログとして以下が出ても問題なし。
+
+```text
+Skip entry: entry filter rejected.
+```
+
+---
+
+## 合格条件
+
+```text
+EVENT OVERLAP STOP が出る
+CANDIDATE_C_DATE_FOMC では止まらない
+EventTime が 2026.07.30 03:00 になっている
+予定Entry〜ExitがFOMCウィンドウに重なる場合だけ停止する
+OrderSendされない
+```
+
+---
+
+# Test 4：FOMC position_overlap / 重ならない場合は通過
+
+## 目的
+
+FOMC日でも、予定保有時間がFOMC停止ウィンドウに重ならない場合は、Event Candidate Cでは停止しないことを確認する。
+
+---
+
+## FOMC停止ウィンドウ
+
+```text
+2026-07-30 00:00 〜 2026-07-30 06:00
+```
+
+---
+
+## 確認したいこと
+
+予定保有時間が上記ウィンドウに重ならない場合、FOMCでは停止しない。
+
+例：
+
+```text
+Entry予定時刻：10:00
+Exit予定時刻：15:50
+```
+
+この場合、
+
+```text
+10:00 〜 15:50
+```
+
+は、
+
+```text
+00:00 〜 06:00
+```
+
+と重ならないため、FOMCでは停止しない。
+
+---
+
+## 期待
+
+以下のログが出ないこと。
+
+```text
+EVENT OVERLAP STOP
+CANDIDATE_C_DATE_FOMC
+```
+
+ただし、別理由で止まる可能性はある。
+
+例：
+
+```text
+Date rule reject
+Skip entry: entry filter rejected
+Already entered today
+```
+
+これらはFOMC position_overlapの異常ではない。
+
+---
+
+## 合格条件
+
+```text
+FOMC日でもEVENT OVERLAP STOPが出ない
+CANDIDATE_C_DATE_FOMCも出ない
+後続判定へ進む
+```
+
+---
+
+# Test 5：ATR OFF + Event Candidate C 組み合わせ確認
+
+## 目的
+
+Forward Phase 2-A予定設定で、ATR FilterがOFFになり、Event Candidate Cのみでイベント停止されることを確認する。
+
+---
+
+## Phase 2-A予定設定
+
+```text
+LotMode = Fixed Lot
+FixedLot = 0.01
+
+InpUseWeekendMarketClosedGuard = true
+InpUseGlobalAtrP70Filter = false
+InpUseEventFilter = true
+InpUseEventCandidateC = true
+```
+
+---
+
+## Test 5-A：イベント日にEvent Candidate Cで停止
+
+### 条件
+
+```text
+InpUseGlobalAtrP70Filter = false
+InpUseEventCandidateC = true
+Event = US_CPI / NFP / BOJ など
+Strategy = 5_GJ_Port_Log2
+```
+
+### 期待
+
+```text
+Event Candidate Cで停止
+ATR REJECTは出ない
+OrderSendされない
+```
+
+### 合格条件
+
+```text
+EVENT REJECTが出る
+ATR REJECTが出ない
+Skip entry: entry filter rejected. が出てもOK
+```
+
+---
+
+## Test 5-B：イベント対象外日はATRで止まらない
+
+### 条件
+
+```text
+InpUseGlobalAtrP70Filter = false
+InpUseEventCandidateC = true
+Event対象外の平日
+Strategy = 5_GJ_Port_Log2 など
+```
+
+### 期待
+
+```text
+ATR REJECTが出ない
+EVENT REJECTが出ない
+Weekend Guardでも止まらない
+```
+
+ただし、Date RuleやAlreadyEnteredTodayで止まる可能性はある。
+
+---
+
+## 合格条件
+
+```text
+ATR OFFなのでATR REJECTが出ない
+イベント対象外ならEVENT REJECTも出ない
+後続判定へ進む
+```
+
+---
+
+# ログ繰り返しについて
+
+MockJST固定中は、EAのTimer処理により同じ判定が繰り返されるため、ログが複数回出ることがある。
+
+これはTestMode / MockJST中の挙動としては問題なし。
+
+通常フォワードでは以下を推奨する。
+
+```text
+InpSuppressWeekendGuardLogsOncePerDay = true
+InpSuppressEventLogsOncePerDay = true
+InpSuppressRuleRejectLogsOncePerDay = true
+InpPrintSkipLogs = false
+InpPrintAtrFilterLogs = false
+```
+
+---
+
+# 次回再開時の作業
+
+次回は以下から再開する。
+
+```text
+Test 3：FOMC position_overlap / 重なる場合だけ停止
+Test 4：FOMC position_overlap / 重ならない場合は通過
+Test 5：ATR OFF + Event Candidate C 組み合わせ確認
+```
+
+特にTest 3 / 4では、使用StrategyのEntry JST / Exit JSTと、Date Rule条件を確認したうえでMockJSTを指定する。
+
+---
+
+# 現時点の結論
+
+Event Candidate Cの前半テストは合格。
+
+```text
+現行Event Filter互換：OK
+US CPI date_all_day：OK
+NFP date_all_day：OK
+BOJ date_all_day：OK
+```
+
+次はFOMC position_overlapの確認へ進む。
