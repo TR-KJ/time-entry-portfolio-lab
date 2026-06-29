@@ -818,3 +818,138 @@ Expected: EVENT OVERLAP STOPなし
 4. EVENT OVERLAP STOPログが出るか確認
 5. 問題なければTest 5：ATR OFF + Event Candidate C確認へ進む
 ```
+
+---
+
+# Event Candidate C Retest Result
+
+## 対象EA
+
+src/EA/time_entry_step9_2_1_event_candidate_c_overlap_fix_28strategies.mq5
+
+---
+
+## 修正目的
+
+前回テストで、FOMC position_overlap において、Entry日翌日のFOMC発表時刻を正しく拾えていない可能性が確認された。
+
+特に以下のケースで、本来はFOMCウィンドウと重なるにもかかわらず、Entryしてしまった。
+
+Strategy: 3_EJ_NightBlitz_21  
+Entry: 2026-07-29 21:56  
+Exit : 2026-07-30 05:27  
+FOMC EventTime: 2026-07-30 03:00  
+Window: 2026-07-30 00:00〜06:00
+
+このため、position_overlap判定を修正した。
+
+---
+
+## 修正内容
+
+- Entry日だけでなく、予定保有期間中のイベントを確認する
+- Entry予定時刻〜Exit予定時刻とEvent Windowの重なりで停止判定する
+- 翌日深夜FOMCを拾えるようにする
+- EVENT OVERLAP STOPログで停止理由を明示する
+
+---
+
+## Retest 3-A：3_EJ_NightBlitz_21 / FOMC overlap
+
+### 条件
+
+Strategy: 3_EJ_NightBlitz_21  
+MockJST: 2026-07-29 21:56  
+Entry: 2026-07-29 21:56  
+Exit : 2026-07-30 05:27  
+FOMC EventTime: 2026-07-30 03:00  
+Window: 2026-07-30 00:00〜06:00
+
+### 結果
+
+OK  
+EVENT OVERLAP STOP
+
+### 補足
+
+その後、以下のログが繰り返し出る。
+
+skip entry : entry filter rejected
+
+これはMockJST固定中に同じ判定が繰り返され、Event Filterで止まり続けているため。異常ではない。
+
+---
+
+## Retest 3-B：18_EA_2 / FOMC overlap
+
+### 条件
+
+Strategy: 18_EA_2  
+MockJST: 2026-12-08 09:59  
+Entry: 2026-12-08 09:59  
+Exit : 2026-12-09 05:26  
+FOMC EventTime: 2026-12-09 03:00  
+Window: 2026-12-09 00:00〜06:00
+
+### 結果
+
+OK  
+EVENT OVERLAP STOP
+
+### 補足
+
+その後、以下のログが繰り返し出る。
+
+skip entry : entry filter rejected
+
+これはMockJST固定中に同じ判定が繰り返され、Event Filterで止まり続けているため。異常ではない。
+
+---
+
+## Retest 4-A：27_EA_China_Demand / FOMC non-overlap
+
+### 条件
+
+Strategy: 27_EA_China_Demand  
+MockJST: 2026-12-09 10:00  
+Entry: 2026-12-09 10:00  
+Exit : 2026-12-09 15:50  
+FOMC EventTime: 2026-12-09 03:00  
+Window: 2026-12-09 00:00〜06:00
+
+### 結果
+
+OK  
+Entry
+
+### 判定
+
+予定保有時間 10:00〜15:50 は、FOMC停止ウィンドウ 00:00〜06:00 と重ならない。
+
+そのため、FOMC position_overlapでは停止せず、Entryまで進むことを確認。
+
+---
+
+## Retest判定
+
+Retest 3-A：OK  
+Retest 3-B：OK  
+Retest 4-A：OK
+
+確認できたこと：
+
+- FOMC position_overlapで、翌日深夜FOMCを正しく拾える
+- 予定保有時間がFOMCウィンドウと重なる場合はEVENT OVERLAP STOPで停止する
+- 予定保有時間がFOMCウィンドウと重ならない場合は停止しない
+
+---
+
+## 結論
+
+Event Candidate C の position_overlap 修正は合格。
+
+time_entry_step9_2_1_event_candidate_c_overlap_fix_28strategies.mq5
+
+を、Event Candidate C実装版の有力候補とする。
+
+次は、ATR OFF + Event Candidate C の組み合わせ確認へ進む。
