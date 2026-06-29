@@ -953,3 +953,205 @@ time_entry_step9_2_1_event_candidate_c_overlap_fix_28strategies.mq5
 を、Event Candidate C実装版の有力候補とする。
 
 次は、ATR OFF + Event Candidate C の組み合わせ確認へ進む。
+
+---
+
+# Test 5 Result：ATR OFF + Event Candidate C Combination
+
+## 対象EA
+
+src/EA/time_entry_step9_2_1_event_candidate_c_overlap_fix_28strategies.mq5
+
+---
+
+## 目的
+
+Forward Phase 2-A予定設定で、ATR FilterをOFFにした状態でも、Event Candidate Cが想定どおり動作するか確認する。
+
+確認対象：
+
+- ATR Filter OFF時にATR REJECTが出ないこと
+- Event Candidate CはONのまま機能すること
+- US CPI date_all_dayで停止すること
+- イベント対象外日はEntryまで進むこと
+- FOMC position_overlapで、予定保有時間がFOMCウィンドウと重なる場合は停止すること
+
+---
+
+## Phase 2-A予定設定
+
+LotMode = Fixed Lot  
+FixedLot = 0.01  
+InpUseWeekendMarketClosedGuard = true  
+InpUseGlobalAtrP70Filter = false  
+InpUseEventFilter = true  
+InpUseEventCandidateC = true  
+
+---
+
+## 共通テスト設定
+
+InpUseGlobalAtrP70Filter = false  
+InpPrintAtrFilterLogs = false  
+InpUseEventFilter = true  
+InpUseEventCandidateC = true  
+InpPrintEventFilterLogs = true  
+InpTestMode = true  
+InpUseMockJstDateTime = true  
+InpUseTestTimes = false  
+
+ログ確認時は以下を一時的に使用。
+
+InpSuppressEventLogsOncePerDay = false  
+
+通常フォワードではログ抑制を戻す。
+
+InpSuppressEventLogsOncePerDay = true  
+InpPrintSkipLogs = false  
+InpPrintAtrFilterLogs = false  
+
+---
+
+## Test 5-A：ATR OFF + US CPI date_all_day
+
+### 条件
+
+Strategy: 5_GJ_Port_Log2  
+MockJST: 2026-07-14 09:55  
+Event: US CPI  
+ATR Filter: OFF  
+Event Candidate C: ON  
+
+### 結果
+
+OK  
+EVENT REJECT  
+米国CPIストップ  
+
+### 判定
+
+ATR Filter OFF状態でも、Event Candidate CによりUS CPIで停止することを確認。
+
+ATR REJECTは出ていない。
+
+---
+
+## Test 5-B：ATR OFF + イベント対象外日
+
+### 条件
+
+Strategy: 5_GJ_Port_Log2  
+MockJST: 2026-07-16 09:55  
+ATR Filter: OFF  
+Event Candidate C: ON  
+
+### 結果
+
+OK  
+Entry  
+
+### 判定
+
+イベント対象外日では、ATR Filter OFFによりATR REJECTは出ず、Event Candidate Cでも停止せず、Entryまで進むことを確認。
+
+Entry後に skip entry : already entered today が出る場合があるが、これはMockJST固定中に同じEntry判定が繰り返されるため。異常ではない。
+
+---
+
+## Test 5-C-1：ATR OFF + FOMC overlap / 3_EJ_NightBlitz_21
+
+### 条件
+
+Strategy: 3_EJ_NightBlitz_21  
+MockJST: 2026-07-29 21:56  
+Entry: 2026-07-29 21:56  
+Exit : 2026-07-30 05:27  
+FOMC EventTime: 2026-07-30 03:00  
+Window: 2026-07-30 00:00〜06:00  
+ATR Filter: OFF  
+Event Candidate C: ON  
+
+### 結果
+
+OK  
+EVENT OVERLAP STOP  
+FOMCで停止  
+
+### 判定
+
+ATR Filter OFF状態でも、予定保有時間がFOMC停止ウィンドウと重なる場合、Event Candidate Cのposition_overlapで停止することを確認。
+
+ATR REJECTは出ていない。
+
+### 補足
+
+InpSuppressEventLogsOncePerDay = false のため、EVENT OVERLAP STOPおよび skip entry : entry filter rejected が繰り返し出る。
+
+これはMockJST固定中に同じ判定が繰り返され、Event Filterで止まり続けているため。異常ではない。
+
+---
+
+## Test 5-C-2：ATR OFF + FOMC overlap / 18_EA_2
+
+### 条件
+
+Strategy: 18_EA_2  
+MockJST: 2026-12-08 09:59  
+Entry: 2026-12-08 09:59  
+Exit : 2026-12-09 05:26  
+FOMC EventTime: 2026-12-09 03:00  
+Window: 2026-12-09 00:00〜06:00  
+ATR Filter: OFF  
+Event Candidate C: ON  
+
+### 結果
+
+OK  
+EVENT OVERLAP STOP  
+FOMCで停止  
+
+### 判定
+
+ATR Filter OFF状態でも、予定保有時間がFOMC停止ウィンドウと重なる場合、Event Candidate Cのposition_overlapで停止することを確認。
+
+ATR REJECTは出ていない。
+
+### 補足
+
+InpSuppressEventLogsOncePerDay = false のため、EVENT OVERLAP STOPおよび skip entry : entry filter rejected が繰り返し出る。
+
+これはMockJST固定中に同じ判定が繰り返され、Event Filterで止まり続けているため。異常ではない。
+
+---
+
+## Test 5 判定
+
+Test 5-A：OK  
+Test 5-B：OK  
+Test 5-C-1：OK  
+Test 5-C-2：OK  
+
+確認できたこと：
+
+- ATR Filter OFFでも、Event Candidate Cは正常に機能する
+- US CPIはdate_all_dayで停止する
+- イベント対象外日はEntryまで進む
+- FOMC overlapは予定保有時間と重なる場合に停止する
+- ATR REJECTは出ない
+
+---
+
+## 結論
+
+ATR OFF + Event Candidate C の組み合わせ確認は合格。
+
+Forward Phase 2-A予定設定として、以下の組み合わせは有効候補とする。
+
+LotMode = Fixed Lot  
+FixedLot = 0.01  
+InpUseWeekendMarketClosedGuard = true  
+InpUseGlobalAtrP70Filter = false  
+InpUseEventFilter = true  
+InpUseEventCandidateC = true  
+
+次は、Forward Phase 2-A設定の確定MD作成へ進む。
