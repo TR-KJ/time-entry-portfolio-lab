@@ -289,15 +289,27 @@ Windowsから次の確認が表示された場合:
 
 VPSにはOANDA実口座用MT5を1つだけインストールする。
 
-推奨インストール先例:
+推奨インストール先:
 
 `C:\OANDA_MT5_LIVE`
 
-または:
+DELL上の実口座用MT5と同じフォルダ名を使用しても問題ない。
 
-`C:\Program Files\OANDA MT5 LIVE`
+DELLとVPSは別々のWindows環境であり、それぞれ独立したCドライブを持つため、同じパス名でもファイルや設定が混在することはない。
 
-分かりやすく、短いフォルダ名を推奨する。
+例:
+
+- DELL: `C:\OANDA_MT5_LIVE`
+- VPS: `C:\OANDA_MT5_LIVE`
+
+ただし、デスクトップのショートカット名は環境を区別できる名称にする。
+
+推奨:
+
+- DELL: `OANDA MT5 LIVE DELL`
+- VPS: `OANDA MT5 LIVE VPS`
+
+同じVPS内に複数のMT5をインストールする場合のみ、インストール先を分ける。
 
 ---
 
