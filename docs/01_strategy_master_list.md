@@ -243,7 +243,7 @@ v1.2追加後は、クロス円16ロジック + オージー系12ロジックの
 
 | No | Strategy ID | Pair | Direction | Weekday | Entry JST | Exit JST | Exit Offset | SL | TP | Individual Stop | Event Filter |
 |---:|---|---|---|---|---:|---:|---:|---:|---:|---|---|
-| 21 | GA_B_3 | GBPAUD | Long | Mon | 21:02 | 10:00 | +1 day | 220 | 100 | none | GA Common Events |
+| 21 | GA_B_3 | GBPAUD | Long | Mon | 21:02 | 10:00 | +1 day | 220 | 100 | 8月 | GA Common Events |
 | 22 | GA_C_2 | GBPAUD | Long | Thu | 16:56 | 01:15 | +1 day | 70 | 80 | none | GA Common Events |
 | 23 | GA_F_2 | GBPAUD | Short | Fri | 19:42 | 22:45 | same day | 90 | 200 | none | GA Common Events |
 | 24 | GA_D_1 | GBPAUD | Long | Fri | 22:44 | 03:08 | +1 day | 90 | 200 | none | GA Common Events |
