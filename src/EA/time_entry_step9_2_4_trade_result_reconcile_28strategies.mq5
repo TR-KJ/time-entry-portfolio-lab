@@ -303,11 +303,35 @@ struct PendingEntryReconciliation
 
 PendingEntryReconciliation pending_entry_reconciliations[];
 
+void ResetPendingEntryReconciliation(int index)
+{
+   if(index < 0 || index >= ArraySize(pending_entry_reconciliations)) return;
+
+   pending_entry_reconciliations[index].active = false;
+   pending_entry_reconciliations[index].strategy_index = index;
+   pending_entry_reconciliations[index].direction = 0;
+   pending_entry_reconciliations[index].requested_lot = 0.0;
+   pending_entry_reconciliations[index].request_time_msc = 0;
+   pending_entry_reconciliations[index].previous_deal_ticket = 0;
+   pending_entry_reconciliations[index].result_order = 0;
+   pending_entry_reconciliations[index].result_deal = 0;
+   pending_entry_reconciliations[index].entry_jst_time = 0;
+   pending_entry_reconciliations[index].deadline_tick_msc = 0;
+   pending_entry_reconciliations[index].retcode = 0;
+   pending_entry_reconciliations[index].retcode_description = "";
+}
+
 void EnsurePendingEntryReconciliationArray()
 {
    int strategy_count = ArraySize(strategies);
-   if(ArraySize(pending_entry_reconciliations) != strategy_count)
-      ArrayResize(pending_entry_reconciliations, strategy_count);
+   int previous_count = ArraySize(pending_entry_reconciliations);
+   if(previous_count == strategy_count) return;
+
+   ArrayResize(pending_entry_reconciliations, strategy_count);
+
+   // Preserve existing pending entries and initialize only newly allocated slots.
+   for(int i = previous_count; i < strategy_count; i++)
+      ResetPendingEntryReconciliation(i);
 }
 
 bool HasPendingEntryReconciliation(int strategy_index)
@@ -326,8 +350,7 @@ int FindStrategyIndexByMagicAndSymbol(long magic, string symbol)
 
 void ClearPendingEntryReconciliation(int strategy_index)
 {
-   if(strategy_index < 0 || strategy_index >= ArraySize(pending_entry_reconciliations)) return;
-   pending_entry_reconciliations[strategy_index].active = false;
+   ResetPendingEntryReconciliation(strategy_index);
 }
 
 void StartPendingEntryReconciliation(StrategyConfig &cfg,

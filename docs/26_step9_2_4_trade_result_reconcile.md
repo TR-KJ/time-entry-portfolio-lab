@@ -114,3 +114,33 @@ VPS MT5 Build 6116、GBPJPY `4_GJ_Port_Log1`、00:00、固定Lot `0.01` で以�
 ## 7. 現時点の検証範囲
 
 このリポジトリ作業環境にはMetaEditor / MT5がないため、構文の静的確認とStep9.2.3との差分確認までを実施する。最終的な `0 errors, 0 warnings` とBuild 6116での実約定照合は、上記手順でWindows側にて確認する。
+
+## 8. 起動時の未初期化pending修正
+
+最新版EX5をVPSへ再セットした直後、アルゴリズム取引OFF・実注文なしにもかかわらず、次のような照合timeoutログが出る事象を確認した。
+
+```text
+[Step6.3 Stops 21_GA_B_3] UNKNOWN entry failed. Symbol=GBPAUD, Retcode=0, , Reconcile=timeout_no_matching_position_or_deal, ResultOrder=2459294974414
+```
+
+原因は、`EnsurePendingEntryReconciliationArray()` がstruct配列を `ArrayResize()` するだけで、各要素を明示初期化していなかったことにある。起動直後に `active`、方向、Lot、時刻、Ticket、期限、Retcode、説明文字列などが未初期化値として参照されると、実注文由来ではない偽のpendingを `ProcessPendingEntryReconciliations()` が処理し得る。
+
+修正として `ResetPendingEntryReconciliation(int index)` を追加し、以下の全フィールドを既知の安全値へ戻す。
+
+- `active=false`
+- `strategy_index=index`
+- `direction=0`
+- Lot、時刻、Ticket、期限、Retcodeはすべて0
+- `retcode_description=""`
+
+`EnsurePendingEntryReconciliationArray()` は配列サイズが変わった場合だけresizeし、拡張で新しく確保された要素だけを明示初期化する。既存要素は保持するため、実注文に由来する照合待ちを誤って消さない。`ClearPendingEntryReconciliation()` も同じリセット関数を使い、activeだけでなく残存フィールドをすべて消去する。
+
+### 確認項目
+
+1. EA再セット直後、アルゴリズム取引OFF・実注文なしで、`UNKNOWN entry failed` や `Reconcile=timeout_no_matching_position_or_deal` が出ない。
+2. 28戦略分の配列作成後、全要素が `active=false` で、各 `strategy_index` が配列indexと一致する。
+3. 実際の照合待ちが存在する状態で同サイズの確保処理を呼んでも、そのpendingが保持される。
+4. 配列拡張時は既存pendingが保持され、新規要素だけが安全初期化される。
+5. 照合成功・timeout後のClearで、全フィールドが安全値へ戻る。
+6. `OnTradeTransaction()` の非同期照合、10秒timeout、通常成功パスをBUY・SELLで再確認する。
+7. 28戦略、イベントフィルタ、GA_B3の8月停止、ロット計算、決済処理に差分がないことを確認する。
