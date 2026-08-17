@@ -51,7 +51,11 @@ src/EA/time_entry_step9_2_3_ga_b3_august_stop_28strategies.mq5
 
 条件に一致するポジションまたは約定を確認できた場合だけ、`entry reconciled success` として `MarkEnteredToday()` を実行する。
 
-確認できない場合は、従来どおり `entry failed` とし、`MarkEnteredToday()` は実行しない。
+注文直後の同期照合で確認できない場合は、即失敗にせず戦略単位の「照合待ち状態」へ移る。既定の待機期限は10秒（`InpTradeReconcileTimeoutSeconds`）で、その間は同じ戦略の再注文を抑止する。
+
+`OnTradeTransaction()` の `TRADE_TRANSACTION_DEAL_ADD` を受信したら、上記条件に加え、`ResultOrder != 0` の場合は `DEAL_ORDER == ResultOrder` も必須として照合する。一致した新規エントリー約定を確認できた場合だけ、`entry reconciled success` として `MarkEnteredToday()` を実行する。
+
+Tick/Timerでもポジション・履歴の補助照合を継続する。期限内に確認できなければ `Reconcile=timeout_no_matching_position_or_deal` の失敗ログを出し、`MarkEnteredToday()` は実行しない。
 
 ## 4. ログ例
 
@@ -67,25 +71,46 @@ src/EA/time_entry_step9_2_3_ga_b3_august_stop_28strategies.mq5
 BUY entry reconciled success. Symbol=EURJPY, Magic=10001, RequestedLot=0.01, ActualLot=0.01, Evidence=POSITION, Ticket=...
 ```
 
-照合できない場合：
+照合待ちへ移行した場合：
 
 ```text
-BUY entry failed. Symbol=EURJPY, Retcode=0, unknown retcode 0, Reconcile=no_matching_position_or_deal
+BUY entry reconciliation pending. Symbol=EURJPY, Magic=10001, RequestedLot=0.01, ResultOrder=42643435, TimeoutSeconds=10
 ```
 
-## 5. 検証手順
+期限切れの場合：
+
+```text
+BUY entry failed. Symbol=EURJPY, Retcode=0, unknown retcode 0, Reconcile=timeout_no_matching_position_or_deal, ResultOrder=42643435
+```
+
+## 5. Build 6116 実機結果と修正理由
+
+VPS MT5 Build 6116、GBPJPY `4_GJ_Port_Log1`、00:00、固定Lot `0.01` で以下を確認した。
+
+- `CTrade::OrderSend`: `unknown retcode 0`
+- 診断: `Returned=false / ResultRetcode=0 / ResultOrder=42643435`
+- 直後の同期照合: `Reconcile=no_matching_position_or_deal`
+- 操作ログ: `accepted -> placed -> order #42643435 done -> deal #33453748 done`
+- 同一時刻: `00:00:00.117`
+
+注文送信直後の同期照合が、Deal/Positionの反映より先に完了した可能性が高い。このため、同じStep9.2.4のまま、実際の取引イベントを根拠に確定する非同期照合へ修正した。
+
+## 6. 修正版の検証手順
 
 1. MetaEditorでStep9.2.4をコンパイルし、`0 errors, 0 warnings` を確認する。
 2. デモ口座でBUY・SELL各1回を実行し、診断ログと通常の `entry success` を確認する。
 3. 存在しないSymbol、異常Lot、取引禁止時間などの失敗では、照合成功にならないことを確認する。
 4. VPS Build 6116の実口座で固定Lot `0.01` を1戦略だけ有効にして試験する。
-5. `false / ResultRetcode=0` が再現した場合、実ポジションまたは取引履歴と、`Evidence=POSITION` または `Evidence=DEAL` のTicket・Magic・Lot・方向が一致することを確認する。
-6. 救済成功後、同日の再エントリーが `already entered today` で抑止されることを確認する。
-7. 約定証拠がない失敗では `entry failed` のままであることを確認する。
-8. GA_B3の8月停止と既存イベントフィルタの代表ケースを再確認する。
+5. `false / ResultRetcode=0` が再現した場合、まず `entry reconciliation pending` が出て即時失敗にならないことを確認する。
+6. `DEAL_ADD` 後に `Evidence=DEAL_ADD` の `entry reconciled success` が出て、Ticket・Symbol・Magic・Lot・方向・ResultOrderが実約定と一致することを確認する。
+7. 照合待ち中に同じ戦略の注文が再送されず、救済成功後は同日の再エントリーが `already entered today` で抑止されることを確認する。
+8. 無関係な別Symbol・別Magic・逆方向・過大Lot・別OrderのDealでは照合成功にならないことを確認する。
+9. 約定証拠がない異常結果は10秒後に `Reconcile=timeout_no_matching_position_or_deal` となることを確認する。
+10. 通常の `result=true` + `PLACED / DONE / DONE_PARTIAL` 成功パスをBUY・SELL各1回確認する。
+11. GA_B3の8月停止と既存イベントフィルタの代表ケースを再確認する。
 
 実口座試験では、DELLとVPSを同時にアルゴリズム取引ONにしない。
 
-## 6. 現時点の検証範囲
+## 7. 現時点の検証範囲
 
 このリポジトリ作業環境にはMetaEditor / MT5がないため、構文の静的確認とStep9.2.3との差分確認までを実施する。最終的な `0 errors, 0 warnings` とBuild 6116での実約定照合は、上記手順でWindows側にて確認する。

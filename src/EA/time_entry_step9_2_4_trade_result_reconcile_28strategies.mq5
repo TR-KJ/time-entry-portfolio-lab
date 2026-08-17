@@ -17,10 +17,12 @@ input int InpBojPostMinutes = 180;
 
 // Step 9.2.4 trade-result diagnostics.
 input bool InpPrintTradeResultDiagnostics = true;
+input int InpTradeReconcileTimeoutSeconds = 10;
 
 // Keep the proven Step 9.2.1 body and override only the functions that need changed behavior.
 #define OnTick OnTick_Base_Step921
 #define OnTimer OnTimer_Base_Step921
+#define OnTradeTransaction OnTradeTransaction_Base_Step921
 #define RunStrategies RunStrategies_Base_Step921
 #define TryEntry TryEntry_Base_Step921
 #define IsEntryTime IsEntryTime_Base_Step921
@@ -45,6 +47,7 @@ input bool InpPrintTradeResultDiagnostics = true;
 
 #undef OnTick
 #undef OnTimer
+#undef OnTradeTransaction
 #undef RunStrategies
 #undef TryEntry
 #undef IsEntryTime
@@ -282,6 +285,96 @@ double GetStrategyLot(StrategyConfig &cfg, datetime jst_time)
 //+------------------------------------------------------------------+
 //| Step 9.2.4 trade-result diagnostics and reconciliation           |
 //+------------------------------------------------------------------+
+struct PendingEntryReconciliation
+{
+   bool active;
+   int strategy_index;
+   int direction;
+   double requested_lot;
+   long request_time_msc;
+   ulong previous_deal_ticket;
+   ulong result_order;
+   ulong result_deal;
+   datetime entry_jst_time;
+   ulong deadline_tick_msc;
+   long retcode;
+   string retcode_description;
+};
+
+PendingEntryReconciliation pending_entry_reconciliations[];
+
+void EnsurePendingEntryReconciliationArray()
+{
+   int strategy_count = ArraySize(strategies);
+   if(ArraySize(pending_entry_reconciliations) != strategy_count)
+      ArrayResize(pending_entry_reconciliations, strategy_count);
+}
+
+bool HasPendingEntryReconciliation(int strategy_index)
+{
+   EnsurePendingEntryReconciliationArray();
+   if(strategy_index < 0 || strategy_index >= ArraySize(pending_entry_reconciliations)) return false;
+   return pending_entry_reconciliations[strategy_index].active;
+}
+
+int FindStrategyIndexByMagicAndSymbol(long magic, string symbol)
+{
+   for(int i = 0; i < ArraySize(strategies); i++)
+      if(strategies[i].magic == magic && strategies[i].symbol == symbol) return i;
+   return -1;
+}
+
+void ClearPendingEntryReconciliation(int strategy_index)
+{
+   if(strategy_index < 0 || strategy_index >= ArraySize(pending_entry_reconciliations)) return;
+   pending_entry_reconciliations[strategy_index].active = false;
+}
+
+void StartPendingEntryReconciliation(StrategyConfig &cfg,
+                                     int direction,
+                                     double requested_lot,
+                                     long request_time_msc,
+                                     ulong previous_deal_ticket,
+                                     ulong result_order,
+                                     ulong result_deal,
+                                     datetime entry_jst_time,
+                                     long retcode,
+                                     string retcode_description)
+{
+   EnsurePendingEntryReconciliationArray();
+   int strategy_index = FindStrategyIndexByMagicAndSymbol(cfg.magic, cfg.symbol);
+   if(strategy_index < 0)
+   {
+      PrintDebug(cfg.strategy_name, TradeDirectionText(direction) + " entry failed. Reconcile=cannot_identify_strategy");
+      return;
+   }
+
+   PendingEntryReconciliation pending;
+   pending.active = true;
+   pending.strategy_index = strategy_index;
+   pending.direction = direction;
+   pending.requested_lot = requested_lot;
+   pending.request_time_msc = request_time_msc;
+   pending.previous_deal_ticket = previous_deal_ticket;
+   pending.result_order = result_order;
+   pending.result_deal = result_deal;
+   pending.entry_jst_time = entry_jst_time;
+   int timeout_seconds = InpTradeReconcileTimeoutSeconds;
+   if(timeout_seconds < 1) timeout_seconds = 1;
+   pending.deadline_tick_msc = GetTickCount64() + (ulong)timeout_seconds * 1000;
+   pending.retcode = retcode;
+   pending.retcode_description = retcode_description;
+   pending_entry_reconciliations[strategy_index] = pending;
+
+   PrintDebug(cfg.strategy_name,
+              TradeDirectionText(direction) +
+              " entry reconciliation pending. Symbol=" + cfg.symbol +
+              ", Magic=" + IntegerToString(cfg.magic) +
+              ", RequestedLot=" + DoubleToString(requested_lot, 2) +
+              ", ResultOrder=" + TicketToText(result_order) +
+              ", TimeoutSeconds=" + IntegerToString(timeout_seconds));
+}
+
 string TicketToText(ulong ticket)
 {
    return IntegerToString((long)ticket);
@@ -374,6 +467,7 @@ bool IsMatchingEntryDeal(ulong ticket,
                          int direction,
                          double requested_lot,
                          long minimum_time_msc,
+                         ulong expected_order,
                          double &actual_lot)
 {
    if(ticket == 0) return false;
@@ -381,6 +475,7 @@ bool IsMatchingEntryDeal(ulong ticket,
    if(HistoryDealGetInteger(ticket, DEAL_MAGIC) != cfg.magic) return false;
    if(HistoryDealGetInteger(ticket, DEAL_ENTRY) != DEAL_ENTRY_IN) return false;
    if(!IsExpectedDealDirection(direction, HistoryDealGetInteger(ticket, DEAL_TYPE))) return false;
+   if(expected_order != 0 && (ulong)HistoryDealGetInteger(ticket, DEAL_ORDER) != expected_order) return false;
 
    long deal_time_msc = HistoryDealGetInteger(ticket, DEAL_TIME_MSC);
    if(deal_time_msc < minimum_time_msc) return false;
@@ -425,6 +520,7 @@ bool FindMatchingNewDeal(StrategyConfig &cfg,
                          double requested_lot,
                          long minimum_time_msc,
                          ulong previous_deal_ticket,
+                         ulong result_order,
                          ulong result_deal,
                          ulong &confirmed_deal_ticket,
                          double &actual_lot)
@@ -432,7 +528,7 @@ bool FindMatchingNewDeal(StrategyConfig &cfg,
    if(result_deal != 0 && result_deal != previous_deal_ticket)
    {
       if(HistoryDealSelect(result_deal) &&
-         IsMatchingEntryDeal(result_deal, cfg, direction, requested_lot, minimum_time_msc, actual_lot))
+         IsMatchingEntryDeal(result_deal, cfg, direction, requested_lot, minimum_time_msc, result_order, actual_lot))
       {
          confirmed_deal_ticket = result_deal;
          return true;
@@ -450,7 +546,7 @@ bool FindMatchingNewDeal(StrategyConfig &cfg,
    {
       ulong ticket = HistoryDealGetTicket(i);
       if(ticket == 0 || ticket == previous_deal_ticket) continue;
-      if(!IsMatchingEntryDeal(ticket, cfg, direction, requested_lot, minimum_time_msc, actual_lot)) continue;
+      if(!IsMatchingEntryDeal(ticket, cfg, direction, requested_lot, minimum_time_msc, result_order, actual_lot)) continue;
 
       confirmed_deal_ticket = ticket;
       return true;
@@ -464,6 +560,7 @@ bool ReconcileExecutedEntry(StrategyConfig &cfg,
                             double requested_lot,
                             long request_time_msc,
                             ulong previous_deal_ticket,
+                            ulong result_order,
                             ulong result_deal,
                             string &evidence_source,
                             ulong &evidence_ticket,
@@ -483,6 +580,7 @@ bool ReconcileExecutedEntry(StrategyConfig &cfg,
                           requested_lot,
                           minimum_time_msc,
                           previous_deal_ticket,
+                          result_order,
                           result_deal,
                           evidence_ticket,
                           actual_lot))
@@ -492,6 +590,84 @@ bool ReconcileExecutedEntry(StrategyConfig &cfg,
    }
 
    return false;
+}
+
+bool ConfirmPendingEntryFromDeal(int strategy_index, ulong deal_ticket)
+{
+   if(strategy_index < 0 || strategy_index >= ArraySize(pending_entry_reconciliations)) return false;
+   if(!pending_entry_reconciliations[strategy_index].active) return false;
+
+   PendingEntryReconciliation pending = pending_entry_reconciliations[strategy_index];
+   if(!HistoryDealSelect(deal_ticket)) return false;
+
+   double actual_lot = 0.0;
+   long minimum_time_msc = pending.request_time_msc - 2000;
+   if(!IsMatchingEntryDeal(deal_ticket,
+                           strategies[strategy_index],
+                           pending.direction,
+                           pending.requested_lot,
+                           minimum_time_msc,
+                           pending.result_order,
+                           actual_lot))
+      return false;
+
+   ClearPendingEntryReconciliation(strategy_index);
+   MarkEnteredToday(strategies[strategy_index], pending.entry_jst_time);
+   PrintReconciledEntrySuccess(strategies[strategy_index],
+                               pending.direction,
+                               pending.requested_lot,
+                               "DEAL_ADD",
+                               deal_ticket,
+                               actual_lot);
+   return true;
+}
+
+void ProcessPendingEntryReconciliations()
+{
+   EnsurePendingEntryReconciliationArray();
+   ulong now_tick_msc = GetTickCount64();
+
+   for(int i = 0; i < ArraySize(pending_entry_reconciliations); i++)
+   {
+      if(!pending_entry_reconciliations[i].active) continue;
+
+      PendingEntryReconciliation pending = pending_entry_reconciliations[i];
+      string evidence_source = "";
+      ulong evidence_ticket = 0;
+      double actual_lot = 0.0;
+      if(ReconcileExecutedEntry(strategies[i],
+                                pending.direction,
+                                pending.requested_lot,
+                                pending.request_time_msc,
+                                pending.previous_deal_ticket,
+                                pending.result_order,
+                                pending.result_deal,
+                                evidence_source,
+                                evidence_ticket,
+                                actual_lot))
+      {
+         ClearPendingEntryReconciliation(i);
+         MarkEnteredToday(strategies[i], pending.entry_jst_time);
+         PrintReconciledEntrySuccess(strategies[i],
+                                     pending.direction,
+                                     pending.requested_lot,
+                                     evidence_source,
+                                     evidence_ticket,
+                                     actual_lot);
+         continue;
+      }
+
+      if(now_tick_msc < pending.deadline_tick_msc) continue;
+
+      ClearPendingEntryReconciliation(i);
+      PrintDebug(strategies[i].strategy_name,
+                 TradeDirectionText(pending.direction) +
+                 " entry failed. Symbol=" + strategies[i].symbol +
+                 ", Retcode=" + IntegerToString(pending.retcode) +
+                 ", " + pending.retcode_description +
+                 ", Reconcile=timeout_no_matching_position_or_deal" +
+                 ", ResultOrder=" + TicketToText(pending.result_order));
+   }
 }
 
 void PrintTradeResultDiagnostic(StrategyConfig &cfg,
@@ -592,6 +768,7 @@ bool SendBuyOrder(StrategyConfig &cfg, datetime jst_time)
                              lot,
                              request_time_msc,
                              previous_deal_ticket,
+                             result_order,
                              result_deal,
                              evidence_source,
                              evidence_ticket,
@@ -602,7 +779,16 @@ bool SendBuyOrder(StrategyConfig &cfg, datetime jst_time)
       return true;
    }
 
-   PrintDebug(cfg.strategy_name, "BUY entry failed. Symbol=" + cfg.symbol + ", Retcode=" + IntegerToString(retcode) + ", " + desc + ", Reconcile=no_matching_position_or_deal");
+   StartPendingEntryReconciliation(cfg,
+                                   DIR_LONG,
+                                   lot,
+                                   request_time_msc,
+                                   previous_deal_ticket,
+                                   result_order,
+                                   result_deal,
+                                   jst_time,
+                                   retcode,
+                                   desc);
    return false;
 }
 
@@ -657,6 +843,7 @@ bool SendSellOrder(StrategyConfig &cfg, datetime jst_time)
                              lot,
                              request_time_msc,
                              previous_deal_ticket,
+                             result_order,
                              result_deal,
                              evidence_source,
                              evidence_ticket,
@@ -667,7 +854,16 @@ bool SendSellOrder(StrategyConfig &cfg, datetime jst_time)
       return true;
    }
 
-   PrintDebug(cfg.strategy_name, "SELL entry failed. Symbol=" + cfg.symbol + ", Retcode=" + IntegerToString(retcode) + ", " + desc + ", Reconcile=no_matching_position_or_deal");
+   StartPendingEntryReconciliation(cfg,
+                                   DIR_SHORT,
+                                   lot,
+                                   request_time_msc,
+                                   previous_deal_ticket,
+                                   result_order,
+                                   result_deal,
+                                   jst_time,
+                                   retcode,
+                                   desc);
    return false;
 }
 
@@ -896,6 +1092,8 @@ void TryEntry(StrategyConfig &cfg, datetime jst_time)
       return;
    }
    if(AlreadyEnteredToday(cfg, jst_time)){ PrintSkipOncePerDay(cfg, jst_time, "already_entered_today", "Skip entry: already entered today."); return; }
+   int strategy_index = FindStrategyIndexByMagicAndSymbol(cfg.magic, cfg.symbol);
+   if(HasPendingEntryReconciliation(strategy_index)){ PrintSkipOncePerDay(cfg, jst_time, "entry_reconciliation_pending", "Skip entry: entry reconciliation pending."); return; }
    if(HasOpenPosition(cfg.symbol, cfg.magic)){ PrintSkipOncePerDay(cfg, jst_time, "position_already_exists", "Skip entry: position already exists."); return; }
    if(cfg.direction == DIR_LONG){ SendBuyOrder(cfg, jst_time); return; }
    if(cfg.direction == DIR_SHORT){ SendSellOrder(cfg, jst_time); return; }
@@ -910,12 +1108,29 @@ void RunStrategies()
    for(int i = 0; i < strategy_count; i++) TryEntry(strategies[i], jst_time);
 }
 
+void OnTradeTransaction(const MqlTradeTransaction &trans,
+                        const MqlTradeRequest &request,
+                        const MqlTradeResult &result)
+{
+   if(trans.type != TRADE_TRANSACTION_DEAL_ADD || trans.deal == 0) return;
+   if(!HistoryDealSelect(trans.deal)) return;
+
+   string symbol = HistoryDealGetString(trans.deal, DEAL_SYMBOL);
+   long magic = HistoryDealGetInteger(trans.deal, DEAL_MAGIC);
+   int strategy_index = FindStrategyIndexByMagicAndSymbol(magic, symbol);
+   if(strategy_index < 0 || !HasPendingEntryReconciliation(strategy_index)) return;
+
+   ConfirmPendingEntryFromDeal(strategy_index, trans.deal);
+}
+
 void OnTick()
 {
+   ProcessPendingEntryReconciliations();
    RunStrategies();
 }
 
 void OnTimer()
 {
+   ProcessPendingEntryReconciliations();
    RunStrategies();
 }
