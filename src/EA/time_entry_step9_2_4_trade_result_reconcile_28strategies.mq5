@@ -24,6 +24,8 @@ input int InpTradeReconcileTimeoutSeconds = 10;
 #define OnTimer OnTimer_Base_Step921
 #define OnTradeTransaction OnTradeTransaction_Base_Step921
 #define RunStrategies RunStrategies_Base_Step921
+#define TryExit TryExit_Base_Step921
+#define ClosePositionsByConfig ClosePositionsByConfig_Base_Step921
 #define TryEntry TryEntry_Base_Step921
 #define IsEntryTime IsEntryTime_Base_Step921
 #define PassEntryFilters PassEntryFilters_Base_Step921
@@ -49,6 +51,8 @@ input int InpTradeReconcileTimeoutSeconds = 10;
 #undef OnTimer
 #undef OnTradeTransaction
 #undef RunStrategies
+#undef TryExit
+#undef ClosePositionsByConfig
 #undef TryEntry
 #undef IsEntryTime
 #undef PassEntryFilters
@@ -693,6 +697,260 @@ void ProcessPendingEntryReconciliations()
    }
 }
 
+
+struct PendingExitReconciliation
+{
+   bool active; int strategy_index; ulong position_ticket; ulong position_identifier;
+   int close_direction; double requested_lot; long request_time_msc;
+   ulong result_order; ulong result_deal; ulong deadline_tick_msc;
+   long retcode; string retcode_description; int last_error;
+};
+PendingExitReconciliation pending_exit_reconciliations[];
+
+void ResetPendingExitReconciliation(int index)
+{
+   if(index < 0 || index >= ArraySize(pending_exit_reconciliations)) return;
+   pending_exit_reconciliations[index].active=false;
+   pending_exit_reconciliations[index].strategy_index=-1;
+   pending_exit_reconciliations[index].position_ticket=0;
+   pending_exit_reconciliations[index].position_identifier=0;
+   pending_exit_reconciliations[index].close_direction=0;
+   pending_exit_reconciliations[index].requested_lot=0.0;
+   pending_exit_reconciliations[index].request_time_msc=0;
+   pending_exit_reconciliations[index].result_order=0;
+   pending_exit_reconciliations[index].result_deal=0;
+   pending_exit_reconciliations[index].deadline_tick_msc=0;
+   pending_exit_reconciliations[index].retcode=0;
+   pending_exit_reconciliations[index].retcode_description="";
+   pending_exit_reconciliations[index].last_error=0;
+}
+int FindPendingExitByPositionTicket(ulong ticket)
+{
+   for(int i=0;i<ArraySize(pending_exit_reconciliations);i++)
+      if(pending_exit_reconciliations[i].active &&
+         pending_exit_reconciliations[i].position_ticket==ticket) return i;
+   return -1;
+}
+bool HasPendingExitReconciliation(ulong ticket)
+{ return FindPendingExitByPositionTicket(ticket)>=0; }
+int AllocatePendingExitReconciliation()
+{
+   for(int i=0;i<ArraySize(pending_exit_reconciliations);i++)
+      if(!pending_exit_reconciliations[i].active)
+      { ResetPendingExitReconciliation(i); return i; }
+   int index=ArraySize(pending_exit_reconciliations);
+   ArrayResize(pending_exit_reconciliations,index+1);
+   ResetPendingExitReconciliation(index);
+   return index;
+}
+bool IsExactReconciledVolume(string symbol,double actual_lot,double requested_lot)
+{
+   double step=SymbolInfoDouble(symbol,SYMBOL_VOLUME_STEP);
+   double tolerance=(step>0 ? step*0.5 : 0.0000001);
+   return actual_lot>0 && MathAbs(actual_lot-requested_lot)<=tolerance;
+}
+bool IsMatchingExitDeal(ulong deal_ticket,PendingExitReconciliation &pending,
+                        StrategyConfig &cfg,double &actual_lot)
+{
+   if(deal_ticket==0 || !HistoryDealSelect(deal_ticket)) return false;
+   if(HistoryDealGetString(deal_ticket,DEAL_SYMBOL)!=cfg.symbol) return false;
+   if(HistoryDealGetInteger(deal_ticket,DEAL_MAGIC)!=cfg.magic) return false;
+   long entry=HistoryDealGetInteger(deal_ticket,DEAL_ENTRY);
+   if(entry!=DEAL_ENTRY_OUT && entry!=DEAL_ENTRY_OUT_BY) return false;
+   if(!IsExpectedDealDirection(pending.close_direction,
+                               HistoryDealGetInteger(deal_ticket,DEAL_TYPE))) return false;
+   ulong position_id=(ulong)HistoryDealGetInteger(deal_ticket,DEAL_POSITION_ID);
+   if(pending.position_identifier==0 || position_id!=pending.position_identifier) return false;
+   if(pending.result_order!=0 &&
+      (ulong)HistoryDealGetInteger(deal_ticket,DEAL_ORDER)!=pending.result_order) return false;
+   if(HistoryDealGetInteger(deal_ticket,DEAL_TIME_MSC)<pending.request_time_msc-2000) return false;
+   actual_lot=HistoryDealGetDouble(deal_ticket,DEAL_VOLUME);
+   return IsExactReconciledVolume(cfg.symbol,actual_lot,pending.requested_lot);
+}
+bool FindMatchingExitDeal(PendingExitReconciliation &pending,StrategyConfig &cfg,
+                          ulong &deal_ticket,double &actual_lot)
+{
+   if(pending.result_deal!=0 &&
+      IsMatchingExitDeal(pending.result_deal,pending,cfg,actual_lot))
+   { deal_ticket=pending.result_deal; return true; }
+   datetime from=(datetime)(pending.request_time_msc/1000-5);
+   datetime to=TimeTradeServer(); if(to<=0) to=TimeCurrent();
+   if(!HistorySelect(from,to+5)) return false;
+   ulong candidate_tickets[];
+   int total=HistoryDealsTotal();
+   ArrayResize(candidate_tickets,total);
+   for(int i=0;i<total;i++)
+      candidate_tickets[i]=HistoryDealGetTicket(i);
+   for(int i=total-1;i>=0;i--)
+   {
+      ulong ticket=candidate_tickets[i];
+      if(ticket!=0 && IsMatchingExitDeal(ticket,pending,cfg,actual_lot))
+      { deal_ticket=ticket; return true; }
+   }
+   return false;
+}
+bool ReconcileExecutedExit(PendingExitReconciliation &pending,StrategyConfig &cfg,
+                           string &source,ulong &ticket,double &actual_lot)
+{
+   if(!PositionSelectByTicket(pending.position_ticket))
+   { source="POSITION_GONE"; ticket=pending.position_ticket; actual_lot=pending.requested_lot; return true; }
+   if(PositionGetString(POSITION_SYMBOL)!=cfg.symbol ||
+      PositionGetInteger(POSITION_MAGIC)!=cfg.magic ||
+      (ulong)PositionGetInteger(POSITION_IDENTIFIER)!=pending.position_identifier) return false;
+   if(FindMatchingExitDeal(pending,cfg,ticket,actual_lot))
+   { source="DEAL"; return true; }
+   return false;
+}
+void PrintExitTradeResultDiagnostic(StrategyConfig &cfg,
+                                    PendingExitReconciliation &pending,bool result)
+{
+   if(!InpPrintTradeResultDiagnostics) return;
+   Print("[Step9.2.4 Time Exit Result ",cfg.strategy_name,"] ",
+      "Returned=",(result?"true":"false"),
+      ", ResultRetcode=",IntegerToString(pending.retcode),
+      ", ResultRetcodeDescription=",pending.retcode_description,
+      ", ResultOrder=",TicketToText(pending.result_order),
+      ", ResultDeal=",TicketToText(pending.result_deal),
+      ", GetLastError=",IntegerToString(pending.last_error),
+      ", PositionTicket=",TicketToText(pending.position_ticket),
+      ", PositionIdentifier=",TicketToText(pending.position_identifier),
+      ", Symbol=",cfg.symbol,", Magic=",IntegerToString(cfg.magic),
+      ", CloseDirection=",TradeDirectionText(pending.close_direction),
+      ", Lot=",DoubleToString(pending.requested_lot,2));
+}
+void PrintReconciledExitSuccess(StrategyConfig &cfg,PendingExitReconciliation &pending,
+                                string source,ulong ticket,double actual_lot)
+{
+   PrintDebug(cfg.strategy_name,
+      "Time exit reconciled success. Symbol="+cfg.symbol+
+      ", Magic="+IntegerToString(cfg.magic)+
+      ", PositionTicket="+TicketToText(pending.position_ticket)+
+      ", PositionIdentifier="+TicketToText(pending.position_identifier)+
+      ", CloseDirection="+TradeDirectionText(pending.close_direction)+
+      ", RequestedLot="+DoubleToString(pending.requested_lot,2)+
+      ", ActualLot="+DoubleToString(actual_lot,2)+
+      ", Evidence="+source+", EvidenceTicket="+TicketToText(ticket));
+}
+void StartPendingExitReconciliation(PendingExitReconciliation &pending,StrategyConfig &cfg)
+{
+   int index=AllocatePendingExitReconciliation();
+   int seconds=InpTradeReconcileTimeoutSeconds; if(seconds<1) seconds=1;
+   pending.active=true;
+   pending.deadline_tick_msc=GetTickCount64()+(ulong)seconds*1000;
+   pending_exit_reconciliations[index]=pending;
+   PrintDebug(cfg.strategy_name,
+      "Time exit reconciliation pending. Symbol="+cfg.symbol+
+      ", Magic="+IntegerToString(cfg.magic)+
+      ", PositionTicket="+TicketToText(pending.position_ticket)+
+      ", PositionIdentifier="+TicketToText(pending.position_identifier)+
+      ", ResultOrder="+TicketToText(pending.result_order)+
+      ", TimeoutSeconds="+IntegerToString(seconds));
+}
+bool ConfirmPendingExitFromDeal(ulong deal_ticket)
+{
+   for(int i=0;i<ArraySize(pending_exit_reconciliations);i++)
+   {
+      if(!pending_exit_reconciliations[i].active) continue;
+      PendingExitReconciliation pending=pending_exit_reconciliations[i];
+      int s=pending.strategy_index;
+      if(s<0 || s>=ArraySize(strategies)) continue;
+      double lot=0.0;
+      if(!IsMatchingExitDeal(deal_ticket,pending,strategies[s],lot)) continue;
+      ResetPendingExitReconciliation(i);
+      PrintReconciledExitSuccess(strategies[s],pending,"DEAL_ADD",deal_ticket,lot);
+      return true;
+   }
+   return false;
+}
+void ProcessPendingExitReconciliations()
+{
+   ulong now=GetTickCount64();
+   for(int i=0;i<ArraySize(pending_exit_reconciliations);i++)
+   {
+      if(!pending_exit_reconciliations[i].active) continue;
+      PendingExitReconciliation pending=pending_exit_reconciliations[i];
+      int s=pending.strategy_index;
+      if(s<0 || s>=ArraySize(strategies))
+      { ResetPendingExitReconciliation(i); continue; }
+      string source=""; ulong ticket=0; double lot=0.0;
+      if(ReconcileExecutedExit(pending,strategies[s],source,ticket,lot))
+      {
+         ResetPendingExitReconciliation(i);
+         PrintReconciledExitSuccess(strategies[s],pending,source,ticket,lot);
+         continue;
+      }
+      if(now<pending.deadline_tick_msc) continue;
+      bool still_open=PositionSelectByTicket(pending.position_ticket) &&
+         PositionGetString(POSITION_SYMBOL)==strategies[s].symbol &&
+         PositionGetInteger(POSITION_MAGIC)==strategies[s].magic &&
+         (ulong)PositionGetInteger(POSITION_IDENTIFIER)==pending.position_identifier;
+      if(!still_open)
+      {
+         ResetPendingExitReconciliation(i);
+         PrintReconciledExitSuccess(strategies[s],pending,"POSITION_GONE_AT_TIMEOUT",
+                                    pending.position_ticket,pending.requested_lot);
+         continue;
+      }
+      ResetPendingExitReconciliation(i);
+      PrintDebug(strategies[s].strategy_name,
+         "Time exit failed. Symbol="+strategies[s].symbol+
+         ", Ticket="+TicketToText(pending.position_ticket)+
+         ", Retcode="+IntegerToString(pending.retcode)+", "+pending.retcode_description+
+         ", Reconcile=timeout_position_still_open"+
+         ", ResultOrder="+TicketToText(pending.result_order)+
+         ", ResultDeal="+TicketToText(pending.result_deal)+
+         ", GetLastError="+IntegerToString(pending.last_error));
+   }
+}
+void ClosePositionsByConfig(StrategyConfig &cfg)
+{
+   int strategy_index=FindStrategyIndexByMagicAndSymbol(cfg.magic,cfg.symbol);
+   for(int i=PositionsTotal()-1;i>=0;i--)
+   {
+      ulong ticket=PositionGetTicket(i);
+      if(ticket==0 || HasPendingExitReconciliation(ticket)) continue;
+      if(!PositionSelectByTicket(ticket)) continue;
+      if(PositionGetString(POSITION_SYMBOL)!=cfg.symbol) continue;
+      if(PositionGetInteger(POSITION_MAGIC)!=cfg.magic) continue;
+      PendingExitReconciliation pending;
+      pending.active=false; pending.strategy_index=strategy_index;
+      pending.position_ticket=ticket;
+      pending.position_identifier=(ulong)PositionGetInteger(POSITION_IDENTIFIER);
+      long type=PositionGetInteger(POSITION_TYPE);
+      pending.close_direction=(type==POSITION_TYPE_BUY ? DIR_SHORT : DIR_LONG);
+      pending.requested_lot=PositionGetDouble(POSITION_VOLUME);
+      pending.request_time_msc=CaptureTradeRequestTimeMsc(cfg.symbol);
+      pending.result_order=0; pending.result_deal=0; pending.deadline_tick_msc=0;
+      pending.retcode=0; pending.retcode_description=""; pending.last_error=0;
+      trade.SetExpertMagicNumber(cfg.magic);
+      trade.SetDeviationInPoints(InpSlippagePoints);
+      ResetLastError();
+      bool result=trade.PositionClose(ticket);
+      pending.last_error=GetLastError();
+      pending.retcode=(long)trade.ResultRetcode();
+      pending.retcode_description=trade.ResultRetcodeDescription();
+      pending.result_order=trade.ResultOrder();
+      pending.result_deal=trade.ResultDeal();
+      if(IsNormalTradeSuccessResult(result,pending.retcode))
+      {
+         PrintDebug(cfg.strategy_name,"Time exit success. Symbol="+cfg.symbol+
+                    ", Ticket="+TicketToText(ticket));
+         continue;
+      }
+      PrintExitTradeResultDiagnostic(cfg,pending,result);
+      string source=""; ulong evidence=0; double lot=0.0;
+      if(ReconcileExecutedExit(pending,cfg,source,evidence,lot))
+      { PrintReconciledExitSuccess(cfg,pending,source,evidence,lot); continue; }
+      StartPendingExitReconciliation(pending,cfg);
+   }
+}
+void TryExit(StrategyConfig &cfg,datetime jst_time)
+{
+   if(!cfg.enabled) return;
+   if(!IsExitTime(cfg,jst_time)) return;
+   ClosePositionsByConfig(cfg);
+}
+
 void PrintTradeResultDiagnostic(StrategyConfig &cfg,
                                 int direction,
                                 double requested_lot,
@@ -1138,6 +1396,8 @@ void OnTradeTransaction(const MqlTradeTransaction &trans,
    if(trans.type != TRADE_TRANSACTION_DEAL_ADD || trans.deal == 0) return;
    if(!HistoryDealSelect(trans.deal)) return;
 
+   ConfirmPendingExitFromDeal(trans.deal);
+
    string symbol = HistoryDealGetString(trans.deal, DEAL_SYMBOL);
    long magic = HistoryDealGetInteger(trans.deal, DEAL_MAGIC);
    int strategy_index = FindStrategyIndexByMagicAndSymbol(magic, symbol);
@@ -1149,11 +1409,13 @@ void OnTradeTransaction(const MqlTradeTransaction &trans,
 void OnTick()
 {
    ProcessPendingEntryReconciliations();
+   ProcessPendingExitReconciliations();
    RunStrategies();
 }
 
 void OnTimer()
 {
    ProcessPendingEntryReconciliations();
+   ProcessPendingExitReconciliations();
    RunStrategies();
 }
