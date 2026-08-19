@@ -143,43 +143,43 @@ VPS MT5 Build 6116、GBPJPY `4_GJ_Port_Log1`、00:00、固定Lot `0.01` で以�
 4. 配列拡張時は既存pendingが保持され、新規要素だけが安全初期化される。
 5. 照合成功・timeout後のClearで、全フィールドが安全値へ戻る。
 6. `OnTradeTransaction()` の非同期照合、10秒timeout、通常成功パスをBUY・SELLで再確認する。
-7. 28戦略、イベントフィルタ、GA_B3の8月停止、ロット計算、決済処理に差分がないことを確認する。
+7. 28戦略、イベントフィルタ、GA_B3の8月停止、ロット計算、および時間決済以外の既存処理に差分がないことを確認する。
 
 
 ## 9. 2026-08-19 08:55 時間決済の実機結果
 
-VPS MT5 Build 6116、GBPJPY \`4_GJ_Port_Log1\` の時間決済で、新規注文時と同じCTrade結果異常を確認した。
+VPS MT5 Build 6116、GBPJPY `4_GJ_Port_Log1` の時間決済で、新規注文時と同じCTrade結果異常を確認した。
 
-- 対象Position: \`#42685687\`、GBPJPY Long、0.01 Lot
-- EA: \`CTrade::OrderSend: market sell 0.01 position #42685687 GBPJPY [unknown retcode 0]\`
-- EA判定: \`Time exit failed ... Retcode=0, unknown retcode 0\`
-- 操作ログ: \`accepted -> placed for execution -> order #42695529 done -> deal #33497312 sell 0.01 GBPJPY done -> failed ... [Done]\`
+- 対象Position: `#42685687`、GBPJPY Long、0.01 Lot
+- EA: `CTrade::OrderSend: market sell 0.01 position #42685687 GBPJPY [unknown retcode 0]`
+- EA判定: `Time exit failed ... Retcode=0, unknown retcode 0`
+- 操作ログ: `accepted -> placed for execution -> order #42695529 done -> deal #33497312 sell 0.01 GBPJPY done -> failed ... [Done]`
 - 実状態: Positionは消失し、時間決済自体は08:55に完了
 
-Build 6116の異常は \`trade.Buy / trade.Sell\` だけでなく \`trade.PositionClose(ticket)\` にも発生する。Step9.2.4のバージョン名は変えず、時間決済にも診断と非同期約定照合を追加する。
+Build 6116の異常は `trade.Buy / trade.Sell` だけでなく `trade.PositionClose(ticket)` にも発生する。Step9.2.4のバージョン名は変えず、時間決済にも診断と非同期約定照合を追加する。
 
 ## 10. 時間決済reconciliation仕様
 
-通常の \`PositionClose\` 成功（戻り値true、Retcodeが \`PLACED / DONE / DONE_PARTIAL\`）は従来どおり \`Time exit success\` とする。
+通常の `PositionClose` 成功（戻り値true、Retcodeが `PLACED / DONE / DONE_PARTIAL`）は従来どおり `Time exit success` とする。
 
 false、Retcode=0、または非成功Retcodeでは、Position ticket/identifier、Symbol、Magic、決済方向、Lot、ResultRetcode/Description、ResultOrder/Deal、GetLastErrorを診断ログへ残す。
 
-送信前に固定した対象Position ticketが消失しているか、対応する決済Dealが存在するかを照合する。Dealは \`DEAL_ENTRY_OUT / OUT_BY\`、同一Symbol/Magic、元Positionと逆の方向、同一 \`DEAL_POSITION_ID / POSITION_IDENTIFIER\`、注文直前以降（2秒の精度差を許容）、要求LotとのLot Step内一致を必須とする。\`ResultOrder != 0\` なら \`DEAL_ORDER == ResultOrder\` も必須である。このため、別Symbol、別Magic、別Position、逆方向、古いDeal、別Order、部分決済だけのDealは採用しない。
+送信前に固定した対象Position ticketが消失しているか、対応する決済Dealが存在するかを照合する。Dealは `DEAL_ENTRY_OUT / OUT_BY`、同一Symbol/Magic、元Positionと逆の方向、同一 `DEAL_POSITION_ID / POSITION_IDENTIFIER`、注文直前以降（2秒の精度差を許容）、要求LotとのLot Step内一致を必須とする。`ResultOrder != 0` なら `DEAL_ORDER == ResultOrder` も必須である。このため、別Symbol、別Magic、別Position、逆方向、古いDeal、別Order、部分決済だけのDealは採用しない。
 
-同期照合で確認できなければPosition単位のpendingへ移し、既定10秒の間は同じticketへのClose再送を抑止する。\`OnTradeTransaction(DEAL_ADD)\` と \`OnTick / OnTimer\` で継続照合し、Position消失または安全な決済Dealを確認した場合だけ \`Time exit reconciled success\` とする。期限時に同じticket/Symbol/Magic/identifierのPositionが残る場合だけ \`Time exit failed ... Reconcile=timeout_position_still_open\` とする。
+同期照合で確認できなければPosition単位のpendingへ移し、既定10秒の間は同じticketへのClose再送を抑止する。`OnTradeTransaction(DEAL_ADD)` と `OnTick / OnTimer` で継続照合し、Position消失または安全な決済Dealを確認した場合だけ `Time exit reconciled success` とする。期限時に同じticket/Symbol/Magic/identifierのPositionが残る場合だけ `Time exit failed ... Reconcile=timeout_position_still_open` とする。
 
 ## 11. 時間決済reconcile検証手順
 
-1. MetaEditorでStep9.2.4をコンパイルし、\`0 errors, 0 warnings\` を確認する。
-2. 通常成功する時間決済で従来どおり \`Time exit success\` になることを確認する。
+1. MetaEditorでStep9.2.4をコンパイルし、`0 errors, 0 warnings` を確認する。
+2. 通常成功する時間決済で従来どおり `Time exit success` になることを確認する。
 3. Build 6116の異常時に、全診断項目が出ることを確認する。
-4. Positionが直後に消えた場合、\`Evidence=POSITION_GONE\` の救済成功になることを確認する。
+4. Positionが直後に消えた場合、`Evidence=POSITION_GONE` の救済成功になることを確認する。
 5. 反映が遅い場合、pending後にDEAL_ADDまたはTick/Timerで10秒以内に成功することを確認する。
 6. pending中、同じPosition ticketへCloseが再送されないことを確認する。
 7. Symbol、Magic、方向、Position ID、Order、時刻、Lotのいずれかが異なるDealを拾わないことを確認する。
 8. 部分決済だけでは成功扱いにならず、対象Positionが残ることを確認する。
 9. 10秒後にも同じ対象Positionが残る場合だけ真の失敗になることを確認する。
-10. 実機ケースのorder \`#42695529\`、deal \`#33497312\`、Position \`#42685687\` の関連が一致して救済されることを確認する。
+10. 実機ケースのorder `#42695529`、deal `#33497312`、Position `#42685687` の関連が一致して救済されることを確認する。
 11. エントリー側reconciliationとpending初期化修正が従来どおり動くことを確認する。
 12. 28戦略、イベント、GA_B3 8月停止、ロット、SL/TP、エントリー条件に差分がないことを確認する。
 
