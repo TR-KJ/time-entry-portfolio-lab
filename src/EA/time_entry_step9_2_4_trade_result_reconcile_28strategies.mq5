@@ -19,6 +19,9 @@ input int InpBojPostMinutes = 180;
 input bool InpPrintTradeResultDiagnostics = true;
 input int InpTradeReconcileTimeoutSeconds = 10;
 
+// WeeklyBase / WeekStartDateKey diagnostics (logic is unchanged).
+input bool InpPrintWeeklyBaseDiagnostics = true;
+
 // Keep the proven Step 9.2.1 body and override only the functions that need changed behavior.
 #define OnTick OnTick_Base_Step921
 #define OnTimer OnTimer_Base_Step921
@@ -44,6 +47,8 @@ input int InpTradeReconcileTimeoutSeconds = 10;
 #define GetStrategyLot GetStrategyLot_Base_Step921
 #define SendBuyOrder SendBuyOrder_Base_Step921
 #define SendSellOrder SendSellOrder_Base_Step921
+#define WeekStartDateKey WeekStartDateKey_Base_Step921
+#define GetWeeklyBaseAmount GetWeeklyBaseAmount_Base_Step921
 
 #include "time_entry_step9_2_1_event_candidate_c_overlap_fix_28strategies.mq5"
 
@@ -71,6 +76,8 @@ input int InpTradeReconcileTimeoutSeconds = 10;
 #undef GetStrategyLot
 #undef SendBuyOrder
 #undef SendSellOrder
+#undef WeekStartDateKey
+#undef GetWeeklyBaseAmount
 
 //+------------------------------------------------------------------+
 //| Step 9.2.2 UJ12 forward gotobi logic                             |
@@ -193,6 +200,123 @@ string GetExtraLogText(StrategyConfig &cfg, datetime jst_time)
 {
    if(cfg.special_rule == RULE_UJ_SHORT_CORE) return ", Mode=" + UJ12ModeText(jst_time);
    return "";
+}
+
+//+------------------------------------------------------------------+
+//| WeeklyBase / WeekStartDateKey diagnostics                        |
+//| Calculation and Global Variable behavior match the base version. |
+//+------------------------------------------------------------------+
+int WeekStartDateKey(datetime jst_time)
+{
+   MqlDateTime dt;
+   TimeToStruct(jst_time, dt);
+
+   int days_from_monday = dt.day_of_week - 1;
+
+   if(days_from_monday < 0)
+   {
+      days_from_monday = 6;
+   }
+
+   datetime week_start = jst_time - days_from_monday * 86400;
+
+   MqlDateTime ws;
+   TimeToStruct(week_start, ws);
+   ws.hour = 0;
+   ws.min = 0;
+   ws.sec = 0;
+
+   return DateKey(StructToTime(ws));
+}
+
+void PrintWeeklyBaseDiagnostic(datetime jst_time,
+                               datetime week_start,
+                               int day_of_week,
+                               int week_year,
+                               int week_month,
+                               int week_day,
+                               int current_week_key,
+                               int direct_week_key,
+                               string gv_name,
+                               bool gv_exists,
+                               double existing_gv_value,
+                               bool is_new,
+                               double base_amount)
+{
+   if(!InpPrintWeeklyBaseDiagnostics) return;
+
+   Print(
+      "[Step9.2.4 WeeklyBase Diagnostic] ",
+      "JST=", TimeToString(jst_time, TIME_DATE|TIME_SECONDS),
+      ", DayOfWeek=", IntegerToString(day_of_week),
+      ", WeekStartJST=", TimeToString(week_start, TIME_DATE|TIME_SECONDS),
+      ", Year=", IntegerToString(week_year),
+      ", Month=", IntegerToString(week_month),
+      ", Day=", IntegerToString(week_day),
+      ", CurrentWeekKey=", IntegerToString(current_week_key),
+      ", DirectWeekKey=", IntegerToString(direct_week_key),
+      ", GVName=", gv_name,
+      ", ExistingGV=", (gv_exists ? "true" : "false"),
+      ", ExistingGVValue=", (gv_exists ? DoubleToString(existing_gv_value, 2) : "N/A"),
+      ", NewBaseAmount=", (is_new ? DoubleToString(base_amount, 2) : "N/A")
+   );
+}
+
+double GetWeeklyBaseAmount(datetime jst_time)
+{
+   MqlDateTime dt;
+   TimeToStruct(jst_time, dt);
+
+   int days_from_monday = dt.day_of_week - 1;
+
+   if(days_from_monday < 0)
+   {
+      days_from_monday = 6;
+   }
+
+   datetime week_start_raw = jst_time - days_from_monday * 86400;
+
+   MqlDateTime ws;
+   TimeToStruct(week_start_raw, ws);
+   ws.hour = 0;
+   ws.min = 0;
+   ws.sec = 0;
+
+   datetime week_start = StructToTime(ws);
+   int week_key = WeekStartDateKey(jst_time);
+   int direct_week_key = ws.year * 10000 + ws.mon * 100 + ws.day;
+   string gv_name = WeeklyBaseGlobalVariableName(week_key);
+   bool gv_exists = GlobalVariableCheck(gv_name);
+   double existing_gv_value = 0.0;
+
+   if(gv_exists)
+   {
+      existing_gv_value = GlobalVariableGet(gv_name);
+      PrintWeeklyBaseDiagnostic(jst_time, week_start, dt.day_of_week,
+                                ws.year, ws.mon, ws.day,
+                                week_key, direct_week_key, gv_name,
+                                true, existing_gv_value, false, 0.0);
+      return existing_gv_value;
+   }
+
+   double base_amount = GetCurrentBaseAmount();
+
+   if(base_amount <= 0)
+   {
+      base_amount = AccountInfoDouble(ACCOUNT_BALANCE);
+   }
+
+   if(base_amount > 0)
+   {
+      GlobalVariableSet(gv_name, base_amount);
+   }
+
+   PrintWeeklyBaseDiagnostic(jst_time, week_start, dt.day_of_week,
+                             ws.year, ws.mon, ws.day,
+                             week_key, direct_week_key, gv_name,
+                             false, 0.0, true, base_amount);
+
+   return base_amount;
 }
 
 //+------------------------------------------------------------------+
