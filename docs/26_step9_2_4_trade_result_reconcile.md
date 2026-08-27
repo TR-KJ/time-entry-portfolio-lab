@@ -184,3 +184,453 @@ false、Retcode=0、または非成功Retcodeでは、Position ticket/identifier
 12. 28戦略、イベント、GA_B3 8月停止、ロット、SL/TP、エントリー条件に差分がないことを確認する。
 
 実口座試験では、DELLとVPSを同時にアルゴリズム取引ONにしない。
+
+## 12. 2026-08-24 WeeklyBase異常の実機確認
+
+2026-08-24、VPS実口座でStep9.2.4をWeekly Compoundモードへ移行し、RiskPercent=0.25で運用確認を開始した。
+
+この際、同一週であるにもかかわらず、戦略ごとにWeeklyBaseが変化する事象を確認した。
+
+確認例：
+
+- 08:01 `8_AJ_Core1`
+  - WeeklyBase=501141.00
+  - RiskPercent=0.25
+  - RiskAmount=1252.85
+
+- 13:55 `1_EJ_Log1`
+  - WeeklyBase=501027.00
+  - RiskPercent=0.25
+  - RiskAmount=1252.57
+
+- 15:45 `6_GJ_Old_Mon`
+  - WeeklyBase=501101.00
+  - RiskPercent=0.25
+  - RiskAmount=1252.75
+
+Weekly Compoundの設計上、同一週では最初に確定したWeeklyBaseをGlobal Variableへ保存し、その週の全戦略で同じ値を再利用する必要がある。
+
+しかし、VPSのF3 Global Variablesでは以下のような異常なWeeklyBaseキーが複数生成されていた。
+
+- `TE_STEP7_WEEKLY_BASE_18`
+- `TE_STEP7_WEEKLY_BASE_-1849443664`
+- `TE_STEP7_WEEKLY_BASE_140183627`
+
+本来は以下の1個だけが生成されるべきである。
+
+`TE_STEP7_WEEKLY_BASE_20260824`
+
+このため、VPSではWeekKeyが取引ごとに異なる値となり、その都度「今週のWeeklyBaseが未作成」と判定され、その時点のEquityを新しいWeeklyBaseとして保存していた可能性が高いと判断した。
+
+なお、この時点の差額は約100円程度であり、RiskPercent=0.25では実際のRiskAmount差は数十銭程度だったため、ロット面で大きな実害はなかった。
+
+ただしWeekly Compoundの根幹に関わるため、本格運用前に原因確認を行うこととした。
+
+
+## 13. DELLデモとの比較
+
+同日、DELLデモ口座でも同じStep9.2.4のWeekly Compound動作を確認した。
+
+DELLデモでは正常に、
+
+- `TE_STEP7_WEEKLY_BASE_20260817 = 3054141`
+- `TE_STEP7_WEEKLY_BASE_20260824 = 2988220`
+
+が作成されていた。
+
+2026-08-24の取引でも、
+
+- 08:01 AJ
+- 13:55 EJ
+- 18:02 GJ
+
+のすべてで、
+
+`WeeklyBase=2988220.00`
+
+を維持した。
+
+つまり、
+
+「Weekly Compoundの設計そのものが常に壊れている」
+
+わけではなく、DELL環境では正常に週次固定されていることを確認した。
+
+この時点のBuildは以下。
+
+- DELLデモ：Build 6090
+- VPS実口座：Build 6140
+
+VPSは2026-08-22にLiveUpdateでBuild 6140を自動ダウンロードし、MT5再起動時にBuild 6140へ更新されていた。
+
+DELL側もBuild 6140のダウンロードまでは完了していたが、MT5を再起動していなかったためBuild 6090のままだった。
+
+このためBuild差も調査対象としたが、後述のDIAG版検証により、Build 6140そのものが必ずWeeklyBase異常を発生させるわけではないことを確認した。
+
+
+## 14. WeeklyBase診断版の追加
+
+原因切り分けのため、Step9.2.4にWeeklyBase診断ログを追加した。
+
+追加Input：
+
+`InpPrintWeeklyBaseDiagnostics=true`
+
+診断ログでは以下を出力する。
+
+- JST日時
+- DayOfWeek
+- WeekStartJST
+- Year
+- Month
+- Day
+- 現行ロジックで計算したCurrentWeekKey
+- year * 10000 + month * 100 + dayで直接計算したDirectWeekKey
+- Global Variable名
+- ExistingGV
+- ExistingGVValue
+- NewBaseAmount
+
+ログ例：
+
+`[Step9.2.4 WeeklyBase Diagnostic] JST=2026.08.26 13:55:10, DayOfWeek=3, WeekStartJST=2026.08.24 00:00:00, Year=2026, Month=8, Day=24, CurrentWeekKey=20260824, DirectWeekKey=20260824, GVName=TE_STEP7_WEEKLY_BASE_20260824, ExistingGV=true, ExistingGVValue=501566.00, NewBaseAmount=N/A`
+
+DELLデモでは2026-08-24 18:02に以下を確認した。
+
+- CurrentWeekKey=20260824
+- DirectWeekKey=20260824
+- GVName=TE_STEP7_WEEKLY_BASE_20260824
+- ExistingGV=true
+- ExistingGVValue=2988220.00
+- NewBaseAmount=N/A
+
+DELL側の診断版は正常に動作した。
+
+
+## 15. 同名EX5上書き時の注意
+
+DELLでコンパイルした診断版EX5をVPSへ同じファイル名のまま上書きした。
+
+VPSのExpertsフォルダ上では、
+
+- 更新日時
+- ファイルサイズ
+
+ともに新しい診断版EX5へ置き換わっていた。
+
+しかし、既存チャート上のEAプロパティには新規Inputである、
+
+`InpPrintWeeklyBaseDiagnostics`
+
+が表示されなかった。
+
+ナビゲータ更新、EA再初期化を行っても反映されなかった。
+
+そこで、同じEX5を別名として、
+
+`time_entry_step9_2_4_trade_result_reconcile_28strategies_DIAG.ex5`
+
+へ変更し、新規EAとしてVPSに認識させた。
+
+このDIAG版では、
+
+`InpPrintWeeklyBaseDiagnostics`
+
+が正常に表示された。
+
+したがって今回の実機環境では、
+
+「同名EX5を上書きしただけでは、既存EAインスタンスが新しいInput定義を即座に反映しない場合がある」
+
+ことを確認した。
+
+今後のEA更新では、単純な同名EX5上書きだけで更新完了と判断せず、
+
+- 新規Inputの表示確認
+- EA再初期化ログ
+- 新しい診断ログ
+- 必要に応じて別名EAでの認識確認
+
+まで行う。
+
+
+## 16. VPS Build 6140 DIAG版検証結果
+
+VPS実口座、MT5 Build 6140でDIAG版を別チャートへセットした。
+
+DIAG版はWeeklyBase計算まで進ませるため、
+
+- InpEmergencyStop=false
+- InpLotMode=1
+- InpWeeklyBaseUseEquity=true
+- InpRiskPercentPerTrade=0.25
+- InpMaxAutoLot=0.10
+- InpAllowMinLotWhenBelowMinimum=false
+- InpUseGlobalAtrP70Filter=false
+- InpTestMode=false
+- InpUseTestTimes=false
+- InpUseMockJstDateTime=false
+- InpPrintWeeklyBaseDiagnostics=true
+
+とした。
+
+安全のため、DIAG版チャートのEA単位の「アルゴリズム取引を許可」はOFFとした。
+
+本番EA側は、
+
+`InpEmergencyStop=true`
+
+を維持し、新規エントリーを停止した。
+
+
+### 16.1 2026-08-26 13:55 EJ
+
+`1_EJ_Log1`で以下を確認した。
+
+- CurrentWeekKey=20260824
+- DirectWeekKey=20260824
+- GVName=TE_STEP7_WEEKLY_BASE_20260824
+- WeeklyBase=501566.00
+- RiskPercent=0.25
+- RiskAmount=1253.91
+- RawLot=0.0179
+- Lot=0.01
+
+F3 Global Variablesにも、
+
+`TE_STEP7_WEEKLY_BASE_20260824 = 501566.0`
+
+が正常に作成された。
+
+10秒後の再処理でも、
+
+- ExistingGV=true
+- ExistingGVValue=501566.00
+- NewBaseAmount=N/A
+
+となり、新しいEquityを再取得せず既存WeeklyBaseを再利用した。
+
+
+### 16.2 2026-08-26 18:04 USDJPY
+
+`13_UJ_Fix_MidWeek`でも以下を確認した。
+
+- CurrentWeekKey=20260824
+- DirectWeekKey=20260824
+- GVName=TE_STEP7_WEEKLY_BASE_20260824
+- ExistingGV=true
+- ExistingGVValue=501566.00
+- WeeklyBase=501566.00
+- RiskAmount=1253.91
+
+異なる通貨・異なるMagicでも同じWeeklyBaseを使用した。
+
+
+### 16.3 2026-08-26 20:56 同時戦略
+
+以下の2戦略が同時にエントリー判定へ進んだ。
+
+- `19_EA_3_WedThu_Long` EURAUD
+- `2_EJ_NightBlitz_20` EURJPY
+
+両方とも、
+
+- CurrentWeekKey=20260824
+- DirectWeekKey=20260824
+- GVName=TE_STEP7_WEEKLY_BASE_20260824
+- ExistingGVValue=501566.00
+- WeeklyBase=501566.00
+- RiskPercent=0.25
+- RiskAmount=1253.91
+
+を使用した。
+
+複数戦略が同時刻にロット計算してもWeeklyBaseは変化しなかった。
+
+
+### 16.4 2026-08-26 21:56 EJ
+
+`3_EJ_NightBlitz_21`でも同様に、
+
+- CurrentWeekKey=20260824
+- DirectWeekKey=20260824
+- GVName=TE_STEP7_WEEKLY_BASE_20260824
+- ExistingGVValue=501566.00
+
+を継続使用した。
+
+2026-08-26の複数時刻・複数Symbol・複数Magicで、WeeklyBaseが501566.00に固定され続けることを確認した。
+
+
+## 17. DIAG版でのRetcode=10027について
+
+DIAG版は安全確認のため、EA単位の「アルゴリズム取引を許可」をOFFとしている。
+
+そのためエントリー条件成立後は、
+
+- WeeklyBase Diagnostic
+- LOT CALC
+- CTrade::OrderSend
+- ResultRetcode=10027
+- `auto trading disabled by client`
+- entry reconciliation pending
+- 10秒後 timeout
+
+という流れになる。
+
+これはDIAG版の設定による意図した注文拒否であり、Build 6116で発生した、
+
+`Returned=false / ResultRetcode=0 / unknown retcode 0`
+
+とは別事象である。
+
+DIAG版では注文が成立しないため `MarkEnteredToday()` が実行されず、2分間のEntry Window内ではtimeout後に再度Entry判定へ進む。
+
+このため約10秒間隔で、
+
+- WeeklyBase Diagnostic
+- LOT CALC
+- Retcode=10027
+- reconciliation pending
+- timeout
+
+が繰り返される。
+
+これは今回の安全な診断方法に伴う挙動であり、WeeklyBase異常ではない。
+
+実運用で正常約定した場合は `MarkEnteredToday()` が実行されるため、同じ戦略の同日再エントリーは抑止される。
+
+
+## 18. 現時点のWeeklyBase問題の結論
+
+2026-08-24にVPSで確認した異常なWeeklyBaseキー、
+
+- `TE_STEP7_WEEKLY_BASE_18`
+- `TE_STEP7_WEEKLY_BASE_-1849443664`
+- `TE_STEP7_WEEKLY_BASE_140183627`
+
+は実在するため、異常そのものは事実である。
+
+一方、同じVPS、同じMT5 Build 6140で、新規ロードしたDIAG版では、
+
+`CurrentWeekKey=20260824`
+
+`DirectWeekKey=20260824`
+
+`GVName=TE_STEP7_WEEKLY_BASE_20260824`
+
+が一貫して正常となった。
+
+したがって、
+
+「MT5 Build 6140そのものが必ずWeekKeyを壊す」
+
+とは判断しない。
+
+また、同名EX5上書き時に新しいInputが既存EAインスタンスへ反映されず、別名DIAG版として新規ロードすると正常に認識された事実がある。
+
+このため現時点では、
+
+- 既存EAインスタンスの保持状態
+- 同名EX5差し替え時のMT5側の状態
+- 旧EAインスタンスと新EX5の組み合わせ
+- その他の一時的ランタイム状態
+
+が関係した可能性を疑う。
+
+ただし原因は完全には特定できていないため、
+
+「古いEAインスタンスが原因だった」
+
+とも断定しない。
+
+重要なのは、現在の最新Step9.2.4 DIAG版では、
+
+- WeekStartJST正常
+- CurrentWeekKey正常
+- DirectWeekKey正常
+- Global Variable名正常
+- 同一週のWeeklyBase再利用正常
+- 異なる戦略・Symbol・MagicでもWeeklyBase共通
+- 同時刻の複数戦略でもWeeklyBase共通
+
+までVPS Build 6140実機で確認できたことである。
+
+このため、現時点ではWeekStartDateKeyのロジックを推測だけで変更せず、正常確認できた最新EAを新規インスタンスとして本番へ載せ直す方向を優先する。
+
+
+## 19. DIAG専用SET
+
+2026-08-26の診断では、初回に以下の設定ミスがあった。
+
+- ATR FilterがON
+- TestModeがON
+- TestTimesがON
+
+このため2026-08-26 00:00 `4_GJ_Port_Log1`ではWeeklyBase計算まで到達せず、
+
+`ATR ERROR. Symbol=GBPJPY, Reason=CopyBuffer P70 ATR failed. Copied=-1`
+
+となった。
+
+同じミスを繰り返さないため、正常動作を確認したDIAG版設定を専用SETとして保存した。
+
+ファイル名：
+
+`step9_2_4_diag_weeklybase_vps_verified.set`
+
+DIAG検証時は手入力を避け、原則としてこのSETを読み込んで使用する。
+
+特に以下を必ず確認する。
+
+- InpEmergencyStop=false
+- InpLotMode=1
+- InpWeeklyBaseUseEquity=true
+- InpRiskPercentPerTrade=0.25
+- InpMaxAutoLot=0.10
+- InpAllowMinLotWhenBelowMinimum=false
+- InpUseGlobalAtrP70Filter=false
+- InpTestMode=false
+- InpUseTestTimes=false
+- InpUseMockJstDateTime=false
+- InpPrintWeeklyBaseDiagnostics=true
+
+なお、EAプロパティ側の「アルゴリズム取引を許可」はSETだけに依存せず、DIAG使用時に必ず手動でOFFを確認する。
+
+DIAG版を実口座で使用する場合は、
+
+「InpEmergencyStop=false」
+
+かつ
+
+「EA単位のアルゴリズム取引許可OFF」
+
+という組み合わせになるため、売買許可の確認を最重要チェック項目とする。
+
+
+## 20. 本番復帰前の方針
+
+WeeklyBase診断は十分な実機データを取得できたため、診断フェーズは完了とする。
+
+次の本番復帰では、以前の既存EAインスタンスをそのまま再利用するのではなく、今回正常確認した最新Step9.2.4を新規インスタンスとして読み込む方向で検討する。
+
+本番復帰時には最低限以下を確認する。
+
+1. ポジションがないこと。
+2. DELL実口座側のアルゴリズム取引がOFFであること。
+3. VPS本番EAを1インスタンスだけ稼働させること。
+4. 本番用SETを読み込むこと。
+5. InpEmergencyStopの状態を意図どおり設定すること。
+6. InpLotMode=1を確認すること。
+7. RiskPercent=0.25を確認すること。
+8. TestMode=falseを確認すること。
+9. UseTestTimes=falseを確認すること。
+10. UseMockJstDateTime=falseを確認すること。
+11. UseGlobalAtrP70Filter=falseを確認すること。
+12. Event Filter設定を本番用SETどおり確認すること。
+13. 起動時ログを確認すること。
+14. F3 Global Variablesを確認すること。
+15. 最初の実エントリーでWeeklyBaseとLot計算を確認すること。
+16. 最初の実決済でTrade Result / reconciliationを確認すること。
+
+本番復帰後も、少なくとも0.25%運用確認期間中はWeeklyBase、Lot、Entry、Exit、reconciliation、MT5 Build番号を重点監視する。
