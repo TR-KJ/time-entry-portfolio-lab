@@ -6,6 +6,8 @@
 #property strict
 
 // Step 9.2.2 input additions for 1_EJ_Log1 position_overlap.
+// Audited 2026 JST times from the included table take priority; inputs are fallback values.
+// AU CPI remains the original quarterly-event scope; the include does not expand it to monthly CPI.
 input int InpNfpEventHourJST = 21;
 input int InpNfpEventMinuteJST = 30;
 input int InpNfpPreMinutes = 120;
@@ -1286,6 +1288,16 @@ bool IsStep922EventDateKey(string event_name, int date_key)
 
 bool GetStep922EventTimeAndWindow(string event_name, int event_date_key, datetime &event_time_jst, int &pre_minutes, int &post_minutes)
 {
+   int scheduled_hour = 0;
+   int scheduled_minute = 0;
+   if(GetScheduledEventJstTime(event_name, event_date_key, scheduled_hour, scheduled_minute))
+   {
+      event_time_jst = BuildJstDateTimeFromDateKey(event_date_key, scheduled_hour, scheduled_minute);
+      if(event_name == "FOMC"){ pre_minutes=InpFomcPreMinutes; post_minutes=InpFomcPostMinutes; return true; }
+      if(event_name == "US_NFP"){ pre_minutes=InpNfpPreMinutes; post_minutes=InpNfpPostMinutes; return true; }
+      if(event_name == "ECB"){ pre_minutes=InpEcbPreMinutes; post_minutes=InpEcbPostMinutes; return true; }
+   }
+
    if(event_name == "FOMC")
    {
       event_time_jst = BuildJstDateTimeFromDateKey(event_date_key, InpFomcEventHourJST, InpFomcEventMinuteJST);
