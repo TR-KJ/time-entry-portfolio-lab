@@ -4,6 +4,8 @@
 
 Event Candidate Cの停止対象、DATE_ALL_DAY/POSITION_OVERLAP、pre/post時間窓は変更せず、公式日程とJST時刻だけを更新した。DST対象は日付別テーブルを優先し、inputは未登録日付のfallbackとして残す。
 
+監査・更新範囲は **2026-08-28以降のみ** とする。2026-08-27以前の検証済みイベント日付およびCPI week Wednesdayはmainの値を変更しない。
+
 ## 2026年残り（JST）
 
 | Event | JST date/time |
