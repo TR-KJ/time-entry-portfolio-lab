@@ -159,15 +159,28 @@ input bool InpEnable_9_AJ_Core2 = true;
 //+------------------------------------------------------------------+
 //| 2026 Event Date Lists                                            |
 //+------------------------------------------------------------------+
-int FOMC_2026_DATES[] = {20260128,20260318,20260429,20260617,20260730,20260916,20261028,20261209};
-int US_NFP_2026_DATES[] = {20260109,20260206,20260306,20260403,20260501,20260605,20260702,20260807,20260904,20261002,20261106,20261204};
-int US_CPI_2026_DATES[] = {20260114,20260211,20260311,20260415,20260513,20260610,20260714,20260812,20260916,20261014,20261112,20261216};
+// Official schedules checked 2026-08-28. Dates are JST calendar dates.
+// FOMC dates are the JST statement dates (the next day from the U.S. meeting date).
+int FOMC_2026_DATES[] = {20260128,20260318,20260429,20260617,20260730,20260917,20261029,20261210};
+int US_NFP_2026_DATES[] = {20260109,20260211,20260306,20260403,20260508,20260605,20260702,20260807,20260904,20261002,20261106,20261204};
+int US_CPI_2026_DATES[] = {20260113,20260213,20260311,20260410,20260512,20260610,20260714,20260812,20260911,20261014,20261110,20261210};
 int BOJ_2026_DATES[] = {20260123,20260319,20260428,20260616,20260731,20260918,20261030,20261218};
-int BOE_2026_DATES[] = {20260205,20260319,20260430,20260618,20260730,20260917,20261105,20261217};
+int BOE_2026_DATES[] = {20260205,20260319,20260430,20260618,20260730,20260916,20261104,20261216};
 int ECB_2026_DATES[] = {20260205,20260319,20260430,20260611,20260723,20260910,20261029,20261217};
-int RBA_2026_DATES[] = {20260203,20260317,20260505,20260616,20260811,20260922,20261103,20261208};
-int AU_CPI_2026_DATES[] = {20260128,20260429,20260729,20261028};
-int US_CPI_WED_2026_DATES[] = {20260114,20260211,20260311,20260415,20260513,20260610,20260714,20260812,20260916,20261014,20261111,20261216};
+int RBA_2026_DATES[] = {20260203,20260317,20260505,20260616,20260811,20260929,20261103,20261208};
+int AU_CPI_2026_DATES[] = {20260128,20260225,20260325,20260429,20260527,20260624,20260729,20260826,20260930,20261028,20261125};
+int US_CPI_WED_2026_DATES[] = {20260114,20260211,20260311,20260408,20260513,20260610,20260715,20260812,20260909,20261014,20261111,20261209};
+
+struct EventJstSchedule { string event_name; int date_key; int hour; int minute; };
+EventJstSchedule EVENT_JST_2026[] =
+{
+   {"US_NFP",20260904,21,30},{"US_NFP",20261002,21,30},{"US_NFP",20261106,22,30},{"US_NFP",20261204,22,30},
+   {"FOMC",20260917,3,0},{"FOMC",20261029,3,0},{"FOMC",20261210,4,0},
+   {"BOE",20260916,20,0},{"BOE",20261104,21,0},{"BOE",20261216,21,0},
+   {"ECB",20260910,21,15},{"ECB",20261029,22,15},{"ECB",20261217,22,15},
+   {"RBA",20260929,13,30},{"RBA",20261103,12,30},{"RBA",20261208,12,30},
+   {"AU_CPI",20260930,10,30},{"AU_CPI",20261028,9,30},{"AU_CPI",20261125,9,30}
+};
 
 struct StrategyConfig
 {
@@ -1719,10 +1732,35 @@ datetime BuildJstDateTimeFromDateKey(int date_key, int hour, int minute)
    return StructToTime(dt);
 }
 
+bool GetScheduledEventJstTime(string event_name, int date_key, int &hour, int &minute)
+{
+   for(int i = 0; i < ArraySize(EVENT_JST_2026); i++)
+   {
+      if(EVENT_JST_2026[i].event_name == event_name && EVENT_JST_2026[i].date_key == date_key)
+      {
+         hour = EVENT_JST_2026[i].hour;
+         minute = EVENT_JST_2026[i].minute;
+         return true;
+      }
+   }
+   return false;
+}
+
 bool GetCandidateCEventTimeAndWindow(string event_name, datetime jst_time, datetime &event_time_jst, int &pre_minutes, int &post_minutes)
 {
    string normalized_event = NormalizeCandidateCEventName(event_name);
    int event_date_key = EventDateKeyFromJstTime(event_name, jst_time);
+   int scheduled_hour = 0;
+   int scheduled_minute = 0;
+   if(GetScheduledEventJstTime(normalized_event, event_date_key, scheduled_hour, scheduled_minute))
+   {
+      event_time_jst = BuildJstDateTimeFromDateKey(event_date_key, scheduled_hour, scheduled_minute);
+      if(normalized_event == "FOMC"){ pre_minutes=InpFomcPreMinutes; post_minutes=InpFomcPostMinutes; return true; }
+      if(normalized_event == "BOE"){ pre_minutes=InpBoePreMinutes; post_minutes=InpBoePostMinutes; return true; }
+      if(normalized_event == "ECB"){ pre_minutes=InpEcbPreMinutes; post_minutes=InpEcbPostMinutes; return true; }
+      if(normalized_event == "RBA"){ pre_minutes=InpRbaPreMinutes; post_minutes=InpRbaPostMinutes; return true; }
+      if(normalized_event == "AU_CPI"){ pre_minutes=InpAuCpiPreMinutes; post_minutes=InpAuCpiPostMinutes; return true; }
+   }
 
    if(normalized_event == "FOMC")
    {
