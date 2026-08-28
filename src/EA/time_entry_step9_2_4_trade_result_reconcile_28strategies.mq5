@@ -7,6 +7,7 @@
 
 // Step 9.2.2 input additions for 1_EJ_Log1 position_overlap.
 // Audited 2026 JST times from the included table take priority; inputs are fallback values.
+// AU CPI remains the original quarterly-event scope; the include does not expand it to monthly CPI.
 input int InpNfpEventHourJST = 21;
 input int InpNfpEventMinuteJST = 30;
 input int InpNfpPreMinutes = 120;
