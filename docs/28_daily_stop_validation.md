@@ -119,3 +119,4 @@ A run is accepted only if:
 - no Daily Stop fields or decisions appear in the baseline engine;
 - output row order is deterministic and the SHA-256 is recorded;
 - diagnostics and summaries are reviewed before the log is frozen for Daily Stop analysis.
+- all three post-filter GBPAUD 2019 gap candidates are present as `MISSING_ENTRY` diagnostics.
