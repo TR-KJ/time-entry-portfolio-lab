@@ -81,3 +81,5 @@ GitHub stores the compact accepted summaries and run record under `results/daily
 ## 6. Next layer boundary
 
 Daily Stop is still OFF in this accepted output. The next program may read the frozen CSV but must not load M1 data or recalculate baseline trades. The predeclared grid is `none / -1R / -1.5R / -2R / -2.5R / -3R / -4R`. Threshold selection is confined to IS; OOS1 and OOS2 remain untouched until the selected threshold is frozen. A triggered stop remains latched until the next 00:00 JST even if an already-open position later recovers daily R.
+
+The completed IS-only run is recorded in `docs/30_daily_stop_is_selection_result.md`. It froze `-4R` solely for one OOS confirmation; this is not yet a production adoption.
