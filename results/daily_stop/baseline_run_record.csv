@@ -1,0 +1,2 @@
+BaselineVersion,VerificationDateJST,TradeLogSHA256,TradeRows,StrategyCount,DailyStopApplied,ATRFilter,EventCandidateC,SameBarPolicy,MaxExitDelayMinutes,PeriodBasis,MissingEntry,MissingExit,KnownGBPAUDGapCandidatesObserved,DriveStorageReference
+daily-stop-baseline-v1.0.1,2026-09-09,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359,16298,28,False,False,True,SL_FIRST,4,EntryTime_JST,425,42,3,/MyDrive/time-entry-portfolio-lab/daily_stop/baseline_cc32f32e3df5/
