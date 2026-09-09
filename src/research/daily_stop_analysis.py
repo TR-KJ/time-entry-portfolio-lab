@@ -1,7 +1,7 @@
 """Colab: apply portfolio Daily Stop to the accepted frozen trade log.
 
 This research-only program never reads M1 prices or recalculates baseline trades.
-The default IS_SELECTION mode does not calculate or display OOS performance.
+The selected -4R threshold was frozen from IS before FROZEN_REPORT was enabled.
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ except ImportError:  # permits local import and temporal-rule self-tests
     drive = None
 
 
-ANALYSIS_VERSION = "daily-stop-analysis-v1.0.0"
+ANALYSIS_VERSION = "daily-stop-analysis-v1.1.0"
 ACCEPTED_BASELINE_SHA256 = (
     "cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359"
 )
@@ -31,8 +31,8 @@ EXPECTED_STRATEGY_COUNT = 28
 # 1. Run IS_SELECTION first and choose a robust zone using 2015-2021 only.
 # 2. Commit that choice, then change MODE to FROZEN_REPORT and set one threshold.
 # FROZEN_REPORT refuses to run until FROZEN_THRESHOLD_R is explicitly set.
-MODE = "IS_SELECTION"  # IS_SELECTION or FROZEN_REPORT
-FROZEN_THRESHOLD_R: float | None = None
+MODE = "FROZEN_REPORT"  # IS_SELECTION or FROZEN_REPORT
+FROZEN_THRESHOLD_R: float | None = -4.0
 
 # Coarse predeclared grid. Do not add a fine-grained value after seeing results.
 CANDIDATE_THRESHOLDS_R = (-1.0, -1.5, -2.0, -2.5, -3.0, -4.0)
@@ -364,10 +364,20 @@ def event_subset(
     if events.empty:
         return events
     if segment is not None:
+        if segment == "OOS_COMBINED":
+            return events[events["StopDatePeriod"].isin({"OOS1", "OOS2"})]
         return events[events["StopDatePeriod"] == segment]
     if year is not None:
         return events[events["StopDate"].dt.year == year]
     return events
+
+
+def decision_subset(decisions: pd.DataFrame, segment: str) -> pd.DataFrame:
+    if segment == "FULL":
+        return decisions
+    if segment == "OOS_COMBINED":
+        return decisions[decisions["Period"].isin({"OOS1", "OOS2"})]
+    return decisions[decisions["Period"] == segment]
 
 
 def build_summary_tables(
@@ -380,9 +390,7 @@ def build_summary_tables(
     yearly_rows: list[dict] = []
 
     for segment in segments:
-        base_part = baseline_decisions if segment == "FULL" else baseline_decisions[
-            baseline_decisions["Period"] == segment
-        ]
+        base_part = decision_subset(baseline_decisions, segment)
         summary_rows.append(
             summarize_decisions(base_part, segment, "NONE", None, None)
         )
@@ -396,9 +404,7 @@ def build_summary_tables(
 
     for threshold, decisions, events in simulations:
         for segment in segments:
-            part = decisions if segment == "FULL" else decisions[
-                decisions["Period"] == segment
-            ]
+            part = decision_subset(decisions, segment)
             ev = events if segment == "FULL" else event_subset(events, segment=segment)
             summary_rows.append(
                 summarize_decisions(part, segment, "DAILY_STOP", threshold, ev)
@@ -626,7 +632,7 @@ def run_frozen_report(trades: pd.DataFrame, input_path: Path) -> None:
     validate_simulation(trades, decisions, events, threshold)
     simulations = [(threshold, decisions, events)]
     summary, yearly = build_summary_tables(
-        trades, simulations, ("FULL", "IS", "OOS1", "OOS2")
+        trades, simulations, ("FULL", "IS", "OOS1", "OOS2", "OOS_COMBINED")
     )
     accepted = decisions[decisions["DailyStopStatus"] == "ACCEPTED"].copy()
     blocked = decisions[decisions["DailyStopStatus"] == "BLOCKED"].copy()
@@ -640,6 +646,7 @@ def run_frozen_report(trades: pd.DataFrame, input_path: Path) -> None:
         "InputTradeRows": len(trades),
         "AnalyzedRows": len(trades),
         "FrozenThresholdR": threshold,
+        "ISSelectionRecord": "docs/30_daily_stop_is_selection_result.md",
         "OOSCalculated": True,
         "StopLatch": True,
         "CloseTimeRule": "CloseTime < EntryTime",
