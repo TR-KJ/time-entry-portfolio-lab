@@ -8,13 +8,10 @@ from __future__ import annotations
 
 import ast
 import hashlib
-import io
-import os
 import urllib.request
 from calendar import monthrange
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Callable
 
 import numpy as np
 import pandas as pd
@@ -25,7 +22,7 @@ except ImportError:  # permits local validation/import without Colab
     drive = None
 
 
-BASELINE_VERSION = "daily-stop-baseline-v1.0.0"
+BASELINE_VERSION = "daily-stop-baseline-v1.0.1"
 SOURCE_COMMIT = "173be2a114dad6bd183a0a1515581528850f0850"
 CALENDAR_SOURCE_URL = (
     "https://raw.githubusercontent.com/TR-KJ/time-entry-portfolio-lab/"
@@ -316,7 +313,11 @@ def period_label(entry: pd.Timestamp) -> str:
 
 def run_strategy(s: Strategy, bars: pd.DataFrame, calendars: dict[str, set[pd.Timestamp]], diagnostics: list[dict]) -> list[dict]:
     trades = []
-    for dt in pd.DatetimeIndex(bars.index.normalize().unique()):
+    # Walk every calendar date in the covered range, including dates with no
+    # bars at all. This makes complete-day data gaps visible in diagnostics;
+    # missing entry bars still generate no trade, preserving baseline behavior.
+    dates = pd.date_range(bars.index.min().normalize(), bars.index.max().normalize(), freq="D")
+    for dt in dates:
         if not eligible_date(s, dt):
             continue
         entry_h, entry_m = s.entry
