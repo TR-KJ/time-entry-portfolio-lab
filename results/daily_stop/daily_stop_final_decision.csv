@@ -1,0 +1,2 @@
+StudyStatus,DecisionDateJST,InputTradeLogSHA256,FrozenThresholdR,FinalDecision,PrimaryObjective,OOS1DeltaR,OOS1DeltaPct,OOS2DeltaR,OOSCombinedDeltaR,OOSCombinedDeltaPct,OOS1BaselineMaxDDR,OOS1DailyStopMaxDDR,ThresholdRetuned,ProductionChanges
+COMPLETE,2026-09-09,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359,-4.0,NOT_ADOPTED,Higher profit amount,1.042194,0.173133,-0.671162,0.371033,0.059673,22.196976,18.583552,False,False
