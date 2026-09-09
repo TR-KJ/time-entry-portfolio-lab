@@ -1,6 +1,8 @@
 # Daily Stop Validation Specification
 
-Status: frozen baseline specification (2026-09-09 JST)
+Status: baseline accepted and frozen (2026-09-09 JST)
+
+Accepted result: `docs/29_daily_stop_baseline_result.md`
 
 ## 1. Purpose and scope
 
