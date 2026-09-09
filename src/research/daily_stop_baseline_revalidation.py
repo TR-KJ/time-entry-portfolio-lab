@@ -53,6 +53,12 @@ MANIFEST_NAMES = {
     "GBPAUD": ["GBPAUD_M1_201501020900_201612302359.csv", "GBPAUD_M1_201701020002_201812282357.csv", "GBPAUD_M1_201901020629_202012310000_RECHECK.csv", "GBPAUD_M1_202101040002_202212302355.csv", "GBPAUD_M1_202301020717_202412310000.csv", "GBPAUD_M1_202501020001_202512310000.csv", "GBPAUD_M1_202601020000_202603310000.csv", "GBPAUD_M1_202604010000_202609090000.csv"],
 }
 
+KNOWN_GBPAUD_GAP_CANDIDATES = {
+    ("21_GA_B_3", pd.Timestamp("2019-01-07 21:02")),
+    ("28_GA_China_Demand", pd.Timestamp("2019-05-09 10:00")),
+    ("22_GA_C_2", pd.Timestamp("2019-05-09 16:56")),
+}
+
 
 @dataclass(frozen=True)
 class Strategy:
@@ -420,6 +426,17 @@ def main() -> None:
     yearly = pd.DataFrame([summarize(g, str(y)) for y, g in trades.groupby(trades.EntryTime.dt.year, sort=True)])
     strategy_summary = pd.DataFrame([summarize(g, name) for name, g in trades.groupby("Strategy", sort=False)])
     diagnostics_df = pd.DataFrame(diagnostics).sort_values(["ScheduledEntry", "Strategy"]).reset_index(drop=True)
+    observed_gap_candidates = {
+        (row.Strategy, pd.Timestamp(row.ScheduledEntry))
+        for row in diagnostics_df.itertuples()
+        if row.Type == "MISSING_ENTRY"
+    }
+    missing_gap_diagnostics = KNOWN_GBPAUD_GAP_CANDIDATES - observed_gap_candidates
+    if missing_gap_diagnostics:
+        raise AssertionError(
+            "Known GBPAUD gap candidates absent from diagnostics: "
+            f"{sorted(missing_gap_diagnostics, key=lambda item: item[1])}"
+        )
     trade_bytes = canonical_csv_bytes(trades)
     trade_hash = hashlib.sha256(trade_bytes).hexdigest()
     metadata = pd.DataFrame([{
@@ -429,6 +446,7 @@ def main() -> None:
         "DailyStopApplied": False, "ATRFilter": False, "EventCandidateC": True,
         "SameBarPolicy": "SL_FIRST", "MaxExitDelayMinutes": MAX_EXIT_DELAY_MINUTES,
         "PeriodBasis": "EntryTime_JST",
+        "KnownGBPAUDGapCandidatesObserved": len(KNOWN_GBPAUD_GAP_CANDIDATES),
     }])
     outputs = {
         "daily_stop_baseline_trades.csv": trades,
