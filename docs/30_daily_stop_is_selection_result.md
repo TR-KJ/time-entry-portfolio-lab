@@ -45,3 +45,7 @@ This is weak IS evidence, not a production adoption:
 - OOS1+OOS2 combined must also have positive Delta R and the conclusion must not depend only on the shorter OOS2 period.
 - Max DD, worst day and worst week are supporting risk measures; they cannot override a negative OOS profit result.
 - A negative or merely mixed OOS result means evidence is insufficient and Daily Stop is not adopted. The threshold is not retuned.
+
+## Final outcome
+
+The frozen OOS run is recorded in `docs/31_daily_stop_oos_result.md`. OOS was mixed and the combined profit improvement was only 0.059673%, so Daily Stop was not adopted and no threshold was retuned.
