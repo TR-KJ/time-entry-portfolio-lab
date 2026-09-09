@@ -48,7 +48,7 @@ The two expected gaps are:
 - 2019-01-03 07:45 -> 2019-01-09 07:00 JST (5d 23:15)
 - 2019-05-07 13:30 -> 2019-05-13 06:02 JST (5d 16:32)
 
-The same gaps were reproduced after re-export and also exist in M5. They are not filled from another broker. No new date exclusion is introduced. The baseline retains the historical behavior: if the exact entry bar is absent, no trade is generated; if the scheduled exit and all +1 to +4 minute fallback bars are absent, no trade is generated. The loader reports skipped-entry and skipped-exit diagnostics so the impact remains visible.
+The same gaps were reproduced after re-export and also exist in M5. They are not filled from another broker. No new date exclusion is introduced. The baseline retains the historical behavior: if the exact entry bar is absent, no trade is generated; if the scheduled exit and all +1 to +4 minute fallback bars are absent, no trade is generated. Strategy schedules are evaluated for every calendar date in the covered range, including dates with no bars at all, so skipped-entry and skipped-exit diagnostics expose complete-day gaps as well as isolated missing bars.
 
 ## 4. Frozen 28-strategy Baseline
 
@@ -119,4 +119,3 @@ A run is accepted only if:
 - no Daily Stop fields or decisions appear in the baseline engine;
 - output row order is deterministic and the SHA-256 is recorded;
 - diagnostics and summaries are reviewed before the log is frozen for Daily Stop analysis.
-
