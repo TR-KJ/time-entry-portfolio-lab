@@ -1,10 +1,12 @@
 # Daily Stop Validation Specification
 
-Status: baseline accepted and frozen (2026-09-09 JST)
+Status: complete — Daily Stop not adopted (2026-09-09 JST)
 
 Accepted result: `docs/29_daily_stop_baseline_result.md`
 
 IS selection result: `docs/30_daily_stop_is_selection_result.md` (`-4R` frozen for one OOS test; not a production adoption)
+
+Final OOS result: `docs/31_daily_stop_oos_result.md` (no-Daily-Stop Baseline retained)
 
 ## 1. Purpose and scope
 
