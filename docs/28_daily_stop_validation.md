@@ -88,13 +88,19 @@ Rules:
 
 - Only strictly earlier closes are available. `CloseTime == EntryTime` is not used; this prevents future/intra-timestamp ordering information.
 - When available realized cumulative R is at or below the tested loss threshold, the candidate is blocked.
+- Once the threshold is reached, the stop is latched for the rest of that JST date. Later closes from positions already open cannot restart entries even if cumulative R recovers.
+- Close events sharing the same M1 timestamp are aggregated before the threshold is evaluated; their unknowable within-minute order is never used.
 - Blocked trades add neither profit nor loss and never affect later cumulative R.
 - The state resets at 00:00 JST each day.
 - Entry ordering is deterministic: `EntryTime`, then the frozen strategy number.
 - Overnight trades contribute only after their actual close and only to the JST day containing that close; they cannot retroactively block earlier entries.
 - Baseline, accepted and blocked rows must remain separately auditable.
 
-Threshold selection must use IS only. OOS1 and OOS2 are reported without retuning. Required later outputs are threshold summary, yearly summary, accepted trades and blocked trades.
+The predeclared comparison is `none / -1R / -1.5R / -2R / -2.5R / -3R / -4R`. Fine-grained values must not be added after seeing results.
+
+`daily_stop_analysis.py` defaults to `IS_SELECTION`. In that mode it calculates only 2015-2021 and explicitly does not calculate or display OOS1/OOS2. After one robust threshold is chosen from IS and recorded, `FROZEN_REPORT` evaluates that one frozen threshold on FULL, IS, OOS1 and OOS2 without retuning.
+
+The analysis code reads only the accepted Baseline Trade Log and aborts unless its SHA-256 is `cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359`. It does not read M1 data or recalculate baseline trades. Notebook summaries and detailed decisions, accepted trades, blocked trades, daily ledgers, stop events, metadata and output hashes are written to `/content` as CSV.
 
 ## 6. Baseline outputs
 
