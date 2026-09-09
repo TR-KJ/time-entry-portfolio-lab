@@ -4,6 +4,8 @@ Status: baseline accepted and frozen (2026-09-09 JST)
 
 Accepted result: `docs/29_daily_stop_baseline_result.md`
 
+IS selection result: `docs/30_daily_stop_is_selection_result.md` (`-4R` frozen for one OOS test; not a production adoption)
+
 ## 1. Purpose and scope
 
 This research evaluates a portfolio-level Daily Stop without changing the established 28-strategy trading model. The repository remains `TR-KJ/time-entry-portfolio-lab`; work is isolated on branch `research/daily-stop-validation`.
@@ -98,7 +100,7 @@ Rules:
 
 The predeclared comparison is `none / -1R / -1.5R / -2R / -2.5R / -3R / -4R`. Fine-grained values must not be added after seeing results.
 
-`daily_stop_analysis.py` defaults to `IS_SELECTION`. In that mode it calculates only 2015-2021 and explicitly does not calculate or display OOS1/OOS2. After one robust threshold is chosen from IS and recorded, `FROZEN_REPORT` evaluates that one frozen threshold on FULL, IS, OOS1 and OOS2 without retuning.
+`IS_SELECTION` first calculated only 2015-2021 and did not calculate or display OOS1/OOS2. That run froze `-4R` in `docs/30_daily_stop_is_selection_result.md`. The current `FROZEN_REPORT` applies that one threshold to FULL, IS, OOS1, OOS2 and the combined OOS period. It must not be changed after OOS is viewed.
 
 The analysis code reads only the accepted Baseline Trade Log and aborts unless its SHA-256 is `cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359`. It does not read M1 data or recalculate baseline trades. Notebook summaries and detailed decisions, accepted trades, blocked trades, daily ledgers, stop events, metadata and output hashes are written to `/content` as CSV.
 
