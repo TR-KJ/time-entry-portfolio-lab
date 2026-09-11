@@ -17,7 +17,7 @@ c95a6b78eb8bd6f11e8f958a60aa91095069134d
 Candidate freeze commit:
 
 ```text
-PENDING_FIRST_FREEZE_COMMIT
+1c265a7e4bd156b1abb8a99e84626047d378be63
 ```
 
 ## 1. Input acceptance
