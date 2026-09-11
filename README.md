@@ -87,3 +87,7 @@ time-entry-portfolio-lab/
 - EA / GA / オージー絡みロジック追加予定
 - 2026年経済指標カレンダー追加予定
 - フィルタ検証は、検証エンジン整備後に実施予定# time-entry-portfolio-lab
+
+## 研究計画
+
+- [Strategy Selection / Portfolio Pruning 検証計画](docs/32_strategy_selection_validation_plan.md)
