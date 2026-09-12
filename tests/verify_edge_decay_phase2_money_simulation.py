@@ -94,12 +94,12 @@ def verify(baseline, output_dir, legacy_source):
     decision['Reason'] = decision.Reason.str.replace(';VALIDATION_NOT_PASSED','',regex=False).replace('VALIDATION_NOT_PASSED','ALL_FIXED_CONDITIONS_PASSED')
     decision['VerificationStatus'] = 'PASS'
     decision.to_csv(out/(PREFIX+'decision.csv'),index=False)
-    pd.DataFrame([dict(Check='Baseline_hash_count_identities_boundaries',Status='PASS'),dict(Check=f'Independent_numpy_metrics_trade_week_values_{checks}',Status='PASS'),dict(Check='Legacy_v1_1_PnL_and_FinalCapital_all_8_runs',Status='PASS'),dict(Check='All_240_period_risk_candidate_rows_and_decision',Status='PASS'),dict(Check='CSV_hashes',Status='PASS')]).to_csv(out/(PREFIX+'verification.csv'),index=False)
+    pd.DataFrame([dict(Check='Baseline_hash_count_identities_boundaries',Status='PASS'),dict(Check=f'Independent_numpy_metrics_trade_week_values_{checks}',Status='PASS'),dict(Check='Legacy_v1_1_PnL_and_FinalCapital_all_8_runs',Status='PASS'),dict(Check='All_120_period_risk_candidate_rows_and_decision',Status='PASS'),dict(Check='CSV_hashes',Status='PASS')]).to_csv(out/(PREFIX+'verification.csv'),index=False)
     record['Decision'] = decision.iloc[0].Decision
     record['VerificationStatus'] = 'PASS'
     record['CSVHashes'] = json.dumps({f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(out.glob(PREFIX+'*.csv')) if f.name!=record_path.name},sort_keys=True)
     record.to_csv(record_path,index=False)
-    print(f'PASS: {checks} values, 240 metric rows, legacy v1.1 all 8 runs, decision and hashes')
+    print(f'PASS: {checks} values, 120 metric rows, legacy v1.1 all 8 runs, decision and hashes')
 
 if __name__=='__main__':
     p=argparse.ArgumentParser()
