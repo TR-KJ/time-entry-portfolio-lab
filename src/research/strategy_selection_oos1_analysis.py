@@ -22,7 +22,10 @@ try:
 except ImportError:  # permits local validation and unit tests
     drive = None
 
-from src.research import strategy_selection_analysis as is_analysis
+try:
+    from src.research import strategy_selection_analysis as is_analysis
+except ModuleNotFoundError:  # permits direct execution from the repository root
+    import strategy_selection_analysis as is_analysis
 
 
 ANALYSIS_VERSION = "strategy-selection-oos1-v1.0.0"
