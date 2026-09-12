@@ -1,39 +1,39 @@
-# Daily Stop Baseline Revalidation Result
+# Daily Stopベースライン再検証結果
 
-Status: ACCEPTED / FROZEN
+状態: 採用・固定済み
 
-Verification date: 2026-09-09 JST
+検証日: 2026-09-09 JST
 
-Branch: `research/daily-stop-validation`
+ブランチ: `research/daily-stop-validation`
 
-Generator: `src/research/daily_stop_baseline_revalidation.py` v1.0.1
+生成プログラム: `src/research/daily_stop_baseline_revalidation.py` v1.0.1
 
-## 1. Acceptance decision
+## 1. 採用判定
 
-The no-Daily-Stop 28-strategy Baseline Trade Log is accepted and frozen for downstream Daily Stop analysis.
+Daily Stopなし・28戦略のベースライン・トレードログを、後続のDaily Stop分析用として採用し固定する。
 
-The v1.0.1 rerun changed only complete-calendar gap diagnostics. Its Trade Log SHA-256 is identical to the initial run, proving that the diagnostic correction did not alter any generated trade:
+v1.0.1での再実行により変更されたのは、全暦日を対象とするギャップ診断だけである。トレードログのSHA-256は初回実行と一致しており、診断修正が生成済みトレードを一切変更していないことを確認した。
 
 ```text
 cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
 ```
 
-All later Daily Stop thresholds must use this exact trade log. A different SHA-256 requires a new baseline review and must not be silently substituted.
+以後のDaily Stopしきい値検証では、必ずこのトレードログを使用する。SHA-256が異なるログを使用する場合は、新たなベースライン・レビューが必要であり、確認なく置き換えてはならない。
 
-## 2. Period results
+## 2. 期間別結果
 
-Period assignment uses EntryTime in JST.
+期間の割り当てにはJSTの`EntryTime`を使用する。
 
-| Segment | Trades | Wins | Win rate | Total R | PF | Max DD (R) | Avg R |
+| 区分 | トレード数 | 勝ち数 | 勝率 | Total R | PF | Max DD (R) | 平均R |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | FULL | 16,298 | 8,887 | 54.528% | 1390.267649 | 1.397117 | 27.540956 | 0.085303 |
 | IS | 9,756 | 5,321 | 54.541% | 768.488273 | 1.372171 | 27.540956 | 0.078771 |
 | OOS1 | 5,547 | 3,054 | 55.057% | 601.960585 | 1.489975 | 22.196976 | 0.108520 |
 | OOS2 | 995 | 512 | 51.457% | 19.818791 | 1.095529 | 18.954206 | 0.019918 |
 
-## 3. Yearly results
+## 3. 年別結果
 
-| Year | Trades | Wins | Win rate | Total R | PF | Max DD (R) | Avg R |
+| 年 | トレード数 | 勝ち数 | 勝率 | Total R | PF | Max DD (R) | 平均R |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 2015 | 1,378 | 722 | 52.395% | 92.171476 | 1.244601 | 21.007598 | 0.066888 |
 | 2016 | 1,405 | 792 | 56.370% | 210.801980 | 1.587640 | 13.124160 | 0.150037 |
@@ -48,40 +48,40 @@ Period assignment uses EntryTime in JST.
 | 2025 | 1,386 | 761 | 54.906% | 147.189395 | 1.495443 | 17.273406 | 0.106197 |
 | 2026 | 995 | 512 | 51.457% | 19.818791 | 1.095529 | 18.954206 | 0.019918 |
 
-## 4. Data-gap diagnostics
+## 4. データ欠損診断
 
-| Diagnostic type | Count |
+| 診断種別 | 件数 |
 |---|---:|
 | MISSING_ENTRY | 425 |
 | MISSING_EXIT | 42 |
 | INVALID_WINDOW | 0 |
 
-These rows represent trades not generated under the frozen historical rule. No price interpolation, alternate-broker fill or new date exclusion was applied.
+これらは、固定済みの過去ルールに従って生成されなかったトレードを表す。価格補間、他ブローカーによる補完、新しい除外日の設定は行っていない。
 
-The three known post-filter GBPAUD 2019 gap candidates were all observed as `MISSING_ENTRY`:
+フィルター適用後に残るGBPAUD 2019年の既知ギャップ候補3件は、すべて`MISSING_ENTRY`として確認された。
 
-| Strategy | Scheduled entry JST | Result |
+| 戦略 | 予定エントリー時刻（JST） | 結果 |
 |---|---|---|
 | 21_GA_B_3 | 2019-01-07 21:02 | MISSING_ENTRY |
 | 28_GA_China_Demand | 2019-05-09 10:00 | MISSING_ENTRY |
 | 22_GA_C_2 | 2019-05-09 16:56 | MISSING_ENTRY |
 
-## 5. Storage
+## 5. 保存先
 
-The seven generated CSV artifacts were copied from Colab's temporary `/content` directory to:
+生成した7つのCSV成果物を、Colabの一時ディレクトリ`/content`から次の場所へコピーした。
 
 ```text
 /MyDrive/time-entry-portfolio-lab/daily_stop/baseline_cc32f32e3df5/
 ```
 
-The copied trade log was hashed again after storage and matched the accepted SHA-256.
+保存後にコピー済みトレードログのハッシュを再計算し、採用済みSHA-256との一致を確認した。
 
-GitHub stores the compact accepted summaries and run record under `results/daily_stop/`. The complete trade log remains identified by its SHA-256 and is the sole permitted input to the next analysis layer.
+GitHubには、採用済みの要約と実行記録を`results/daily_stop/`以下へ保存する。完全なトレードログはSHA-256で識別し、次の分析層への唯一の使用可能な入力とする。
 
-## 6. Next layer boundary
+## 6. 次の分析層との境界
 
-Daily Stop is still OFF in this accepted output. The next program may read the frozen CSV but must not load M1 data or recalculate baseline trades. The predeclared grid is `none / -1R / -1.5R / -2R / -2.5R / -3R / -4R`. Threshold selection is confined to IS; OOS1 and OOS2 remain untouched until the selected threshold is frozen. A triggered stop remains latched until the next 00:00 JST even if an already-open position later recovers daily R.
+この採用済み出力では、Daily Stopは引き続きOFFである。次のプログラムは固定CSVを読み込めるが、M1データを読み込んだりベースライン・トレードを再計算したりしてはならない。事前定義したしきい値は`なし / -1R / -1.5R / -2R / -2.5R / -3R / -4R`とする。しきい値の選定はISだけで行い、選定値を固定するまでOOS1とOOS2には触れない。停止が一度発動したら、すでに保有中のポジションによって当日Rが後で回復しても、次の00:00 JSTまで停止状態を維持する。
 
-The completed IS-only run is recorded in `docs/30_daily_stop_is_selection_result.md`. It froze `-4R` solely for one OOS confirmation; this is not yet a production adoption.
+完了済みのIS限定実行は`docs/30_daily_stop_is_selection_result.md`に記録している。そこでは1回限りのOOS確認用として`-4R`を固定しただけであり、この時点では実運用へ採用していない。
 
-The completed frozen OOS run is recorded in `docs/31_daily_stop_oos_result.md`. Daily Stop was not adopted; this no-Daily-Stop Baseline remains the official configuration.
+完了済みの固定OOS実行は`docs/31_daily_stop_oos_result.md`に記録している。Daily Stopは不採用となり、このDaily Stopなしのベースラインを正式構成として維持する。

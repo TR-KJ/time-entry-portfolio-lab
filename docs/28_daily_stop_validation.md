@@ -1,41 +1,41 @@
-# Daily Stop Validation Specification
+# Daily Stop検証仕様書
 
-Status: complete — Daily Stop not adopted (2026-09-09 JST)
+状態: 完了 — Daily Stopは不採用（2026-09-09 JST）
 
-Accepted result: `docs/29_daily_stop_baseline_result.md`
+採用済み結果: `docs/29_daily_stop_baseline_result.md`
 
-IS selection result: `docs/30_daily_stop_is_selection_result.md` (`-4R` frozen for one OOS test; not a production adoption)
+IS選定結果: `docs/30_daily_stop_is_selection_result.md`（1回限りのOOS検証用として`-4R`を固定。実運用への採用ではない）
 
-Final OOS result: `docs/31_daily_stop_oos_result.md` (no-Daily-Stop Baseline retained)
+最終OOS結果: `docs/31_daily_stop_oos_result.md`（Daily Stopなしのベースラインを維持）
 
-## 1. Purpose and scope
+## 1. 目的と範囲
 
-This research evaluates a portfolio-level Daily Stop without changing the established 28-strategy trading model. The repository remains `TR-KJ/time-entry-portfolio-lab`; work is isolated on branch `research/daily-stop-validation`.
+本研究では、確立済みの28戦略トレードモデルを変更せず、ポートフォリオ単位のDaily Stopを評価する。対象リポジトリは引き続き`TR-KJ/time-entry-portfolio-lab`とし、作業は`research/daily-stop-validation`ブランチに分離する。
 
-The implementation is deliberately split into two layers:
+実装は意図的に次の2層へ分ける。
 
-1. audited M1 data -> fixed 28-strategy Baseline Trade Log (no Daily Stop),
-2. the exact same fixed trade log -> Daily Stop analysis.
+1. 監査済みM1データ → 固定済み28戦略ベースライン・トレードログ（Daily Stopなし）
+2. まったく同じ固定トレードログ → Daily Stop分析
 
-Daily Stop thresholds must never trigger a new M1 backtest. EA, VPS, SET and live-operation code are outside this branch's scope and must not be modified.
+Daily Stopのしきい値を理由に新しいM1バックテストを実行してはならない。EA、VPS、SETおよびlive運用コードはこのブランチの対象外であり、変更してはならない。
 
-## 2. Fixed evaluation periods
+## 2. 固定評価期間
 
-Period assignment uses `EntryTime` in JST.
+期間の割り当てにはJSTの`EntryTime`を使用する。
 
-| Segment | Range |
+| 区分 | 期間 |
 |---|---|
-| IS | 2015-01-01 through 2021-12-31 |
-| OOS1 | 2022-01-01 through 2025-12-31 |
-| OOS2 | 2026-01-01 through the available audited-data endpoint (2026-09-09) |
+| IS | 2015-01-01から2021-12-31 |
+| OOS1 | 2022-01-01から2025-12-31 |
+| OOS2 | 2026-01-01から、監査済みデータが存在する最終日（2026-09-09）まで |
 
-These boundaries are fixed before Daily Stop testing and must not be moved after observing results.
+これらの境界はDaily Stop検証前に固定し、結果を確認した後に移動してはならない。
 
-## 3. Audited M1 data
+## 3. 監査済みM1データ
 
-All seven pairs passed the full-period OHLC audit. Every series runs from 2015-01-02 16:00 JST through 2026-09-09 06:00 JST.
+全7通貨ペアが全期間のOHLC監査に合格した。すべての系列は2015-01-02 16:00 JSTから2026-09-09 06:00 JSTまでを対象とする。
 
-| Pair | Rows | 2026 rows | Parse NG | Duplicates | OHLC NaN | High NG | Low NG | Gaps >5d | Expected |
+| 通貨ペア | 行数 | 2026年行数 | 解析NG | 重複 | OHLC NaN | 高値NG | 安値NG | 5日超ギャップ | 想定件数 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | USDJPY | 4,340,793 | 254,267 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | EURJPY | 4,341,959 | 254,324 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -45,70 +45,70 @@ All seven pairs passed the full-period OHLC audit. Every series runs from 2015-0
 | EURAUD | 4,340,975 | 254,307 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | GBPAUD | 4,326,984 | 254,272 | 0 | 0 | 0 | 0 | 0 | 2 | 2 |
 
-The code uses an explicit 56-file manifest (seven pairs x eight files), so obsolete or damaged files left in Drive cannot be picked up accidentally.
+コードでは56ファイル（7通貨ペア×8ファイル）を明示したマニフェストを使用するため、Driveに残った旧ファイルや破損ファイルを誤って読み込むことはない。
 
-### GBPAUD 2019 known gaps
+### GBPAUD 2019年の既知ギャップ
 
-The two expected gaps are:
+想定済みの2つのギャップは次のとおり。
 
-- 2019-01-03 07:45 -> 2019-01-09 07:00 JST (5d 23:15)
-- 2019-05-07 13:30 -> 2019-05-13 06:02 JST (5d 16:32)
+- 2019-01-03 07:45 → 2019-01-09 07:00 JST（5日23時間15分）
+- 2019-05-07 13:30 → 2019-05-13 06:02 JST（5日16時間32分）
 
-The same gaps were reproduced after re-export and also exist in M5. They are not filled from another broker. No new date exclusion is introduced. The baseline retains the historical behavior: if the exact entry bar is absent, no trade is generated; if the scheduled exit and all +1 to +4 minute fallback bars are absent, no trade is generated. Strategy schedules are evaluated for every calendar date in the covered range, including dates with no bars at all, so skipped-entry and skipped-exit diagnostics expose complete-day gaps as well as isolated missing bars.
+同じギャップは再エクスポート後にも再現し、M5にも存在する。他ブローカーのデータでは補完しない。新しい除外日も追加しない。ベースラインでは従来の動作を維持する。正確なエントリー足がなければトレードを生成せず、予定決済足および+1分から+4分までの代替足がすべてなければトレードを生成しない。対象期間内の全暦日について戦略スケジュールを評価し、バーがまったくない日も対象に含める。これにより、エントリー見送り・決済見送りの診断には、単発の欠損バーだけでなく終日欠損も現れる。
 
-## 4. Frozen 28-strategy Baseline
+## 4. 固定済み28戦略ベースライン
 
-The strategy parameters, calendar rules and Candidate C matrix are inherited from the repository's established 28-strategy model. ATR is OFF. Only the following formally adopted corrections are added:
+戦略パラメータ、カレンダールール、Candidate Cマトリクスは、リポジトリで確立済みの28戦略モデルを継承する。ATRはOFFとする。追加するのは、正式採用済みの次の修正だけである。
 
-- `12_UJ_Short_Core`: 20/25/30 remain normal GOTO dates; when the 25th or 30th falls on Saturday/Sunday, the immediately preceding Friday is also GOTO. The 20th is never moved forward and holidays are ignored.
-- `1_EJ_Log1`: add `position_overlap` stops for FOMC, US NFP, BOJ and ECB. US CPI retains its existing `US_CPI_WEEK_WED` special stop.
+- `12_UJ_Short_Core`: 20日・25日・30日は通常どおりGOTO日とする。25日または30日が土曜日・日曜日の場合は、直前の金曜日もGOTOとする。20日は前倒しせず、祝日は考慮しない。
+- `1_EJ_Log1`: FOMC、米国雇用統計、BOJ、ECBに`position_overlap`停止を追加する。米国CPIは既存の`US_CPI_WEEK_WED`特別停止を維持する。
 
-This study does not refine historical event timestamps. It keeps Candidate C's fixed research-time assumptions, preventing event-calendar improvements from being mixed with Daily Stop effects.
+本検証では過去のイベント時刻を精緻化しない。Candidate Cで固定した研究時点の前提を維持し、イベントカレンダー改善の影響とDaily Stopの効果が混在することを防ぐ。
 
-### Price and execution rules
+### 価格・約定ルール
 
-- Scheduled entry uses the exact JST M1 `Open`.
-- Long entry = Open + fixed spread; short entry = Open - fixed spread.
-- CSV `<SPREAD>` is ignored.
-- Fixed spreads (pips): UJ 0.5, EJ 1.0, GJ 2.0, AJ 1.5, AU 1.5, EA 1.5, GA 2.0.
-- Scheduled time exit uses M1 `Open`; if absent, search +1 through +4 minutes. If none exists, do not generate the trade.
-- From entry through the selected exit bar, inspect each M1 High/Low in chronological order.
-- SL/TP prices are based on the spread-adjusted entry.
-- When SL and TP are both touched within the same M1 bar, SL wins (conservative rule).
-- Overnight positions continue to their specified next-day exit; there is no midnight liquidation.
-- `R = realized Pips / actual SL pips used by that trade`. UJ12 therefore uses its actual NORMAL or GOTO SL denominator.
+- 予定エントリーには、該当するJST M1足の正確な`Open`を使用する。
+- Longエントリー = Open + 固定スプレッド、Shortエントリー = Open - 固定スプレッド。
+- CSVの`<SPREAD>`は使用しない。
+- 固定スプレッド（pips）: UJ 0.5、EJ 1.0、GJ 2.0、AJ 1.5、AU 1.5、EA 1.5、GA 2.0。
+- 時間決済には予定時刻のM1 `Open`を使用する。該当足がなければ+1分から+4分まで探す。いずれもなければトレードを生成しない。
+- エントリー足から選択した決済足まで、各M1足のHigh/Lowを時系列順に確認する。
+- SL/TP価格は、スプレッド調整後のエントリー価格を基準とする。
+- 同じM1足の中でSLとTPの両方に到達した場合は、保守的ルールとしてSLを優先する。
+- overnightポジションは指定された翌日の決済時刻まで保有し、午前0時に強制決済しない。
+- `R = 実現Pips / そのトレードで実際に使用したSL pips`。したがってUJ12では、実際のNORMALまたはGOTOのSLを分母に使用する。
 
-## 5. Daily Stop rules (analysis layer only)
+## 5. Daily Stopルール（分析層のみ）
 
-Daily Stop is applied only after the Baseline Trade Log has been generated, exported and identified by SHA-256.
+Daily Stopは、ベースライン・トレードログを生成・エクスポートし、SHA-256で特定した後にのみ適用する。
 
-For a candidate trade with entry time `T`, the available realized daily result is the sum of accepted trades satisfying:
+エントリー時刻`T`の候補トレードについて、その時点で利用できる当日の実現損益は、次を満たす採用済みトレードの合計とする。
 
 ```text
-same JST accounting day AND CloseTime < T
+同じJST集計日 AND CloseTime < T
 ```
 
-Rules:
+ルール:
 
-- Only strictly earlier closes are available. `CloseTime == EntryTime` is not used; this prevents future/intra-timestamp ordering information.
-- When available realized cumulative R is at or below the tested loss threshold, the candidate is blocked.
-- Once the threshold is reached, the stop is latched for the rest of that JST date. Later closes from positions already open cannot restart entries even if cumulative R recovers.
-- Close events sharing the same M1 timestamp are aggregated before the threshold is evaluated; their unknowable within-minute order is never used.
-- Blocked trades add neither profit nor loss and never affect later cumulative R.
-- The state resets at 00:00 JST each day.
-- Entry ordering is deterministic: `EntryTime`, then the frozen strategy number.
-- Overnight trades contribute only after their actual close and only to the JST day containing that close; they cannot retroactively block earlier entries.
-- Baseline, accepted and blocked rows must remain separately auditable.
+- 利用できるのは厳密に早い時刻の決済だけとする。`CloseTime == EntryTime`は使用しない。これにより、未来情報や同一時刻内の順序情報の利用を防ぐ。
+- 利用可能な実現累積Rが、検証中の損失しきい値以下の場合、その候補トレードを停止する。
+- 一度しきい値に到達したら、そのJST日が終わるまで停止状態を維持する。すでに保有中のポジションが後で決済され、累積Rが回復してもエントリーを再開しない。
+- 同じM1時刻に発生した決済は、しきい値判定前に合算する。分単位の中で知り得ない順序は使用しない。
+- 停止されたトレードは利益も損失も加算せず、その後の累積Rにも影響しない。
+- 状態は毎日00:00 JSTにリセットする。
+- エントリー順序は`EntryTime`、次に固定済み戦略番号の順とし、常に同じ結果になるようにする。
+- overnightトレードは実際の決済後にのみ、その決済が属するJST日の損益へ反映する。過去のエントリーを遡って停止させることはできない。
+- ベースライン、採用、停止の各行は、個別に監査できる状態を維持する。
 
-The predeclared comparison is `none / -1R / -1.5R / -2R / -2.5R / -3R / -4R`. Fine-grained values must not be added after seeing results.
+事前定義した比較対象は`なし / -1R / -1.5R / -2R / -2.5R / -3R / -4R`とする。結果確認後に細かなしきい値を追加してはならない。
 
-`IS_SELECTION` first calculated only 2015-2021 and did not calculate or display OOS1/OOS2. That run froze `-4R` in `docs/30_daily_stop_is_selection_result.md`. The current `FROZEN_REPORT` applies that one threshold to FULL, IS, OOS1, OOS2 and the combined OOS period. It must not be changed after OOS is viewed.
+`IS_SELECTION`では最初に2015～2021年だけを計算し、OOS1/OOS2は計算も表示もしなかった。その実行により、`docs/30_daily_stop_is_selection_result.md`で`-4R`を固定した。現在の`FROZEN_REPORT`では、固定した1つのしきい値をFULL、IS、OOS1、OOS2、OOS合算期間へ適用する。OOS確認後に変更してはならない。
 
-The analysis code reads only the accepted Baseline Trade Log and aborts unless its SHA-256 is `cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359`. It does not read M1 data or recalculate baseline trades. Notebook summaries and detailed decisions, accepted trades, blocked trades, daily ledgers, stop events, metadata and output hashes are written to `/content` as CSV.
+分析コードは採用済みのベースライン・トレードログだけを読み込み、そのSHA-256が`cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359`でない場合は中止する。M1データは読み込まず、ベースライン・トレードも再計算しない。ノートブックの要約、詳細判定、採用トレード、停止トレード、日次台帳、停止イベント、メタデータ、出力ハッシュはCSVとして`/content`へ保存する。
 
-## 6. Baseline outputs
+## 6. ベースライン出力
 
-The Colab program displays summaries in the notebook and writes the same artifacts to `/content`:
+Colabプログラムはノートブックに要約を表示し、同じ成果物を`/content`へ保存する。
 
 - `/content/daily_stop_baseline_trades.csv`
 - `/content/daily_stop_baseline_summary.csv`
@@ -118,17 +118,17 @@ The Colab program displays summaries in the notebook and writes the same artifac
 - `/content/daily_stop_baseline_manifest.csv`
 - `/content/daily_stop_baseline_run_metadata.csv`
 
-The metadata contains the trade-log SHA-256, source revision and rule flags. `/content` is temporary; after review, confirmed results may be copied to Drive and committed under `results/daily_stop/`.
+メタデータにはトレードログのSHA-256、ソースのリビジョン、ルールフラグを含める。`/content`は一時領域である。レビュー後、確認済み結果はDriveへコピーし、`results/daily_stop/`以下へコミットできる。
 
-## 7. Reproducibility and acceptance checks
+## 7. 再現性と採用判定チェック
 
-A run is accepted only if:
+実行結果は、次のすべてを満たす場合にのみ採用する。
 
-- all 56 manifest files are found exactly once;
-- input timestamps parse, OHLC values are numeric, duplicates are absent, and OHLC integrity holds;
-- exactly 28 strategy definitions execute;
-- `R == Pips / SL` within numeric tolerance and all SL exits equal `-1R`;
-- no Daily Stop fields or decisions appear in the baseline engine;
-- output row order is deterministic and the SHA-256 is recorded;
-- diagnostics and summaries are reviewed before the log is frozen for Daily Stop analysis.
-- all three post-filter GBPAUD 2019 gap candidates are present as `MISSING_ENTRY` diagnostics.
+- マニフェストに記載した56ファイルがそれぞれ正確に1回ずつ見つかる。
+- 入力時刻を解析でき、OHLC値が数値で、重複がなく、OHLCの整合性を満たす。
+- 28個の戦略定義が正確に実行される。
+- 数値許容誤差内で`R == Pips / SL`となり、すべてのSL決済が`-1R`である。
+- ベースライン・エンジンにDaily Stopの項目や判定が存在しない。
+- 出力行の順序が常に同一で、SHA-256が記録される。
+- Daily Stop分析用ログを固定する前に、診断と要約を確認する。
+- フィルター適用後に残るGBPAUD 2019年の既知ギャップ候補3件が、すべて`MISSING_ENTRY`診断として存在する。

@@ -1,54 +1,54 @@
-# Daily Stop Frozen OOS Result
+# Daily Stopの固定OOS結果
 
-Status: COMPLETE — Daily Stop not adopted for the profit objective
+状態: 完了 — 利益目的ではDaily Stopを不採用
 
-Decision date: 2026-09-09 JST
+判断日: 2026-09-09 JST
 
-Frozen threshold: `-4R`
+固定しきい値: `-4R`
 
-Input Trade Log SHA-256:
+入力トレードログのSHA-256:
 
 ```text
 cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
 ```
 
-The threshold was selected from IS before OOS was calculated. It was not changed after OOS was viewed.
+しきい値はOOS計算前にISだけで選定した。OOS確認後には変更していない。
 
-## Result by segment
+## 区分別結果
 
-| Segment | Baseline R | -4R Stop R | Delta R | Delta % | Baseline PF | Stop PF | Baseline Max DD | Stop Max DD | Blocked |
+| 区分 | ベースラインR | -4R Stop R | Delta R | Delta % | ベースラインPF | Stop PF | ベースラインMax DD | Stop Max DD | 停止数 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | IS | 768.488273 | 770.737662 | +2.249388 | +0.292703% | 1.372171 | 1.377502 | 27.540956 | 27.540956 | 62 |
 | OOS1 | 601.960585 | 603.002779 | +1.042194 | +0.173133% | 1.489975 | 1.494546 | 22.196976 | 18.583552 | 25 |
 | OOS2 | 19.818791 | 19.147630 | -0.671162 | -3.386493% | 1.095529 | 1.092309 | 18.954206 | 18.954206 | 3 |
-| OOS combined | 621.779376 | 622.150409 | +0.371033 | +0.059673% | 1.432989 | 1.436065 | 22.196976 | 18.954206 | 28 |
-| Full | 1390.267649 | 1392.888070 | +2.620421 | +0.188483% | 1.397117 | 1.401592 | 27.540956 | 27.540956 | 90 |
+| OOS合算 | 621.779376 | 622.150409 | +0.371033 | +0.059673% | 1.432989 | 1.436065 | 22.196976 | 18.954206 | 28 |
+| 全期間 | 1390.267649 | 1392.888070 | +2.620421 | +0.188483% | 1.397117 | 1.401592 | 27.540956 | 27.540956 | 90 |
 
-## OOS consistency
+## OOSの一貫性
 
-The yearly OOS Delta R was:
+OOSの年別Delta Rは次のとおり。
 
-| Year | Delta R |
+| 年 | Delta R |
 |---:|---:|
 | 2022 | -1.970119 |
 | 2023 | +2.288980 |
 | 2024 | -0.469333 |
 | 2025 | +1.192667 |
-| 2026 through 2026-09-09 | -0.671162 |
+| 2026（2026-09-09まで） | -0.671162 |
 
-Two OOS years improved and three deteriorated. The OOS-combined gain was only 0.371033R, or 0.059673% of the baseline result. Avoided losses were 9.280889R and missed profits were 8.909856R.
+OOSでは2年が改善し、3年が悪化した。OOS合算の増加はわずか0.371033Rで、ベースライン結果の0.059673%に過ぎない。回避した損失は9.280889R、取り逃した利益は8.909856Rだった。
 
-## Risk observations
+## リスク面の観察
 
-OOS1 Max DD improved from 22.196976R to 18.583552R. Its worst day improved from -10.880000R to -7.880000R and its worst week improved from -12.824402R to -9.210977R. OOS2 Max DD, worst day and worst week were unchanged.
+OOS1のMax DDは22.196976Rから18.583552Rへ改善した。Worst Dayは-10.880000Rから-7.880000Rへ、Worst Weekは-12.824402Rから-9.210977Rへ改善した。OOS2のMax DD、Worst Day、Worst Weekは変わらなかった。
 
-These tail-risk improvements are real within this simulation, but they do not establish a repeatable increase in profit. The original research question was whether Daily Stop increases profit amount, and the predeclared rule treats a mixed OOS result as insufficient.
+このシミュレーション内ではテールリスクの改善が確認できるが、利益増加の再現性を証明するものではない。当初の研究課題はDaily Stopによって利益額が増えるかどうかであり、事前定義ルールでは不安定なOOS結果を不十分と判断する。
 
-## Final decision
+## 最終判断
 
-Daily Stop is not adopted for the current 28-strategy portfolio. The no-Daily-Stop Baseline remains the official configuration.
+現在の28戦略ポートフォリオにはDaily Stopを採用しない。Daily Stopなしのベースラインを正式構成として維持する。
 
-- Do not retune the threshold after OOS.
-- Do not add a post-hoc `-3.5R` or another threshold.
-- Do not change EA, VPS, SET or live-operation code.
-- The risk-reduction observation may be retained as research evidence, but any future risk-control study must be separately predeclared.
+- OOS確認後にしきい値を再調整しない。
+- 事後的に`-3.5R`や別のしきい値を追加しない。
+- EA、VPS、SET、live運用コードを変更しない。
+- リスク低減の観察結果は研究記録として残してよい。ただし、将来リスク管理を再検証する場合は、別の研究として事前にルールを定義しなければならない。
