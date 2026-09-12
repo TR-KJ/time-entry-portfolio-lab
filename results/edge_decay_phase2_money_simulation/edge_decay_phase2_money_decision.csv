@@ -1,0 +1,2 @@
+Decision,Reason,PrimaryRiskPct,Rule,LiveAdopted,ArithmeticDecision,VerificationStatus
+REJECT,0.25%:OOS_NetProfitJPY:NEGATIVE;0.25%:ALL_FinalCapital:NEGATIVE;1.0%:OOS_NetProfitJPY:NEGATIVE;1.0%:ALL_FinalCapital:NEGATIVE;1.5%:OOS_NetProfitJPY:NOT_POSITIVE;1.5%:ALL_FinalCapital:NOT_POSITIVE;2.0%:OOS_NetProfitJPY:NEGATIVE;2.0%:ALL_FinalCapital:NEGATIVE,1.5,Primary 1.5%: ALL FinalCapital delta > 0 AND continuous OOS NetProfitJPY delta > 0; other fixed risks: both deltas >= 0; validation passes; no live adoption,False,REJECT,PASS
