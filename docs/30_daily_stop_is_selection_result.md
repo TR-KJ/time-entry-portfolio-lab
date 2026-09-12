@@ -1,22 +1,22 @@
-# Daily Stop IS Selection Result
+# Daily StopのIS選定結果
 
-Status: `-4R` frozen for one OOS test; not accepted for production
+状態: 1回限りのOOS検証用として`-4R`を固定。実運用には未採用
 
-Selection date: 2026-09-09 JST
+選定日: 2026-09-09 JST
 
-Input Trade Log SHA-256:
+入力トレードログのSHA-256:
 
 ```text
 cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
 ```
 
-OOS1 and OOS2 were not calculated or viewed during this selection.
+この選定中にOOS1およびOOS2の計算・閲覧は行っていない。
 
-## IS comparison (2015-2021)
+## IS比較（2015～2021年）
 
-| Rule | Total R | Delta R | PF | Max DD (R) | Worst day (R) | Worst week (R) | Blocked trades |
+| ルール | Total R | Delta R | PF | Max DD (R) | Worst Day (R) | Worst Week (R) | 停止トレード数 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| None | 768.488273 | 0.000000 | 1.372171 | 27.540956 | -12.000000 | -14.455836 | 0 |
+| なし | 768.488273 | 0.000000 | 1.372171 | 27.540956 | -12.000000 | -14.455836 | 0 |
 | -1R | 637.875116 | -130.613158 | 1.360615 | 26.722450 | -7.261429 | -10.457477 | 1,254 |
 | -1.5R | 725.935610 | -42.552664 | 1.379756 | 25.710058 | -7.261429 | -10.719321 | 613 |
 | -2R | 732.050072 | -36.438202 | 1.373022 | 26.415914 | -7.261429 | -10.719321 | 424 |
@@ -24,28 +24,28 @@ OOS1 and OOS2 were not calculated or viewed during this selection.
 | -3R | 757.940936 | -10.547337 | 1.373828 | 27.662855 | -7.261429 | -10.922483 | 138 |
 | -4R | 770.737662 | +2.249388 | 1.377502 | 27.540956 | -7.261429 | -10.800584 | 62 |
 
-For `-4R`, avoided losses were 23.204408R and missed profits were 20.955020R; their difference equals the reported +2.249388R. Total R improved by only 0.292703%.
+`-4R`では、回避した損失が23.204408R、取り逃した利益が20.955020Rであり、その差が報告値の+2.249388Rと一致する。Total Rの改善率はわずか0.292703%だった。
 
-## Frozen decision
+## 固定した判断
 
-`-4R` is the only predeclared Daily Stop threshold with positive IS Delta R, and it modestly improves PF, worst day and worst week. It is therefore frozen as the sole candidate for one OOS report.
+`-4R`は、事前定義したDaily Stopしきい値のうち、ISのDelta Rがプラスとなった唯一の値である。また、PF、Worst Day、Worst Weekもわずかに改善した。このため、1回限りのOOSレポートへ進める唯一の候補として固定する。
 
-This is weak IS evidence, not a production adoption:
+ただし、これは弱いIS証拠であり、実運用への採用ではない。
 
-- Max DD is unchanged.
-- The Total R gain is small.
-- `-3R` loses 10.547337R, so there is no broad profitable plateau around the selected boundary.
-- The yearly `-4R` Delta R is positive in 2015, 2018, 2020 and 2021; negative in 2016 and 2019; and zero in 2017.
-- No intermediate threshold such as `-3.5R` may be added after seeing these results.
+- Max DDは変わらない。
+- Total Rの増加は小さい。
+- `-3R`では10.547337R減少しており、選定境界の周囲に幅広い利益改善領域は存在しない。
+- 年別の`-4R` Delta Rは、2015年・2018年・2020年・2021年がプラス、2016年・2019年がマイナス、2017年がゼロである。
+- これらの結果を確認した後で、`-3.5R`などの中間しきい値を追加してはならない。
 
-## Predeclared OOS interpretation
+## 事前定義したOOSの解釈ルール
 
-- `-4R` is run once, unchanged, on OOS1 (2022-2025) and OOS2 (2026 through 2026-09-09).
-- OOS1 is the primary multi-year confirmation. For the profit objective, its Delta R must be positive.
-- OOS1+OOS2 combined must also have positive Delta R and the conclusion must not depend only on the shorter OOS2 period.
-- Max DD, worst day and worst week are supporting risk measures; they cannot override a negative OOS profit result.
-- A negative or merely mixed OOS result means evidence is insufficient and Daily Stop is not adopted. The threshold is not retuned.
+- `-4R`を変更せず、OOS1（2022～2025年）とOOS2（2026年～2026-09-09）へそれぞれ1回だけ適用する。
+- OOS1を複数年にわたる主確認期間とする。利益目的では、そのDelta Rがプラスでなければならない。
+- OOS1とOOS2の合算でもDelta Rがプラスでなければならず、短いOOS2期間だけに依存した結論としてはならない。
+- Max DD、Worst Day、Worst Weekは補助的なリスク指標であり、OOSの利益結果がマイナスの場合にそれを覆すことはできない。
+- OOS結果がマイナスまたは不安定な混合結果なら証拠不十分とし、Daily Stopを採用しない。しきい値の再調整も行わない。
 
-## Final outcome
+## 最終結果
 
-The frozen OOS run is recorded in `docs/31_daily_stop_oos_result.md`. OOS was mixed and the combined profit improvement was only 0.059673%, so Daily Stop was not adopted and no threshold was retuned.
+固定OOSの実行結果は`docs/31_daily_stop_oos_result.md`に記録している。OOSは混合結果で、合算利益の改善率もわずか0.059673%だった。このためDaily Stopは不採用とし、しきい値の再調整も行わなかった。
