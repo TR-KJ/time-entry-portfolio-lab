@@ -1,0 +1,5 @@
+Candidate,ResetImprovement1_5,OtherRiskRobustness,ArithmeticDecision,Decision,ShadowForwardCandidate,VerificationStatus,LiveAdopted,Rule
+D1_MINUS_22,True,True,DEPLOYMENT_RESET_CANDIDATE,DEPLOYMENT_RESET_CANDIDATE,True,PASS,False,Primary 1.5% FinalCapital delta > 0; 0.25/1.0/2.0% deltas >= 0; validation PASS; Shadow Forward candidate only; no live adoption
+D2_MINUS_18,False,False,NOT_CANDIDATE,NOT_CANDIDATE,False,PASS,False,Primary 1.5% FinalCapital delta > 0; 0.25/1.0/2.0% deltas >= 0; validation PASS; Shadow Forward candidate only; no live adoption
+D3_MINUS_20,True,True,DEPLOYMENT_RESET_CANDIDATE,DEPLOYMENT_RESET_CANDIDATE,True,PASS,False,Primary 1.5% FinalCapital delta > 0; 0.25/1.0/2.0% deltas >= 0; validation PASS; Shadow Forward candidate only; no live adoption
+D4_MINUS_23,False,False,NOT_CANDIDATE,NOT_CANDIDATE,False,PASS,False,Primary 1.5% FinalCapital delta > 0; 0.25/1.0/2.0% deltas >= 0; validation PASS; Shadow Forward candidate only; no live adoption

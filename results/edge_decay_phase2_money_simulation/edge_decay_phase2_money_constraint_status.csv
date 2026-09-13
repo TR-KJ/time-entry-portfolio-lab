@@ -1,0 +1,3 @@
+Mode,Status,MainDecision,Description
+THEORETICAL_UNCAPPED,RUN,True,THEORETICAL_UNCAPPED: Lot=RawLot; PnL=RiskAmount*Pips/SL; pip value cancels; no broker min/max/step/MaxAutoLot
+EA_CONSTRAINED,NOT_RUN_MISSING_HISTORICAL_BROKER_INPUTS,False,"Missing historical JPY pip value, symbol volume min/max/step, weekly floating equity; MaxAutoLot=1 and AllowMinLot=true documented only"

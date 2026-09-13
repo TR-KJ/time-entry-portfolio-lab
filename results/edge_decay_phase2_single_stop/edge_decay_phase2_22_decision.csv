@@ -1,0 +1,2 @@
+Strategy,Decision,Reason,OOSDeltaTotalR,NonnegativeYears,Years,MaxAnnualDeltaR,MaxAnnualShare,ConcentrationPass,MoneySimulationEligible,MoneySimulation,LiveAdopted,SecondaryWorsened,PFDeltaNote
+22_GA_C_2,ADOPTION_CANDIDATE,ALL_PRIMARY_AND_STABILITY_GATES_PASSED,9.362857140,5,5,3.221428570,0.3440646932694735103049964938,True,True,NOT_RUN,False,WorstWeekR,ALL_PF_DELTAS_FINITE

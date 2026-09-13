@@ -1,0 +1,2 @@
+AnalysisVersion,SelectionDateJST,InputTradeLogSHA256,ISRows,CandidateThresholdsR,SelectedThresholdR,SelectionStatus,ISDeltaR,ISDeltaPct,ISBaselinePF,ISSelectedPF,ISBaselineMaxDDR,ISSelectedMaxDDR,OOSCalculated
+daily-stop-analysis-v1.0.0,2026-09-09,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359,9756,-1.0;-1.5;-2.0;-2.5;-3.0;-4.0,-4.0,FROZEN_FOR_SINGLE_OOS_TEST_NOT_PRODUCTION,2.249388,0.292703,1.372171,1.377502,27.540956,27.540956,False

@@ -1,0 +1,2 @@
+Strategy,Decision,Reason,OOSDeltaTotalR,NonnegativeYears,Years,MaxAnnualDeltaR,MaxAnnualShare,ConcentrationPass,MoneySimulationEligible,MoneySimulation,LiveAdopted,SecondaryWorsened,PFDeltaNote
+18_EA_2_MonWed_Short,REJECT,OOS_TOTAL_NOT_POSITIVE,-0.307777785,3,5,10.105555551,,False,False,NOT_RUN,False,NONE,ALL_PF_DELTAS_FINITE
