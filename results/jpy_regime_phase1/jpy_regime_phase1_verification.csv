@@ -1,0 +1,9 @@
+Check,Status
+7 unit tests,PASS
+Baseline hash and 16298 trades,PASS
+Fixed 17 identities,PASS
+Decimal independent daily windows,PASS
+No lookahead all assignments,PASS
+Independent cells pooled equal weighted,PASS
+Independent support decisions,PASS
+Four preregistered representative dates,PASS
