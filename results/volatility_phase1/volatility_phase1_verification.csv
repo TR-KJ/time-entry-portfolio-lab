@@ -1,0 +1,3 @@
+Check,Status,Rows
+"Independent Decimal metrics, differences, equal weights, eligibility, support, coverage all periods",PASS,1140
+All trades retained; all trade-date availability assertions,PASS,16298
