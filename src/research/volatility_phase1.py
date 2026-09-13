@@ -144,7 +144,7 @@ def tables_for(t,method,period,cis):
         base=dict(Period=period,Method=method,Group=name,EligibleStrategies=len(eligible),EligibleIDs='|'.join(map(str,eligible)),SameSignStrategies=same,Support=state,**ci)
         for reg in REGIMES:
             groups.append(dict(**base,Aggregation='trade_weighted',Regime=reg,**pooled[reg],HighMinusLowAvgR=diff))
-            groups.append(dict(**base,Aggregation='strategy_equal_weighted',Regime=reg,AvgR=avgs[reg],HighMinusLowAvgR=ediff))
+            groups.append(dict(**{**base, 'CILow':np.nan, 'CIHigh':np.nan, 'ValidBootstraps':0},Aggregation='strategy_equal_weighted',Regime=reg,AvgR=avgs[reg],HighMinusLowAvgR=ediff))
         decisions.append(dict(**base,PooledDelta=diff,EqualWeightedDelta=ediff))
     return pd.DataFrame(cells),pd.DataFrame(groups),pd.DataFrame(decisions)
 

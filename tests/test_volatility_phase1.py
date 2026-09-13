@@ -55,5 +55,7 @@ class TestVolatility(unittest.TestCase):
     def test_empty_eligibility(self):
         t=pd.DataFrame({'StrategyNo':[1],'R':[1.],'primary':['LOW']});c,g,d=v.tables_for(t,'primary','FULL',{})
         self.assertTrue((d.Support=='UNDETERMINED').all());self.assertFalse(c.Eligible.any())
+        c,g,d=v.tables_for(t,'primary','FULL',{('primary','Portfolio'):{'CILow':1.,'CIHigh':2.,'ValidBootstraps':5000}})
+        self.assertTrue(g.loc[g.Aggregation=='strategy_equal_weighted','CILow'].isna().all())
 
 if __name__=='__main__': unittest.main()
