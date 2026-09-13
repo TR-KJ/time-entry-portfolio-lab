@@ -91,3 +91,4 @@ time-entry-portfolio-lab/
 ## 研究計画
 
 - [Strategy Selection / Portfolio Pruning 検証計画](docs/32_strategy_selection_validation_plan.md)
+- [市場環境依存研究ロードマップ（4テーマ）](docs/market_environment_research/README.md)
