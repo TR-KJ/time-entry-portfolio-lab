@@ -1,0 +1,11 @@
+Method,Candidate,Status,AuditRows
+primary,F1_Q1_OFF,PASS,61
+primary,F1_Q1_OFF,SKIPPED_NOT_IN_CURVE,3
+primary,R0_FIXED_090,PASS,62
+primary,R1_MILD,PASS,62
+primary,R2_MODERATE,PASS,62
+robustness,F1_Q1_OFF,PASS,61
+robustness,F1_Q1_OFF,SKIPPED_NOT_IN_CURVE,3
+robustness,R0_FIXED_090,PASS,62
+robustness,R1_MILD,PASS,62
+robustness,R2_MODERATE,PASS,62

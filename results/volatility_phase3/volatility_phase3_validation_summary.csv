@@ -1,0 +1,13 @@
+Check,Status,Detail
+Baseline hash / 16298 trades / 28 identities,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+Original M1 byte hashes,PASS,56
+Phase 2 full assignment hash and all quintile labels,PASS,16298 x 2 methods
+Phase 2 full/period/strategy quintile counts and R reproduction,PASS,all cells
+Feature no-lookahead and 23 representative daily audits,PASS,unchanged Phase 1/2 routines
+Unit tests including inherited future data mutation,PASS,27
+Independent NumPy/pandas all trade/metric verification,PASS,40 scenarios
+Original v1.1 R0 all trade PnL/weekly base regression,PASS,16298
+Independent serialized decision signs,PASS,3 candidates
+Notebook code-cell local execution,PASS,path substitution only; Drive OFF; Colab runtime not executed
+Deterministic CSV byte regeneration,PASS,26
+Run record regeneration excluding timestamp,PASS,all other fields equal
