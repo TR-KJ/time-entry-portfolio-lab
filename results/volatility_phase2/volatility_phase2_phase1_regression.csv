@@ -1,0 +1,9 @@
+Check,Status,Rows
+Phase1 regression strategy_primary,PASS,84
+Phase1 regression strategy_robustness,PASS,84
+Phase1 regression group_summary,PASS,60
+Phase1 regression period_summary,PASS,912
+Phase1 regression decision,PASS,10
+Phase1 regression combined_decision,PASS,5
+Phase1 regression regime_coverage,PASS,1320
+Phase1 stored feature/assignment audit,PASS,177

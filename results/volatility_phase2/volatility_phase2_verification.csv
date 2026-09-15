@@ -1,0 +1,6 @@
+Check,Status,Rows
+Independent CSV Decimal metrics/equal weights/all periods,PASS,1900
+Independent ranks/adjacent/eligibility/combined decisions,PASS,380
+Independent weekly sums and linear CI,PASS,66
+All assignments/quintiles/no-lookahead/retained trades,PASS,16298
+Coverage including insufficient history,PASS,1980
