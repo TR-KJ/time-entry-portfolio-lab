@@ -1,0 +1,10 @@
+{
+  "src/research/volatility_phase1.py": "65ef361509e5bb404be02bfb0d1bdefbc6f59acbe8a557cdee030dd3a69116a1",
+  "src/research/volatility_phase1_frozen_inputs.json": "bfc4b372247bc8def18f4a3768d855285559ffed2782de73737fda4eafb5c61b",
+  "src/research/volatility_phase2.py": "c6d1b6d3380c70970d8b353b632b6f4f20a9c9aff17c5ff1347dde1d3c605428",
+  "src/research/volatility_phase3.py": "c06ed013dbff049120939cedf546c414a50aec28ab5a93e0c263a514ad6a6ec5",
+  "src/research/edge_decay_phase2_money_simulation.py": "a74c8d378b1ea08150ebb70fe20fabcdc94acf8d1ad7e03c758f016b10cbd858",
+  "src/portfolio_money_management_sim_v1_1.py": "62e878ff49e5692613e3f5e837faf8cf96fb7ca9851694fbf4f85f72f2a36848",
+  "src/EA/time_entry_step9_2_4_trade_result_reconcile_28strategies.mq5": "86754cb504c03b77da2b5dc7a854aaefca107a244625c1018ca97f3e6ad6e75f",
+  "src/EA/time_entry_step9_2_1_event_candidate_c_overlap_fix_28strategies.mq5": "a802d30aa943cb0f319bcd9c9ab2975c7770cfc6373e3a039f016cf02a8daca0"
+}
