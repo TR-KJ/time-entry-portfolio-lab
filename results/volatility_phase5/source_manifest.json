@@ -1,0 +1,18 @@
+{
+  "PlanSHA": "9930d2f7fdf903fd60a85ba286592a0cf72a0412",
+  "BaseSHA": "7795c23f8bb1bf8bc362cb49bec4a9f36e554581",
+  "OriginalFiles": {
+    "src/EA/time_entry_step9_2_1_event_candidate_c_overlap_fix_28strategies.mq5": "a802d30aa943cb0f319bcd9c9ab2975c7770cfc6373e3a039f016cf02a8daca0",
+    "src/EA/time_entry_step9_2_4_trade_result_reconcile_28strategies.mq5": "86754cb504c03b77da2b5dc7a854aaefca107a244625c1018ca97f3e6ad6e75f"
+  },
+  "Status": "IMPLEMENTED_NOT_COMPILED_NOT_DEPLOYABLE",
+  "DedicatedFiles": {
+    "src/EA/phase5_demo/audit_vol_r2_snapshot.mq5": "bba1d4ce610891b87fd4cf4d3a410052da202c1efdb71195dd0f75a0c6e4a0f6",
+    "src/EA/phase5_demo/step921_demo_dependency.mqh": "86a70fc0bdee09360c957a73a830d638aefc531e34c8ffc5d687bd63a833c105",
+    "src/EA/phase5_demo/test_vol_r2_core.mq5": "3702fd462ca8c01b2314d8be52f545f70b296bcbc712e6bb074febfb9d0ecc95",
+    "src/EA/phase5_demo/vol_r2_core.mqh": "bf8f3b7d90390536fa4f2081fcd6f15304e523e3ff7c026f7694cfc0866a72fe",
+    "src/EA/phase5_demo/vol_r2_runtime.mqh": "c6e77044b982ca341d453f61abeb824fb259e50c6e77b0def938a687f3bfb139",
+    "src/EA/time_entry_step9_2_4_trade_result_reconcile_27strategies_vol_r2_demo.mq5": "259853b41805d1b460e9aed846667cb048e66ec4bb71d27e52087c2746a23d5c"
+  },
+  "SET_SHA256": "3c8b7ac9af53695ed5c4b6fe78e78e8a4ed42be5cc860f65c38ba56a0ae92740"
+}

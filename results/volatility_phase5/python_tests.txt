@@ -1,0 +1,27 @@
+test_all_midrank_bins (__main__.ReferenceTests.test_all_midrank_bins) ... ok
+test_current_future_mutation (__main__.ReferenceTests.test_current_future_mutation) ... ok
+test_daily_actual_saturday (__main__.ReferenceTests.test_daily_actual_saturday) ... ok
+test_daily_ohlc_and_gaps (__main__.ReferenceTests.test_daily_ohlc_and_gaps) ... ok
+test_dst (__main__.ReferenceTests.test_dst) ... ok
+test_duplicate_and_invalid (__main__.ReferenceTests.test_duplicate_and_invalid) ... ok
+test_existing_lot_formula_regression (__main__.ReferenceTests.test_existing_lot_formula_regression) ... ok
+test_extremes (__main__.ReferenceTests.test_extremes) ... ok
+test_invalid_lots (__main__.ReferenceTests.test_invalid_lots) ... ok
+test_lot_floor_cap_min (__main__.ReferenceTests.test_lot_floor_cap_min) ... ok
+test_midnight_availability (__main__.ReferenceTests.test_midnight_availability) ... ok
+test_midrank_ties (__main__.ReferenceTests.test_midrank_ties) ... ok
+test_no_profit_input_to_verdict (__main__.ReferenceTests.test_no_profit_input_to_verdict) ... ok
+test_parser_and_missing_evidence (__main__.ReferenceTests.test_parser_and_missing_evidence) ... ok
+test_risk_table (__main__.ReferenceTests.test_risk_table) ... ok
+test_verdict_priority (__main__.ReferenceTests.test_verdict_priority) ... ok
+test_warmup_271_272 (__main__.ReferenceTests.test_warmup_271_272) ... ok
+test_full_set_keys_and_27_enabled (__main__.SourceContractTests.test_full_set_keys_and_27_enabled) ... ok
+test_guards_at_active_submit (__main__.SourceContractTests.test_guards_at_active_submit) ... ok
+test_live_source_includes_not_used (__main__.SourceContractTests.test_live_source_includes_not_used) ... ok
+test_reconciliation_functions_unchanged (__main__.SourceContractTests.test_reconciliation_functions_unchanged) ... ok
+test_strategy_identity_unchanged (__main__.SourceContractTests.test_strategy_identity_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.170s
+
+OK

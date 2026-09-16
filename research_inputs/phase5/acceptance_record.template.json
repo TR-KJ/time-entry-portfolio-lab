@@ -1,0 +1,54 @@
+{
+  "start": null,
+  "cutoff": null,
+  "deployment_validation": "PENDING",
+  "qualifying_candidates": [],
+  "actual_entry_exit_reconciled": false,
+  "week_rollover_observed": false,
+  "within_week_reuse_observed": false,
+  "all_candidates_audited": false,
+  "checks": {
+    "A": {
+      "status": "PENDING",
+      "evidence": null,
+      "reviewer": null,
+      "checked_at": null
+    },
+    "B": {
+      "status": "PENDING",
+      "evidence": null,
+      "reviewer": null,
+      "checked_at": null
+    },
+    "C": {
+      "status": "PENDING",
+      "evidence": null,
+      "reviewer": null,
+      "checked_at": null
+    },
+    "D": {
+      "status": "PENDING",
+      "evidence": null,
+      "reviewer": null,
+      "checked_at": null
+    },
+    "E": {
+      "status": "PENDING",
+      "evidence": null,
+      "reviewer": null,
+      "checked_at": null
+    },
+    "F": {
+      "status": "PENDING",
+      "evidence": null,
+      "reviewer": null,
+      "checked_at": null
+    },
+    "G": {
+      "status": "PENDING",
+      "evidence": null,
+      "reviewer": null,
+      "checked_at": null
+    }
+  }
+}
