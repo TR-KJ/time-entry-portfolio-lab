@@ -1,35 +1,16 @@
-# Phase5 predeployment validation report
+# Phase 5 OANDA timestamp revision — validation
 
-Status: IMPLEMENTED_NOT_COMPILED_NOT_DEPLOYABLE. Forward status: NOT_STARTED.
-Plan SHA: 9930d2f7fdf903fd60a85ba286592a0cf72a0412.
+Timezone addendum remote SHA: 9953aa01409db80779984e62acea61f2bfe4a1e6. Original Plan remains 9930d2f7fdf903fd60a85ba286592a0cf72a0412.
+Status: REVISED_SOURCE_NOT_COMPILED_NOT_DEPLOYABLE.
 
-## Completed local checks
-- Python unittest: 22 tests PASS, including 505 midrank values, 1,000 deterministic lot regression cases, DST transition/ambiguous hours, daily aggregation/Saturdays/gaps, 271/272 warmup, no-lookahead mutations, fallback/risk mapping, invalid lots, full 120-input SET, 22 disabled/27 enabled, verdict priority.
-- Static comparison: 14 Step9.2.4 reconciliation/dynamic-SL functions unchanged, full SetupStrategies unchanged. This does NOT establish actual MT5 runtime regression.
-- Original Step9.2.1/Step9.2.4 Git blob hashes match the remote base exactly. Plan blob also matches. Dedicated dependency copy contains only safe input defaults, clock/GV namespace routing and renamed initializer; no strategy/event table edits.
-- Source review: demo account checks at init, callbacks and active order submissions; account/server-specific GV names bounded to 63 chars; raw/min/cap lot guards; independent tick-input audit; candidate ID based on actual magic (array order differs from strategy number); persistent position-to-candidate linkage for exit/deal events; no premature WeeklyBase creation by filtered candidates.
-- No tracked live EA, Plan or Phase4 file changes. No live binary generated or deployed.
+- Python unittest: 30 PASS, including calendar-rule mirror vs independent America/New_York zoneinfo over 2007–2035, exact gap/fold rejection, US/EU mismatch dates, JST midnight/weekly/history boundaries, risk/fallback/lot/config/no-lookahead and existing static reconciliation regression.
+- 21,286 UTC test instants (29 years × (12 monthly anchors + 722 transition-neighborhood minutes)); this is a Python mirror check, not actual MQL execution.
+- Shared MQL no-order script expanded from24 to34 assertions; revised compile/run PENDING on Dell.
+- Frozen P5Risk/P5Quintile/P5Calculate/P5Size bodies byte-identical to prior revision. Dedicated strategy dependency and both original live source files unchanged. Original Plan unchanged.
+- Synthetic fixture keeps JST/OHLC and expected280 days/ATR3.0125/n311/Q4/risk1.1; only raw ServerTime changed to OANDA.
+- Snapshot script reserves array capacity in8192-bar blocks and rejects allocation failure for large real-feed audit; CSV calculation semantics unchanged.
+- Full SET still120 inputs,27 enabled/22 disabled, approvalfalse, login0; renamed OANDA time-verification input defaultsfalse. All real account settings remain unset.
 
-## Unexecuted mandatory gates
-- MetaEditor compile: NOT_RUN (this Mac environment has no MT5/MetaEditor). No ex5 is supplied.
-- Actual MQL core script: NOT_RUN. src/EA/phase5_demo/test_vol_r2_core.mq5 contains 24 assertions and never sends orders.
-- Actual MQL/Python same-snapshot parity: NOT_RUN. audit_vol_r2_snapshot.mq5 and synthetic_m1_fixture.csv/expected.json are prepared; real Dell feed parity still required. Numeric tolerance may not excuse a different rank numerator/quintile.
-- Full MT5 reconciliation scenario regression (delayed fills/pending/timeouts/duplicate prevention/exit): NOT_RUN; existing implementation retained and source-checked only.
-- Dell account/server, timezone, source history completeness, symbol specs, compile build, final SET and binary hashes: PENDING.
-- History-load latency/disk use: NOT_MEASURED. First eligible candidate may load 600 calendar days of M1. Same symbol/day synchronized unchanged-count history reuses its immutable snapshot. A candidate whose window expires during work cannot place a late order. Any resulting missed entry must be investigated, not silently excluded.
-- Natural-forward A–G, 14 days, 10 candidates, 2 quintiles/2 symbols, real entry/exit and weekly rollover: NOT_STARTED.
+Old Dell compile0/0 and core24/24/synthetic parity relate to old source only. Revised compile, core34/34, synthetic rerun, same-Dell-feed MQL parity and binary hashes remain PENDING. Actual order/reconciliation acceptance and forward observations are not run. No VPS/live change. No deployment approval.
 
-## Important review limits
-The independent Python reference uses math.fsum; MQL uses a compensated window sum. Real-data and frozen research pandas parity must be measured, especially ties. Never add an epsilon to ranks to make a failing comparison pass.
-Europe/Helsinki ambiguous/nonexistent local timestamps fall back rather than infer a fold; ordinary DST boundaries have unit fixtures. Initial broker timezone must be independently confirmed before Approved=true.
-The 600-day request drops its first observed day to avoid partial leading-day OHLC. The independent audit uses exactly the resulting exported snapshot, including raw server/JST timestamps. This may change the first TR only far before the required recent 253 ATR values when adequate extra history exists; near warmup boundary validate explicitly against frozen research before release.
-Runtime logs join source/binary/SET metadata using the frozen RunId manifest. Full original TradeResult logs remain necessary to review all pending/timeout paths; the numeric audit deliberately does not grant a forward verdict.
-Complete production event settings must be compared to actual Dell values before deployment. Existing 2026 calendar coverage must be reviewed before any 2027 extension.
-No restart test is required for Dell. VPS restart/WeeklyBase restoration remains a separate future gate.
-
-## API references reviewed
-- [CopyRates](https://www.mql5.com/en/docs/series/copyrates): partial history availability and synchronized series must be checked.
-- [Account properties](https://www.mql5.com/en/docs/constants/environment_state/accountinformation): DEMO trade mode and account identity guard.
-- [FileOpen](https://www.mql5.com/en/docs/files/fileopen): terminal-local evidence exports.
-
-Python: 3.12.14; platform: macOS-26.5.2-arm64-arm-64bit
+Seven actual exports: all4,450,335 raw timestamps agree between calendar mirror and independent zoneinfo. InputSHA256 matches all previously received exports. Each symbol has513 completed days after the frozen600-day request/drop-first-day policy. Revised independent reference and pandas agree on finalATR/rank; all dailyOHLC/TR/ATR/count rows agree with the prior diagnosticUS result (absolute tolerance1e-12). This does not certify MQL real-feed parity. Latest conditional Q: UJ5,EJ4,GJ4,AJ3,AU1,EA1,GA1, asof2026-09-16 00:00 JST.

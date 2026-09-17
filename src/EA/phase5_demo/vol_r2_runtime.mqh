@@ -37,7 +37,7 @@ datetime P5Now()
 {
    datetime jst=0,server=TimeTradeServer();
    if(server<=0) server=TimeCurrent();
-   if(!InpPhase5HelsinkiVerified || !P5ServerToJst(server,jst)) return 0;
+   if(!InpPhase5OandaTimeVerified || !P5ServerToJst(server,jst)) return 0;
    return jst;
 }
 int P5Index(StrategyConfig &cfg)
@@ -78,6 +78,8 @@ void P5Load(StrategyConfig &cfg,datetime t,int i)
    MqlRates bars[]; ArraySetAsSeries(bars,false);
    datetime start=P5JstToServer(P5Midnight(t)-600*86400);
    datetime end=P5JstToServer(P5Midnight(t))-1;
+   if(start<=0 || end<=0 || end<start)
+   { P5Empty(p5_features[i],"UNSUPPORTED_SERVER_TIME"); return; }
    // Same-symbol same-JST-day immutable snapshot reuse. No partial/current day cached.
    // History expansion or a day rollover invalidates it; fallbacks are never shared.
    for(int k=0;k<ArraySize(strategies);k++)
@@ -90,7 +92,7 @@ void P5Load(StrategyConfig &cfg,datetime t,int i)
       p5_cache_day[i]=p5_cache_day[k]; p5_cache_start[i]=p5_cache_start[k];
       p5_cache_end[i]=p5_cache_end[k]; p5_cache_count[i]=p5_cache_count[k];
       P5Emit(cfg,"HISTORY","EvidencePath="+p5_snapshot[i]+"|HistoryStart="+P5Time(start)+
-         "|HistoryEnd="+P5Time(end)+"|ServerTimezoneRule=Europe/Helsinki|CachePolicy=JST_DAY_COUNT_SYNC|CacheReused=true");
+         "|HistoryEnd="+P5Time(end)+"|ServerTimezoneRule=OANDA_US_DST_V1|CachePolicy=JST_DAY_COUNT_SYNC|CacheReused=true");
       return;
    }
    ulong began=GetTickCount64();
@@ -119,7 +121,7 @@ void P5Load(StrategyConfig &cfg,datetime t,int i)
    else p5_snapshot[i]=file;
    p5_cache_day[i]=P5Midnight(t); p5_cache_start[i]=start; p5_cache_end[i]=end; p5_cache_count[i]=count;
    P5Emit(cfg,"HISTORY","EvidencePath="+p5_snapshot[i]+"|HistoryStart="+P5Time(start)+
-      "|HistoryEnd="+P5Time(end)+"|ServerTimezoneRule=Europe/Helsinki|LoadMilliseconds="+
+      "|HistoryEnd="+P5Time(end)+"|ServerTimezoneRule=OANDA_US_DST_V1|LoadMilliseconds="+
       IntegerToString((long)(GetTickCount64()-began)));
 }
 void P5FeatureLog(StrategyConfig &cfg,datetime t,int i)
@@ -186,7 +188,7 @@ double P5GetLot(StrategyConfig &cfg,datetime t)
 }
 bool P5Config()
 {
-   if(!P5Guard() || !InpPhase5HelsinkiVerified || StringLen(InpPhase5RunId)<1 || StringLen(InpPhase5RunId)>24) return false;
+   if(!P5Guard() || !InpPhase5OandaTimeVerified || StringLen(InpPhase5RunId)<1 || StringLen(InpPhase5RunId)>24) return false;
    for(int j=0;j<StringLen(InpPhase5RunId);j++)
    { ushort c=StringGetCharacter(InpPhase5RunId,j); if(!((c>=48&&c<=57)||(c>=65&&c<=90)||(c>=97&&c<=122)||c==95)) return false; }
    if(InpLotMode!=1 || !InpWeeklyBaseUseEquity || InpRiskPercentPerTrade!=0.90 || InpMaxAutoLot!=1.0 ||

@@ -25,5 +25,7 @@
   "PlanSHA": "9930d2f7fdf903fd60a85ba286592a0cf72a0412",
   "Status": "NOT_STARTED",
   "VPSLiveChanged": false,
-  "RestartTest": "OUT_OF_SCOPE_REQUIRED_BEFORE_VPS"
+  "RestartTest": "OUT_OF_SCOPE_REQUIRED_BEFORE_VPS",
+  "TimezoneAddendumSHA": "9953aa01409db80779984e62acea61f2bfe4a1e6",
+  "TimezoneAdapter": "OANDA_US_DST_V1"
 }

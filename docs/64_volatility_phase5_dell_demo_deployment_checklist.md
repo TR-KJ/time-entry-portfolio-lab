@@ -1,13 +1,13 @@
 # Phase 5 — Dell OANDA demo 導入チェックリスト
 
 状態: SOURCE_IMPLEMENTED / NOT_COMPILED / NOT_DEPLOYABLE。現時点でex5は提供しない。
-Plan: 9930d2f7fdf903fd60a85ba286592a0cf72a0412（docs/63）。この文書はPlanの変更ではない。
+Plan: 9930d2f7fdf903fd60a85ba286592a0cf72a0412（docs/63）。OANDA時刻変換はdocs/68の事前固定追補（9953aa01409db80779984e62acea61f2bfe4a1e6）に従う。旧版のコンパイル実績は更新版へ流用しない。
 
 ## 配置前のゲート
 
 - [ ] GitHubの実装SHA・全依存source SHA256とPlan SHAを記録する。
 - [ ] MetaEditorで専用EAを実コンパイル。エラー0、全warningレビュー。compiler/MT5 build・compile log・生成ex5 SHA256を記録する。
-- [ ] test_vol_r2_core.mq5をコンパイルし、注文を出さないscriptとして実行。全24チェックPASSのExpertsログを保存する。
+- [ ] test_vol_r2_core.mq5をコンパイルし、注文を出さないscriptとして実行。全34チェックPASSのExpertsログを保存する。
 - [ ] MQLと独立Pythonで同一M1 fixtureのdaily OHLC/ATR20/n/Qを比較する。PythonテストのみをEA実行の証拠にしない。
 - [ ] Step9.2.4の成功・遅延deal・pending・timeout・重複防止・exitの実行回帰を確認する。静的関数一致は代替ではない。
 - [ ] 診断/履歴取得の時間とディスク消費を測定し、予定Entry窓を妨げないことを確認する。600暦日M1を要求するため端末の履歴上限/同期に注意。未同期は0.90 fallbackとなるが有効feature観測件数には数えない。
@@ -16,12 +16,12 @@ Plan: 9930d2f7fdf903fd60a85ba286592a0cf72a0412（docs/63）。この文書はPla
 ## Dell実値を固定する
 
 - [ ] Dell/OANDAのDEMO表示、正確なlogin・server・口座通貨を確認。GitHubにはalias/マスク情報だけを保存し、認証情報は保存しない。
-- [ ] MT5 build、Dell時刻、broker server時刻、Europe/Helsinkiの過去DST対応を確認する。live build6180やlive数量仕様をDell実値の代用にしない。
+- [ ] MT5 build、Dell時刻、broker server時刻、OANDA_US_DST_V1の過去DST対応を確認する。live build6180やlive数量仕様をDell実値の代用にしない。
 - [ ] USDJPY/EURJPY/GBPJPY/AUDJPY/AUDUSD/EURAUD/GBPAUDのmin=.01/max=10/step=.01を確認する。異なる場合は初期化拒否。Planに従った事前互換性レビューが必要。
 - [ ] 既存DellのEA/chartとsymbol/magicを照合し、競合がないことを確認。専用EA自身は既存同magicポジション/注文があると初期化を拒否する。他chart上EAの将来発注まで自動検出したとは扱わない。
 - [ ] VPS liveとDell liveの同時Algo ON禁止を維持。Dell demoは別口座。VPS liveは一切操作しない。
 - [ ] SET全120項目をparseしてテンプレートと比較し、差分を記録する。22=false/他27=true、Risk=.90、LotMode=1、Equity=true、MaxAutoLot=1、min繰上げ=false、ATR70=false、Event/C=true、Test/Mock/force=false。
-- [ ] InpPhase5RunIdは新規の英数字/underscore 1–24文字。過去RunIdを再利用しない。InpPhase5DemoLogin/serverを実値で設定。InpPhase5HelsinkiVerifiedは証拠確認後だけtrue。全配置前ゲートを通過するまでInpPhase5Approved=false。
+- [ ] InpPhase5RunIdは新規の英数字/underscore 1–24文字。過去RunIdを再利用しない。InpPhase5DemoLogin/serverを実値で設定。InpPhase5OandaTimeVerifiedは証拠確認後だけtrue。全配置前ゲートを通過するまでInpPhase5Approved=false。
 - [ ] 最終SET hash/filename、binary hash/filename、source/依存hash、実装SHA、開始JST、運用者確認をstart manifestへ固定する。
 
 ## 配置ファイル
@@ -44,3 +44,10 @@ EA: time_entry_step9_2_4_trade_result_reconcile_27strategies_vol_r2_demo.mq5
 
 MT5再起動テストは対象外。VPS導入前の別Deployment/Acceptance Testで必須。
 今回の初期化チェックは開始時に既存ポジションがないことを要求する。稼働中ポジションを持ったEAの再attach/restartを手順として要求しない。
+
+## 時刻修正版の再検証
+
+- [ ] 更新版source ZIPのhashと実装remote SHAを照合。旧ZIP/旧ex5と混同しない。
+- [ ] synthetic_m1_fixture.csvのServerTimeはOANDA版へ更新。旧出力CSVを退避し、再実行。JST/OHLC/期待値は維持。
+- [ ] 実データsnapshotはoanda_us_v1_USDJPY_snapshot.csv、InpCandidateJST=2026.09.16 00:00:00で無発注scriptを実行し、daily CSVをPython期待値と照合。これは2026-09-16時点の固定入力テストで、フォワード日時を変更しない。
+- [ ] InpPhase5OandaTimeVerifiedは時計証拠確認後だけtrue。旧Helsinki入力を読み替えて承認しない。新RunIdを使う。

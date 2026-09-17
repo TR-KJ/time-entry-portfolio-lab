@@ -13,13 +13,22 @@ RISK={1:.5,2:.7,3:.9,4:1.1,5:1.3,0:.9}
 FORMAT='%Y.%m.%d %H:%M:%S'
 def dt(s): return datetime.strptime(s,FORMAT)
 def jst_from_server(t):
-    z=ZoneInfo('Europe/Helsinki'); candidates=[]
+    # OANDA server wall clock = New York wall clock + 7 hours.
+    # Independent zoneinfo oracle; MQL uses explicit UTC transition arithmetic.
+    z=ZoneInfo('America/New_York'); candidates=[]
+    ny=t-timedelta(hours=7)
     for fold in (0,1):
-        a=t.replace(tzinfo=z,fold=fold)
+        a=ny.replace(tzinfo=z,fold=fold)
         u=a.astimezone(ZoneInfo('UTC'))
-        if u.astimezone(z).replace(tzinfo=None)==t and u not in candidates: candidates.append(u)
+        if u.year<2007: continue
+        if u.astimezone(z).replace(tzinfo=None)==ny and u not in candidates: candidates.append(u)
     if len(candidates)!=1: raise ValueError('AMBIGUOUS_SERVER_TIME')
     return candidates[0].astimezone(ZoneInfo('Asia/Tokyo')).replace(tzinfo=None)
+
+def server_from_jst(t):
+    u=t.replace(tzinfo=ZoneInfo('Asia/Tokyo')).astimezone(ZoneInfo('UTC'))
+    if u.year<2007: raise ValueError('UNSUPPORTED_SERVER_TIME')
+    return u.astimezone(ZoneInfo('America/New_York')).replace(tzinfo=None)+timedelta(hours=7)
 
 def daily_from_rows(rows,candidate):
     days={}; previous=None

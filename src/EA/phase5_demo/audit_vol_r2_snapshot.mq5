@@ -19,14 +19,18 @@ void OnStart()
       string time=FileReadString(h); datetime converted=0;
       if(!P5ServerToJst(StringToTime(raw),converted) || converted!=StringToTime(time))
       { FileClose(h); Print("[P5 FIXTURE] TIMEZONE_MISMATCH"); return; }
-      ArrayResize(bars,n+1); bars[n].time=converted;
+      // Reserve blocks for real M1 exports; does not alter CSV/order or calculations.
+      if(ArrayResize(bars,n+1,8192)<0)
+      { FileClose(h); Print("[P5 FIXTURE] ALLOCATION_FAILED"); return; }
+      bars[n].time=converted;
       bars[n].open=StringToDouble(FileReadString(h)); bars[n].high=StringToDouble(FileReadString(h));
       bars[n].low=StringToDouble(FileReadString(h)); bars[n].close=StringToDouble(FileReadString(h)); n++;
    }
    FileClose(h); P5Daily daily[]; P5Feature f;
    P5Calculate(bars,InpCandidateJST,daily,f);
    Print("[P5 FIXTURE] Status=",f.status," Reason=",f.reason," ATR20=",StringFormat("%.17g",f.atr),
-      " RankNumerator=",f.numerator," Quintile=",f.q," Risk=",StringFormat("%.17g",f.risk)," Days=",f.days);
+      " RankNumerator=",f.numerator," Quintile=",f.q," Risk=",StringFormat("%.17g",f.risk)," Days=",f.days,
+      " Adapter=OANDA_US_DST_V1");
    string out=InpSnapshotFile+".mql_daily.csv";
    if(FileIsExist(out)){ Print("[P5 FIXTURE] OUTPUT_EXISTS"); return; }
    h=FileOpen(out,FILE_WRITE|FILE_CSV|FILE_ANSI,',');

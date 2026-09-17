@@ -51,10 +51,21 @@ void OnStart()
    Check(!P5Size(1000000,.9,50,1000,.01,10,.001,1,l),"unapproved step");
    Check(P5Size(100,.5,50,1,.01,10,.01,1,l) && l.final_lot==.01,"exact min");
    datetime jst;
-   Check(P5ServerToJst(D'2026.03.29 02:59',jst) && jst==D'2026.03.29 09:59',"DST before spring");
-   Check(P5ServerToJst(D'2026.03.29 04:00',jst) && jst==D'2026.03.29 10:00',"DST after spring");
-   Check(!P5ServerToJst(D'2026.03.29 03:30',jst),"nonexistent hour fallback");
-   Check(!P5ServerToJst(D'2026.10.25 03:30',jst),"ambiguous hour fallback");
-   Check(P5ServerToJst(D'2026.10.25 04:00',jst) && jst==D'2026.10.25 11:00',"DST after autumn");
+   Check(P5ServerToJst(D'2026.03.08 08:59',jst) && jst==D'2026.03.08 15:59',"DST before spring");
+   Check(P5ServerToJst(D'2026.03.08 10:00',jst) && jst==D'2026.03.08 16:00',"DST after spring");
+   Check(!P5ServerToJst(D'2026.03.08 09:30',jst),"nonexistent hour fallback");
+   Check(!P5ServerToJst(D'2026.11.01 08:30',jst),"ambiguous hour fallback");
+   Check(P5ServerToJst(D'2026.11.01 09:00',jst) && jst==D'2026.11.01 16:00',"DST after autumn");
+   Check(P5ServerToJst(D'2026.11.01 07:59',jst) && jst==D'2026.11.01 13:59',"before autumn fold");
+   Check(P5ServerToJst(D'2026.03.16 12:00',jst) && jst==D'2026.03.16 18:00',"spring US EU mismatch");
+   Check(P5ServerToJst(D'2026.10.27 12:00',jst) && jst==D'2026.10.27 18:00',"autumn US EU mismatch");
+   Check(P5ServerToJst(D'2026.03.29 03:30',jst) && jst==D'2026.03.29 09:30',"EU spring date valid");
+   Check(P5ServerToJst(D'2026.10.25 03:30',jst) && jst==D'2026.10.25 09:30',"EU autumn date valid");
+   Check(!P5ServerToJst(D'2006.07.01',jst) && P5JstToServer(D'2006.07.01')==0,"unsupported pre2007");
+   Check(P5JstToServer(D'2026.03.09')==D'2026.03.08 18:00',"spring Monday JST midnight");
+   Check(P5JstToServer(D'2026.11.02')==D'2026.11.01 17:00',"autumn Monday JST midnight");
+   datetime cutoff=D'2026.09.16';
+   Check(P5ServerToJst(P5JstToServer(cutoff)-1,jst) && jst==cutoff-1,"history upper bound");
+   Check(P5ServerToJst(P5JstToServer(cutoff-600*86400),jst) && jst==cutoff-600*86400,"history start roundtrip");
    Print("[P5 CORE TEST] SUMMARY Passed=",passed," Failed=",failed," NO_ORDERS=true");
 }

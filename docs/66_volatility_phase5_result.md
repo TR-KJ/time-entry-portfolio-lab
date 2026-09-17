@@ -1,12 +1,13 @@
 # Phase 5 — Result ledger
 
-Status: NOT_STARTED。Dellへの配置・注文・フォワード観測は未実施。
-Final decision: NOT_EVALUATED。利益・PF・DD・観測件数の結果はまだない。
-Plan SHA: 9930d2f7fdf903fd60a85ba286592a0cf72a0412。
+Status: PREDEPLOYMENT_VALIDATION; forward NOT_STARTED. Final decision: NOT_EVALUATED.
+Plan SHA: 9930d2f7fdf903fd60a85ba286592a0cf72a0412.
+Timezone addendum SHA: 9953aa01409db80779984e62acea61f2bfe4a1e6.
 
-専用source/SET/監査コードを実装した。ローカルPython検証と静的検査は results/volatility_phase5/validation_report.md を参照。
-MetaEditor compile、MQL script実行、同一Dell feed一致、実注文reconciliationは未実施で、配置を許可する証拠は揃っていない。
-生成したex5はない。VPS liveは未変更。既存EA2ファイルとPlanは変更しない。
+Original implementation 603c33cd6a945d2e18ca95b88a93b9a568537e73 was copied to Dell and compiled (user-reported0/0); core24/24 and synthetic280-day no-order results were evidenced by screenshots/output CSV. These do not certify revised source. Binary hashes were not acquired.
+User confirms original research M1 from MetaQuotes demo. Original56/56 hashes match. Reconciliation docs/67 distinguishes original research clock from Dell OANDA US clock; docs/68 preregisters source-specific correction. Original research results/Plan are preserved.
+Revised source local30 tests PASS; revised Dell compile/MQL runtime pending. See validation_report and oanda_export_validation for Python-only evidence.
+Dell user reports only chart's prior EA detached, Algo OFF, no positions at setup. No revised EA attached/forward start. MT5 build6182 and demo status were screenshot-confirmed. Unlimited-bar setup restart was permitted and completed, not a restart acceptance test.
+No VPS live changes. No forward profit/PF/DD/observation result. Final manifest, exact private allowlist, finalSET/binary hashes, clock and order/reconciliation gates remain pending.
 
-開始manifestが固定されてから、runごとに観測期間/cutoff、全candidate inventory、A–G証拠、最低件数/週跨ぎ状況、判定を追記する。
-追加のPhase4正式結果はユーザー確定情報として継承している。GitHubのbase監査CSVはUNDETERMINEDのまま残しており、独立に最終PASSを再検証したとは扱わない。
+After start manifest fixation, append each run's period/cutoff, full candidate inventory, A–G evidence, minimum counts/week rollover and decision. Phase4 final DEMO_FORWARD_CANDIDATE is user-confirmed; inherited base audit CSV UNDETERMINED is retained with its provenance.

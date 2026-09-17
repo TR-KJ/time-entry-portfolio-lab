@@ -25,18 +25,19 @@ datetime P5Midnight(datetime t)
    MqlDateTime d; TimeToStruct(t,d); d.hour=0; d.min=0; d.sec=0;
    return StructToTime(d);
 }
-datetime P5LastSunday(int year,int month)
+datetime P5NthSunday(int year,int month,int nth)
 {
-   MqlDateTime d; ZeroMemory(d); d.year=year; d.mon=month; d.day=31;
+   MqlDateTime d; ZeroMemory(d); d.year=year; d.mon=month; d.day=1;
    datetime t=StructToTime(d); TimeToStruct(t,d);
-   return t-d.day_of_week*86400;
+   return t+((7-d.day_of_week)%7+7*(nth-1))*86400;
 }
-// EU rule in force throughout the research period: last Sunday 01:00 UTC.
+// OANDA_US_DST_V1: NY close clock, current US legislation from 2007.
 int P5UtcOffset(datetime utc)
 {
    MqlDateTime d; TimeToStruct(utc,d);
-   datetime a=P5LastSunday(d.year,3)+3600;
-   datetime b=P5LastSunday(d.year,10)+3600;
+   if(d.year<2007) return 0;
+   datetime a=P5NthSunday(d.year,3,2)+7*3600;
+   datetime b=P5NthSunday(d.year,11,1)+6*3600;
    return (utc>=a && utc<b)?3:2;
 }
 bool P5ServerToJst(datetime server,datetime &jst)
@@ -49,7 +50,10 @@ bool P5ServerToJst(datetime server,datetime &jst)
 }
 datetime P5JstToServer(datetime jst)
 {
-   datetime utc=jst-32400; return utc+P5UtcOffset(utc)*3600;
+   datetime utc=jst-32400;
+   int offset=P5UtcOffset(utc);
+   if(offset==0) return 0;
+   return utc+offset*3600;
 }
 int P5Quintile(int n)
 {

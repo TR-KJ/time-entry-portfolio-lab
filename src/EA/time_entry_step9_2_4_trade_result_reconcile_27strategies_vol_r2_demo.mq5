@@ -9,7 +9,7 @@ input bool InpPhase5Approved = false;
 input long InpPhase5DemoLogin = 0;
 input string InpPhase5DemoServer = "";
 input string InpPhase5RunId = "";
-input bool InpPhase5HelsinkiVerified = false;
+input bool InpPhase5OandaTimeVerified = false;
 input bool InpPrintVolR2Diagnostics = true;
 #include "phase5_demo/vol_r2_core.mqh"
 
@@ -1513,7 +1513,8 @@ int OnInit()
    if(!P5Config()) { Print("[P5] INIT_REJECTED: unapproved demo/config/timezone/spec"); return INIT_PARAMETERS_INCORRECT; }
    int result=P5BaseInit();
    Print("[P5] PLAN=9930d2f7fdf903fd60a85ba286592a0cf72a0412|RunId=",InpPhase5RunId,
-      "|MT5Build=",TerminalInfoInteger(TERMINAL_BUILD),"|AccountMode=DEMO|ServerTimezoneRule=Europe/Helsinki",
+      "|TimezoneAddendumSHA=9953aa01409db80779984e62acea61f2bfe4a1e6",
+      "|MT5Build=",TerminalInfoInteger(TERMINAL_BUILD),"|AccountMode=DEMO|ServerTimezoneRule=OANDA_US_DST_V1",
       "|EmergencyStop=",BoolText(InpEmergencyStop));
    return result;
 }

@@ -41,9 +41,9 @@ class ReferenceTests(unittest.TestCase):
         rows=fixture();rows[10]['Close']='nan'
         with self.assertRaisesRegex(ValueError,'INVALID_OHLC'):a.feature(rows,datetime(2026,1,1))
     def test_dst(self):
-        for raw,expected in [('2026.03.29 02:59:00','2026.03.29 09:59:00'),('2026.03.29 04:00:00','2026.03.29 10:00:00'),('2026.10.25 02:59:00','2026.10.25 08:59:00'),('2026.10.25 04:00:00','2026.10.25 11:00:00')]:
+        for raw,expected in [('2026.03.08 08:59:00','2026.03.08 15:59:00'),('2026.03.08 10:00:00','2026.03.08 16:00:00'),('2026.11.01 07:59:00','2026.11.01 13:59:00'),('2026.11.01 09:00:00','2026.11.01 16:00:00')]:
             self.assertEqual(a.jst_from_server(a.dt(raw)),a.dt(expected))
-        for raw in ['2026.03.29 03:30:00','2026.10.25 03:30:00']:
+        for raw in ['2026.03.08 09:30:00','2026.11.01 08:30:00']:
             with self.assertRaisesRegex(ValueError,'AMBIGUOUS'):a.jst_from_server(a.dt(raw))
     def test_all_midrank_bins(self):
         # Independent percent boundaries vs the prescribed integer formulation.
