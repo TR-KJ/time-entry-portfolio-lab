@@ -1,0 +1,20 @@
+{
+  "Status": "PASS",
+  "Scope": "REVISED_SYNTHETIC_MQL_DAILY_PARITY_ONLY",
+  "Rows": 280,
+  "OHLC_TR_Count_Date": "EXACT_MATCH",
+  "ATR20AbsTolerance": "1e-12",
+  "MaxATR20AbsError": "2E-16",
+  "FinalATR20": "3.0125",
+  "RankNumerator": 311,
+  "Quintile": 4,
+  "RiskPercent": "1.10",
+  "InputSHA256": "a590cf75d67a173e90b8b1038a00d059830cddda69af777cae3b23a7f019002c",
+  "MQLDailySHA256": "5db2360e3b0d060980b1f2c1b92553525c5b82acbc0b25f6e99c7285fcb27bd1",
+  "ImplementationSHA": "1a69fbfe104ddd41e031273d9318c480a711969c",
+  "AdapterEvidence": "User screenshot OANDA_US_DST_V1; CSV has no adapter metadata",
+  "CoreTestEvidence": "User screenshot Passed=34 Failed=0 NO_ORDERS=true",
+  "CompileEvidence": "User reported 0 errors 0 warnings for revised EA/core/snapshot; binary hashes pending",
+  "RealFeedMQLParity": "NOT_RUN",
+  "ForwardStarted": false
+}

@@ -1,0 +1,42 @@
+{
+  "Status": "PASS_HEADER_DEPENDENCY_INVENTORY",
+  "ZIP_SHA256": "d472109e60f183c9c9edd2716cc22b4c4bd925a821a955d4cec0f88058c42f49",
+  "ZIPBytes": 2294372,
+  "ArchiveFiles": 262,
+  "TradeRoot": "Include/Trade/Trade.mqh",
+  "DependencyFiles": {
+    "Include/Trade/Trade.mqh": {
+      "SHA256": "96e6781624534377fe7971cba52cca3d62d1b030bc10d5e4ebf3ed8c541399ed",
+      "Bytes": 69541
+    },
+    "Include/Object.mqh": {
+      "SHA256": "dfad4fdb6d1bf47cf43fcbc2882e52979459f17a776f75f250a7c32d0623ab35",
+      "Bytes": 2036
+    },
+    "Include/StdLibErr.mqh": {
+      "SHA256": "04bb2c47b1b04dceb052e6dba1f85e0330c53abc602f341e2ea95ea1498ab28b",
+      "Bytes": 683
+    },
+    "Include/Trade/OrderInfo.mqh": {
+      "SHA256": "d0e479578ef91d2ef1b07ae63d28ae54e15cebb914dd10e5d4510c269a9ca999",
+      "Bytes": 22087
+    },
+    "Include/Trade/HistoryOrderInfo.mqh": {
+      "SHA256": "e88f6be450462a045470315887ef751a4510da65a5115325dc88542743fc52f8",
+      "Bytes": 20018
+    },
+    "Include/Trade/PositionInfo.mqh": {
+      "SHA256": "dd720b755c7f23dcc109fc81bcf0772b907411d545e4a1117421737bb9ff6897",
+      "Bytes": 15820
+    },
+    "Include/Trade/DealInfo.mqh": {
+      "SHA256": "9d6fb4e7d8754eaee761e43943dc49cdc3a32793ee8438119d939ea7bad71880",
+      "Bytes": 16313
+    }
+  },
+  "MissingIncludes": [],
+  "TradeHeaderMatchesPriorUpload": true,
+  "EvidenceLimit": "Static include inventory of supplied archive; does not prove compiler used these exact bytes or certify order runtime behavior",
+  "MetaEditorBuild": 6182,
+  "ForwardStarted": false
+}

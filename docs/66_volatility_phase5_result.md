@@ -11,3 +11,9 @@ Dell user reports only chart's prior EA detached, Algo OFF, no positions at setu
 No VPS live changes. No forward profit/PF/DD/observation result. Final manifest, exact private allowlist, finalSET/binary hashes, clock and order/reconciliation gates remain pending.
 
 After start manifest fixation, append each run's period/cutoff, full candidate inventory, A–G evidence, minimum counts/week rollover and decision. Phase4 final DEMO_FORWARD_CANDIDATE is user-confirmed; inherited base audit CSV UNDETERMINED is retained with its provenance.
+
+## 2026-09-19 resume evidence update
+
+Revised Dell core34/34 and synthetic280day/realUSDJPY513day saved-input parity confirmed. Revised EA binary SHA256 cda4909b26d44f4f0c7f5dc3f4d08709bc56923684b49e2578ca83a87263d540; MetaEditor screenshotbuild6182. User reported revised EA/core/snapshot compile0/0. Received actualSET SHA256 5919431b779845fe96d2ab7facfbf82f4a06d1fc993defb33abbbf5a75e4b9ce:120keys, timeverifiedtrue, Approvedfalse. These supersede earlier pending statements only for the named evidence. See dell_predeployment_evidence for provenance and limits.
+
+Reconciliation component script prepared per docs/69; local36tests PASS; Dell MQL compile/runtime pending,50checks expected. Trading EA/SET unchanged. Forward remains NOT_STARTED, final decision NOT_EVALUATED. Deployment NOT_APPROVED.

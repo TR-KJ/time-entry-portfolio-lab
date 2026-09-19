@@ -1,0 +1,12 @@
+{
+  "Status": "PASS_TIME_VERIFIED_APPROVAL_FALSE",
+  "InputCount": 120,
+  "SHA256": "5919431b779845fe96d2ab7facfbf82f4a06d1fc993defb33abbbf5a75e4b9ce",
+  "Bytes": 3138,
+  "OandaTimeVerified": true,
+  "Approved": false,
+  "UnexpectedChanges": 0,
+  "Comparison": "Full template plus exact expected account/server/RunId/time verification values",
+  "ClockEvidence": "User screenshot 2026-09-17 Dell18:15 / MarketWatch12:15:47; minute-level six-hour consistency, not independent OS clock synchronization proof",
+  "ForwardStarted": false
+}

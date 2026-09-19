@@ -1,0 +1,17 @@
+{
+  "Filename": "Trade.mqh",
+  "SHA256": "96e6781624534377fe7971cba52cca3d62d1b030bc10d5e4ebf3ed8c541399ed",
+  "Bytes": 69541,
+  "MetaEditorBuild": 6182,
+  "BuildEvidence": "User screenshot MetaEditor 5.00 build6182 5 Sep2026",
+  "SourceEvidence": "User copied from Dell MQL5/Include/Trade; compile-time byte identity not independently established",
+  "Includes": [
+    "#include <Object.mqh>",
+    "#include \"OrderInfo.mqh\"",
+    "#include \"HistoryOrderInfo.mqh\"",
+    "#include \"PositionInfo.mqh\"",
+    "#include \"DealInfo.mqh\""
+  ],
+  "Scope": "Single standard-library header receipt; transitive include hashes not acquired",
+  "ForwardStarted": false
+}

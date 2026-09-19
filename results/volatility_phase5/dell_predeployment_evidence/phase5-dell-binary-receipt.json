@@ -1,0 +1,11 @@
+{
+  "BinaryFilename": "time_entry_step9_2_4_trade_result_reconcile_27strategies_vol_r2_demo.ex5",
+  "BinarySHA256": "cda4909b26d44f4f0c7f5dc3f4d08709bc56923684b49e2578ca83a87263d540",
+  "Bytes": 255244,
+  "ImplementationRemoteSHA": "1a69fbfe104ddd41e031273d9318c480a711969c",
+  "SourceAssociation": "User reported compilation and transfer from Dell; not reproducible-build verification or binary source attestation",
+  "CompileEvidence": "User reported 0 errors / 0 warnings",
+  "MT5BuildEvidence": "User screenshot build6182; compiler build independently unverified",
+  "ForwardStarted": false,
+  "DeploymentApproved": false
+}

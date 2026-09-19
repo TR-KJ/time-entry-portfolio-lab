@@ -1,0 +1,41 @@
+test_adapter_wiring_and_default_disabled (test_phase5_oanda_time.OandaClockTests.test_adapter_wiring_and_default_disabled) ... ok
+test_calendar_mirror_against_zoneinfo_2007_2035 (test_phase5_oanda_time.OandaClockTests.test_calendar_mirror_against_zoneinfo_2007_2035) ... ok
+test_eu_switch_dates_are_ordinary_oanda_times (test_phase5_oanda_time.OandaClockTests.test_eu_switch_dates_are_ordinary_oanda_times) ... ok
+test_fixture_timestamp_roundtrip (test_phase5_oanda_time.OandaClockTests.test_fixture_timestamp_roundtrip) ... ok
+test_jst_midnight_week_and_history_boundaries (test_phase5_oanda_time.OandaClockTests.test_jst_midnight_week_and_history_boundaries) ... ok
+test_true_jst_daily_boundary_and_no_lookahead (test_phase5_oanda_time.OandaClockTests.test_true_jst_daily_boundary_and_no_lookahead) ... ok
+test_unsupported_dates (test_phase5_oanda_time.OandaClockTests.test_unsupported_dates) ... ok
+test_us_eu_mismatch (test_phase5_oanda_time.OandaClockTests.test_us_eu_mismatch) ... ok
+test_all_terminal_calls_redirected (test_phase5_reconciliation_contract.ReconciliationFixtureContract.test_all_terminal_calls_redirected) ... ok
+test_cases_present_and_honest_label (test_phase5_reconciliation_contract.ReconciliationFixtureContract.test_cases_present_and_honest_label) ... ok
+test_generated_exact_source (test_phase5_reconciliation_contract.ReconciliationFixtureContract.test_generated_exact_source) ... ok
+test_no_order_or_terminal_mutation_calls (test_phase5_reconciliation_contract.ReconciliationFixtureContract.test_no_order_or_terminal_mutation_calls) ... ok
+test_submission_pending_guards_static_only (test_phase5_reconciliation_contract.ReconciliationFixtureContract.test_submission_pending_guards_static_only) ... ok
+test_trading_source_not_changed (test_phase5_reconciliation_contract.ReconciliationFixtureContract.test_trading_source_not_changed) ... ok
+test_all_midrank_bins (test_volatility_phase5.ReferenceTests.test_all_midrank_bins) ... ok
+test_current_future_mutation (test_volatility_phase5.ReferenceTests.test_current_future_mutation) ... ok
+test_daily_actual_saturday (test_volatility_phase5.ReferenceTests.test_daily_actual_saturday) ... ok
+test_daily_ohlc_and_gaps (test_volatility_phase5.ReferenceTests.test_daily_ohlc_and_gaps) ... ok
+test_dst (test_volatility_phase5.ReferenceTests.test_dst) ... ok
+test_duplicate_and_invalid (test_volatility_phase5.ReferenceTests.test_duplicate_and_invalid) ... ok
+test_existing_lot_formula_regression (test_volatility_phase5.ReferenceTests.test_existing_lot_formula_regression) ... ok
+test_extremes (test_volatility_phase5.ReferenceTests.test_extremes) ... ok
+test_invalid_lots (test_volatility_phase5.ReferenceTests.test_invalid_lots) ... ok
+test_lot_floor_cap_min (test_volatility_phase5.ReferenceTests.test_lot_floor_cap_min) ... ok
+test_midnight_availability (test_volatility_phase5.ReferenceTests.test_midnight_availability) ... ok
+test_midrank_ties (test_volatility_phase5.ReferenceTests.test_midrank_ties) ... ok
+test_no_profit_input_to_verdict (test_volatility_phase5.ReferenceTests.test_no_profit_input_to_verdict) ... ok
+test_parser_and_missing_evidence (test_volatility_phase5.ReferenceTests.test_parser_and_missing_evidence) ... ok
+test_risk_table (test_volatility_phase5.ReferenceTests.test_risk_table) ... ok
+test_verdict_priority (test_volatility_phase5.ReferenceTests.test_verdict_priority) ... ok
+test_warmup_271_272 (test_volatility_phase5.ReferenceTests.test_warmup_271_272) ... ok
+test_full_set_keys_and_27_enabled (test_volatility_phase5.SourceContractTests.test_full_set_keys_and_27_enabled) ... ok
+test_guards_at_active_submit (test_volatility_phase5.SourceContractTests.test_guards_at_active_submit) ... ok
+test_live_source_includes_not_used (test_volatility_phase5.SourceContractTests.test_live_source_includes_not_used) ... ok
+test_reconciliation_functions_unchanged (test_volatility_phase5.SourceContractTests.test_reconciliation_functions_unchanged) ... ok
+test_strategy_identity_unchanged (test_volatility_phase5.SourceContractTests.test_strategy_identity_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 0.518s
+
+OK
