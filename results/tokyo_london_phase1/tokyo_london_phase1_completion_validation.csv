@@ -1,0 +1,9 @@
+Check,Pass,Count
+SyntheticUnitTests,True,8
+RemoteSourceArtifactBlobMatches,True,6
+ProtectedExistingBaseFileBlobsUnchanged,True,373
+ManualReviewedStrata,True,24
+RawEndpointRows,True,96
+SourceHashesMatched,True,48
+SourceMetadataMatched,True,48
+PrimaryAndRobustnessPeriodCellsEligible,True,72
