@@ -1,0 +1,7 @@
+Check,Status,Rows
+"Independent Decimal metrics, differences, equal weights, eligibility, support, coverage all periods",PASS,1140
+All trades retained; all trade-date availability assertions,PASS,16298
+Independent weekly sums and linear CI,PASS,66
+"Regime ordering, exact rank labels, combined decisions",PASS,1140
+All daily ADX and ER scalar reference; representative M1 audits,PASS,23
+Volatility daily generation exact regression and frozen M1 hashes,PASS,56
