@@ -1,0 +1,9 @@
+{
+  "Status": "PASS",
+  "CodeCellsExecuted": 3,
+  "DeterministicCSVByteMatches": 6,
+  "EmbeddedSourcesExact": true,
+  "DriveDefaultOff": true,
+  "ColabServerExecuted": false,
+  "LocalPathAndDisplayShimOnly": true
+}

@@ -1,0 +1,9 @@
+{
+  "Status": "PASS",
+  "DecimalMetricCells": 36,
+  "BootstrapReplicatesChecked": 20000,
+  "MaxReplicateAbsError": 1.942890293094024e-16,
+  "AssignmentRowsChecked": 1022,
+  "PeriodHelperMatch": "four disjoint periods identical; Combined intentionally includes 2026",
+  "RepresentativeRows": 20
+}
