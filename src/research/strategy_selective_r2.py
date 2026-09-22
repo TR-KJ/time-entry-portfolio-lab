@@ -150,8 +150,8 @@ def run(baseline,paths,output,implementation_sha,phase2_full=None):
                     # Independent weekly product from assigned nominal risks, without simulator risk function.
                     wk=defaultdict(D)
                     for r in own:
-                        pct=D('.90') if v=='R0_FIXED_090' or not uses_r2(v,r['StrategyNo']) else p3.risk('R2_MODERATE',r[method+'Quintile'])
-                        wk[p3.money.week_start(r['EntryTime'])]+=pct/100*r['Pips']/r['SL']
+                        rpct=D('.90') if v=='R0_FIXED_090' or not uses_r2(v,r['StrategyNo']) else p3.risk('R2_MODERATE',r[method+'Quintile'])
+                        wk[p3.money.week_start(r['EntryTime'])]+=rpct/100*r['Pips']/r['SL']
                     wealth=D(500000)
                     for key in sorted(wk):wealth*=1+wk[key]
                     if abs(wealth-metric['FinalCapital'])>D('.000001'):raise ValueError('Independent Final Wealth mismatch')
