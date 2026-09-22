@@ -339,7 +339,7 @@ def main():
         write(out/f'c1_path_management_phase1_{name}.csv', records)
     coverage = [dict(Scope='ALL28', Trades=len(rows), Strategies=28, R0='PASS'),
                 dict(Scope='ACTIVE27', Trades=15837, Strategies=27, R0='PASS',
-                     VariantRows=len(dynamic)//3)]
+                     VariantRows=sum(a['_n'] != 22 for a, _ in dynamic)//3)]
     write(out/'c1_path_management_phase1_coverage.csv', coverage)
     write(out/'c1_path_management_phase1_validation.csv',
           [dict(Check='baseline_hash',Status='PASS',Detail=BASELINE_SHA),
