@@ -74,8 +74,10 @@ def replay(anchor, bars, variant):
             stop_r = max(stop_r, pending)
             pending = None
         stop_level = entry + sign * stop_r * unit
-        hit_stop = low[i] <= stop_level + EPS if long else high[i] >= stop_level - EPS
-        hit_tp = False if tp_level is None else (high[i] >= tp_level - EPS if long else low[i] <= tp_level + EPS)
+        # The frozen historical engine compares the raw float price without a
+        # tolerance. A tolerance can shift an exact-price hit one minute early.
+        hit_stop = low[i] <= stop_level if long else high[i] >= stop_level
+        hit_tp = False if tp_level is None else (high[i] >= tp_level if long else low[i] <= tp_level)
         if hit_stop or hit_tp:
             close_time = idx[i].to_pydatetime()
             if hit_stop:
