@@ -1,0 +1,12 @@
+Check,Pass
+SourceHashes,True
+EventUniqueness,True
+SevenSymbols,True
+FrozenManifestByteMatchToVolatilityPhase1,True
+SyntheticEventBoundaryAndNoLookaheadTests,True
+EuropeLondonDSTTests,True
+IndependentDailyOutcomeAndClassification,True
+IndependentPeriodAggregates,True
+IndependentHolm14,True
+IndependentBootstrapCISpotCheck,True
+RepresentativeManualAudit28,True

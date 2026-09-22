@@ -1,0 +1,2 @@
+PlanSHA,ImplementationSHA,ExecutedUTC,Python,Numpy,Pandas,Seed,Bootstraps,SourceFiles,SourceHashMatch,Phase2Computed,LiveChanged,Status,IndependentVerification,RepresentativeManualAuditRows
+84b959d715472c81627cbb42579911c7c2805b58,f132d8df2b84ca20c46c087720ae60aa96d1cfe8,2026-09-22T06:58:13.266843+00:00,3.12.14,2.3.5,2.2.3,20260913,5000,56,True,False,False,VERIFIED,PASS,28.0
