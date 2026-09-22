@@ -114,7 +114,7 @@ def replay(anchor, bars, variant):
     if close_time is None:
         raise AssertionError('unclosed replay')
     pips = close_r * sl_pips
-    return dict(StrategyNo=anchor['_n'], Strategy=anchor['Strategy'], Pair=pair,
+    return dict(Status='OK', StrategyNo=anchor['_n'], Strategy=anchor['Strategy'], Pair=pair,
                 Direction=anchor['Direction'], Mode=anchor['Mode'], EntryTime=anchor['EntryTime'],
                 ScheduledExitTime=anchor['ScheduledExitTime'], CloseTime=close_time.isoformat(sep=' '),
                 ExitDelayMinutes=delay, RawEntryOpen=raw, EntryPrice=entry, ClosePrice=close_price,
