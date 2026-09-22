@@ -31,3 +31,11 @@ def test_decision_profit_first():
                 rows.append(dict(Method=method,Period=period,Variant=variant,FinalCapital=wealth,MaxDDPct=D(10),WorstDayPct=D(-5),MeanNominalRiskPct=D('.9')))
     v=a5.decision(rows,{},True)
     assert all(x['Verdict']=='GLOBAL_R2_REMAINS_PREFERRED' for x in v)
+
+
+def test_r2_applied_excludes_history_fallback():
+    row={'StrategyNo':1,'primaryQuintile':a5.p3.p1.INS}
+    assert not a5.r2_applied('R2_GLOBAL',row,'primary')
+    row['primaryQuintile']='Q1'
+    assert a5.r2_applied('R2_GLOBAL',row,'primary')
+    assert not a5.r2_applied('R0_FIXED_090',row,'primary')
