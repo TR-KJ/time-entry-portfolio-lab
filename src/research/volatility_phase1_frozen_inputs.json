@@ -1,0 +1,254 @@
+{
+  "SYMBOL_TO_PAIR": {
+    "EURJPY": "EJ",
+    "GBPJPY": "GJ",
+    "AUDJPY": "AJ",
+    "USDJPY": "UJ",
+    "EURAUD": "EA",
+    "GBPAUD": "GA",
+    "AUDUSD": "AU"
+  },
+  "MANIFEST_NAMES": {
+    "USDJPY": [
+      "USDJPY_M1_201501020900_201612302359.csv",
+      "USDJPY_M1_201701020001_201812282357.csv",
+      "USDJPY_M1_201901020600_202012310000.csv",
+      "USDJPY_M1_202101040002_202212302355.csv",
+      "USDJPY_M1_202301020700_202412310000.csv",
+      "USDJPY_M1_202501010000_202512302358.csv",
+      "USDJPY_M1_202601020001_202603310000.csv",
+      "USDJPY_M1_202604010000_202609090000_RECHECK.csv"
+    ],
+    "EURJPY": [
+      "EURJPY_M1_201501020900_201612302359.csv",
+      "EURJPY_M1_201701020003_201812282357.csv",
+      "EURJPY_M1_201901020600_202012310000.csv",
+      "EURJPY_M1_202101040002_202212302355.csv",
+      "EURJPY_M1_202301020701_202412310000.csv",
+      "EURJPY_M1_202501010000_202512310000.csv",
+      "EURJPY_M1_202601020000_202603310000.csv",
+      "EURJPY_M1_202604010000_202609090000_RECHECK.csv"
+    ],
+    "GBPJPY": [
+      "GBPJPY_M1_201501020900_201612302359.csv",
+      "GBPJPY_M1_201701020004_201812282357.csv",
+      "GBPJPY_M1_201901020600_202012310000.csv",
+      "GBPJPY_M1_202101040002_202212302355.csv",
+      "GBPJPY_M1_202301020700_202412302359.csv",
+      "GBPJPY_M1_202501020001_202512310000.csv",
+      "GBPJPY_M1_202601020001_202603310000.csv",
+      "GBPJPY_M1_202604010000_202609090000_RECHECK.csv"
+    ],
+    "AUDJPY": [
+      "AUDJPY_M1_201501020900_201612302359.csv",
+      "AUDJPY_M1_201701020002_201812282357.csv",
+      "AUDJPY_M1_201901020600_202012310000.csv",
+      "AUDJPY_M1_202101040002_202212302355.csv",
+      "AUDJPY_M1_202301020702_202412310000.csv",
+      "AUDJPY_M1_202501020000_202512310000.csv",
+      "AUDJPY_M1_202601020001_202603310000.csv",
+      "AUDJPY_M1_202604010001_202609090000_RECHECK.csv"
+    ],
+    "AUDUSD": [
+      "AUDUSD_M1_201501020900_201612302359.csv",
+      "AUDUSD_M1_201701020001_201812282357.csv",
+      "AUDUSD_M1_201901020600_202012310000.csv",
+      "AUDUSD_M1_202101040002_202212302355.csv",
+      "AUDUSD_M1_202301020706_202412310000.csv",
+      "AUDUSD_M1_202501010000_202512310000.csv",
+      "AUDUSD_M1_202601020001_202603310000.csv",
+      "AUDUSD_M1_202604010000_202609090000_RECHECK.csv"
+    ],
+    "EURAUD": [
+      "EURAUD_M1_201501020900_201612302359.csv",
+      "EURAUD_M1_201701020002_201812282357.csv",
+      "EURAUD_M1_201901020600_202012310000.csv",
+      "EURAUD_M1_202101040002_202212302354.csv",
+      "EURAUD_M1_202301020708_202412310000.csv",
+      "EURAUD_M1_202501010000_202512310000.csv",
+      "EURAUD_M1_202601020000_202603310000.csv",
+      "EURAUD_M1_202604010000_202609090000_RECHECK.csv"
+    ],
+    "GBPAUD": [
+      "GBPAUD_M1_201501020900_201612302359.csv",
+      "GBPAUD_M1_201701020002_201812282357.csv",
+      "GBPAUD_M1_201901020629_202012310000_RECHECK.csv",
+      "GBPAUD_M1_202101040002_202212302355.csv",
+      "GBPAUD_M1_202301020717_202412310000.csv",
+      "GBPAUD_M1_202501020001_202512310000.csv",
+      "GBPAUD_M1_202601020000_202603310000.csv",
+      "GBPAUD_M1_202604010000_202609090000.csv"
+    ]
+  },
+  "STRATEGIES": [
+    {
+      "StrategyNo": 1,
+      "Strategy": "1_EJ_Log1",
+      "Pair": "EJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 2,
+      "Strategy": "2_EJ_NightBlitz_20",
+      "Pair": "EJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 3,
+      "Strategy": "3_EJ_NightBlitz_21",
+      "Pair": "EJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 4,
+      "Strategy": "4_GJ_Port_Log1",
+      "Pair": "GJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 5,
+      "Strategy": "5_GJ_Port_Log2",
+      "Pair": "GJ",
+      "Long": false
+    },
+    {
+      "StrategyNo": 6,
+      "Strategy": "6_GJ_Old_Mon",
+      "Pair": "GJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 7,
+      "Strategy": "7_GJ_Mon_Blitz",
+      "Pair": "GJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 8,
+      "Strategy": "8_AJ_Core1",
+      "Pair": "AJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 9,
+      "Strategy": "9_AJ_Core2",
+      "Pair": "AJ",
+      "Long": false
+    },
+    {
+      "StrategyNo": 10,
+      "Strategy": "10_AJ_SatA",
+      "Pair": "AJ",
+      "Long": false
+    },
+    {
+      "StrategyNo": 11,
+      "Strategy": "11_AJ_SatB",
+      "Pair": "AJ",
+      "Long": false
+    },
+    {
+      "StrategyNo": 12,
+      "Strategy": "12_UJ_Short_Core",
+      "Pair": "UJ",
+      "Long": false
+    },
+    {
+      "StrategyNo": 13,
+      "Strategy": "13_UJ_Fix_MidWeek",
+      "Pair": "UJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 14,
+      "Strategy": "14_UJ_Sat_3rd",
+      "Pair": "UJ",
+      "Long": false
+    },
+    {
+      "StrategyNo": 15,
+      "Strategy": "15_UJ_Sat_Aug",
+      "Pair": "UJ",
+      "Long": false
+    },
+    {
+      "StrategyNo": 16,
+      "Strategy": "16_UJ_T10A",
+      "Pair": "UJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 17,
+      "Strategy": "17_EA_1B_Wed_Short",
+      "Pair": "EA",
+      "Long": false
+    },
+    {
+      "StrategyNo": 18,
+      "Strategy": "18_EA_2_MonWed_Short",
+      "Pair": "EA",
+      "Long": false
+    },
+    {
+      "StrategyNo": 19,
+      "Strategy": "19_EA_3_WedThu_Long",
+      "Pair": "EA",
+      "Long": true
+    },
+    {
+      "StrategyNo": 20,
+      "Strategy": "20_EA_1A_MonTue_Short",
+      "Pair": "EA",
+      "Long": false
+    },
+    {
+      "StrategyNo": 21,
+      "Strategy": "21_GA_B_3",
+      "Pair": "GA",
+      "Long": true
+    },
+    {
+      "StrategyNo": 22,
+      "Strategy": "22_GA_C_2",
+      "Pair": "GA",
+      "Long": true
+    },
+    {
+      "StrategyNo": 23,
+      "Strategy": "23_GA_F_2",
+      "Pair": "GA",
+      "Long": false
+    },
+    {
+      "StrategyNo": 24,
+      "Strategy": "24_GA_D_1",
+      "Pair": "GA",
+      "Long": true
+    },
+    {
+      "StrategyNo": 25,
+      "Strategy": "25_AU_China_Demand",
+      "Pair": "AU",
+      "Long": true
+    },
+    {
+      "StrategyNo": 26,
+      "Strategy": "26_AJ_China_Demand",
+      "Pair": "AJ",
+      "Long": true
+    },
+    {
+      "StrategyNo": 27,
+      "Strategy": "27_EA_China_Demand",
+      "Pair": "EA",
+      "Long": false
+    },
+    {
+      "StrategyNo": 28,
+      "Strategy": "28_GA_China_Demand",
+      "Pair": "GA",
+      "Long": false
+    }
+  ],
+  "SourceCommit": "1df6b8c5ed0b156ae511ba0dcc957c1af5ba64e5"
+}
