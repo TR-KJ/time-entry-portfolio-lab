@@ -1,0 +1,4 @@
+Variant,RawP,HolmAdjustedP,CI_L,CI_U,SampleSufficient,EligibleSubperiods,GateA,GateB,GateC,GateD,GateE,GateF,GateG,Label
+R1_BE50,1.0,1.0,-0.015668897669942113,-0.0061687837805170466,True,Recent A|Recent B|2026 Monitor,False,False,False,False,False,False,True,NOT_SUPPORTED
+R2_LOCK100,1.0,1.0,-0.0105902075440813,-0.005056935737224894,True,Recent A|Recent B|2026 Monitor,False,False,False,False,False,False,True,NOT_SUPPORTED
+R3_STAGED,1.0,1.0,-0.020408227555221016,-0.010491948507132776,True,Recent A|Recent B|2026 Monitor,False,False,False,False,False,False,True,NOT_SUPPORTED

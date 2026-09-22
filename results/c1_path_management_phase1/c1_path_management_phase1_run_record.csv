@@ -1,0 +1,2 @@
+Plan,BaselineSHA,M1Files,R0Trades,ActiveTrades,Variants,BootstrapSeed,BootstrapReplicates,Result
+docs/89_c1_path_management_phase1_plan.md,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359,56,16298,15837,R0|R1_BE50|R2_LOCK100|R3_STAGED,20260913,5000,R1_BE50:NOT_SUPPORTED|R2_LOCK100:NOT_SUPPORTED|R3_STAGED:NOT_SUPPORTED

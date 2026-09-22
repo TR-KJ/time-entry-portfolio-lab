@@ -1,0 +1,4 @@
+Check,Status,Detail
+baseline_hash,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+m1_hash_rows_range,PASS,56 files
+r0_reconciliation,PASS,"16298 trades, zero mismatches"
