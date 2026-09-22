@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PLAN_SHA = '7339f3fa4db3b7d1ebd993f2464a505a3b60b4ed'
 BASELINE_SHA = 'cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359'
 PHASE2_SHA = '598ed582f84f6435cda5d78b4f433a9cccf144375c8aa169cbd2a69400fbdd2e'
+PHASE2_ASSIGNMENTS_SHA = '077be95f9796b3cd00568992316447f7f02116618b8d6b5d9eabbb2c0da14126'
 STRONG = frozenset((1,3,4,12,19,23,25,26))
 BROAD = frozenset((1,2,3,4,5,6,7,8,12,19,20,21,23,25,26))
 VARIANTS = ('R0_FIXED_090','R2_GLOBAL','S1_STRONG_ONLY_R2','S2_BROAD_R2')
@@ -58,6 +59,10 @@ def uses_r2(variant,sid):
     return variant=='R2_GLOBAL' or variant=='S1_STRONG_ONLY_R2' and sid in STRONG or variant=='S2_BROAD_R2' and sid in BROAD
 
 
+def r2_applied(variant, row, method):
+    return uses_r2(variant,row['StrategyNo']) and row[method+'Quintile']!=p3.p1.INS
+
+
 def simulate(rows, variant, method, scale=D(1)):
     p3.validate(rows)
     groups=defaultdict(list)
@@ -81,7 +86,7 @@ def simulate(rows, variant, method, scale=D(1)):
         r.update(Capital=balance,PeakCapital=peak,DrawdownJPY=peak-balance,DrawdownPct=(peak-balance)/peak*100)
     metric=p3.money.metrics(logs,*p3.PERIODS['ALL'])
     vals=[risk(variant,r['StrategyNo'],r[method+'Quintile'])*scale for r in rows]
-    metric.update(MeanNominalRiskPct=sum(vals,D(0))/len(vals),MedianNominalRiskPct=D(str(statistics.median(vals))),R2Trades=sum(uses_r2(variant,r['StrategyNo']) for r in rows),R2TradeSharePct=D(100)*sum(uses_r2(variant,r['StrategyNo']) for r in rows)/len(rows))
+    metric.update(MeanNominalRiskPct=sum(vals,D(0))/len(vals),MedianNominalRiskPct=D(str(statistics.median(vals))),R2Trades=sum(r2_applied(variant,r,method) for r in rows),R2TradeSharePct=D(100)*sum(r2_applied(variant,r,method) for r in rows)/len(rows))
     return metric,logs,weeks
 
 
@@ -124,6 +129,7 @@ def run(baseline,paths,output,implementation_sha,phase2_full=None):
     with localcontext() as ctx:
         ctx.prec=40
         a=p3.assignments(baseline,paths,phase2_full,out)
+        if sha(out/'volatility_phase3_trade_assignments.csv')!=PHASE2_ASSIGNMENTS_SHA:raise ValueError('Phase 2 full assignment hash')
         allrows=p3.money.load_baseline(baseline)
         if len(allrows)!=16298 or a.TradeID.tolist()!=list(range(16298)):raise ValueError('Baseline identity/count')
         for r in allrows:
