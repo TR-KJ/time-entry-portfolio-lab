@@ -121,7 +121,7 @@ def verify(out,daily_path):
     row=asym[asym.Pair.eq("EURAUD")&asym.Method.eq("Primary")&asym.Period.eq("RecentCombined")].iloc[0]
     ci=np.quantile(vals,[.025,.975],method="linear")
     ck("FullBootstrapAsymmetryCI",close(ci[0],row.CILow) and close(ci[1],row.CIHigh))
-    manual=pd.read_csv(out/(pre+"manual_audit.csv"),parse_dates=["Date"])
+    manual=pd.read_csv(out/(pre+"manual_audit.csv"),parse_dates=["Date","ReferenceStart","ReferenceEnd"])
     ck("Manual16Strata",len(manual)==16 and manual.Status.eq("CHECKED").all())
     for r in manual.itertuples():
         source=daily[daily.Pair.eq(r.Pair)&daily.Method.eq(r.Method)&daily.Date.eq(r.Date)].iloc[0]
