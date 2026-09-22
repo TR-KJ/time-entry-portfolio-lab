@@ -1,0 +1,12 @@
+Family,Checks,AllPassed
+Cell,48,True
+Asymmetry,24,True
+Coverage,24,True
+Holm,4,True
+Gates,4,True
+PairVerdict,2,True
+FullBootstrapCI,2,True
+FullBootstrapP,2,True
+FullBootstrapAsymmetryCI,1,True
+Manual16Strata,1,True
+ManualDecimal,16,True
