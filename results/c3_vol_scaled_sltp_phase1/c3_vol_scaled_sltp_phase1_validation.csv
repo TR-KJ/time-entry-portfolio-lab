@@ -1,0 +1,10 @@
+Check,Status,Detail
+baseline_sha,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+m1_manifest,PASS,56 files
+r0_reconciliation,PASS,16298/15837 zero mismatches
+synthetic_feature_reference,PASS,prior 252 only; current excluded; clip verified
+synthetic_fallback,PASS,<252 history => factor 1.0
+synthetic_tick_rounding,PASS,outward 0.1 pip ceiling verified
+synthetic_scaled_sl_tp,PASS,same factor; actual rounded SL defines R
+synthetic_tp_absent_time_exit,PASS,no TP added; scheduled Open exit verified
+independent_verification,PASS,13/13 post-run checks passed

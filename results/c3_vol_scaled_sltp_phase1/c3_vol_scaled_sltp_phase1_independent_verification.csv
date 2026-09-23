@@ -1,0 +1,14 @@
+Check,Status,Detail
+baseline_hash,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+paired_cardinality,PASS,31674
+outward_sl_rounding,PASS,max_abs=0
+tp_presence_and_rounding,PASS,no_tp=4554
+actual_sl_defines_r,PASS,max_abs=5e-10
+fallback_is_one,PASS,fallback=2381
+valid_scale_bounds,PASS,valid=29293
+atr_aggregate,PASS,detail=1218.394667617; published=1218.394667617
+atr_coverage,PASS,valid=14651; coverage=0.925112079
+rv_aggregate,PASS,detail=1187.240788754; published=1187.240788754
+rv_coverage,PASS,valid=14642; coverage=0.924543790
+atr_cluster_bootstrap,PASS,"independent=[-0.013554273329,-0.004444158191]"
+concentration_arithmetic,PASS,independent=0.501133788154; positive=3
