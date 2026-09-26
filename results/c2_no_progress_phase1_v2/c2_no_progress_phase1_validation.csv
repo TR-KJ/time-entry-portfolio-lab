@@ -1,0 +1,8 @@
+Check,Status,Detail
+baseline_sha,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+m1_manifest,PASS,56 exact hashes/rows/raw bounds
+r0_reconciliation,PASS,ALL28 16298 / ACTIVE27 15837; zero mismatches
+formal_universe,PASS,27 active strategies; Strategy22 excluded
+missing_execution_identity,PASS,Exactly 2 known NP50 cases and 0 NP75
+missing_execution_fallback,PASS,Full R0 retained; delta 0R; Triggered=False
+sensitivity_universe,PASS,Same 2 identities removed from both sides of both variants; ALL 15835

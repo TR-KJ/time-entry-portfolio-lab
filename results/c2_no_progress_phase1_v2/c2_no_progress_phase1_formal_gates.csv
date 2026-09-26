@@ -1,0 +1,9 @@
+Gate,Pass,Verdict,Phase2Eligible
+A,False,NOT_SUPPORTED,False
+B,False,NOT_SUPPORTED,False
+C,False,NOT_SUPPORTED,False
+D,False,NOT_SUPPORTED,False
+E,False,NOT_SUPPORTED,False
+F,False,NOT_SUPPORTED,False
+G,True,NOT_SUPPORTED,False
+H,True,NOT_SUPPORTED,False
