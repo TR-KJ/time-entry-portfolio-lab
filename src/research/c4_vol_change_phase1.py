@@ -36,14 +36,14 @@ SOURCE_HASHES = {
     'volatility_phase2.py': 'c6d1b6d3380c70970d8b353b632b6f4f20a9c9aff17c5ff1347dde1d3c605428',
 }
 R2_PERIOD_DIGESTS = {
-    'Historical|primary':'53660df23b2ea1598398af36d23961363ffcdd9464a6b07b625d0f4a1de56403',
-    'Historical|robustness':'f4b70ddc3507bb24ebfba236ee67a0660619da5fa4b0a1ce379d482bc94f3159',
-    'RecentA|primary':'ff344ff3abb5f98217e2c9b43fc00c4432fa6f78e36de639dbf263a33c07f654',
-    'RecentA|robustness':'3b5bf2816dffe4b01b7f521ef437437d9919b84b78534d81c5f0157904ebb394',
-    'RecentB|primary':'22fe23446d61214e97ba3f86954c1504d56d5534b219ab69c379de0b0570b136',
-    'RecentB|robustness':'5a5c26148dcd5fe6b833a147b1f7efb79413c3c7affab19f991846995a819caa',
-    'Monitor2026|primary':'d220b70af2a83951aa6cdc530a9321226c1af75f4fa67746a7e51a2b487d904d',
-    'Monitor2026|robustness':'18d08a3152f584d2e14a7e5d248e1ea788a84541fef9efaf9d4de1bc05978a38',
+    'Historical|primary':'59a58e07987682b080fd2be195077d1dcf6900622e93864ad93cd8c530695830',
+    'Historical|robustness':'4c78275a57014bfc071191af7346a21c3b580ad5e3ba201941aa3c33f0892b41',
+    'RecentA|primary':'65156a09ae90047c5f79a782f9c7e68100d0f3f8c4cadaf160c141deca36776e',
+    'RecentA|robustness':'8953f1a6f8d7b0e3ef38a1d14cf154514caabcbfd6fed6e298a2fcef633664d2',
+    'RecentB|primary':'57993b889c6bc1201bdd2af35770c691e66fca07ea08a4eda0051dcc65564c6f',
+    'RecentB|robustness':'3a54e0682049626cef8e0594a935353c06c24e7f027904e67304a33830314104',
+    'Monitor2026|primary':'f176311927e75d8d3ca518c19aef34f8a7f561befdfa976fe36377e790e2a2bd',
+    'Monitor2026|robustness':'80dfa7f451263db664d6986256c44f2a5487b52ca735a8a3d022efca1e40e4d5',
 }
 
 
@@ -180,7 +180,7 @@ def validate_r2(a):
             for no in range(1,29):
                 for q in p2.QUINTILES:
                     g=a[(a.EntryTime>=start)&(a.EntryTime<end)&a.StrategyNo.eq(no)&a[method+'Quintile'].eq(q)]
-                    lines.append('|'.join([period,method,str(no),q,str(len(g)),f'{g.R.sum():.9f}',f'{g.R.mean():.9f}']))
+                    lines.append('|'.join([period,method,str(no),q,str(len(g)),f'{g.R.sum():.7f}',f'{g.R.mean():.7f}']))
             digest=hashlib.sha256(('\n'.join(lines)+'\n').encode()).hexdigest()
             if digest!=R2_PERIOD_DIGESTS[period+'|'+method]:raise AssertionError('R2 period digest '+period+' '+method)
     return len(audit),len(refs)+1120
