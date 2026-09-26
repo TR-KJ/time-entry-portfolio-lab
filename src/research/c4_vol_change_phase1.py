@@ -35,6 +35,16 @@ SOURCE_HASHES = {
     'volatility_phase1_frozen_inputs.json': 'bfc4b372247bc8def18f4a3768d855285559ffed2782de73737fda4eafb5c61b',
     'volatility_phase2.py': 'c6d1b6d3380c70970d8b353b632b6f4f20a9c9aff17c5ff1347dde1d3c605428',
 }
+R2_PERIOD_DIGESTS = {
+    'Historical|primary':'53660df23b2ea1598398af36d23961363ffcdd9464a6b07b625d0f4a1de56403',
+    'Historical|robustness':'f4b70ddc3507bb24ebfba236ee67a0660619da5fa4b0a1ce379d482bc94f3159',
+    'RecentA|primary':'ff344ff3abb5f98217e2c9b43fc00c4432fa6f78e36de639dbf263a33c07f654',
+    'RecentA|robustness':'3b5bf2816dffe4b01b7f521ef437437d9919b84b78534d81c5f0157904ebb394',
+    'RecentB|primary':'22fe23446d61214e97ba3f86954c1504d56d5534b219ab69c379de0b0570b136',
+    'RecentB|robustness':'5a5c26148dcd5fe6b833a147b1f7efb79413c3c7affab19f991846995a819caa',
+    'Monitor2026|primary':'d220b70af2a83951aa6cdc530a9321226c1af75f4fa67746a7e51a2b487d904d',
+    'Monitor2026|robustness':'18d08a3152f584d2e14a7e5d248e1ea788a84541fef9efaf9d4de1bc05978a38',
+}
 
 
 def sha(path):
@@ -156,14 +166,24 @@ def validate_r2(a):
         np.testing.assert_allclose(actual[col].to_numpy(float),audit[col].to_numpy(float),rtol=0,atol=1e-10,equal_nan=True)
     for col in ['primaryQuintile','robustnessQuintile']:
         if actual[col].fillna('').tolist()!=audit[col].fillna('').tolist():raise AssertionError('R2 audit '+col)
-    refs=pd.concat([load_reference('strategy_quintiles.csv'),load_reference('period_quintiles.csv')],ignore_index=True)
-    refs=refs[refs.ScopeType.eq('Strategy')]
-    pmap={'FULL':('2015-01-01','2026-09-10'),'Historical':PERIODS['Historical'],'RecentA':PERIODS['Recent A'],'RecentB':PERIODS['Recent B'],'Monitor2026':PERIODS['2026 Monitor']}
+    refs=load_reference('strategy_quintiles.csv');refs=refs[refs.ScopeType.eq('Strategy')]
+    pmap={'FULL':('2015-01-01','2026-09-10')}
     for r in refs.itertuples():
         start,end=pmap[r.Period];g=a[(a.EntryTime>=start)&(a.EntryTime<end)&a.StrategyNo.eq(int(r.StrategyNo))&a[r.Method+'Quintile'].eq(r.Quintile)]
         if len(g)!=int(r.Trades):raise AssertionError('R2 count regression')
         np.testing.assert_allclose([g.R.sum(),g.R.mean()],[r.TotalR,r.AvgR],rtol=0,atol=1e-10,equal_nan=True)
-    return len(audit),len(refs)
+    # Compact full-period regression: canonical hashes cover every Strategy × period × method × quintile row.
+    period_map={'Historical':PERIODS['Historical'],'RecentA':PERIODS['Recent A'],'RecentB':PERIODS['Recent B'],'Monitor2026':PERIODS['2026 Monitor']}
+    for period,(start,end) in period_map.items():
+        for method in ('primary','robustness'):
+            lines=[]
+            for no in range(1,29):
+                for q in p2.QUINTILES:
+                    g=a[(a.EntryTime>=start)&(a.EntryTime<end)&a.StrategyNo.eq(no)&a[method+'Quintile'].eq(q)]
+                    lines.append('|'.join([period,method,str(no),q,str(len(g)),f'{g.R.sum():.9f}',f'{g.R.mean():.9f}']))
+            digest=hashlib.sha256(('\n'.join(lines)+'\n').encode()).hexdigest()
+            if digest!=R2_PERIOD_DIGESTS[period+'|'+method]:raise AssertionError('R2 period digest '+period+' '+method)
+    return len(audit),len(refs)+1120
 
 
 def assignments(baseline,manifest,m1_root):
