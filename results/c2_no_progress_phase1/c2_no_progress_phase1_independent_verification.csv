@@ -1,0 +1,7 @@
+Check,Status,Detail
+baseline_hash,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+56_source_audit_records,PASS,"Hashes, row counts and raw bounds match frozen manifest"
+r0_reconciliation_records,PASS,ALL28 and ACTIVE27 zero mismatches
+independent_missing_19_2021-06-18 03:28:00,PASS,"Open, MFE<.25, no SL/TP before checkpoint, no M1 in exact through +4min"
+independent_missing_20_2025-01-07 13:00:00,PASS,"Open, MFE<.25, no SL/TP before checkpoint, no M1 in exact through +4min"
+no_formal_outcomes_published,PASS,Formal metrics intentionally not evaluated after execution gate failure

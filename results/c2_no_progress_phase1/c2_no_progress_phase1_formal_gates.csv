@@ -1,0 +1,9 @@
+Gate,Status,Reason,Verdict,Phase2Eligible
+A,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.,VALIDATION_FAIL,False
+B,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.,VALIDATION_FAIL,False
+C,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.,VALIDATION_FAIL,False
+D,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.,VALIDATION_FAIL,False
+E,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.,VALIDATION_FAIL,False
+F,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.,VALIDATION_FAIL,False
+G,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.,VALIDATION_FAIL,False
+H,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.,VALIDATION_FAIL,False

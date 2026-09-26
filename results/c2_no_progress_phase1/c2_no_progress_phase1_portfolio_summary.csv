@@ -1,0 +1,3 @@
+Variant,Period,Status,Reason
+NP50,ALL,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.
+NP75,ALL,NOT_EVALUATED,NP50 has 2 open no-progress trades without checkpoint M1 Open through +4min; frozen coverage stop.

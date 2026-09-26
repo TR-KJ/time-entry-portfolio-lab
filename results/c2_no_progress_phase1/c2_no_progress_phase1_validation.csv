@@ -1,0 +1,13 @@
+Check,Status,Detail
+baseline_sha,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+56_m1_files,PASS,"All source hashes, row counts and raw bounds match"
+formal_universe,PASS,"27 active strategies, 15837 trades, Strategy22 excluded"
+r0_reference_reconciliation,PASS,16298/16298; 0 mismatches
+r0_formal_reconciliation,PASS,15837/15837; 0 mismatches
+synthetic_tests,PASS,"13 tests: rounding, overnight, MFE, boundary, no lookahead, exits, fallback, recovery, pairing, bootstrap"
+np50_execution_coverage,FAIL,2 missing executable checkpoint bars through +4min
+np75_execution_coverage,PASS,0 missing executable checkpoint bars; performance not evaluated
+independent_gap_diagnostics,PASS,6 checks; both missing-execution cases confirmed directly from raw EURAUD files
+empirical_paired_delta_and_bootstrap,NOT_EVALUATED,Formal outcome aggregation barred by frozen coverage stop
+formal_gate_A_to_H,NOT_EVALUATED,Validation prerequisite failed
+phase2_eligibility,FAIL,VALIDATION_FAIL; no Phase 2
