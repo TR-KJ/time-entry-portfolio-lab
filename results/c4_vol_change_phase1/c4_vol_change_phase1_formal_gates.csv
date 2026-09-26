@@ -1,0 +1,2 @@
+Direction,EligibleRecentPeriods,GateA,GateB,GateC,GateD,GateE,GateF,GateG,GateH,Label,Phase2Eligible
+EXPANSION,,True,False,True,True,False,True,True,True,NOT_SUPPORTED,False

@@ -1,0 +1,9 @@
+Check,Status,Detail
+baseline_sha_universe,PASS,28/16298; active 27/15837; Strategy22 excluded formal
+m1_manifest,PASS,56 filename/hash/rows/raw bounds
+r2_assignment_regression,PASS,audit rows 257; aggregate rows 1400
+no_lookahead_and_features,PASS,completed JST D1; ATR/RV 5/20; prior252 excluding current
+formal_estimators,PASS,"FE within-stratum, equal-weight, week bootstrap"
+synthetic_boundaries_midrank,PASS,"5/5 tests: 252 exclusion, ties, 168/336, errors, FE weights"
+independent_verification,PASS,"20/20 assignment, raw, FE, equal-weight, coverage, bootstrap checks"
+representative_trade_date_audit,PASS,27 strategy representatives; completed D1 ratios and states recorded

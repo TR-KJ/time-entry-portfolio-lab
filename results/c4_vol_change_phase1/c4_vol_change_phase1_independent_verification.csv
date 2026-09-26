@@ -1,0 +1,21 @@
+Check,Status,Detail
+baseline_hash,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+active_identity,PASS,rows=15837
+atr_ratio,PASS,component ratio
+atr_state_boundaries,PASS,integer 168/336 boundaries
+atr_coverage,PASS,14651/15837
+atr_fixed_effect,PASS,0.028814594636
+atr_equal_weight,PASS,0.030416935173; strata=135/95
+atr_raw_compression,PASS,n=5049 avg=0.081729815064
+atr_raw_neutral,PASS,n=4869 avg=0.078934948305
+atr_raw_expansion,PASS,n=4733 avg=0.103329773964
+atr_bootstrap,PASS,"[-0.007267032423,0.065149460148]"
+rv_ratio,PASS,component ratio
+rv_state_boundaries,PASS,integer 168/336 boundaries
+rv_coverage,PASS,14642/15837
+rv_fixed_effect,PASS,0.017080404086
+rv_equal_weight,PASS,0.029031270211; strata=134/98
+rv_raw_compression,PASS,n=5025 avg=0.080032025507
+rv_raw_neutral,PASS,n=4702 avg=0.087117173089
+rv_raw_expansion,PASS,n=4915 avg=0.096204582342
+rv_bootstrap,PASS,"[-0.019993973821,0.052981577153]"
