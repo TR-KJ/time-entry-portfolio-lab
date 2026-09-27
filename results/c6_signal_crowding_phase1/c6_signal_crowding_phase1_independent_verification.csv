@@ -1,0 +1,89 @@
+Check,Status,Detail
+baseline_sha,PASS,
+R2_assignment_sha,PASS,
+universe,PASS,
+identity_unique_and_ordered,PASS,
+preserved_outcomes,PASS,
+all_R2_assignments,PASS,
+R2_saved_audit,PASS,248
+R2_saved_aggregate_regression,PASS,135
+independent_every_count_6h,PASS,
+independent_every_count_12h,PASS,
+every_simultaneous_count,PASS,
+direct_beta_SIGNAL_COUNT_6H_Historical,PASS,
+raw_slope_SIGNAL_COUNT_6H_Historical,PASS,
+equal_weight_SIGNAL_COUNT_6H_Historical,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_6H_Historical,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_6H_Historical,PASS,8 replicates
+distribution_SIGNAL_COUNT_6H_Historical,PASS,
+direct_beta_SIGNAL_COUNT_6H_Recent A,PASS,
+raw_slope_SIGNAL_COUNT_6H_Recent A,PASS,
+equal_weight_SIGNAL_COUNT_6H_Recent A,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_6H_Recent A,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_6H_Recent A,PASS,8 replicates
+distribution_SIGNAL_COUNT_6H_Recent A,PASS,
+direct_beta_SIGNAL_COUNT_6H_Recent B,PASS,
+raw_slope_SIGNAL_COUNT_6H_Recent B,PASS,
+equal_weight_SIGNAL_COUNT_6H_Recent B,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_6H_Recent B,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_6H_Recent B,PASS,8 replicates
+distribution_SIGNAL_COUNT_6H_Recent B,PASS,
+direct_beta_SIGNAL_COUNT_6H_2026 Monitor,PASS,
+raw_slope_SIGNAL_COUNT_6H_2026 Monitor,PASS,
+equal_weight_SIGNAL_COUNT_6H_2026 Monitor,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_6H_2026 Monitor,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_6H_2026 Monitor,PASS,8 replicates
+distribution_SIGNAL_COUNT_6H_2026 Monitor,PASS,
+direct_beta_SIGNAL_COUNT_6H_Recent Combined,PASS,
+raw_slope_SIGNAL_COUNT_6H_Recent Combined,PASS,
+equal_weight_SIGNAL_COUNT_6H_Recent Combined,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_6H_Recent Combined,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_6H_Recent Combined,PASS,8 replicates
+distribution_SIGNAL_COUNT_6H_Recent Combined,PASS,
+direct_beta_SIGNAL_COUNT_6H_ALL,PASS,
+raw_slope_SIGNAL_COUNT_6H_ALL,PASS,
+equal_weight_SIGNAL_COUNT_6H_ALL,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_6H_ALL,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_6H_ALL,PASS,32 replicates
+distribution_SIGNAL_COUNT_6H_ALL,PASS,
+direct_beta_SIGNAL_COUNT_12H_Historical,PASS,
+raw_slope_SIGNAL_COUNT_12H_Historical,PASS,
+equal_weight_SIGNAL_COUNT_12H_Historical,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_12H_Historical,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_12H_Historical,PASS,8 replicates
+distribution_SIGNAL_COUNT_12H_Historical,PASS,
+direct_beta_SIGNAL_COUNT_12H_Recent A,PASS,
+raw_slope_SIGNAL_COUNT_12H_Recent A,PASS,
+equal_weight_SIGNAL_COUNT_12H_Recent A,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_12H_Recent A,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_12H_Recent A,PASS,8 replicates
+distribution_SIGNAL_COUNT_12H_Recent A,PASS,
+direct_beta_SIGNAL_COUNT_12H_Recent B,PASS,
+raw_slope_SIGNAL_COUNT_12H_Recent B,PASS,
+equal_weight_SIGNAL_COUNT_12H_Recent B,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_12H_Recent B,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_12H_Recent B,PASS,8 replicates
+distribution_SIGNAL_COUNT_12H_Recent B,PASS,
+direct_beta_SIGNAL_COUNT_12H_2026 Monitor,PASS,
+raw_slope_SIGNAL_COUNT_12H_2026 Monitor,PASS,
+equal_weight_SIGNAL_COUNT_12H_2026 Monitor,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_12H_2026 Monitor,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_12H_2026 Monitor,PASS,8 replicates
+distribution_SIGNAL_COUNT_12H_2026 Monitor,PASS,
+direct_beta_SIGNAL_COUNT_12H_Recent Combined,PASS,
+raw_slope_SIGNAL_COUNT_12H_Recent Combined,PASS,
+equal_weight_SIGNAL_COUNT_12H_Recent Combined,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_12H_Recent Combined,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_12H_Recent Combined,PASS,8 replicates
+distribution_SIGNAL_COUNT_12H_Recent Combined,PASS,
+direct_beta_SIGNAL_COUNT_12H_ALL,PASS,
+raw_slope_SIGNAL_COUNT_12H_ALL,PASS,
+equal_weight_SIGNAL_COUNT_12H_ALL,PASS,
+bootstrap_saved_CI_SIGNAL_COUNT_12H_ALL,PASS,
+direct_row_bootstrap_spot_SIGNAL_COUNT_12H_ALL,PASS,32 replicates
+distribution_SIGNAL_COUNT_12H_ALL,PASS,
+all_strategy_slopes,PASS,324
+all_count_summaries,PASS,
+all_27_LOSO,PASS,
+formal_gates,PASS,
+manual_audit_identities,PASS,11

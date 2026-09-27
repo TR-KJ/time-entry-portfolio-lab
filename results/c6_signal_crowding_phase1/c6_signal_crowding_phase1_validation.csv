@@ -1,0 +1,7 @@
+Check,Status,Detail
+baseline_sha,PASS,cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359
+R2_full_assignment_hash,PASS,49f602f6ecb19039c7e7a82b4884f8d82b423fe604c58066df44de2307656021
+R2_identity_outcome_regression,PASS,15837 exact identities; Strategy/Symbol/R/TradeID agree
+R2_reference_audit,PASS,248 active reference assignments
+R2_reference_aggregates,PASS,135 primary Strategy/Q rows
+universe,PASS,27 active / 15837; Strategy22 absent from observations and timeline
