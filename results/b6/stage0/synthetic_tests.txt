@@ -1,0 +1,28 @@
+test_count_and_duplicate (test_b6_rules.ProposalRules.test_count_and_duplicate) ... ok
+test_finite_grids (test_b6_rules.ProposalRules.test_finite_grids) ... ok
+test_nontransitive_deterministic_grouping (test_b6_rules.ProposalRules.test_nontransitive_deterministic_grouping) ... ok
+test_offset_hold_and_clock (test_b6_rules.ProposalRules.test_offset_hold_and_clock) ... ok
+test_pf_zero_loss_and_year_rules (test_b6_rules.ProposalRules.test_pf_zero_loss_and_year_rules) ... ok
+test_three_sl_and_all_five_median (test_b6_rules.ProposalRules.test_three_sl_and_all_five_median) ... ok
+test_boundary_even_if_sl_before_exit (test_b6_stage0.B6Tests.test_boundary_even_if_sl_before_exit) ... ok
+test_direction_pip_spread_and_reference (test_b6_stage0.B6Tests.test_direction_pip_spread_and_reference) ... ok
+test_duplicates_unsorted_ohlc_timezone (test_b6_stage0.B6Tests.test_duplicates_unsorted_ohlc_timezone) ... ok
+test_entry_exact_hits_and_same_bar (test_b6_stage0.B6Tests.test_entry_exact_hits_and_same_bar) ... ok
+test_exit_bar_first_hit (test_b6_stage0.B6Tests.test_exit_bar_first_hit) ... ok
+test_fallback_all_delays (test_b6_stage0.B6Tests.test_fallback_all_delays) ... ok
+test_fallback_boundary_guard (test_b6_stage0.B6Tests.test_fallback_boundary_guard) ... ok
+test_loader_timezone_and_duplicate_rejection (test_b6_stage0.B6Tests.test_loader_timezone_and_duplicate_rejection) ... ok
+test_missing_entry_and_internal_gap (test_b6_stage0.B6Tests.test_missing_entry_and_internal_gap) ... ok
+test_missing_exit_not_rescued_by_early_sl (test_b6_stage0.B6Tests.test_missing_exit_not_rescued_by_early_sl) ... ok
+test_no_epsilon (test_b6_stage0.B6Tests.test_no_epsilon) ... ok
+test_no_weekend_reconnection (test_b6_stage0.B6Tests.test_no_weekend_reconnection) ... ok
+test_overnight_and_holding_limits (test_b6_stage0.B6Tests.test_overnight_and_holding_limits) ... ok
+test_reproducible (test_b6_stage0.B6Tests.test_reproducible) ... ok
+test_rounding_and_search_locked (test_b6_stage0.B6Tests.test_rounding_and_search_locked) ... ok
+test_time_exit_open_not_close (test_b6_stage0.B6Tests.test_time_exit_open_not_close) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.134s
+
+OK
+Loaded USDJPY: 2 rows | 2020-02-04 10:00:00 -> 2020-07-07 09:00:00 JST

@@ -1,0 +1,80 @@
+[
+  {
+    "commit": "1df6b8c5ed0b156ae511ba0dcc957c1af5ba64e5",
+    "path": "src/research/daily_stop_baseline_revalidation.py",
+    "sha256": "08b9717a3a94a0066e7ef7ebfa0f4802cbc84ae0570c3b875d96729877f4e216",
+    "bytes": 26163
+  },
+  {
+    "commit": "1df6b8c5ed0b156ae511ba0dcc957c1af5ba64e5",
+    "path": "src/portfolio_backtest_v1_2_add_aussie_logic.py",
+    "sha256": "4b71f6b7b1cdbe3266cd9b7cefae37811781561016a013a34d7c8c84247ef32d",
+    "bytes": 40074
+  },
+  {
+    "commit": "9f14c906921e7e4d792a32c02dd439b7e8192b41",
+    "path": "src/research/exit_efficiency_phase1.py",
+    "sha256": "4ed8d8b9813280cd2ac3c5a4e602b83077b244e6e11ae669c8631838918624fb",
+    "bytes": 18657
+  },
+  {
+    "commit": "9f14c906921e7e4d792a32c02dd439b7e8192b41",
+    "path": "src/research/c1_path_management_phase1.py",
+    "sha256": "26b29b30510c105ea0e813fd5564f382e6c24165431350e51975494ff2bed032",
+    "bytes": 17709
+  },
+  {
+    "commit": "9f14c906921e7e4d792a32c02dd439b7e8192b41",
+    "path": "research_inputs/a3_expected_m1_manifest.csv",
+    "sha256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+    "bytes": 8998
+  },
+  {
+    "commit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+    "path": "results/volatility_phase1/volatility_phase1_input_manifest.csv",
+    "sha256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+    "bytes": 8998
+  },
+  {
+    "commit": "9f14c906921e7e4d792a32c02dd439b7e8192b41",
+    "path": "tests/test_c1_path_management_phase1.py",
+    "sha256": "5299b762d512c83a415b2b0b651c28e8b13c1a88d6df91779fa9d73dc841f970",
+    "bytes": 3511
+  },
+  {
+    "commit": "1df6b8c5ed0b156ae511ba0dcc957c1af5ba64e5",
+    "path": "docs/28_daily_stop_validation.md",
+    "sha256": "0a5821d8abe9124e6ee2fa459340526433e732d8d4f2e7f264b4d57cc49230ba",
+    "bytes": 9942
+  },
+  {
+    "commit": "1df6b8c5ed0b156ae511ba0dcc957c1af5ba64e5",
+    "path": "docs/29_daily_stop_baseline_result.md",
+    "sha256": "e9a5b960b581ad94f5883f6677fd3f3e90af804313bbd5b3a3d67c02d7982167",
+    "bytes": 5012
+  },
+  {
+    "commit": "173be2a114dad6bd183a0a1515581528850f0850",
+    "path": "src/portfolio_backtest_v1_2_add_aussie_logic.py",
+    "sha256": "4b71f6b7b1cdbe3266cd9b7cefae37811781561016a013a34d7c8c84247ef32d",
+    "bytes": 40074
+  },
+  {
+    "commit": "1df6b8c5ed0b156ae511ba0dcc957c1af5ba64e5",
+    "path": "docs/19_step9_2_2_event_overlap_fix_spec.md",
+    "sha256": "7bbfe31f41f671abcb07f163f3e092eb25ceeb6ac0d4b3f7a48da09358764a93",
+    "bytes": 8881
+  },
+  {
+    "commit": "1df6b8c5ed0b156ae511ba0dcc957c1af5ba64e5",
+    "path": "docs/01_strategy_master_list.md",
+    "sha256": "3e274541d3301e8365e7453a6fce031440e2deb1c631d493cd4ffc39f74408fe",
+    "bytes": 11204
+  },
+  {
+    "commit": "1df6b8c5ed0b156ae511ba0dcc957c1af5ba64e5",
+    "path": "docs/17_event_candidate_c_strategy_stop_matrix.md",
+    "sha256": "df846ae726634e6b00fa3643993c325c164b6d935031fee2bbab9b0f53b90473",
+    "bytes": 9537
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "python": "3.12.14",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5",
+  "platform": "Darwin",
+  "test_command": "PYTHONPATH=src/research python -m unittest discover -s tests -p 'test_b6*.py' -v",
+  "stage0_command": "PYTHONPATH=src/research python -m b6.stage0 --data-root \"$B6_DATA_ROOT\" --baseline \"$B6_BASELINE\" --out results/b6/stage0"
+}

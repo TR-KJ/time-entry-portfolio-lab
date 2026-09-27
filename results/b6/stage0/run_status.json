@@ -1,0 +1,10 @@
+{
+  "InputAudit": "PASS",
+  "RepresentativeReplay": "PASS",
+  "RepresentativeCount": 45,
+  "BaselineSHA256": "cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359",
+  "Stage1": "NOT_RUN",
+  "Validation": "NOT_RUN",
+  "Monitor": "NOT_RUN",
+  "CalibrationPrespecSHA256": "43e65db06f5a4f9aaaa787c0270d7953fa5bb3eac9fa2acc3c6b43de67caf94a"
+}

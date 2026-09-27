@@ -1,0 +1,118 @@
+{
+  "status": "PROPOSAL_NOT_APPROVED_NOT_SEARCH_FREEZE",
+  "stage1_enabled": false,
+  "validation_enabled": false,
+  "discovery_start": "2020-01-01",
+  "discovery_end_exclusive": "2024-01-01",
+  "symbols": [
+    "USDJPY",
+    "EURJPY",
+    "GBPJPY",
+    "AUDJPY",
+    "AUDUSD",
+    "EURAUD",
+    "GBPAUD"
+  ],
+  "entry_step_minutes": 5,
+  "holding_minutes": {
+    "min": 30,
+    "max": 1440,
+    "step": 5
+  },
+  "sl_calibration": {
+    "multipliers": [
+      0.15,
+      0.3,
+      0.5,
+      0.8,
+      1.2
+    ],
+    "round_pips": 5,
+    "floor_pips": 10,
+    "ceiling_pips": 300,
+    "min_days": 600,
+    "min_days_each_year": 100
+  },
+  "stage1": {
+    "min_trades": 150,
+    "min_annual_trades": 30,
+    "min_pf": 1.1,
+    "positive_years": 3,
+    "min_passing_sl": 3,
+    "max_structures": 50,
+    "neighbor_radius_minutes": 30,
+    "min_losses": 10,
+    "ranking": [
+      "median_all5_AvgR_desc",
+      "passing_sl_count_desc",
+      "median_all5_TotalR_over_max_DD_1_desc",
+      "median_all5_TotalR_desc",
+      "symbol_direction_weekday_entry_hold_asc"
+    ],
+    "require_same_exit_day_offset": true,
+    "max_holding_difference_minutes": 30
+  },
+  "stage2a": {
+    "tp_sl_multipliers": [
+      0.5,
+      1,
+      1.5,
+      2,
+      3
+    ],
+    "include_no_tp": true,
+    "tp_round_pips": 5,
+    "tp_min_pips": 5
+  },
+  "stage2b": {
+    "centers_per_structure": 2,
+    "radius_pips": 10,
+    "step_pips": 5,
+    "sl_bounds": [
+      10,
+      300
+    ],
+    "tp_bounds": [
+      5,
+      900
+    ],
+    "neighborhood_step_pips": 5,
+    "min_neighbors": 3,
+    "min_neighbor_pass_fraction": 0.6666666666666666,
+    "min_neighbor_median_to_point_avgr": 0.8
+  },
+  "stage3": {
+    "entry_radius_minutes": 5,
+    "exit_radius_minutes": 5,
+    "step_minutes": 1,
+    "min_neighbors": 4,
+    "neighborhood_radius_minutes": 1,
+    "min_neighbor_pass_fraction": 0.6666666666666666,
+    "min_neighbor_median_to_point_avgr": 0.8,
+    "allow_entry_date_change": false
+  },
+  "drive_output_default": false,
+  "stage4": {
+    "filters": [
+      "NONE",
+      "CONSTITUENT_CENTRAL_BANK_OVERLAP",
+      "CONSTITUENT_CENTRAL_BANK_PLUS_US_NFP_CPI_AND_AUD_CPI_IF_AUD"
+    ],
+    "min_retention": 0.8,
+    "min_removed": 20,
+    "min_delta_total_r": 2,
+    "min_delta_avgr": 0.01,
+    "allow_dd_worsening": false,
+    "min_nonnegative_annual_delta": 3
+  },
+  "validation": {
+    "min_annual_trades": 30,
+    "min_total_trades": 70,
+    "min_annual_losses": 5,
+    "require_both_annual_total_r_positive": true,
+    "min_combined_pf": 1.1,
+    "min_combined_avgr": 0.02,
+    "dd_limit_floor": 10,
+    "dd_limit_discovery_multiple": 1.5
+  }
+}

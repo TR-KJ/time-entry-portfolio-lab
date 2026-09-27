@@ -1,0 +1,132 @@
+[
+  {
+    "path": "docs/b6/parameter_decision_register.md",
+    "sha256": "be1ad622731577a1b97c0da459583e1ecc59cbb66d033a6920c88328e1db539f",
+    "bytes": 3196
+  },
+  {
+    "path": "docs/b6/research_plan.md",
+    "sha256": "6753dc5fde12f182f1b7431188b54e4fd1c09f9fb6992a73c7836f0da7ebfc07",
+    "bytes": 12201
+  },
+  {
+    "path": "docs/b6/sl_calibration_prespec.md",
+    "sha256": "43e65db06f5a4f9aaaa787c0270d7953fa5bb3eac9fa2acc3c6b43de67caf94a",
+    "bytes": 1871
+  },
+  {
+    "path": "docs/b6/source_of_truth.md",
+    "sha256": "00e94eb24b4a796ad95da31214a3320cca03eb2c9d51edaa8666e1ecfc7df6e4",
+    "bytes": 4047
+  },
+  {
+    "path": "docs/b6/stage0_validation.md",
+    "sha256": "f5475cc3db15c0dbf6ef575ce1c18495ddbd55d02b9e47d7ec209b6555fd9695",
+    "bytes": 4955
+  },
+  {
+    "path": "notebooks/b6_stage0_preparation.ipynb",
+    "sha256": "aa4e60a70f706e31c881f361499a99eb5688d71a5043d99c59526743855d90cd",
+    "bytes": 5058
+  },
+  {
+    "path": "research_inputs/b6/expected_m1_manifest.csv",
+    "sha256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+    "bytes": 8998
+  },
+  {
+    "path": "research_inputs/b6/proposal.json",
+    "sha256": "741eca43712e92480a0bf8b5a8ea26e038462ece521eb7319510e284ea3fe7fb",
+    "bytes": 2637
+  },
+  {
+    "path": "research_inputs/b6/sl_grid_proposal.csv",
+    "sha256": "9aee1ae097cc8d106e7017f89cc1d779c575a718fb86a0bebb2c3dcd9508bb38",
+    "bytes": 258
+  },
+  {
+    "path": "results/b6/stage0/calibration_day_diagnostics.csv",
+    "sha256": "0a37b4813b2b6bb0366228181c208dd3aff7f553a1a3fb8d00c9de44d1925b0f",
+    "bytes": 374204
+  },
+  {
+    "path": "results/b6/stage0/calibration_eligibility_summary.csv",
+    "sha256": "d56fd433cc20e9a75336ba76f6f02deaef49dde4ce937fe0c245defac30293ec",
+    "bytes": 2708
+  },
+  {
+    "path": "results/b6/stage0/coverage.csv",
+    "sha256": "3e0fa14b643317bae43e54f76c25feebc681b1dca443901809ef63d6700327a9",
+    "bytes": 442
+  },
+  {
+    "path": "results/b6/stage0/environment.json",
+    "sha256": "bbb4bb7afb3f421f9a854bd1ef47175fe38e44023273ac15faba8976f67db744",
+    "bytes": 342
+  },
+  {
+    "path": "results/b6/stage0/input_audit.csv",
+    "sha256": "02ed615a4583862ef6409a30b97b71fe3d18833861bfab5d973a9a99c38beab6",
+    "bytes": 9826
+  },
+  {
+    "path": "results/b6/stage0/price_statistics.json",
+    "sha256": "f19818ab3920f4957b5c5111ace0ac30dd177f7f18fda580ba0d3ee8e23bd9b8",
+    "bytes": 4394
+  },
+  {
+    "path": "results/b6/stage0/representative_reconciliation.csv",
+    "sha256": "9632602c14338409647f12828e82876971720cb56aa3fcf4f95c339b8b4aa62c",
+    "bytes": 2969
+  },
+  {
+    "path": "results/b6/stage0/run_status.json",
+    "sha256": "a6f1e1714353b4bcd1746a50dd61d5427d6950ce757e215ae74cee9964817b8b",
+    "bytes": 350
+  },
+  {
+    "path": "results/b6/stage0/sl_grid_proposal.csv",
+    "sha256": "9aee1ae097cc8d106e7017f89cc1d779c575a718fb86a0bebb2c3dcd9508bb38",
+    "bytes": 258
+  },
+  {
+    "path": "results/b6/stage0/source_manifest.json",
+    "sha256": "85a026db3acd522ee486817e0acd8043a26ee46ac713c4da0060fc5c2ab87294",
+    "bytes": 2945
+  },
+  {
+    "path": "results/b6/stage0/synthetic_tests.txt",
+    "sha256": "e20f482036a168c3c3960b1fd900d2ec1d9523b12a024d27ca38b6cc02fb138a",
+    "bytes": 2284
+  },
+  {
+    "path": "src/research/b6/__init__.py",
+    "sha256": "c6c18fb5e509f319308332fb70dd376c6a2841571cf3ccf09352620571386f72",
+    "bytes": 62
+  },
+  {
+    "path": "src/research/b6/execution.py",
+    "sha256": "82663372d5ad1d7da9b44926627a24cbcbb7fb7aa2519126e61eb18997a21252",
+    "bytes": 3711
+  },
+  {
+    "path": "src/research/b6/rules.py",
+    "sha256": "b83114d3d8ff20bb07b81d122f13699e5d49f203000a3271c23feb48e8ae8ee4",
+    "bytes": 2531
+  },
+  {
+    "path": "src/research/b6/stage0.py",
+    "sha256": "00b3b6aa8ceec09ee541fd39f388c3a07ee034abfc3c903a5cecc013291cf94b",
+    "bytes": 10722
+  },
+  {
+    "path": "tests/test_b6_rules.py",
+    "sha256": "9cfde8871b3501da906e30bac8d471abc38aa44223c7327b686e825437bd0a12",
+    "bytes": 2415
+  },
+  {
+    "path": "tests/test_b6_stage0.py",
+    "sha256": "552706b968f25a70bf0eeac48628e5c663ec0f9f97c845a6ec670401130c49ec",
+    "bytes": 6936
+  }
+]
