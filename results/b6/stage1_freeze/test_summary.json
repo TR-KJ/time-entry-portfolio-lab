@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "unit_synthetic_regression_tests": 120,
+  "failures": 0,
+  "reference_fast": "PASS",
+  "real_data_smoke": "PASS",
+  "real_data_comparisons": 1680,
+  "notebook_default_run_all": "PASS",
+  "notebook_colab_actual": "NOT_RUN",
+  "full_sweep": "NOT_RUN",
+  "candidate_research_ranking": "NOT_RUN",
+  "validation": "NOT_RUN",
+  "monitor": "NOT_RUN",
+  "base_commit": "abb3d0f86120286153352b0d260a081d595be6d4",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "test_command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests -p 'test_*.py' -v",
+  "smoke_command": "PYTHONPATH=src/research python -m b6.stage1_smoke --data-root \"$B6_DATA_ROOT\" --out results/b6/stage1_freeze"
+}

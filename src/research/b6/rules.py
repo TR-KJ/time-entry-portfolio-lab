@@ -1,4 +1,4 @@
-"""Pure proposal rules; no price loader or search runner. Synthetic tests only so far."""
+"""Approved Stage1 selection helpers; later-stage grid helpers only (no execution)."""
 from statistics import median
 from math import isfinite
 from .stage0 import round5
@@ -17,8 +17,8 @@ def rank_key(c):
     if len(values)!=5:raise ValueError('five SL results required')
     if any(not isfinite(m[k]) for m in values for k in ('AvgR','TotalR','MaxDDR')):raise ValueError('nonfinite metric')
     return (-median(m['AvgR'] for m in values),-sum(single_pass(m) for m in values),
-            -median(m['TotalR']/max(m['MaxDDR'],1) for m in values),-median(m['TotalR'] for m in values),
-            c['symbol'],0 if c['direction']=='L' else 1,c['weekday'],c['entry'],c['hold'])
+            -median(m['TotalR'] for m in values),max(m['MaxDDR'] for m in values),
+            c['symbol'],0 if c['direction']=='L' else 1,c['weekday'],c['entry'],(c['entry']+c['hold'])//1440,(c['entry']+c['hold'])%1440)
 
 def circular(a,b):return min(abs(a-b),1440-abs(a-b))
 

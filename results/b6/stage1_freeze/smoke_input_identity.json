@@ -1,0 +1,7 @@
+{
+  "Status": "PASS",
+  "ExpectedFiles": 56,
+  "MatchedFiles": 56,
+  "ExpectedManifest": "research_inputs/b6/expected_m1_manifest.csv",
+  "ExpectedManifestSHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f"
+}

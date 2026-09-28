@@ -1,0 +1,93 @@
+{
+  "Status": "PASS",
+  "Scope": "BOUNDED_IMPLEMENTATION_CHECK_NOT_DISCOVERY_RESULT",
+  "Dates": [
+    "2020-02-04",
+    "2021-02-02",
+    "2022-02-01",
+    "2023-02-07"
+  ],
+  "EntryMinutes": [
+    540,
+    1425
+  ],
+  "HoldingMinutes": [
+    30,
+    60,
+    1440
+  ],
+  "OpportunitySLComparisons": 1680,
+  "Symbols": [
+    {
+      "Symbol": "USDJPY",
+      "Status": "PASS",
+      "OpportunitySLComparisons": 240,
+      "ActualTradeSLComparisons": 240,
+      "BuildSeconds": 0.0286,
+      "FastSeconds": 0.0077,
+      "ReferenceSeconds": 1.74
+    },
+    {
+      "Symbol": "EURJPY",
+      "Status": "PASS",
+      "OpportunitySLComparisons": 240,
+      "ActualTradeSLComparisons": 240,
+      "BuildSeconds": 0.0257,
+      "FastSeconds": 0.0031,
+      "ReferenceSeconds": 1.7866
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Status": "PASS",
+      "OpportunitySLComparisons": 240,
+      "ActualTradeSLComparisons": 240,
+      "BuildSeconds": 0.0338,
+      "FastSeconds": 0.0031,
+      "ReferenceSeconds": 1.7713
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Status": "PASS",
+      "OpportunitySLComparisons": 240,
+      "ActualTradeSLComparisons": 240,
+      "BuildSeconds": 0.0249,
+      "FastSeconds": 0.003,
+      "ReferenceSeconds": 1.6782
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Status": "PASS",
+      "OpportunitySLComparisons": 240,
+      "ActualTradeSLComparisons": 240,
+      "BuildSeconds": 0.0328,
+      "FastSeconds": 0.0033,
+      "ReferenceSeconds": 1.6483
+    },
+    {
+      "Symbol": "EURAUD",
+      "Status": "PASS",
+      "OpportunitySLComparisons": 240,
+      "ActualTradeSLComparisons": 240,
+      "BuildSeconds": 0.0273,
+      "FastSeconds": 0.0034,
+      "ReferenceSeconds": 1.6716
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Status": "PASS",
+      "OpportunitySLComparisons": 240,
+      "ActualTradeSLComparisons": 240,
+      "BuildSeconds": 0.0257,
+      "FastSeconds": 0.0029,
+      "ReferenceSeconds": 1.673
+    }
+  ],
+  "PerformanceMetricsPublished": false,
+  "CandidateRankingExecuted": false,
+  "FullSweepExecuted": false,
+  "ValidationExecuted": false,
+  "MonitorExecuted": false,
+  "Python": "3.12.14",
+  "Numpy": "2.3.5",
+  "Pandas": "2.2.3"
+}

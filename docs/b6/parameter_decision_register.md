@@ -1,31 +1,33 @@
-# B6 decision register
+# B6 decision register — 2026-09-28正式決定
 
-日付2026-09-27。以下の区分は実測やテスト成功で自動昇格しない。
+根拠：ユーザーの「B6 Stage1 実装Freeze 指示」。2026-09-27の準備提案から以下へ更新。
+Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
 
-|ID|項目|区分|今回の扱い・確認対象|
+|ID|項目|現在の区分|正式な内容・前回との差|
 |---|---|---|---|
-|A01|独立M1再発掘、既存/live変更禁止、候補ID|合意済み|研究Planどおり|
-|A02|Stage0→1→2A→2B→3→4→5→6→7|合意済み|今回はStage0で停止|
-|A03|初期5分・SL5値・TPなし、SL5結果保持|合意済み|SLなしは正式候補でない|
-|A04|SL/TP局所5pips、最終時刻1分追加最適化|合意済み|後戻り再最適化禁止|
-|A05|Historical execution、期間分離、Freeze後Validation|合意済み|約定モデル変更なし|
-|A06|月〜金別候補、曜日部分集合探索なし|合意済み|Entry JST基準|
-|P01|保有30〜1440分、日跨ぎ可|既出案|推奨継承。SL/TP早期決済可、全段で予定保有限界維持|
-|P02|150件・年30件・PF1.10・3/4年プラス|既出案|SL別同時判定として採用を提案|
-|P03|近接整理後50枠・Entry/Exit各±30分|既出案|以下N03の定義を追加提案|
-|P04|12/25〜1/3共通停止|既出案|Entry日のみ停止を提案。価格統計の適格日条件とは別|
-|N01|7ペア×5SL実測案|今回の新提案|sl_grid_proposal.csv。日次中央値×15/30/50/80/120%、5pips half-up|
-|N02|較正対象火〜金、充足閾値、10〜300pips・重複対策|今回の新提案|sl_calibration_prespec.md。倍率は説明用例示の正式化ではない|
-|N03|Stage1 3/5SL通過・負け10件・中央値AvgR主順位・DD補助|今回の新提案|research_planの全順序。最高PF単独より広いSL頑健性|
-|N04|代表greedy抑制・循環距離・offset一致・保有差30|今回の新提案|連鎖group化なし、SL違いで枠を使わない|
-|N05|TPなし＋SL×0.5/1/1.5/2/3、5pips丸め|今回の新提案|固定pips案との差はペア間スケール|
-|N06|局所SL/TP±10、上位2中心、安定点条件|今回の新提案|範囲追加禁止、境界依存記録|
-|N07|Entry/Exit±5分、±1分近傍2/3通過・0.8中央値比|今回の新提案|合意済みなのは1分刻みだけ|
-|N08|Event E0/E1/E2と保持80%・除去20・改善閾値|今回の新提案|Candidate C matrixを新候補へ流用しない|
-|N09|Validation件数・年別黒字・PF1.10・AvgR.02・DD上限|今回の新提案|結果を見る前にChat確認、INSUFFICIENTとFAILを分離|
-|N10|PF例外・ゼロ損益・無効局所点|今回の新提案|欠損をゼロにしない点は合意済み|
-|H01|高速全探索の性能・一致検証|データ不足で保留|計測未実行。Stage1前に実行対象コード固定・再検証が必要|
-|H02|将来Event calendarの発表時刻の外部実証|データ不足で保留|固定Historical calendarの継承案。精緻な実時刻への差替えは今回なし|
+|A01|独立M1探索・既存/live変更禁止|合意済み|維持。正式Strategy番号を新規割当てしない|
+|A02|Stage順序と期間隔離|合意済み|Discovery2020〜2023、2024〜2025 OOS-like、2026 Monitor|
+|A03|Historical execution|合意済み|Entry/Exit足inclusive、SL-first、最大4分fallback、欠損非生成|
+|A04|Stage1設計変更|合意済み|Pure Time SLなし旧案から5 Fixed SL/TPなしへChat正式変更。実装ミスではない|
+|P01|5分Entry/Exit、保有30〜1440、Entry曜日別|合意済み|overnight可、週末後月曜へ接続しない、複数曜日groupなし|
+|P02|SL別最低条件|合意済み|N>=150、各年N>=30、loss>=10、PF>=1.10、3/4年TotalR>0|
+|P03|Stage2上限|合意済み|近接整理後最大50時間構造、SL違いで枠を増やさない、不足時に補充しない|
+|P04|年末年始停止|合意済み|12/25〜1/3、Entry日の共通停止|
+|N01|ペア別SL5値|合意済み|Stage0価格較正表をそのまま正式採用。Stage1でTPなし|
+|N02|SL導出|合意済み|Discoveryのみの事前価格較正由来として固定。再較正しない|
+|N03a|3/5SL最低条件|合意済み|3/5・4/5・5/5を分けて保存、全5SLを保持|
+|N03b|ranking変更|合意済み|全5SL Median AvgR↓、PassSLCount↓、Median TotalR↓、Worst MaxDD↑、固定キー。Recovery Ratioを除去|
+|N04|近接整理|合意済み|Entry/Exit循環距離各30分、offset一致、保有差30分、rank順代表へ直接割当て、連鎖禁止|
+|N05|Stage2-A|合意済み|各SLでTPなし＋0.5/1/1.5/2/3R、5pips丸め。最高SLだけに絞らない|
+|N06a|Stage2-B範囲|合意済み|最大2中心、SL/TP±10pipsを5刻み、TPなし中心はSLのみ、範囲追加なし|
+|N06b|Stage2-B中心選定・細部安定点選定|今回の新提案（前回案を保持）|今回の指示は最大2中心と範囲を承認。細部アルゴリズムはStage2開始前に確定し、今回は未実装|
+|N07|Stage3|合意済み|Entry/Exit各±5分1刻み、3×3有効近傍2/3通過・Median AvgR>=点×.8。近傍中央値最大→anchor距離→時刻キー。単体rankingをtie-breakへ挿入しない|
+|N08|Stage4|合意済み|NONE/通貨構成中央銀行/＋主要マクロの最大3種。保持80%、除去20件、Delta TotalR+2、Delta AvgR+.01、DD悪化なし。旧案の年別Delta条件は削除|
+|N09|Validation|合意済み|年30件/年loss5件/合算70件未達はINSUFFICIENT_SAMPLE。両年黒字・PF1.10・AvgR.02・DD<=max(10,Discovery×1.5)でPASS|
+|N10|例外|合意済み|0RはWin/Loss除外、欠損は非生成、INF/未定義PFを最低loss条件なしで通過させない|
+|I01|実装数値規約|実装上の明文化|指標・rankingは丸め前R、取引表示Pips6桁/R9桁。両実装が同じ規約、SL hitに丸め/epsilonなし|
+|I02|固定キー|実装上の明文化|symbol辞書順→L/S→weekday→Entry分→Exit offset→Exit分。候補IDはこの時間構造を一意化|
+|I03|全探索の実行場所|合意済み|Workは実装・テスト・GitHub Freezeのみ。Chat確認後にColabでfull sweep|
+|H01|full sweep性能・研究結果|データ不足で保留|Workでは測定/探索しない。限定smokeは実装検証で研究結果ではない|
 
-N01は実測済みでも「採用済み」ではない。P01〜P04とN01〜N10の採否をChatで確定し、その後のcommitを正式な探索条件Freezeとして別に識別する。
-H01/H02は合意済みの設計を再質問する理由にはしない。高速化の独立fixture通過とカレンダー仮定の明示を後続実装条件とする。
+Stage2以降の実行器・最終Candidate Freezeは今回作らない。Stage1の正式設定を再提案しない。

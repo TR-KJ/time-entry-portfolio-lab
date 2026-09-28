@@ -1,6 +1,6 @@
-# B6 Recent-Era Time-Entry Rediscovery — 準備Plan
+# B6 Recent-Era Time-Entry Rediscovery — Stage1実装Freeze
 
-状態：PREPARATION / PROPOSALS NOT APPROVED。今回はStage 0のみ。探索開始の承認でもStage 5 Freezeでもない。
+状態：STAGE1 IMPLEMENTATION FREEZE（2026-09-28 Chat正式決定）。WorkではStage1全探索を実行しない。Chatが保存内容とSHAを確認した後、Google Colabで実行する。Stage5 Candidate Freezeとは別。
 根拠：[source_of_truth.md](source_of_truth.md)、数値の分類：[parameter_decision_register.md](parameter_decision_register.md)。
 
 ## 目的・禁止範囲（合意済み）
@@ -31,7 +31,7 @@ Stage 3以後SL/TPへ戻らず、Event Filter後も再調整しない。後段�
 ## 期間・execution（合意済み）
 Discovery `[2020-01-01,2024-01-01)`、Validation `[2024-01-01,2026-01-01)`、Monitor `[2026-01-01,2026-09-10)`、実際のM1終端は監査出力を使う。
 Validationは既閲覧の **B6 holdout validation / OOS-like**。pristine unseen OOSとは呼ばない。
-今回許可する実集計はDiscovery価格特性と既存代表取引照合だけ。候補のPF/R/rankingは計算しない。
+Workで許可する実集計は限定したDiscovery smoke/互換検証だけ。研究としてのTop Candidate/ranking本結果は出さない。全探索はColabへ分離する。
 56ファイル全体は入力同一性・品質監査に限って読み、監査関数内でJST変換後にDiscovery配列をcopyして返す。
 2023/2024同居ファイルも行時刻で隔離。期間外配列をexecutorへ渡すと例外にする。
 予定Exitが期間外ならSL先着でも対象外。fallback探索中に境界を越えた場合も対象外。欠損をゼロ損益にしない。
@@ -42,18 +42,22 @@ Entry完全一致Open±Spread、SL/TPは調整Entry基準。Entry足・選択Exi
 先にExit exactまたは+1〜+4分を確保し、なければ途中SLがあっても取引なし。+5分不採用。
 途中欠損は補間しない。SL/TP固定価格約定、raw比較にepsilonや新しい価格丸めを入れない。
 到達なしのときだけExit Open決済。午前0時強制決済なし、週末後の月曜価格へ自動接続なし。
-Pips小数6桁、Rは丸め前Pips/SLを小数9桁（Baselineに合わせる）。設定pipsの5刻み丸めと約定価格を混同しない。
+取引表示Pipsは小数6桁、Rは丸め前Pips/SLを小数9桁（Baselineに合わせる）。Stage1指標・rankingは丸め前Rを使い、reference/fast双方で同じ順序で集計する。設定pipsの5刻み丸めと約定価格を混同しない。
 `missing_path_minutes`、`ExitDelayMinutes`、`exit_bar_first_hit`を記録。Exit足High/Low先行はOpen先行決済と異なる。
 互換性は実市場との完全一致や候補間の誤差相殺を保証しない。今回は別約定モデルを実装しない。
 
-## 数値提案（すべて未採用）
+## 正式採用条件（2026-09-28）
+
+旧Pure Time-Entry / Time-Exit、SL/TPなし案から **Time Structure Discovery with 5 Fixed SLs / TPなし** へ、Chatで正式に研究設計を変更した。実装ミスではない。事前較正した5SLだけを使用し、Stage1でSL連続最適化を行わない。
+
+正本configは `research_inputs/b6/stage1_config.json`。`proposal.json`とStage0結果は2026-09-27の準備記録であり、現行設定ではない。
 ### Stage 1
-既出の保有30〜1440分、5分刻み、年末年始12/25〜1/3停止（Entry日のみ）を継承する提案。
+保有30〜1440分、5分刻み、年末年始12/25〜1/3停止（Entry日のみ）を正式採用。
 予定保有時間の制限でありSL/TP早期決済を禁止しない。全段階の時刻調整にも同じ予定保有限界。
-各SLを別々に評価し、取引>=150、各年>=30、PF_R>=1.10、AvgR>0、4年中3年以上TotalR>0を同時に満たすこと。
-新提案として負け取引>=10を追加（損失なし/稀なPFの不安定性を抑える）。DDはStage1の絶対閾値を置かずrankingの補助にする。
+各SLを別々に評価し、取引>=150、各年>=30、PF_R>=1.10、4年中3年以上TotalR>0を同時に満たすこと。
+負け取引>=10を正式採用。DDはStage1の絶対閾値を置かず、下記第4順位にする。
 時間構造は5SL中3以上が通過した場合のみ通過。全5SLの値を保持し、5SLの中央値AvgRを主順位とする。
-同順位は通過SL数降順→全5SL中央値 `TotalR/max(MaxDDR,1)` 降順→全5SL中央値TotalR降順→symbol, direction(L先), weekday, entry_minute, holding_minutes昇順。
+順位は **全5SL Median AvgR降順 → PassSLCount降順 → 全5SL Median TotalR降順 → 全5SL Worst MaxDDR昇順 → symbol, direction(L先), weekday, entry_minute, exit_day_offset, exit_minute昇順**。PF/WinRate/Recovery Ratioを主要rankingに使用しない。3/5・4/5・5/5は個別保存。
 PF_pipsとPF_Rは一定SL単体では同値だが、SL間のpipsをプールしてPF/rankingを作らない。
 DDはCloseTime, EntryTime, CandidateID順にR累積、初期peak=0。丸め前の内部計算値で比較し、表示丸めで順位を変えない。
 各年のプラス判定は同じSLについて行う。SLごとに有利な年を継ぎ足さない。
@@ -68,10 +72,11 @@ offset違い、短時間と24h近辺を循環距離だけで混ぜない。抑�
 
 ### Stage 2-A
 各初期SLに対しTPなし＋SL×[0.5,1,1.5,2,3]。pipsを5へhalf-up丸め、最低5pips、重複を除く。最大30組/構造。
-異なるペアでもR比率の比較が可能なSL倍数案を推奨。固定pips共通値はペア間の値幅差が大きい。
+異なるペアでもR比率の比較が可能なSL倍数を採用。固定pips共通値はペア間の値幅差が大きい。
 生のSL/TP価格は丸めずexecution契約どおり。TPなしを必ず残す。
 
-### Stage 2-B
+### Stage 2-B（範囲採用・選定細則は提案）
+最大2中心・±10pips・5pips刻み・TPなし時SLのみは正式採用。以下の中心順位と安定点細則はStage2前に確定する参考案。
 Stage2-AでStage1単体通過条件を満たす組をAvgR降順→TotalR/max(DD,1)降順→TotalR降順→TPなし優先→SL昇順→TP昇順で並べ、上位最大2組を中心にする。
 各中心のSL±10pips、TP±10pipsを5pips刻み。TPなし中心はSLだけ5点。重複設定は1回、最大50組/構造。
 SLは[10,300]、TPは[5,900]内。無効点は除き補充しない。端が良くても外側へ拡大しない。
@@ -79,31 +84,31 @@ SLは[10,300]、TPは[5,900]内。無効点は除き補充しない。端が良�
 3点以上、2/3以上が単体通過、近傍中央値AvgR>=その点AvgR×0.8、かつ点自身通過を安定点とする。
 安定点を近傍中央値AvgR降順→中心からの格子L1距離昇順→上記単体順位で選び、構造ごとに1組。
 安定点なしなら構造失格。中心順位外の補充なし。境界選択と切断された近傍の大きさを診断。
-半径20は試行数が増え、半径5は改善範囲が狭いので、±10を新提案とする。
+±10pips・最大2中心は正式採用。中心選択/Stage2-Bの詳細安定点選定は前回の提案であり、Stage2実行前に別途確定する（Stage1実装に含めない）。
 
-### Stage 3
-選ばれたSL/TP固定、Stage1 Entry/Exit各±5分を1分刻み（最大121組）。これは追加最適化。
-Entryは元のJST暦日内に限定し、曜日を変更しない。Exitの暦日offsetは時刻加減算から再計算し、予定保有30〜1440分のみ。
-各点のEntry/Exit±1分近傍（中心含む、評価済み有効点のみ）が4点以上で、2/3以上単体通過、近傍中央値AvgR>=点AvgR×0.8、点自身通過を要求。
-最高の近傍中央値AvgR→元5分点とのL1距離最小→単体順位→Entry/Exit昇順で最終時刻を選ぶ。
-候補点なしなら失格。切断端への依存を明記。半径は例示からの新提案で、合意済みとはしない。
+### Stage 3（正式採用、今回未実装・未実行）
+選ばれたSL/TP固定、元5分anchorのEntry/Exit各±5分を1分刻み（最大121組）。追加最適化である。
+Entryは元JST暦日内、Exit offsetは加減算から再計算し、予定保有30〜1440分を維持。
+各点の3×3近傍（中心含む、範囲内の有効点のみ）で2/3以上が通過し、近傍Median AvgR>=点AvgR×0.8を要求。
+安定性条件を満たした点の中で近傍Median AvgR最大→元anchorとのEntry/Exit L1距離最小→Entry/Exit固定時刻キー昇順。
+旧案にあった「単体順位」を同値処理へ挿入しない。範囲を増やさず、終了後にSL/TPを再最適化しない。
 
 ### Stage 4
 候補は最大3種類：E0なし、E1ペア構成通貨の中央銀行発表との予定保有overlap停止、E2=E1＋米NFP/CPI＋AUDを含む場合豪CPIのoverlap停止。
 中央銀行対応：USD FOMC、JPY BOJ、EUR ECB、GBP BOE、AUD RBA。E2の米指標は全ペア共通。
-Baselineの固定calendar commit 173be2…のliteral日付とbaseline EVENT_CLOCK、FOMC翌日JST規約を採用する案。既存Candidate Cの戦略別matrixは流用しない。
+Baselineの固定calendar commit 173be2…のliteral日付とbaseline EVENT_CLOCK、FOMC翌日JST規約を継承する仕様。既存Candidate Cの戦略別matrixは流用しない。
 全イベントのOR、予定Entry〜Exitと停止窓は両端包含。実現SL/TP時刻でフィルター対象を変えない。日別全停止・イベントの部分集合探索はしない。
-E0と比較し、保持率>=80%、除去取引>=20、単体通過条件維持、TotalR改善>=2R、AvgR改善>=0.01R、MaxDDR悪化なし、年別TotalR差が4年中3年以上>=0で採用可能。
+E0と比較し、保持率>=80%、除去取引>=20、TotalR改善>=2R、AvgR改善>=0.01R、MaxDDR悪化なしで採用可能。
 複数通過ならTotalR差→DD小→E1優先。通過なしならE0。フィルター後のSL/TP・時刻再調整なし。
 カレンダーの正確性・網羅性は別の確認事項。固定研究カレンダーは歴史的発表時刻の完全再現ではない。
 
 ### Stage 5〜7
 最終ID・全パラメータ・年末年始規約・指標/通過閾値・欠損ルール・候補数/落選理由・入力56hash・実行コードhash/依存版・seed（使用時）をDiscoveryだけで固定。
 後続の正式FreezeをGitHubへpushしてremote SHA=ローカルHEAD確認後、別指示でValidationへ。
-Validationは各年30件以上・合算70件以上・各年負け5件以上を充足判定に使う。欠ければINSUFFICIENT、勝敗判定を作らない。
+Validationは各年30件以上・合算70件以上・各年負け5件以上を充足判定に使う。欠ければINSUFFICIENT_SAMPLE、勝敗判定を作らない。
 充足した場合、各年TotalR>0、合算PF_R>=1.10、合算AvgR>=0.02、合算MaxDDR<=max(10,1.5×凍結Discovery MaxDDR)をすべて満たせばPASS、それ以外FAIL。
-2024・2025・合算でN/PF/AvgR/TotalR/DDを別表示。単年PF>=1.10までは要求しない案。
-閾値は統計的有効性を保証しない。50候補からの選抜、多重試行、既閲覧期間である限界を残す。
+2024・2025・合算でN/PF/AvgR/TotalR/DDを別表示。単年PF>=1.10までは要求しない。
+これらValidation閾値も正式採用（Validation実行はStage5 Freeze/remote確認後のみ）。閾値は統計的有効性を保証しない。50候補からの選抜、多重試行、既閲覧期間である限界を残す。
 Monitorは合格候補のみ。2026の成績でFormal Validationの判定を上書きしない。失敗後の変更は別研究。
 
 ### 例外
@@ -111,10 +116,29 @@ Monitorは合格候補のみ。2026の成績でFormal Validationの判定を上�
 利益>0/損失0のPFはINFラベル、両方0はUNDEFINED。最低負け件数で単体不通過にし、巨大な代替数値を順位へ入れない。
 空集合・NaN/非有限R・重複IDは失格またはデータ不備として停止。局所探索無効点は除外し、指定範囲を拡張しない。
 
-## 計算・Notebook
-採用提案空間は7×2×5×288×283=5,705,280時間構造、SL5種で28,526,400設定。欠損/休場/件数判定前、取引数でも独立仮説数でもない。
-TPなしでもM1経路走査が必要。Open差だけのSLなし探索と同じ計算量とはしない。
-現在のexecutorは少数互換検証用。全探索用高速化は未実装。後続で高速化コードにも同じfixtureと代表照合を通し、15分刻み化やペア削減はしない。
-NotebookはStage0専用で、全セル実行でも探索・Validationへ進むコードはない。
-後続DiscoveryとValidationは別Notebook/別entry pointにし、ValidationはFreeze識別子を必須にする。今回その実行器は作らない。
-出力は/content、Drive保存default OFF。新たな探索条件をColabで考案しない。
+## 実装・計算・Notebook
+正式空間は7×2×5×288×283=5,705,280時間構造、SL5種で28,526,400設定。欠損/休場/件数除外前、取引数でも独立仮説数でもない。
+TPなしでもSL到達にM1経路が必要。Open差だけの探索には置き換えない。
+Referenceは変更しないStage0 `execution.execute` とStage1日付フィルターadapter。Fastは生High/Lowのmin/max木で最初のSL hitを検索し、283 Exitへ共有する。raw比較にepsilon、価格丸め、補間なし。
+年度別件数・PF・AvgR・TotalR・DD・loss件数、通過SL数、SL/時間決済/Exit足hit/fallback/途中欠損の診断を保存する。
+週1回・最大24h保有で候補内の取引は重ならないため、各候補のEntry順＝Close順。初期peak=0のR累積DDを計算。
+全5SLの指標を圧縮shardへ保持し、通過時間構造のみSQLiteで外部sort。代表への直接割当てと抑制理由をgzip CSVへ出力し、上位最大50構造の全5SL結果をJSON保存する。
+生M1・完全取引ログをGitHubへ保存しない。Colab出力は `/content/b6_stage1`、Drive保存default OFF。
+1 job = symbol/direction/entry（5曜日×283保有×5SL）。合計4,032 job。各jobをatomic保存、SQLite transactionで完了を記録。config/code/input hashが一致する場合だけ再開し、完了shard hashも検証する。
+探索本体を起動するにはColab環境、Chat確認フラグ、40桁Freeze SHA、clean tracked checkoutとrelease manifest一致が必要。全job完了前の選定は禁止。
+Stage0 Notebookは過去記録として維持。新Stage1 Notebookは既定RUN_FULL_SWEEP=Falseで、設定と探索空間だけを表示する。Validation/Monitor呼出しを含まない。
+今回Workでは全unit/synthetic/regression/reference-fast/限定smoke/Notebook軽量確認だけを実行し、Stage1全探索は未実行。
+性能は限定benchmarkの記録のみ。全探索の所要時間や圧縮後容量は未測定で保証しない。必要に応じ同じFreeze・同じshardで再開する。
+
+## 採用SL（pips）
+|Pair|SL1|SL2|SL3|SL4|SL5|
+|---|---:|---:|---:|---:|---:|
+|USDJPY|10|25|40|60|95|
+|EURJPY|15|30|50|75|115|
+|GBPJPY|20|40|65|100|150|
+|AUDJPY|10|25|40|65|100|
+|AUDUSD|10|20|35|55|85|
+|EURAUD|20|35|60|95|145|
+|GBPAUD|20|40|70|110|160|
+
+2020〜2023の事前価格較正由来。2024以降の価格分布や候補損益で変更しない。

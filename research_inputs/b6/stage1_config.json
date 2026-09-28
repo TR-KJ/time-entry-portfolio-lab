@@ -1,0 +1,161 @@
+{
+  "schema": "b6-stage1-v1",
+  "status": "APPROVED_STAGE1_IMPLEMENTATION_FREEZE",
+  "decision_date": "2026-09-28",
+  "discovery_start": "2020-01-01",
+  "discovery_end_exclusive": "2024-01-01",
+  "symbols": [
+    "USDJPY",
+    "EURJPY",
+    "GBPJPY",
+    "AUDJPY",
+    "AUDUSD",
+    "EURAUD",
+    "GBPAUD"
+  ],
+  "directions": [
+    "L",
+    "S"
+  ],
+  "weekdays": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "entry_step_minutes": 5,
+  "holding_minutes": {
+    "min": 30,
+    "max": 1440,
+    "step": 5
+  },
+  "sl_pips": {
+    "USDJPY": [
+      10,
+      25,
+      40,
+      60,
+      95
+    ],
+    "EURJPY": [
+      15,
+      30,
+      50,
+      75,
+      115
+    ],
+    "GBPJPY": [
+      20,
+      40,
+      65,
+      100,
+      150
+    ],
+    "AUDJPY": [
+      10,
+      25,
+      40,
+      65,
+      100
+    ],
+    "AUDUSD": [
+      10,
+      20,
+      35,
+      55,
+      85
+    ],
+    "EURAUD": [
+      20,
+      35,
+      60,
+      95,
+      145
+    ],
+    "GBPAUD": [
+      20,
+      40,
+      70,
+      110,
+      160
+    ]
+  },
+  "tp_pips": null,
+  "entry_year_end_stop": {
+    "from": "12-25",
+    "through": "01-03"
+  },
+  "spread_pips": {
+    "USDJPY": 0.5,
+    "EURJPY": 1,
+    "GBPJPY": 2,
+    "AUDJPY": 1.5,
+    "AUDUSD": 1.5,
+    "EURAUD": 1.5,
+    "GBPAUD": 2
+  },
+  "gate": {
+    "min_trades": 150,
+    "min_annual_trades": 30,
+    "min_losses": 10,
+    "min_pf": 1.1,
+    "min_positive_years": 3,
+    "min_passing_sl": 3
+  },
+  "ranking": [
+    "median_all5_AvgR_DESC",
+    "PassSLCount_DESC",
+    "median_all5_TotalR_DESC",
+    "worst_all5_MaxDDR_ASC",
+    "symbol_ASC",
+    "direction_L_before_S",
+    "weekday_ASC",
+    "entry_minute_ASC",
+    "exit_day_offset_ASC",
+    "exit_minute_ASC"
+  ],
+  "clustering": {
+    "radius_entry_minutes": 30,
+    "radius_exit_minutes": 30,
+    "same_day_offset": true,
+    "max_hold_difference_minutes": 30,
+    "algorithm": "rank_order_direct_representative_no_transitive_merge",
+    "max_structures": 50
+  },
+  "metrics": {
+    "basis": "unrounded_R",
+    "annual_basis": "JST_entry_year",
+    "dd_order": "close_then_entry",
+    "dd_initial_peak_R": 0,
+    "display_pips_decimals": 6,
+    "display_R_decimals": 9
+  },
+  "execution": {
+    "timezone": "Europe/Helsinki->Asia/Tokyo naive",
+    "ambiguous": "infer",
+    "nonexistent": "shift_forward",
+    "duplicates": "reject",
+    "entry_exact": true,
+    "entry_bar_inclusive": true,
+    "exit_bar_inclusive": true,
+    "same_bar": "SL_FIRST",
+    "max_exit_fallback_minutes": 4,
+    "ensure_exit_before_path": true,
+    "hit_epsilon": 0,
+    "interpolation": false,
+    "gap_fill": "fixed_SL_price"
+  },
+  "full_sweep_environment": "Google Colab after Chat confirmation",
+  "validation_enabled": false,
+  "monitor_enabled": false,
+  "output": {
+    "default_root": "/content/b6_stage1",
+    "drive_save_default": false,
+    "all5_metrics": "compressed_npz_shards",
+    "ranking": "sqlite_external_sort",
+    "assignments": "csv.gz",
+    "raw_M1_saved": false,
+    "all_trade_log_saved": false
+  }
+}
