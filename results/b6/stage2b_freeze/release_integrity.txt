@@ -1,0 +1,4 @@
+PASS: Stage2-B release manifest covers 47 files.
+PASS: Stage1/Stage2-A frozen code, config, tests, notebooks, manifests and results unchanged.
+PASS: 175-test complete suite, including original historical release tests at clean Stage2-A Freeze snapshot.
+PASS: Notebook default no input IO, center selection or full sweep.

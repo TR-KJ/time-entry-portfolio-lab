@@ -1,0 +1,150 @@
+{
+  "schema": "b6-stage2b-v1",
+  "status": "STAGE2B_IMPLEMENTATION_FREEZE",
+  "stage1_freeze_sha": "920b9be5c8f1bcf46a46dbbd4ac06dc19eb295b1",
+  "candidate_sha256": "82a71c1ac9ffaa9a121795c6e0186bf77af5185b90bc21f65d7174161c35214f",
+  "candidate_count": 50,
+  "stage1_effective_config_sha256": "93cc9a92c6473cf770f98b72511de076375411db1c27ae1568f976f96212b37e",
+  "stage2a_freeze_sha": "50f83f3904acc3bc3abe54204db7a2ab4964b024",
+  "stage2a_config_sha256": "bab7eced359ad914e63b6a13dd6c956f86c9b7f695f9b8fc622b2c8f9e4685d6",
+  "stage2a_expected_configurations": 1500,
+  "stage2a_required_files": [
+    "stage2a_all_results.csv.gz",
+    "stage2a_yearly_results.csv.gz",
+    "stage2a_diagnostics.csv.gz",
+    "stage2a_summary.json",
+    "identity.json",
+    "effective_config.json",
+    "candidate_input_audit.json",
+    "progress.json"
+  ],
+  "stage2a_runtime_sha256": {
+    "stage2a_all_results.csv.gz": "96717e70b80c15354bef95e10a1308fb7cde4dff3fd6592771792e0f59036a01",
+    "stage2a_yearly_results.csv.gz": "a4c47f6dbcca90d578a13331cc4ec5c42dfb07f599d4265b7c61a9a05820ca1b",
+    "stage2a_diagnostics.csv.gz": "7ed7c489dfd6c6dbbe9fb9b02e523b95e5d7523878c6668b445de778c50b6deb",
+    "stage2a_summary.json": "a39be7188a10fb2f8293e5e7c218a7aeea8a26df37196a81e25d4c6837cd6ec7",
+    "identity.json": "11e6b363ff4792d51478ad77f35468cf1db78bdd890b2b99880fc42ff87a42cf",
+    "effective_config.json": "bab7eced359ad914e63b6a13dd6c956f86c9b7f695f9b8fc622b2c8f9e4685d6",
+    "candidate_input_audit.json": "ba28eb3512aee21f10520c0fb5db97e1b1319c6a8a1dd7dea4575dc8c94a754f",
+    "progress.json": "d29a52d2b9f49546aeaced4cdb533575057b6d95fafa23b49529bea583c439a0"
+  },
+  "runtime_identity_policy": "EXACT_8_FILE_BYTES_SHA256_PLUS_SCHEMA_PROVENANCE_AND_METRIC_CONSISTENCY",
+  "discovery_start": "2020-01-01",
+  "discovery_end_exclusive": "2024-01-01",
+  "gate": {
+    "min_trades": 150,
+    "min_annual_trades": 30,
+    "min_losses": 10,
+    "min_pf": 1.1,
+    "min_positive_years": 3
+  },
+  "execution": {
+    "timezone": "Europe/Helsinki->Asia/Tokyo naive",
+    "ambiguous": "infer",
+    "nonexistent": "shift_forward",
+    "duplicates": "reject",
+    "entry_exact": true,
+    "entry_bar_inclusive": true,
+    "exit_bar_inclusive": true,
+    "same_bar": "SL_FIRST",
+    "max_exit_fallback_minutes": 4,
+    "ensure_exit_before_path": true,
+    "hit_epsilon": 0,
+    "interpolation": false,
+    "gap_fill": "fixed_SL_price"
+  },
+  "spread_pips": {
+    "USDJPY": 0.5,
+    "EURJPY": 1,
+    "GBPJPY": 2,
+    "AUDJPY": 1.5,
+    "AUDUSD": 1.5,
+    "EURAUD": 1.5,
+    "GBPAUD": 2
+  },
+  "runtime": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "metrics_basis": "unrounded_R",
+  "display_decimals": {
+    "Pips": 6,
+    "R": 9
+  },
+  "center_rules": {
+    "eligible": "P02_PASS_ONLY",
+    "growth": [
+      "AvgR_DESC",
+      "TotalR_DESC",
+      "MaxDDR_ASC",
+      "TP_NONE_FIRST",
+      "SL_ASC",
+      "TP_ASC",
+      "FIXED_KEY"
+    ],
+    "efficiency_formula": "TotalR / max(MaxDDR, 1)",
+    "efficiency": [
+      "Efficiency_DESC",
+      "AvgR_DESC",
+      "TotalR_DESC",
+      "MaxDDR_ASC",
+      "TP_NONE_FIRST",
+      "SL_ASC",
+      "TP_ASC",
+      "FIXED_KEY"
+    ],
+    "same_setting": "MERGE_ALIASES_NO_REPLACEMENT"
+  },
+  "local_grid": {
+    "radius_pips": 10,
+    "step_pips": 5,
+    "sl_bounds": [
+      10,
+      300
+    ],
+    "tp_bounds": [
+      5,
+      900
+    ],
+    "none_tp_fixed": true,
+    "overlap": "EVALUATE_ONCE_KEEP_ALIASES",
+    "extend": false
+  },
+  "stability": {
+    "radius_pips": 5,
+    "scope": "PER_CENTER_GRID",
+    "include_self": true,
+    "pass_fraction_numerator": 2,
+    "pass_fraction_denominator": 3,
+    "median_avg_r_factor": 0.8,
+    "point_pass_required": true,
+    "minimum_neighbor_count": null,
+    "overlap_policy": "ANY_CENTER_PASS_BEST_PASSING_ALIAS_BY_FINAL_RANK",
+    "center_distance": "MINIMUM_GRID_L1_OVER_ALL_ALIASES"
+  },
+  "final_ranking": [
+    "NeighborhoodMedianAvgR_DESC",
+    "NeighborhoodPassRate_DESC",
+    "AvgR_DESC",
+    "CenterDistance_ASC",
+    "MaxDDR_ASC",
+    "TP_NONE_FIRST",
+    "SL_ASC",
+    "TP_ASC",
+    "FIXED_KEY"
+  ],
+  "theoretical_max_per_candidate": 50,
+  "theoretical_max_total": 2500,
+  "early_pruning": false,
+  "no_refill": true,
+  "stage3_enabled": false,
+  "validation_enabled": false,
+  "monitor_enabled": false,
+  "output_policy": {
+    "default_root": "/content/b6_stage2b",
+    "drive_save_default": false,
+    "all_unique_conditions": true,
+    "review_bundle": true,
+    "full_trade_logs": false
+  }
+}

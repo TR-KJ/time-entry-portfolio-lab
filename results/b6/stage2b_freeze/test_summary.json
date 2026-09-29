@@ -1,0 +1,30 @@
+{
+  "Status": "PASS",
+  "TotalTests": 175,
+  "Failures": 0,
+  "Errors": 0,
+  "Skipped": 0,
+  "NewStage2BTests": 37,
+  "HistoricalReleaseTests": "Original assertions run against clean Stage2-A Freeze snapshot; current-tree frozen bytes additionally verified",
+  "ReferenceFast": "PASS_7_PAIRS_BOTH_DIRECTIONS_NONE_FINITE_SAME_DAY_OVERNIGHT_AND_FROZEN_BOUNDARY_REGRESSIONS",
+  "RealDataSmoke": {
+    "Candidates": 3,
+    "Conditions": 18,
+    "Comparisons": 72,
+    "Matched": 72,
+    "AuditedM1Inputs": 56
+  },
+  "FormalStage2AInputAudit": "PASS_EXACT_8_FILES_1500_6000_1500_ROWS",
+  "NotebookDefault": "PASS_NO_IO_NO_CENTERS_NO_SWEEP",
+  "ReleaseManifestFiles": 47,
+  "OverlapInterpretation": "USER_CONFIRMED_ANY_CENTER_PASS_BEST_PASSING_ALIAS_MINIMUM_DISTANCE",
+  "Stage2BFullSweepExecuted": false,
+  "ActualStage2BCentersSelected": false,
+  "ActualStage2BSelectedSettingsProduced": false,
+  "Stage3Executed": false,
+  "ValidationExecuted": false,
+  "MonitorExecuted": false,
+  "PortfolioExecuted": false,
+  "LiveChanges": false,
+  "Stage1Stage2AFrozenCodeTestsNotebooksResultsUnchanged": true
+}

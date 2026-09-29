@@ -1,7 +1,7 @@
-# B6 decision register — 2026-09-29 Stage2-A実装Freeze
+# B6 decision register — 2026-09-29 Stage2-B実装Freeze
 
-根拠：ユーザーの「B6 Stage1 実装Freeze 指示」および「B6 Stage2-A 実装Freeze 指示」。後者でStage2-A入力・実装条件とN06bの保留時点を更新。
-Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
+根拠：ユーザーの「B6 Stage1 実装Freeze 指示」および「B6 Stage2-A 実装Freeze 指示」。「B6 Stage2-B 実装Freeze 指示」でN06bを正式固定。重複点の扱いは本タスクの追加回答で確認済み。
+Stage2-B source of truthは `stage2b_config.json`。Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
 
 |ID|項目|現在の区分|正式な内容・前回との差|
 |---|---|---|---|
@@ -20,7 +20,7 @@ Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `s
 |N04|近接整理|合意済み|Entry/Exit循環距離各30分、offset一致、保有差30分、rank順代表へ直接割当て、連鎖禁止|
 |N05|Stage2-A|正式固定|50候補×固定5SL×6TP=1,500。TP_NONE＋0.5/1/1.5/2/3R。Decimal half-upで5pips、最低5、同一SL内重複除去。最高SLだけに絞らない|
 |N06a|Stage2-B範囲|合意済み|最大2中心、SL/TP±10pipsを5刻み、TPなし中心はSLのみ、範囲追加なし|
-|N06b|Stage2-B中心選定|Stage2-A結果確認後にChatで決定|どの2中心を選ぶかは未固定。従来参考順位を採用せず、今回自動選定・中心成果物生成なし|
+|N06b|Stage2-B中心/安定点選定|正式固定|P02 PASSのみ。Growth AvgR最大、Efficiency TotalR/max(DD,1)最大、同一点統合。Center別近傍2/3・Median AvgR>=点×0.8、正式lexicographic順位で1設定。詳細はPlan/Stage2-B config|
 |N07|Stage3|合意済み|Entry/Exit各±5分1刻み、3×3有効近傍2/3通過・Median AvgR>=点×.8。近傍中央値最大→anchor距離→時刻キー。単体rankingをtie-breakへ挿入しない|
 |N08|Stage4|合意済み|NONE/通貨構成中央銀行/＋主要マクロの最大3種。保持80%、除去20件、Delta TotalR+2、Delta AvgR+.01、DD悪化なし。旧案の年別Delta条件は削除|
 |N09|Validation|合意済み|年30件/年loss5件/合算70件未達はINSUFFICIENT_SAMPLE。両年黒字・PF1.10・AvgR.02・DD<=max(10,Discovery×1.5)でPASS|
@@ -28,9 +28,9 @@ Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `s
 |I01|実装数値規約|実装上の明文化|指標・rankingは丸め前R、取引表示Pips6桁/R9桁。両実装が同じ規約、SL hitに丸め/epsilonなし|
 |I02|固定キー|実装上の明文化|symbol辞書順→L/S→weekday→Entry分→Exit offset→Exit分。候補IDはこの時間構造を一意化|
 |I03|全探索の実行場所|合意済み|Workは実装・テスト・GitHub Freezeのみ。Chat確認後にColabでfull sweep|
-|H01|full sweep性能・研究結果|データ不足で保留|Workでは測定/探索しない。限定smokeは実装検証で研究結果ではない|
+|H01|Stage2-B full sweep性能・研究結果|未測定・未実行|Workでは測定/探索しない。限定smokeは実装検証で研究結果ではない。Stage1/2-Aは既にColab完了|
 
-今回Stage2-A実行器を作成するが、本番探索・Stage2-B以降・最終Candidate Freezeは行わない。Stage1の正式設定は変更しない。
+Stage2-A実装・Colab実行は完了。今回はStage2-Bの実装Freezeだけを行い、本番探索・Stage3以降・最終Candidate Freezeは行わない。Stage1/Stage2-A条件は変更しない。
 
 |追加ID|項目|区分|内容|
 |---|---|---|---|
@@ -40,3 +40,13 @@ Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `s
 |S2A04|出力/再開|実装固定|全条件・年別・診断CSV、identity/config/audit/search/progress/summary/review JSON/ZIP。code/config/candidate/56M1/runtime不一致拒否|
 |S2A05|実行制限|正式固定|Colab＋Chat確認＋Stage2-A SHA＋release整合性。既定OFF。Workはテスト/限定smokeだけ|
 |S2A06|研究期間|正式固定|Discovery2020〜2023だけ。Stage2-A NotebookにValidation/Monitor APIなし|
+
+|追加ID|項目|区分|内容|
+|---|---|---|---|
+|S2B01|正式入力|固定|Stage2-A完了8ファイルの正確なSHA、50候補、1500/6000/1500行、schema/全キー/metrics/provenanceを照合。Review ZIP代用不可|
+|S2B02|重複中心・Grid|固定|A=Bは1中心に両alias。重複点評価1回。±10/5刻み、bounds除外のみ、範囲延長なし|
+|S2B03|重複点の安定性|ユーザー追加確認済み|Center別判定、いずれかPASSなら候補、正式順位が高いPASS側の近傍指標。距離は全aliasの最小値|
+|S2B04|近傍境界|実装明文化|今回の3条件だけ。最低3点条件を追加しない。非有限近傍指標は安定性不通過、削除補完なし|
+|S2B05|選定・落選|固定|安定点から1設定/構造。なしは落選、補充なし。選定SL/TPをStage3へ固定、今回Stage3実装なし|
+|S2B06|実行範囲|固定|Workは監査/テスト/限定smokeのみ。実候補Center/selected/actual unique数はColab本番時だけ|
+|S2B07|再開|固定|Stage2-B code/config、Stage2-A8hashとFreeze、Stage1候補hash、56M1hash、Python/NumPy/pandas全一致|

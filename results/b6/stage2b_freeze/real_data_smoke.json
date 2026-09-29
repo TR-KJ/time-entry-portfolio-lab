@@ -1,0 +1,15 @@
+{
+  "Status": "PASS",
+  "Purpose": "compatibility_only",
+  "Candidates": 3,
+  "Conditions": 18,
+  "OpportunityComparisons": 72,
+  "Matched": 72,
+  "AuditedM1Inputs": 56,
+  "ExpectedM1ManifestSHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+  "Stage1CandidateSHA256": "82a71c1ac9ffaa9a121795c6e0186bf77af5185b90bc21f65d7174161c35214f",
+  "ActualStage2BCentersSelected": false,
+  "ActualStage2BSelectedSettingsProduced": false,
+  "PerformanceOrRankingPublished": false,
+  "FullSweepExecuted": false
+}

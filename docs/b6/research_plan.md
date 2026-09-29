@@ -1,6 +1,6 @@
-# B6 Recent-Era Time-Entry Rediscovery — Stage2-A実装Freeze
+# B6 Recent-Era Time-Entry Rediscovery — Stage2-B実装Freeze
 
-状態：STAGE2-A IMPLEMENTATION FREEZE（2026-09-29指示）。Stage1はColab完了済み。WorkではStage2-A全探索を実行せず、Chatが保存内容とSHAを確認した後にGoogle Colabで実行する。Stage5 Candidate Freezeとは別。
+状態：STAGE2-B IMPLEMENTATION FREEZE（2026-09-29指示）。Stage1/Stage2-AはColab完了済み。WorkはStage2-B実装・検証・GitHub Freezeで停止し、Chat確認後にColabで本番実行する。Stage5 Candidate Freezeとは別。
 根拠：[source_of_truth.md](source_of_truth.md)、数値の分類：[parameter_decision_register.md](parameter_decision_register.md)。
 
 ## 目的・禁止範囲（合意済み）
@@ -81,12 +81,32 @@ SL25×0.5は15pips。7ペア全固定SLで6条件、50×5×6=1,500を事前検�
 Discovery 2020〜2023だけで1,500条件すべて評価・保存。P02 gateはPass/Failと理由を付けるだけで早期打切りしない。
 丸め前Rで全期間・年別の件数/勝敗/PF/AvgR/TotalR/MaxDDR、全期間0R/WinRate/AvgWinR/AvgLossRを計算。SL/TP/TimeExit、fallback、欠損機会・途中欠損を保存。
 既存executionは変更しない。参照replayとTP first-hitを加えた専用fast adapterを比較し、同一足はSL優先、Exit確保前の経路救済なし。
-機械設定は `research_inputs/b6/stage2a_config.json`、詳細は `stage2a_implementation.md`。Stage2-B中心選定と正式rankingは実装しない。
+Stage2-A単体の機械設定は `research_inputs/b6/stage2a_config.json`、詳細は `stage2a_implementation.md`。Stage2-A単体は中心選定を行わない。今回追加するStage2-Bの正式規則は次節。
 
-### Stage 2-B（範囲固定・N06b保留）
-最大2中心、SL±10pips/TP±10pips、5pips刻み、TPなし中心はSLのみ、範囲の追加なし、という範囲は維持する。
-**どの2中心を選ぶかというN06bの正式ルールは、Stage2-A結果をChatで確認してから固定する。**
-従来の参考順位・細部安定点案を今回の実行規則へ昇格しない。Stage2-Aは中心選定成果物を生成せず、Stage2-Bを起動しない。
+### Stage 2-B（2026-09-29 N06b正式固定・実装Freeze）
+Stage2-AはColabでCOMPLETE_STAGE2A_ONLY、50候補/1,500条件、PASS1,281・FAIL219で完了。正式8ファイルの実bytes・hash・schema・行数・全設定キー・年別集計・gate・Stage1/2-A provenanceを検証する。Review ZIPを科学的入力にしない。
+Stage2-A Freeze `50f83f3904acc3bc3abe54204db7a2ab4964b024`、config SHA `bab7eced359ad914e63b6a13dd6c956f86c9b7f695f9b8fc622b2c8f9e4685d6`。8ファイルの正確なruntime SHAは `stage2b_config.json` に固定。
+Stage1の50件・時刻構造、Stage2-A粗Gridは変更しない。候補追加/交換/再cluster/粗探索やり直しなし。
+
+**中心選定：P02 PASS設定のみ。** GrowthはAvgR↓→TotalR↓→MaxDDR↑→TP_NONE優先→SL↑→TP↑→固定キー。
+EfficiencyはTotalR/max(MaxDDR,1)↓→AvgR↓→TotalR↓→MaxDDR↑→TP_NONE優先→SL↑→TP↑→固定キー。
+両者が同じSL/TPなら1中心に統合し両aliasを記録、次点による2中心目の補充なし。PASSなしなら0中心。
+
+各中心からSL±10、finite TPはTP±10を5pips刻み。TP_NONEはSL軸のみ。SL[10,300]、TP[5,900]外は除外・補充しない。端が良くても範囲延長なし。
+重複SL/TPは一度だけ評価しGrowth/Efficiency/両方のaliasを保存。全局所設定を評価しP02は途中pruningに使わない。
+理論上限50条件/構造、2,500条件/50構造。実装上限も2,500。actual unique数は本番の入力監査・中心選定後に別表示する。Workでは実候補Centerを選定しないためactual未算出。
+
+**近傍：Centerの局所Grid内で別々に計算。** finiteはSL/TP±5の最大3×3、TP_NONEはSL±5の最大3点。自身を含み、bounds外やそのCenterのGrid外を入れない。
+点自身P02 PASS、近傍PASS比率>=2/3、近傍Median AvgR>=点AvgR×0.8を全て要求する。今回指示にない最低3近傍条件は加えない。境界の2点近傍も評価する。
+重複点は各Centerで判定し、**いずれかでPASSなら候補、正式順位が高いPASS側の近傍指標を採用**。この解釈は本タスクでユーザー確認済み。全Center別診断も保存する。
+距離は5pips格子L1、TP_NONEはSLのみ、aliasの最小距離を使用。
+
+**各構造で最終1設定：** Neighborhood Median AvgR↓→Neighborhood PassRate↓→点AvgR↓→CenterDistance↑→MaxDDR↑→TP_NONE優先→SL↑→TP↑→固定キー。
+固定キーはSymbol/Direction/Weekday/EntryMinute/ExitDayOffset/ExitMinute/HoldingMinutes/CandidateID昇順。同一点のCenter別指標まで完全同値ならSourceCenterType辞書順で診断を決定する。
+安定点なしはSTAGE2B_DROPPED_NO_STABLE_POINT、中心なしはSTAGE2B_DROPPED_NO_P02_CENTER。50枠を補充しない。
+選定SL/TPは固定し再探索へ戻らない。Stage3は次段予定で、今回実装・実行しない。
+Reference/Fast・metricsは凍結Stage2-Aをimportして利用し変更しない。Discovery2020〜2023、SL-first・Exit確保優先・raw比較・丸め前Rを継承。
+詳細は `stage2b_implementation.md`。新Notebookの全実行/準備/Driveフラグは既定False。
 
 ### Stage 3（正式採用、今回未実装・未実行）
 選ばれたSL/TP固定、元5分anchorのEntry/Exit各±5分を1分刻み（最大121組）。追加最適化である。
@@ -145,10 +165,18 @@ Stage0 Notebookは過去記録として維持。新Stage1 Notebookは既定RUN_F
 
 2020〜2023の事前価格較正由来。2024以降の価格分布や候補損益で変更しない。
 
-## Stage2-A実装Freezeの停止位置
+## Stage2-A実装Freezeの停止位置（履歴）
 Workではunit/synthetic/regression/reference-fast/限定実データsmoke/Notebook既定動作/release整合性だけを検証。
 新NotebookはRUN_STAGE2A_FULL=False、CHAT_CONFIRMED_STAGE2A_FREEZE=False、Drive保存OFF。
 全探索にはColab、Chat確認済みStage2-A SHA、clean checkout、release hash、固定入力/runtime identityが必要。
 出力は `/content/b6_stage2a`。候補ごとのcheckpoint hashとcode/config/candidate/56入力/runtime identityを検証して再開。
 GitHubへfast-forward保存しremote SHA=local HEADを確認して停止。Stage2-A本番、Stage2-B以降、Validation/Monitor/portfolio/live変更は行わない。
 WorkではStage2-A full sweep未実行。Chat確認後にGoogle Colabで実行する。
+
+## Stage2-B実装Freezeの停止位置
+Workでは入力正式8ファイルの監査、合成/unit/regression/参照互換/限定smoke/Notebook既定動作/release検証だけを実行する。
+本番にはColab、Chat確認、Stage2-B Freeze SHA、clean checkout、release manifest一致、正式入力8hash、固定runtime、56M1入力identityを必要とする。
+出力 `/content/b6_stage2b` に全局所条件・年別・診断・Center別安定性・落選・最終設定・reviewと再開checkpointを保存する。
+旧Stage1/Stage2-Aのコード・Notebook・tests・results・manifestは不変。旧release検証はStage2-A Freeze snapshotで実行し、現Stage2-Bでも旧実行ファイルのhash不変を追加確認する。
+Stage2-B full sweepを除く全test suiteの実行手順は実装説明を参照。GitHubへfast-forward保存しremote=local・cleanを確認して停止する。
+WorkではStage2-B full sweep未実行。Chat確認後にGoogle Colabで実行する。

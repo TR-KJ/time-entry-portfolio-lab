@@ -1,0 +1,16 @@
+{
+  "TheoreticalMaxPerCandidate": 50,
+  "TheoreticalMaxTotal": 2500,
+  "ImplementationExpectedMax": 2500,
+  "ActualUniqueConditions": null,
+  "ActualUniqueConditionsStatus": "DEFERRED_TO_AUTHORIZED_COLAB_FULL_RUN_NO_REAL_CENTER_SELECTION_IN_WORK",
+  "Reductions": [
+    "TP_NONE_CENTER",
+    "SAME_CENTER",
+    "GRID_OVERLAP",
+    "BOUNDS",
+    "NO_P02_PASS_CENTER"
+  ],
+  "RangeExtension": false,
+  "NoRefill": true
+}
