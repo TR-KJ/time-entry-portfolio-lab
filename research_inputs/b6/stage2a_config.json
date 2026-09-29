@@ -1,0 +1,125 @@
+{
+  "schema": "b6-stage2a-v1",
+  "status": "STAGE2A_IMPLEMENTATION_FREEZE",
+  "stage1_freeze_sha": "920b9be5c8f1bcf46a46dbbd4ac06dc19eb295b1",
+  "candidate_sha256": "82a71c1ac9ffaa9a121795c6e0186bf77af5185b90bc21f65d7174161c35214f",
+  "candidate_count": 50,
+  "stage1_effective_config_sha256": "93cc9a92c6473cf770f98b72511de076375411db1c27ae1568f976f96212b37e",
+  "discovery_start": "2020-01-01",
+  "discovery_end_exclusive": "2024-01-01",
+  "sl_pips": {
+    "USDJPY": [
+      10,
+      25,
+      40,
+      60,
+      95
+    ],
+    "EURJPY": [
+      15,
+      30,
+      50,
+      75,
+      115
+    ],
+    "GBPJPY": [
+      20,
+      40,
+      65,
+      100,
+      150
+    ],
+    "AUDJPY": [
+      10,
+      25,
+      40,
+      65,
+      100
+    ],
+    "AUDUSD": [
+      10,
+      20,
+      35,
+      55,
+      85
+    ],
+    "EURAUD": [
+      20,
+      35,
+      60,
+      95,
+      145
+    ],
+    "GBPAUD": [
+      20,
+      40,
+      70,
+      110,
+      160
+    ]
+  },
+  "tp_ratios": [
+    "0.5",
+    "1.0",
+    "1.5",
+    "2.0",
+    "3.0"
+  ],
+  "include_tp_none": true,
+  "tp_rounding": "Decimal ROUND_HALF_UP to 5 pips",
+  "tp_min_pips": 5,
+  "expected_configurations": 1500,
+  "gate": {
+    "min_trades": 150,
+    "min_annual_trades": 30,
+    "min_losses": 10,
+    "min_pf": 1.1,
+    "min_positive_years": 3
+  },
+  "execution": {
+    "timezone": "Europe/Helsinki->Asia/Tokyo naive",
+    "ambiguous": "infer",
+    "nonexistent": "shift_forward",
+    "duplicates": "reject",
+    "entry_exact": true,
+    "entry_bar_inclusive": true,
+    "exit_bar_inclusive": true,
+    "same_bar": "SL_FIRST",
+    "max_exit_fallback_minutes": 4,
+    "ensure_exit_before_path": true,
+    "hit_epsilon": 0,
+    "interpolation": false,
+    "gap_fill": "fixed_SL_price"
+  },
+  "spread_pips": {
+    "USDJPY": 0.5,
+    "EURJPY": 1,
+    "GBPJPY": 2,
+    "AUDJPY": 1.5,
+    "AUDUSD": 1.5,
+    "EURAUD": 1.5,
+    "GBPAUD": 2
+  },
+  "metrics_basis": "unrounded_R",
+  "pips_display_decimals": 6,
+  "r_display_decimals": 9,
+  "year_end_entry_stop": [
+    "12-25",
+    "01-03"
+  ],
+  "early_gate_pruning": false,
+  "stage2b_center_selection": false,
+  "validation_enabled": false,
+  "monitor_enabled": false,
+  "output_policy": {
+    "default_root": "/content/b6_stage2a",
+    "drive_save_default": false,
+    "all_1500_conditions": true,
+    "all_trade_log_saved": false,
+    "review_bundle": true
+  },
+  "runtime": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  }
+}

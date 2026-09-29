@@ -1,0 +1,15 @@
+{
+  "Status": "PASS",
+  "Purpose": "compatibility_only_no_candidate_performance",
+  "CandidateCount": 3,
+  "Conditions": 18,
+  "OpportunityComparisons": 72,
+  "GeneratedTradeComparisons": 72,
+  "MatchedM1Inputs": 56,
+  "ExpectedManifestSHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+  "CandidateInputSHA256": "82a71c1ac9ffaa9a121795c6e0186bf77af5185b90bc21f65d7174161c35214f",
+  "Stage1FreezeSHA": "920b9be5c8f1bcf46a46dbbd4ac06dc19eb295b1",
+  "CandidateInputCount": 50,
+  "FullSweepExecuted": false,
+  "RankingProduced": false
+}

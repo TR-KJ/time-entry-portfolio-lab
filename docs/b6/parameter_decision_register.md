@@ -1,7 +1,7 @@
-# B6 decision register — 2026-09-28正式決定
+# B6 decision register — 2026-09-29 Stage2-A実装Freeze
 
-根拠：ユーザーの「B6 Stage1 実装Freeze 指示」。2026-09-27の準備提案から以下へ更新。
-Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
+根拠：ユーザーの「B6 Stage1 実装Freeze 指示」および「B6 Stage2-A 実装Freeze 指示」。後者でStage2-A入力・実装条件とN06bの保留時点を更新。
+Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
 
 |ID|項目|現在の区分|正式な内容・前回との差|
 |---|---|---|---|
@@ -18,9 +18,9 @@ Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備�
 |N03a|3/5SL最低条件|合意済み|3/5・4/5・5/5を分けて保存、全5SLを保持|
 |N03b|ranking変更|合意済み|全5SL Median AvgR↓、PassSLCount↓、Median TotalR↓、Worst MaxDD↑、固定キー。Recovery Ratioを除去|
 |N04|近接整理|合意済み|Entry/Exit循環距離各30分、offset一致、保有差30分、rank順代表へ直接割当て、連鎖禁止|
-|N05|Stage2-A|合意済み|各SLでTPなし＋0.5/1/1.5/2/3R、5pips丸め。最高SLだけに絞らない|
+|N05|Stage2-A|正式固定|50候補×固定5SL×6TP=1,500。TP_NONE＋0.5/1/1.5/2/3R。Decimal half-upで5pips、最低5、同一SL内重複除去。最高SLだけに絞らない|
 |N06a|Stage2-B範囲|合意済み|最大2中心、SL/TP±10pipsを5刻み、TPなし中心はSLのみ、範囲追加なし|
-|N06b|Stage2-B中心選定・細部安定点選定|今回の新提案（前回案を保持）|今回の指示は最大2中心と範囲を承認。細部アルゴリズムはStage2開始前に確定し、今回は未実装|
+|N06b|Stage2-B中心選定|Stage2-A結果確認後にChatで決定|どの2中心を選ぶかは未固定。従来参考順位を採用せず、今回自動選定・中心成果物生成なし|
 |N07|Stage3|合意済み|Entry/Exit各±5分1刻み、3×3有効近傍2/3通過・Median AvgR>=点×.8。近傍中央値最大→anchor距離→時刻キー。単体rankingをtie-breakへ挿入しない|
 |N08|Stage4|合意済み|NONE/通貨構成中央銀行/＋主要マクロの最大3種。保持80%、除去20件、Delta TotalR+2、Delta AvgR+.01、DD悪化なし。旧案の年別Delta条件は削除|
 |N09|Validation|合意済み|年30件/年loss5件/合算70件未達はINSUFFICIENT_SAMPLE。両年黒字・PF1.10・AvgR.02・DD<=max(10,Discovery×1.5)でPASS|
@@ -30,4 +30,13 @@ Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備�
 |I03|全探索の実行場所|合意済み|Workは実装・テスト・GitHub Freezeのみ。Chat確認後にColabでfull sweep|
 |H01|full sweep性能・研究結果|データ不足で保留|Workでは測定/探索しない。限定smokeは実装検証で研究結果ではない|
 
-Stage2以降の実行器・最終Candidate Freezeは今回作らない。Stage1の正式設定を再提案しない。
+今回Stage2-A実行器を作成するが、本番探索・Stage2-B以降・最終Candidate Freezeは行わない。Stage1の正式設定は変更しない。
+
+|追加ID|項目|区分|内容|
+|---|---|---|---|
+|S2A01|入力固定|正式固定|Stage1 Freeze 920b9be…、候補SHA 82a71c1a…、config SHA 93cc9a92…、正確な50件と一意IDをhard gate。完全値はstage2a_config.json|
+|S2A02|全条件保存|正式固定|P02は表示/保存のみ。1,500条件の途中打切り・再選抜なし|
+|S2A03|実行意味|継承|SL/TPともEntry基準。Entry/Exit足inclusive、同一足SL first、Exit0〜4確保してからscan、raw比較・epsilonなし|
+|S2A04|出力/再開|実装固定|全条件・年別・診断CSV、identity/config/audit/search/progress/summary/review JSON/ZIP。code/config/candidate/56M1/runtime不一致拒否|
+|S2A05|実行制限|正式固定|Colab＋Chat確認＋Stage2-A SHA＋release整合性。既定OFF。Workはテスト/限定smokeだけ|
+|S2A06|研究期間|正式固定|Discovery2020〜2023だけ。Stage2-A NotebookにValidation/Monitor APIなし|

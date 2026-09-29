@@ -1,0 +1,10 @@
+test_all_release_hashes_and_reference_unchanged (test_b6_release.FreezeTests.test_all_release_hashes_and_reference_unchanged) ... ok
+test_config_mutation_rejected (test_b6_release.FreezeTests.test_config_mutation_rejected) ... ok
+test_default_notebook_has_no_io_or_full_run (test_b6_stage2a_release.ReleaseTests.test_default_notebook_has_no_io_or_full_run) ... ok
+test_manifest_and_config (test_b6_stage2a_release.ReleaseTests.test_manifest_and_config) ... ok
+test_sha_guard (test_b6_stage2a_release.ReleaseTests.test_sha_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.351s
+
+OK

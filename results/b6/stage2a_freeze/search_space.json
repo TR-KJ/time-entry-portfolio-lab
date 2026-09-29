@@ -1,0 +1,2053 @@
+{
+  "Candidates": 50,
+  "Configurations": 1500,
+  "PerPairGrid": {
+    "USDJPY": [
+      {
+        "SL": 10,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 10,
+        "TP": 5,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 10,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 15,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 20,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 30,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 25,
+        "TP": 15,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.6,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": 25,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": 40,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.6,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": 50,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": 75,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 40,
+        "TP": 20,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 40,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 60,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 80,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 120,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 60,
+        "TP": 30,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": 60,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": 90,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": 120,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": 180,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 95,
+        "TP": 50,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5263157894736842,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": 95,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": 145,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5263157894736843,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": 190,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": 285,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      }
+    ],
+    "EURJPY": [
+      {
+        "SL": 15,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 15,
+        "TP": 10,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.6666666666666666,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 15,
+        "TP": 15,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 15,
+        "TP": 25,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.6666666666666667,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 15,
+        "TP": 30,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 15,
+        "TP": 45,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 30,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 30,
+        "TP": 15,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 30,
+        "TP": 30,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 30,
+        "TP": 45,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 30,
+        "TP": 60,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 30,
+        "TP": 90,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 50,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 50,
+        "TP": 25,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 50,
+        "TP": 50,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 50,
+        "TP": 75,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 50,
+        "TP": 100,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 50,
+        "TP": 150,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 75,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 75,
+        "TP": 40,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5333333333333333,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 75,
+        "TP": 75,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 75,
+        "TP": 115,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5333333333333334,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 75,
+        "TP": 150,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 75,
+        "TP": 225,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 115,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 115,
+        "TP": 60,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5217391304347826,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 115,
+        "TP": 115,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 115,
+        "TP": 175,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5217391304347827,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 115,
+        "TP": 230,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 115,
+        "TP": 345,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      }
+    ],
+    "GBPJPY": [
+      {
+        "SL": 20,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 20,
+        "TP": 10,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 20,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 30,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 40,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 60,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 40,
+        "TP": 20,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 40,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 60,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 80,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 120,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 65,
+        "TP": 35,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5384615384615384,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": 65,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": 100,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5384615384615385,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": 130,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": 195,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 100,
+        "TP": 50,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": 100,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": 150,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": 200,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": 300,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 150,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 150,
+        "TP": 75,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 150,
+        "TP": 150,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 150,
+        "TP": 225,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 150,
+        "TP": 300,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 150,
+        "TP": 450,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      }
+    ],
+    "AUDJPY": [
+      {
+        "SL": 10,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 10,
+        "TP": 5,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 10,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 15,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 20,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 30,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 25,
+        "TP": 15,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.6,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": 25,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": 40,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.6,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": 50,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 25,
+        "TP": 75,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 40,
+        "TP": 20,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 40,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 60,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 80,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 120,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 65,
+        "TP": 35,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5384615384615384,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": 65,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": 100,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5384615384615385,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": 130,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 65,
+        "TP": 195,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 100,
+        "TP": 50,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": 100,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": 150,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": 200,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 100,
+        "TP": 300,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      }
+    ],
+    "AUDUSD": [
+      {
+        "SL": 10,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 10,
+        "TP": 5,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 10,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 15,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 20,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 10,
+        "TP": 30,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 20,
+        "TP": 10,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 20,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 30,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 40,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 60,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 35,
+        "TP": 20,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5714285714285714,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": 35,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": 55,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5714285714285714,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": 70,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": 105,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 55,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 55,
+        "TP": 30,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5454545454545454,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 55,
+        "TP": 55,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 55,
+        "TP": 85,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5454545454545454,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 55,
+        "TP": 110,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 55,
+        "TP": 165,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 85,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 85,
+        "TP": 45,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5294117647058824,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 85,
+        "TP": 85,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 85,
+        "TP": 130,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5294117647058822,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 85,
+        "TP": 170,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 85,
+        "TP": 255,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      }
+    ],
+    "EURAUD": [
+      {
+        "SL": 20,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 20,
+        "TP": 10,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 20,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 30,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 40,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 60,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 35,
+        "TP": 20,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5714285714285714,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": 35,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": 55,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5714285714285714,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": 70,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 35,
+        "TP": 105,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 60,
+        "TP": 30,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": 60,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": 90,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": 120,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 60,
+        "TP": 180,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 95,
+        "TP": 50,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5263157894736842,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": 95,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": 145,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5263157894736843,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": 190,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 95,
+        "TP": 285,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 145,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 145,
+        "TP": 75,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5172413793103449,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 145,
+        "TP": 145,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 145,
+        "TP": 220,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5172413793103448,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 145,
+        "TP": 290,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 145,
+        "TP": 435,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      }
+    ],
+    "GBPAUD": [
+      {
+        "SL": 20,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 20,
+        "TP": 10,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 20,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 30,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 40,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 20,
+        "TP": 60,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 40,
+        "TP": 20,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 40,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 60,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 80,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 40,
+        "TP": 120,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 70,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 70,
+        "TP": 35,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 70,
+        "TP": 70,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 70,
+        "TP": 105,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 70,
+        "TP": 140,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 70,
+        "TP": 210,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 110,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 110,
+        "TP": 55,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 110,
+        "TP": 110,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 110,
+        "TP": 165,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 110,
+        "TP": 220,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 110,
+        "TP": 330,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      },
+      {
+        "SL": 160,
+        "TP": null,
+        "TPRatio": null,
+        "TPMode": "TP_NONE",
+        "ActualTPRatio": null,
+        "RatioAliases": []
+      },
+      {
+        "SL": 160,
+        "TP": 80,
+        "TPRatio": 0.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 0.5,
+        "RatioAliases": [
+          "0.5"
+        ]
+      },
+      {
+        "SL": 160,
+        "TP": 160,
+        "TPRatio": 1.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.0,
+        "RatioAliases": [
+          "1.0"
+        ]
+      },
+      {
+        "SL": 160,
+        "TP": 240,
+        "TPRatio": 1.5,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 1.5,
+        "RatioAliases": [
+          "1.5"
+        ]
+      },
+      {
+        "SL": 160,
+        "TP": 320,
+        "TPRatio": 2.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 2.0,
+        "RatioAliases": [
+          "2.0"
+        ]
+      },
+      {
+        "SL": 160,
+        "TP": 480,
+        "TPRatio": 3.0,
+        "TPMode": "FINITE",
+        "ActualTPRatio": 3.0,
+        "RatioAliases": [
+          "3.0"
+        ]
+      }
+    ]
+  },
+  "EarlyGatePruning": false,
+  "FormalRanking": false,
+  "Stage2BCentersSelected": false
+}

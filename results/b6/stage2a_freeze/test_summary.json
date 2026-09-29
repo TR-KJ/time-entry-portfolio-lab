@@ -1,0 +1,23 @@
+{
+  "Status": "PASS",
+  "UnitSyntheticRegressionTests": 138,
+  "Failures": 0,
+  "Errors": 0,
+  "RealDataSmoke": {
+    "Candidates": 3,
+    "Conditions": 18,
+    "OpportunityComparisons": 72,
+    "Matched": 72,
+    "AuditedM1Inputs": 56
+  },
+  "NotebookDefault": "PASS_NO_IO_NO_SWEEP",
+  "ReferenceFast": "PASS_ALL_7_PAIRS_BOTH_DIRECTIONS_TP_NONE_FINITE",
+  "Stage2AConfigSHA256": "bab7eced359ad914e63b6a13dd6c956f86c9b7f695f9b8fc622b2c8f9e4685d6",
+  "Stage2AFullSweepExecuted": false,
+  "Stage2BExecuted": false,
+  "ValidationExecuted": false,
+  "MonitorExecuted": false,
+  "PortfolioExecuted": false,
+  "LiveChanges": false,
+  "Stage1FrozenExecutableFilesUnchanged": true
+}

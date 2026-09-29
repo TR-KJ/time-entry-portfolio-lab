@@ -1,0 +1,8 @@
+{
+  "Status": "PASS",
+  "CandidateCount": 50,
+  "CandidateSHA256": "82a71c1ac9ffaa9a121795c6e0186bf77af5185b90bc21f65d7174161c35214f",
+  "Stage1FreezeSHA": "920b9be5c8f1bcf46a46dbbd4ac06dc19eb295b1",
+  "Stage1EffectiveConfigSHA256": "93cc9a92c6473cf770f98b72511de076375411db1c27ae1568f976f96212b37e",
+  "Configurations": 1500
+}

@@ -1,6 +1,6 @@
-# B6 Recent-Era Time-Entry Rediscovery — Stage1実装Freeze
+# B6 Recent-Era Time-Entry Rediscovery — Stage2-A実装Freeze
 
-状態：STAGE1 IMPLEMENTATION FREEZE（2026-09-28 Chat正式決定）。WorkではStage1全探索を実行しない。Chatが保存内容とSHAを確認した後、Google Colabで実行する。Stage5 Candidate Freezeとは別。
+状態：STAGE2-A IMPLEMENTATION FREEZE（2026-09-29指示）。Stage1はColab完了済み。WorkではStage2-A全探索を実行せず、Chatが保存内容とSHAを確認した後にGoogle Colabで実行する。Stage5 Candidate Freezeとは別。
 根拠：[source_of_truth.md](source_of_truth.md)、数値の分類：[parameter_decision_register.md](parameter_decision_register.md)。
 
 ## 目的・禁止範囲（合意済み）
@@ -70,21 +70,23 @@ offset違い、短時間と24h近辺を循環距離だけで混ぜない。抑�
 全体上位最大50時間構造（ペア別割当なし）。SL/TP違いは枠を増やさない。50未満なら水増ししない。
 理由：最良SL一点への依存を下げ、時間帯重複で枠を埋めない。代替の「1SL通過」は多く残すが過適合リスクが高い。
 
-### Stage 2-A
-各初期SLに対しTPなし＋SL×[0.5,1,1.5,2,3]。pipsを5へhalf-up丸め、最低5pips、重複を除く。最大30組/構造。
-異なるペアでもR比率の比較が可能なSL倍数を採用。固定pips共通値はペア間の値幅差が大きい。
-生のSL/TP価格は丸めずexecution契約どおり。TPなしを必ず残す。
+### Stage 2-A（2026-09-29 実装Freeze）
+Stage1はColabで4,032/4,032 job、COMPLETE_STAGE1_ONLY、通過689,738構造、代表50件で完了（ユーザー報告。候補bytes・identity・progressはローカルでも確認）。
+Stage1 Freeze `920b9be5c8f1bcf46a46dbbd4ac06dc19eb295b1` を変更しない。
+正式入力は `stage1_selected_structures.json` の正確な50件。SHA256 `82a71c1ac9ffaa9a121795c6e0186bf77af5185b90bc21f65d7174161c35214f`。
+Stage1 effective config SHA256 `93cc9a92c6473cf770f98b72511de076375411db1c27ae1568f976f96212b37e`、identityのcode SHAもhard gate。
+再探索・再ranking・再cluster・候補の追加/削除/交換・ペアや曜日の枠補正は禁止。入力順と時間構造を保持する。
+各候補の固定5SLについてTP_NONE＋0.5/1/1.5/2/3Rを比較。Decimal half-upで5pips単位へ丸め、最低5pips、同一SL内の有限TPを重複除去しTP_NONEを維持。
+SL25×0.5は15pips。7ペア全固定SLで6条件、50×5×6=1,500を事前検算し、不一致なら停止する。
+Discovery 2020〜2023だけで1,500条件すべて評価・保存。P02 gateはPass/Failと理由を付けるだけで早期打切りしない。
+丸め前Rで全期間・年別の件数/勝敗/PF/AvgR/TotalR/MaxDDR、全期間0R/WinRate/AvgWinR/AvgLossRを計算。SL/TP/TimeExit、fallback、欠損機会・途中欠損を保存。
+既存executionは変更しない。参照replayとTP first-hitを加えた専用fast adapterを比較し、同一足はSL優先、Exit確保前の経路救済なし。
+機械設定は `research_inputs/b6/stage2a_config.json`、詳細は `stage2a_implementation.md`。Stage2-B中心選定と正式rankingは実装しない。
 
-### Stage 2-B（範囲採用・選定細則は提案）
-最大2中心・±10pips・5pips刻み・TPなし時SLのみは正式採用。以下の中心順位と安定点細則はStage2前に確定する参考案。
-Stage2-AでStage1単体通過条件を満たす組をAvgR降順→TotalR/max(DD,1)降順→TotalR降順→TPなし優先→SL昇順→TP昇順で並べ、上位最大2組を中心にする。
-各中心のSL±10pips、TP±10pipsを5pips刻み。TPなし中心はSLだけ5点。重複設定は1回、最大50組/構造。
-SLは[10,300]、TPは[5,900]内。無効点は除き補充しない。端が良くても外側へ拡大しない。
-各中心領域内で各点の±5pips近傍（中心含む、TPなしはSL軸のみ）を評価済み有効点から構成。
-3点以上、2/3以上が単体通過、近傍中央値AvgR>=その点AvgR×0.8、かつ点自身通過を安定点とする。
-安定点を近傍中央値AvgR降順→中心からの格子L1距離昇順→上記単体順位で選び、構造ごとに1組。
-安定点なしなら構造失格。中心順位外の補充なし。境界選択と切断された近傍の大きさを診断。
-±10pips・最大2中心は正式採用。中心選択/Stage2-Bの詳細安定点選定は前回の提案であり、Stage2実行前に別途確定する（Stage1実装に含めない）。
+### Stage 2-B（範囲固定・N06b保留）
+最大2中心、SL±10pips/TP±10pips、5pips刻み、TPなし中心はSLのみ、範囲の追加なし、という範囲は維持する。
+**どの2中心を選ぶかというN06bの正式ルールは、Stage2-A結果をChatで確認してから固定する。**
+従来の参考順位・細部安定点案を今回の実行規則へ昇格しない。Stage2-Aは中心選定成果物を生成せず、Stage2-Bを起動しない。
 
 ### Stage 3（正式採用、今回未実装・未実行）
 選ばれたSL/TP固定、元5分anchorのEntry/Exit各±5分を1分刻み（最大121組）。追加最適化である。
@@ -116,7 +118,7 @@ Monitorは合格候補のみ。2026の成績でFormal Validationの判定を上�
 利益>0/損失0のPFはINFラベル、両方0はUNDEFINED。最低負け件数で単体不通過にし、巨大な代替数値を順位へ入れない。
 空集合・NaN/非有限R・重複IDは失格またはデータ不備として停止。局所探索無効点は除外し、指定範囲を拡張しない。
 
-## 実装・計算・Notebook
+## Stage1実装・計算・Notebook（2026-09-28の記録）
 正式空間は7×2×5×288×283=5,705,280時間構造、SL5種で28,526,400設定。欠損/休場/件数除外前、取引数でも独立仮説数でもない。
 TPなしでもSL到達にM1経路が必要。Open差だけの探索には置き換えない。
 Referenceは変更しないStage0 `execution.execute` とStage1日付フィルターadapter。Fastは生High/Lowのmin/max木で最初のSL hitを検索し、283 Exitへ共有する。raw比較にepsilon、価格丸め、補間なし。
@@ -142,3 +144,11 @@ Stage0 Notebookは過去記録として維持。新Stage1 Notebookは既定RUN_F
 |GBPAUD|20|40|70|110|160|
 
 2020〜2023の事前価格較正由来。2024以降の価格分布や候補損益で変更しない。
+
+## Stage2-A実装Freezeの停止位置
+Workではunit/synthetic/regression/reference-fast/限定実データsmoke/Notebook既定動作/release整合性だけを検証。
+新NotebookはRUN_STAGE2A_FULL=False、CHAT_CONFIRMED_STAGE2A_FREEZE=False、Drive保存OFF。
+全探索にはColab、Chat確認済みStage2-A SHA、clean checkout、release hash、固定入力/runtime identityが必要。
+出力は `/content/b6_stage2a`。候補ごとのcheckpoint hashとcode/config/candidate/56入力/runtime identityを検証して再開。
+GitHubへfast-forward保存しremote SHA=local HEADを確認して停止。Stage2-A本番、Stage2-B以降、Validation/Monitor/portfolio/live変更は行わない。
+WorkではStage2-A full sweep未実行。Chat確認後にGoogle Colabで実行する。
