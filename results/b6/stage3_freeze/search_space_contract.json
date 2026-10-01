@@ -1,0 +1,41 @@
+{
+  "CandidateCount": 50,
+  "TheoreticalMax": 6050,
+  "ImplementationExpectedMax": 6050,
+  "MaxPerCandidate": 121,
+  "EntryDeltaMinutes": [
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "ExitDeltaMinutes": [
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "StepMinutes": 1,
+  "ActualUniqueConfigurations": null,
+  "InvalidSchedulePoints": null,
+  "Status": "FULL_RUN_ACTUAL_DEFERRED_TO_AUTHORIZED_COLAB_EXECUTION",
+  "SLTPFixed": true,
+  "WeekdayFixed": true,
+  "ExitDayOffsetFixed": true,
+  "NoExpansion": true,
+  "NoRefill": true
+}

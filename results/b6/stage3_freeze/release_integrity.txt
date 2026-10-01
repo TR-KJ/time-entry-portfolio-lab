@@ -1,0 +1,4 @@
+PASS: Stage3 release manifest covers 62 files.
+PASS: 207 tests, including original prior-release assertions against clean historical snapshots.
+PASS: Stage1/Stage2-A/Stage2-B frozen code/config/tests/notebooks/results/manifests unchanged.
+PASS: Notebook default no input, prices, metrics, selection or full sweep.

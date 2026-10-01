@@ -1,0 +1,43 @@
+{
+  "Status": "PASS",
+  "Stage2BFreezeSHA": "686b4b8b479055e3ff43a21f450b1a7182367ebe",
+  "Stage2AFreezeSHA": "50f83f3904acc3bc3abe54204db7a2ab4964b024",
+  "Stage1CandidateSHA256": "82a71c1ac9ffaa9a121795c6e0186bf77af5185b90bc21f65d7174161c35214f",
+  "SelectedSettingsSHA256": "476bad8f65b896d9c76a52dcf22f7c68381e22c0235523253fbdaa7ad1010a5b",
+  "SelectedCount": 50,
+  "TPNoneCount": 50,
+  "FormalInputSHA256": {
+    "progress.json": "80af10265f96ec388f62125cf80fb7aee7fd461b964e829aca07b35f29ad7310",
+    "identity.json": "1ba1f258fb6c94e047a7df7c8e0a55e140e32b30036bf12fd652736dc6e34f08",
+    "effective_config.json": "60ae03111ed6bf283df47acf62a6713a8ee53459a48d52a84a70553dd9070bf3",
+    "stage2b_summary.json": "729196f2524332380c7455e0b495c2752efbd5a05d3c51eaff87af80bc2ef6e7",
+    "stage2b_selected_settings.json": "476bad8f65b896d9c76a52dcf22f7c68381e22c0235523253fbdaa7ad1010a5b",
+    "centers.json": "00d9e2fe4991ad9432f3c09ea822e2885359e1f5097df5200d30494fa1b35b75",
+    "stage2b_all_results.csv.gz": "edeaac008418c0b57dabe948159481cc9b890d5191da346fa6868a6512d9d638",
+    "stage2b_yearly_results.csv.gz": "71074e185ac56f9919f130c87b04ff9e99726524ded9ee8d62581236550ac8be",
+    "stage2b_diagnostics.csv.gz": "226370a9fa3a1fb672e4a83a0847469a5106218bb9b6baf9a59a28dcb4bf30c3",
+    "stability_results.csv.gz": "963c136142168d7c5078f1ae16c0fdfce858bf57ba81a3fb19cd1f9a04e95d60",
+    "stability_by_center.csv.gz": "a976baa12a4fb235afe951c9bf2b284e552877fd4c8d066409e520af9d757a03",
+    "dropped_structures.csv": "ca3866e184ac7ea5af47835fea403341f3f0d1249fc8e2d447d6ba95db3a1bfc",
+    "search_space.json": "c526cac040d222fc77d5d1138077616cbe71f48ef7b9dbdb14dcd94081a73528",
+    "stage2a_input_audit.json": "2f83ab0f1308c17d6962630954688b3d8473bd83970083f40a14cb118288a8db"
+  },
+  "Rows": {
+    "stage2b_all_results.csv.gz": 1042,
+    "stage2b_yearly_results.csv.gz": 4168,
+    "stage2b_diagnostics.csv.gz": 1042,
+    "stability_results.csv.gz": 1042,
+    "stability_by_center.csv.gz": 1046,
+    "dropped_structures.csv": 0
+  },
+  "State": "COMPLETE_STAGE2B_ONLY",
+  "Stage3Executed": false,
+  "ValidationExecuted": false,
+  "MonitorExecuted": false,
+  "Stage3SelectionPerformed": false,
+  "Runtime": {
+    "Python": "3.13.15",
+    "Numpy": "2.3.5",
+    "Pandas": "2.2.3"
+  }
+}

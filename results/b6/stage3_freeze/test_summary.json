@@ -1,0 +1,29 @@
+{
+  "Status": "PASS",
+  "TotalTests": 207,
+  "Failures": 0,
+  "Errors": 0,
+  "Skipped": 0,
+  "NewStage3Tests": 32,
+  "FormalInputAudit": "PASS_14_EXACT_RUNTIME_FILES_SELECTED50_TP_NONE50_DROP0",
+  "ReferenceFast": "PASS_ONE_MINUTE_7_PAIRS_BOTH_DIRECTIONS_NONE_FINITE_SAME_DAY_OVERNIGHT_AND_BOUNDARY_REGRESSIONS",
+  "RealDataSmoke": {
+    "Candidates": 3,
+    "TimePoints": 27,
+    "Comparisons": 108,
+    "Matched": 108,
+    "AuditedM1Inputs": 56
+  },
+  "NotebookDefault": "PASS_NO_INPUT_PRICE_METRICS_OR_SELECTION",
+  "ReleaseManifestFiles": 62,
+  "HistoricalReleaseAssertions": "Original tests run against clean prior Freeze snapshots; current-tree frozen bytes additionally checked",
+  "PriorFrozenCodeTestsNotebooksResultsUnchanged": true,
+  "Stage3FullSweepExecuted": false,
+  "Stage3FormalSelectionPerformed": false,
+  "ActualFullRunConfigurationsCalculated": false,
+  "EventFilterExecuted": false,
+  "ValidationExecuted": false,
+  "MonitorExecuted": false,
+  "PortfolioExecuted": false,
+  "LiveChanges": false
+}

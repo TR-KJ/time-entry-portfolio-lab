@@ -1,7 +1,7 @@
-# B6 decision register — 2026-09-29 Stage2-B実装Freeze
+# B6 decision register — 2026-10-01 Stage3実装Freeze
 
 根拠：ユーザーの「B6 Stage1 実装Freeze 指示」および「B6 Stage2-A 実装Freeze 指示」。「B6 Stage2-B 実装Freeze 指示」でN06bを正式固定。重複点の扱いは本タスクの追加回答で確認済み。
-Stage2-B source of truthは `stage2b_config.json`。Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
+Stage3 source of truthは `stage3_config.json`。Stage2-B source of truthは `stage2b_config.json`。Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
 
 |ID|項目|現在の区分|正式な内容・前回との差|
 |---|---|---|---|
@@ -21,7 +21,7 @@ Stage2-B source of truthは `stage2b_config.json`。Stage2-A source of truthは 
 |N05|Stage2-A|正式固定|50候補×固定5SL×6TP=1,500。TP_NONE＋0.5/1/1.5/2/3R。Decimal half-upで5pips、最低5、同一SL内重複除去。最高SLだけに絞らない|
 |N06a|Stage2-B範囲|合意済み|最大2中心、SL/TP±10pipsを5刻み、TPなし中心はSLのみ、範囲追加なし|
 |N06b|Stage2-B中心/安定点選定|正式固定|P02 PASSのみ。Growth AvgR最大、Efficiency TotalR/max(DD,1)最大、同一点統合。Center別近傍2/3・Median AvgR>=点×0.8、正式lexicographic順位で1設定。詳細はPlan/Stage2-B config|
-|N07|Stage3|合意済み|Entry/Exit各±5分1刻み、3×3有効近傍2/3通過・Median AvgR>=点×.8。近傍中央値最大→anchor距離→時刻キー。単体rankingをtie-breakへ挿入しない|
+|N07|Stage3|正式固定|Stage2-B SL/TP固定。Original5mAnchor各±5分/1分刻み。Entry日・曜日/ExitDayOffset固定、保有30〜1440。有効3×3近傍2/3・Median AvgR>=点×.8、近傍中央値→anchor距離→固定時刻キーのみ。最低近傍数/単体成績tie-break追加なし|
 |N08|Stage4|合意済み|NONE/通貨構成中央銀行/＋主要マクロの最大3種。保持80%、除去20件、Delta TotalR+2、Delta AvgR+.01、DD悪化なし。旧案の年別Delta条件は削除|
 |N09|Validation|合意済み|年30件/年loss5件/合算70件未達はINSUFFICIENT_SAMPLE。両年黒字・PF1.10・AvgR.02・DD<=max(10,Discovery×1.5)でPASS|
 |N10|例外|合意済み|0RはWin/Loss除外、欠損は非生成、INF/未定義PFを最低loss条件なしで通過させない|
@@ -30,7 +30,7 @@ Stage2-B source of truthは `stage2b_config.json`。Stage2-A source of truthは 
 |I03|全探索の実行場所|合意済み|Workは実装・テスト・GitHub Freezeのみ。Chat確認後にColabでfull sweep|
 |H01|Stage2-B full sweep性能・研究結果|未測定・未実行|Workでは測定/探索しない。限定smokeは実装検証で研究結果ではない。Stage1/2-Aは既にColab完了|
 
-Stage2-A実装・Colab実行は完了。今回はStage2-Bの実装Freezeだけを行い、本番探索・Stage3以降・最終Candidate Freezeは行わない。Stage1/Stage2-A条件は変更しない。
+Stage2-A実装・Colab実行は完了。Stage2-BもColab完了済み。今回はStage3の実装Freezeだけを行い、本番探索・Stage4以降・最終Candidate Freezeは行わない。Stage1/Stage2-A条件は変更しない。
 
 |追加ID|項目|区分|内容|
 |---|---|---|---|
@@ -50,3 +50,16 @@ Stage2-A実装・Colab実行は完了。今回はStage2-Bの実装Freezeだけ�
 |S2B05|選定・落選|固定|安定点から1設定/構造。なしは落選、補充なし。選定SL/TPをStage3へ固定、今回Stage3実装なし|
 |S2B06|実行範囲|固定|Workは監査/テスト/限定smokeのみ。実候補Center/selected/actual unique数はColab本番時だけ|
 |S2B07|再開|固定|Stage2-B code/config、Stage2-A8hashとFreeze、Stage1候補hash、56M1hash、Python/NumPy/pandas全一致|
+
+## Stage3追加決定
+根拠はユーザーの「B6 Stage3 実装Freeze 指示」。Stage2-Bの正式runtimeを再監査した。
+
+|ID|項目|区分|内容|
+|---|---|---|---|
+|S301|唯一の候補入力|正式固定|Stage2-B selected50、全TP_NONE、drop0。14正式入力ファイルのexact hash固定。Review ZIP不可|
+|S302|固定パラメータ|正式固定|Symbol/Direction/Weekday/SL/TP/予定ExitDayOffsetを保持。Stage2-Bへの戻り探索なし|
+|S303|時刻生成|正式固定|予定datetimeでEntry/Exit各±5分を1分刻み。一度だけ。Entry日・曜日/offset変更、保有範囲外は除外、補充なし|
+|S304|安定性|正式固定|評価済み有効3×3、自身を含む。P02自身PASS・近傍2/3・Median AvgR>=点×0.8。最低近傍数なし|
+|S305|最終順位|正式固定|近傍Median AvgR DESC→anchor L1距離 ASC→Entry分/offset/Exit分/deltas/ID ASCのみ。他指標追加禁止|
+|S306|出力/再開|実装固定|全有効点・年別・診断・安定性・無効schedule・落選・最終設定。code/config/Stage2-B14hash/selected/候補/56M1/runtime identity一致|
+|S307|停止|正式固定|Workは監査・実装・全テスト・限定smoke・GitHub Freezeのみ。Stage3本番はChat確認後Colab。Stage4以降なし|

@@ -1,6 +1,6 @@
-# B6 Recent-Era Time-Entry Rediscovery — Stage2-B実装Freeze
+# B6 Recent-Era Time-Entry Rediscovery — Stage3実装Freeze
 
-状態：STAGE2-B IMPLEMENTATION FREEZE（2026-09-29指示）。Stage1/Stage2-AはColab完了済み。WorkはStage2-B実装・検証・GitHub Freezeで停止し、Chat確認後にColabで本番実行する。Stage5 Candidate Freezeとは別。
+状態：STAGE3 IMPLEMENTATION FREEZE（2026-10-01指示）。Stage2-B正式runtimeを再監査しselected50件・Drop0・全TP_NONEを確認。SL/TP固定で時刻だけを局所調整する実装。Workは本番探索を行わずGitHub Freezeで停止、Chat確認後にColabで実行する。
 根拠：[source_of_truth.md](source_of_truth.md)、数値の分類：[parameter_decision_register.md](parameter_decision_register.md)。
 
 ## 目的・禁止範囲（合意済み）
@@ -108,12 +108,22 @@ EfficiencyはTotalR/max(MaxDDR,1)↓→AvgR↓→TotalR↓→MaxDDR↑→TP_NONE
 Reference/Fast・metricsは凍結Stage2-Aをimportして利用し変更しない。Discovery2020〜2023、SL-first・Exit確保優先・raw比較・丸め前Rを継承。
 詳細は `stage2b_implementation.md`。新Notebookの全実行/準備/Driveフラグは既定False。
 
-### Stage 3（正式採用、今回未実装・未実行）
-選ばれたSL/TP固定、元5分anchorのEntry/Exit各±5分を1分刻み（最大121組）。追加最適化である。
-Entryは元JST暦日内、Exit offsetは加減算から再計算し、予定保有30〜1440分を維持。
-各点の3×3近傍（中心含む、範囲内の有効点のみ）で2/3以上が通過し、近傍Median AvgR>=点AvgR×0.8を要求。
-安定性条件を満たした点の中で近傍Median AvgR最大→元anchorとのEntry/Exit L1距離最小→Entry/Exit固定時刻キー昇順。
-旧案にあった「単体順位」を同値処理へ挿入しない。範囲を増やさず、終了後にSL/TPを再最適化しない。
+### Stage 3（2026-10-01 正式実装Freeze）
+正式入力はStage2-B selected settingsのみ。Driveの `b6_stage2b_archive` を特定し、COMPLETE_STAGE2B_ONLY、1,042条件、selected50・drop0・全TP_NONE、Stage3/Validation/Monitor未実行を正式成果物間で再監査した。
+Stage2-B Freeze `686b4b8b479055e3ff43a21f450b1a7182367ebe`、selected SHA `476bad8f65b896d9c76a52dcf22f7c68381e22c0235523253fbdaa7ad1010a5b`。入力14ファイルのexact SHA・CSV schema/行数を `stage3_config.json` に固定。Review ZIP代用・再生成・repairは不可。
+
+Symbol/Direction/Weekday/Stage2-B selected SL/TPを固定。Stage1から継承したEntry/Exit/ExitDayOffsetをOriginal5mAnchorとする。
+Entry/Exit予定datetimeそれぞれに-5〜+5分を1分刻みで一度だけ加算。Entry日・曜日を変更する点、ExitDayOffsetが変わる点、調整後保有30〜1440分外は無効。別日へwrap・無効点補充・範囲拡張・再anchorなし。
+最大121点/候補、50件で6,050。TheoreticalMax/CandidateCount/RawGridPoints/InvalidSchedulePoints/ActualUniqueConfigurationsを別保存。Workでは本番actual未算出。
+全有効時刻点を評価してP02を表示・保存し、途中pruningなし。Discovery2020〜2023のみ。凍結Stage2-A execution/metricsをimportし、raw比較・SL-first・Exit0〜4先確保・欠損非生成・丸め前Rを維持。
+
+近傍はEntryDelta/ExitDelta各±1の3×3、自身を含む正式Grid内の評価済み有効点のみ。無効/範囲外点を0扱いしない。
+点自身P02 PASS、近傍2/3以上P02 PASS、近傍Median AvgR>=点AvgR×0.8を全て要求。最低近傍数を追加しない。NeighborhoodCountを診断保存。
+**正式選定はNeighborhood Median AvgR降順 → AnchorDistance昇順 → 固定時刻キーのみ。**
+AnchorDistance=abs(EntryDelta)+abs(ExitDelta)。固定キーはAdjusted Entry分→Adjusted ExitDayOffset→Adjusted Exit分→EntryDelta→ExitDelta→CandidateID昇順。
+Point AvgR/PF/DD/TotalR/WinRate/Neighborhood PassRate/Stage2-B scoreはtie-breakに入れない。診断のみ。
+安定点なしはSTAGE3_DROPPED_NO_STABLE_TIME。他候補で補充せず、SL/TP探索・時刻再最適化へ戻らない。
+選定結果は時刻・offset・保有・SL/TPを固定したStage4入力候補。Stage4 Event Filterの設計変更/実装/実行は今回行わない。
 
 ### Stage 4
 候補は最大3種類：E0なし、E1ペア構成通貨の中央銀行発表との予定保有overlap停止、E2=E1＋米NFP/CPI＋AUDを含む場合豪CPIのoverlap停止。
@@ -173,10 +183,19 @@ Workではunit/synthetic/regression/reference-fast/限定実データsmoke/Noteb
 GitHubへfast-forward保存しremote SHA=local HEADを確認して停止。Stage2-A本番、Stage2-B以降、Validation/Monitor/portfolio/live変更は行わない。
 WorkではStage2-A full sweep未実行。Chat確認後にGoogle Colabで実行する。
 
-## Stage2-B実装Freezeの停止位置
+## Stage2-B実装Freezeの停止位置（履歴）
 Workでは入力正式8ファイルの監査、合成/unit/regression/参照互換/限定smoke/Notebook既定動作/release検証だけを実行する。
 本番にはColab、Chat確認、Stage2-B Freeze SHA、clean checkout、release manifest一致、正式入力8hash、固定runtime、56M1入力identityを必要とする。
 出力 `/content/b6_stage2b` に全局所条件・年別・診断・Center別安定性・落選・最終設定・reviewと再開checkpointを保存する。
 旧Stage1/Stage2-Aのコード・Notebook・tests・results・manifestは不変。旧release検証はStage2-A Freeze snapshotで実行し、現Stage2-Bでも旧実行ファイルのhash不変を追加確認する。
 Stage2-B full sweepを除く全test suiteの実行手順は実装説明を参照。GitHubへfast-forward保存しremote=local・cleanを確認して停止する。
 WorkではStage2-B full sweep未実行。Chat確認後にGoogle Colabで実行する。
+
+## Stage3実装Freezeの停止位置
+Workは正式入力監査、unit/synthetic/回帰/1分時刻の参照互換/限定smoke/Notebook既定/release検証まで。
+新NotebookのPREPARE_ENVIRONMENT/MOUNT_DRIVE/RUN_STAGE3_FULL/CHAT_CONFIRMED_STAGE3_FREEZE/SAVE_OUTPUT_TO_DRIVEは全False、Stage3 SHAは空文字が既定。
+本番はColab、Chat確認、40桁Stage3 SHA、clean checkout、release一致、exact Stage2-B入力、56M1/runtime identityを要求する。
+出力 `/content/b6_stage3`。全時刻点/年別/診断/安定性/落選/selected/reviewと再開checkpointを保存。後続段階のAPIなし。
+旧Stage1/Stage2-A/Stage2-Bコード・config・tests・Notebook・results・manifestは変更せず、過去releaseテストは各Freeze snapshotで元のassertionを検証する。
+GitHubへfast-forward保存しremote SHA=local HEAD・cleanを確認して停止する。
+WorkではStage3 full sweep未実行。Chat確認後にGoogle Colabで実行する。
