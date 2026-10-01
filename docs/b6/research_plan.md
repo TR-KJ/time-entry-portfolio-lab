@@ -1,6 +1,6 @@
-# B6 Recent-Era Time-Entry Rediscovery — Stage3実装Freeze
+# B6 Recent-Era Time-Entry Rediscovery — Stage4実装Freeze
 
-状態：STAGE3 IMPLEMENTATION FREEZE（2026-10-01指示）。Stage2-B正式runtimeを再監査しselected50件・Drop0・全TP_NONEを確認。SL/TP固定で時刻だけを局所調整する実装。Workは本番探索を行わずGitHub Freezeで停止、Chat確認後にColabで実行する。
+状態：STAGE4 IMPLEMENTATION FREEZE。Stage3正式runtime 66ファイルを再監査しselected50件・Drop0を確認。最終時刻・SL/TPを固定し、E0/E1/E2だけを比較する実装。Workは本番探索を行わずGitHub Freezeで停止、Chat確認後Colabで実行する。
 根拠：[source_of_truth.md](source_of_truth.md)、数値の分類：[parameter_decision_register.md](parameter_decision_register.md)。
 
 ## 目的・禁止範囲（合意済み）
@@ -114,7 +114,7 @@ Stage2-B Freeze `686b4b8b479055e3ff43a21f450b1a7182367ebe`、selected SHA `476ba
 
 Symbol/Direction/Weekday/Stage2-B selected SL/TPを固定。Stage1から継承したEntry/Exit/ExitDayOffsetをOriginal5mAnchorとする。
 Entry/Exit予定datetimeそれぞれに-5〜+5分を1分刻みで一度だけ加算。Entry日・曜日を変更する点、ExitDayOffsetが変わる点、調整後保有30〜1440分外は無効。別日へwrap・無効点補充・範囲拡張・再anchorなし。
-最大121点/候補、50件で6,050。TheoreticalMax/CandidateCount/RawGridPoints/InvalidSchedulePoints/ActualUniqueConfigurationsを別保存。Workでは本番actual未算出。
+最大121点/候補、50件で6,050。TheoreticalMax/CandidateCount/RawGridPoints/InvalidSchedulePoints/ActualUniqueConfigurationsを別保存。Stage3 Colab正式runtimeのactualは5,705、無効345を今回再監査済み。
 全有効時刻点を評価してP02を表示・保存し、途中pruningなし。Discovery2020〜2023のみ。凍結Stage2-A execution/metricsをimportし、raw比較・SL-first・Exit0〜4先確保・欠損非生成・丸め前Rを維持。
 
 近傍はEntryDelta/ExitDelta各±1の3×3、自身を含む正式Grid内の評価済み有効点のみ。無効/範囲外点を0扱いしない。
@@ -123,7 +123,7 @@ Entry/Exit予定datetimeそれぞれに-5〜+5分を1分刻みで一度だけ加
 AnchorDistance=abs(EntryDelta)+abs(ExitDelta)。固定キーはAdjusted Entry分→Adjusted ExitDayOffset→Adjusted Exit分→EntryDelta→ExitDelta→CandidateID昇順。
 Point AvgR/PF/DD/TotalR/WinRate/Neighborhood PassRate/Stage2-B scoreはtie-breakに入れない。診断のみ。
 安定点なしはSTAGE3_DROPPED_NO_STABLE_TIME。他候補で補充せず、SL/TP探索・時刻再最適化へ戻らない。
-選定結果は時刻・offset・保有・SL/TPを固定したStage4入力候補。Stage4 Event Filterの設計変更/実装/実行は今回行わない。
+選定結果は時刻・offset・保有・SL/TPを固定したStage4入力候補。Stage3本番は完了済み。今回はStage4 Event Filter実装Freezeまでを行い、Stage4本番はColabへ分離する。
 
 ### Stage 4
 候補は最大3種類：E0なし、E1ペア構成通貨の中央銀行発表との予定保有overlap停止、E2=E1＋米NFP/CPI＋AUDを含む場合豪CPIのoverlap停止。
@@ -191,7 +191,7 @@ Workでは入力正式8ファイルの監査、合成/unit/regression/参照互�
 Stage2-B full sweepを除く全test suiteの実行手順は実装説明を参照。GitHubへfast-forward保存しremote=local・cleanを確認して停止する。
 WorkではStage2-B full sweep未実行。Chat確認後にGoogle Colabで実行する。
 
-## Stage3実装Freezeの停止位置
+## Stage3実装Freezeの停止位置（履歴）
 Workは正式入力監査、unit/synthetic/回帰/1分時刻の参照互換/限定smoke/Notebook既定/release検証まで。
 新NotebookのPREPARE_ENVIRONMENT/MOUNT_DRIVE/RUN_STAGE3_FULL/CHAT_CONFIRMED_STAGE3_FREEZE/SAVE_OUTPUT_TO_DRIVEは全False、Stage3 SHAは空文字が既定。
 本番はColab、Chat確認、40桁Stage3 SHA、clean checkout、release一致、exact Stage2-B入力、56M1/runtime identityを要求する。
@@ -199,3 +199,16 @@ Workは正式入力監査、unit/synthetic/回帰/1分時刻の参照互換/限�
 旧Stage1/Stage2-A/Stage2-Bコード・config・tests・Notebook・results・manifestは変更せず、過去releaseテストは各Freeze snapshotで元のassertionを検証する。
 GitHubへfast-forward保存しremote SHA=local HEAD・cleanを確認して停止する。
 WorkではStage3 full sweep未実行。Chat確認後にGoogle Colabで実行する。
+
+## Stage4 Event Filter実装Freeze
+
+正式数値・identityは `research_inputs/b6/stage4_config.json`、calendarは `stage4_event_calendar.json`、詳細は [stage4_implementation.md](stage4_implementation.md)。Stage3 selected50/drop0を正式runtimeで確認し、50×3=150 variantsに固定する。時刻/SL/TP/候補集合は変更しない。
+
+E0=filterなし。E1=構成通貨の中央銀行。E2=E1+US_NFP+US_CPI、AUD pairだけAUD_CPI。USD/FOMC、JPY/BOJ、EUR/ECB、GBP/BOE、AUD/RBA。Candidate C matrixは不使用。
+指定baseline commitの8literal listと2026追記をASTでexact抽出する。日付/DSTの訂正なし。FOMC03:00±180分はsource日の翌JST日。他clockは実装説明表の固定値。全窓inclusive。
+予定Entry〜予定Exitでoverlapを判定し、実際の早期決済/fallbackは判定を変えない。ORで1回削除、event別countは重複帰属可能。Retention=残存実取引/E0実取引、Removed=実取引数差。非成立機会は別診断。
+採用は80%以上・20件以上・DeltaTotalR≥2・DeltaAvgR≥.01・DD悪化なしの5条件のみ。P02/年別Delta/他条件なし。両PASSはDeltaTotalR→DD→E1、両FAILはE0。削除/補充/再調整なし。
+Colabでは全候補E0の正式Stage3 full/yearly metrics完全一致が全filterに先行する必須バリア。Workでは全期間E0は実行せず、合成・限定smokeを行う。
+Notebook全flag既定False、SHA空。COMPLETE_STAGE4_ONLYで停止しStage5 Freeze/Validation/Monitor/Portfolio/liveは未実行。過去freezeの実行ファイルは不変。
+GitHubへfast-forward保存しremote SHA=local HEAD・cleanを確認して停止する。
+WorkではStage4 full sweep未実行。Chat確認後にGoogle Colabで実行する。

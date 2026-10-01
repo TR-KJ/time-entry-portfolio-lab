@@ -1,0 +1,77 @@
+{
+  "Status": "PASS",
+  "SourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+  "SourceFile": "src/portfolio_backtest_v1_2_add_aussie_logic.py",
+  "SourceSHA256": "4b71f6b7b1cdbe3266cd9b7cefae37811781561016a013a34d7c8c84247ef32d",
+  "CalendarSHA256": "1882b315f88d2a1b4fd18b2929f12bd269c87c98b5c2bf1a66203baf54865484",
+  "Clocks": {
+    "FOMC": {
+      "Time": "03:00",
+      "Before": 180,
+      "After": 180,
+      "DayOffset": 1
+    },
+    "US_NFP": {
+      "Time": "21:30",
+      "Before": 120,
+      "After": 120,
+      "DayOffset": 0
+    },
+    "US_CPI": {
+      "Time": "21:30",
+      "Before": 120,
+      "After": 120,
+      "DayOffset": 0
+    },
+    "BOJ": {
+      "Time": "12:00",
+      "Before": 180,
+      "After": 180,
+      "DayOffset": 0
+    },
+    "BOE": {
+      "Time": "21:00",
+      "Before": 120,
+      "After": 120,
+      "DayOffset": 0
+    },
+    "ECB": {
+      "Time": "21:15",
+      "Before": 120,
+      "After": 120,
+      "DayOffset": 0
+    },
+    "RBA": {
+      "Time": "13:30",
+      "Before": 120,
+      "After": 120,
+      "DayOffset": 0
+    },
+    "AUD_CPI": {
+      "Time": "10:30",
+      "Before": 120,
+      "After": 120,
+      "DayOffset": 0
+    }
+  },
+  "DateCounts": {
+    "FOMC": 97,
+    "US_NFP": 144,
+    "US_CPI": 144,
+    "BOJ": 103,
+    "BOE": 106,
+    "ECB": 96,
+    "RBA": 123,
+    "AUD_CPI": 48
+  },
+  "DiscoverySourceDateCounts": {
+    "FOMC": 33,
+    "US_NFP": 48,
+    "US_CPI": 48,
+    "BOJ": 33,
+    "BOE": 34,
+    "ECB": 32,
+    "RBA": 44,
+    "AUD_CPI": 16
+  }
+}

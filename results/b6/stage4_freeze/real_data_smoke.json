@@ -1,0 +1,16 @@
+{
+  "Status": "PASS",
+  "Purpose": "COMPATIBILITY_ONLY",
+  "Candidates": 3,
+  "DatesPerCandidate": 4,
+  "E0OpportunityComparisons": 12,
+  "RetainedTradeComparisons": 6,
+  "FilteredOpportunityModeComparisons": 18,
+  "AuditedM1Inputs": 56,
+  "ExpectedM1ManifestSHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+  "Stage3SelectedSHA256": "7643ff28e2b03829903d9ea3c66118abe4969a61b518a8aa97bdc68e7005c0e8",
+  "Stage4FullSweepExecuted": false,
+  "FormalEventModeSelectionPerformed": false,
+  "E0FullDiscoveryOfficialEquivalence": "PENDING_COLAB_GLOBAL_PREFLIGHT",
+  "RankingPublished": false
+}
