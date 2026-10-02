@@ -1,7 +1,7 @@
-# B6 decision register — 2026-10-01 Stage4実装Freeze
+# B6 decision register — 2026-10-02 Stage5 Discovery Candidate Freeze
 
 根拠：ユーザーの「B6 Stage1 実装Freeze 指示」および「B6 Stage2-A 実装Freeze 指示」。「B6 Stage2-B 実装Freeze 指示」でN06bを正式固定。重複点の扱いは本タスクの追加回答で確認済み。
-Stage4 source of truthは `stage4_config.json` と `stage4_event_calendar.json`。Stage3 source of truthは `stage3_config.json`。Stage2-B source of truthは `stage2b_config.json`。Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
+Stage5正式Candidateは `stage5_candidate_freeze.json`、Stage6判定規則は `stage5_validation_contract.json`。Stage4 source of truthは `stage4_config.json` と `stage4_event_calendar.json`。Stage3 source of truthは `stage3_config.json`。Stage2-B source of truthは `stage2b_config.json`。Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
 
 |ID|項目|現在の区分|正式な内容・前回との差|
 |---|---|---|---|
@@ -23,14 +23,14 @@ Stage4 source of truthは `stage4_config.json` と `stage4_event_calendar.json`�
 |N06b|Stage2-B中心/安定点選定|正式固定|P02 PASSのみ。Growth AvgR最大、Efficiency TotalR/max(DD,1)最大、同一点統合。Center別近傍2/3・Median AvgR>=点×0.8、正式lexicographic順位で1設定。詳細はPlan/Stage2-B config|
 |N07|Stage3|正式固定|Stage2-B SL/TP固定。Original5mAnchor各±5分/1分刻み。Entry日・曜日/ExitDayOffset固定、保有30〜1440。有効3×3近傍2/3・Median AvgR>=点×.8、近傍中央値→anchor距離→固定時刻キーのみ。最低近傍数/単体成績tie-break追加なし|
 |N08|Stage4|正式固定|NONE/通貨構成中央銀行/＋主要マクロの最大3種。保持80%、除去20件、Delta TotalR+2、Delta AvgR+.01、DD悪化なし。旧案の年別Delta条件は削除|
-|N09|Validation|合意済み|年30件/年loss5件/合算70件未達はINSUFFICIENT_SAMPLE。両年黒字・PF1.10・AvgR.02・DD<=max(10,Discovery×1.5)でPASS|
+|N09|Validation|Stage5で正式固定|年30件/年loss5件/合算70件未達はINSUFFICIENT_SAMPLE。両年黒字・PF1.10・AvgR.02・DD<=max(10,Discovery×1.5)でPASS|
 |N10|例外|合意済み|0RはWin/Loss除外、欠損は非生成、INF/未定義PFを最低loss条件なしで通過させない|
 |I01|実装数値規約|実装上の明文化|指標・rankingは丸め前R、取引表示Pips6桁/R9桁。両実装が同じ規約、SL hitに丸め/epsilonなし|
 |I02|固定キー|実装上の明文化|symbol辞書順→L/S→weekday→Entry分→Exit offset→Exit分。候補IDはこの時間構造を一意化|
 |I03|全探索の実行場所|合意済み|Workは実装・テスト・GitHub Freezeのみ。Chat確認後にColabでfull sweep|
 |H01|Stage2-B full sweep性能・研究結果|未測定・未実行|Workでは測定/探索しない。限定smokeは実装検証で研究結果ではない。Stage1/2-Aは既にColab完了|
 
-Stage2-A実装・Colab実行は完了。Stage2-BもColab完了済み。Stage3もColab完了済み。今回はStage4の実装Freezeだけを行い、Stage4本番探索・Stage5以降は行わない。Stage1/Stage2-A条件は変更しない。
+Stage2-A実装・Colab実行は完了。Stage2-BもColab完了済み。Stage3もColab完了済み。Stage4もColab完了済み。今回はStage5の正式CandidateとValidation contractをFreezeし、Stage6以降は実行しない。Stage1/Stage2-A条件は変更しない。
 
 |追加ID|項目|区分|内容|
 |---|---|---|---|
@@ -80,3 +80,20 @@ Stage2-A実装・Colab実行は完了。Stage2-BもColab完了済み。Stage3も
 |S409|E0バリア|実装固定|Colabで全候補full/4年別Stage3 metrics完全一致後のみfilter評価。再開も再検証。不一致は停止。Workでは全期間検証未実行|
 |S410|再開|固定|Stage4 code/config、Stage3 Freeze/selected/66hash、calendar SHA/source、Stage1候補、56M1、Python/NumPy/pandas全一致|
 |S411|停止位置|固定|Workは監査/実装/全tests/限定smoke/Notebook/docs/manifest/GitHub Freeze。COMPLETE_STAGE4_ONLY以降のAPIなし。Stage5/Validation/Monitor/Portfolio/live未実行|
+
+## Stage5追加決定
+根拠はユーザーの「B6 Stage5 Discovery Candidate Freeze 実装指示」。
+
+|ID|項目|区分|内容|
+|---|---|---|---|
+|S501|正式入力|固定|Stage4 Freeze22a7b5…、config71ed97…、67正式ファイルexact hash。selected SHA c612f3d0…、50候補/150 variants/E0=50/E1=0/E2=0/drop0を独立再監査|
+|S502|候補固定|固定|Stage4正式selected全50件・既定順・CandidateIDを保持。削除/補充/再ranking選抜・live番号割当てなし|
+|S503|条件と成績|固定|Final時刻/offset/holding/SL/TP/EventMode/spread/pip size、Discovery2020〜2023 full/年別、raw DiscoveryMaxDDRを保存。E1/E2比較auditも保持|
+|S504|決定的identity|固定|UTF-8、sort_keys、末尾LF、NaN禁止、INF/UNDEFINED明示。exact candidate SHAは後続contract/docs/tests/manifestへ保存してself-hash循環を避ける|
+|S505|Validation期間|固定|2024=[2024-01-01,2025-01-01)、2025=[2025-01-01,2026-01-01)、Combined=[2024-01-01,2026-01-01) JST。B6 holdout validation / OOS-like|
+|S506|sample先行|固定|各年Trades≥30/Losses≥5、Combined Trades≥70。どれか不足はINSUFFICIENT_SAMPLE。FAILではなくformal PASS/FAILを作らない|
+|S507|正式PASS|固定|十分sampleだけ各年TotalR>0、Combined PF≥1.10、AvgR≥.02、DD≤max(10,1.5×Stage5 raw DiscoveryDD)。5条件のみ、epsilonなし|
+|S508|追加gate禁止|固定|単年PF/AvgR、WinRate、Recovery、Discovery改善、月/quarter、有意差等はformal gateにしない|
+|S509|Stage6不変|固定|Stage5 exact SHA/contract SHA/commitをhard gate。Candidate/time/SL/TP/EventMode/calendar/execution不変。Discovery DD再計算・差替えなし|
+|S510|期間隔離|固定|Stage5は正式保存結果の包装のみ。M1 price入力なし。2024/2025/2026 Candidate成績の読込/計算/表示なし。合成閾値helperのtestsのみ|
+|S511|停止|固定|Stage5 GitHub fast-forward、remote=local、cleanで停止。Stage6 Validationは別指示。2026/Portfolio/live未実行、Validation PASSもlive採用ではない|

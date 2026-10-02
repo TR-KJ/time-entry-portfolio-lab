@@ -1,0 +1,36 @@
+{
+  "CandidateFreeze": "PASS_ALL_50_NO_DROP_REFILL_RERANK",
+  "CandidateFreezeSHA256": "b98f36d92d1b101fcd53f65fdd900bee35f1a209cbdcdd71d71211dc15d00ae0",
+  "DeterministicBytesAndSHA": "PASS_INDEPENDENT_GENERATIONS_AND_JSON_CSV_ROUNDTRIP",
+  "Errors": 0,
+  "Failures": 0,
+  "HistoricalReleaseAssertions": "Unmodified against clean Stage2-A/2-B/3/4 snapshots; all other tests against current code",
+  "LeakageGuard": "PASS_NO_M1_INPUT_OR_REAL_2024_PLUS_CANDIDATE_PERFORMANCE",
+  "LiveChanged": false,
+  "MonitorExecuted": false,
+  "Passed": 341,
+  "PortfolioExecuted": false,
+  "PriorTests": 273,
+  "RawDiscoveryMaxDDR": "EXACT_PRESERVED",
+  "ReleaseIntegrity": "PASS",
+  "Runtime": {
+    "Numpy": "2.3.5",
+    "Pandas": "2.2.3",
+    "Python": "3.12.14"
+  },
+  "Skipped": 0,
+  "Stage1To4FullResearchRerun": false,
+  "Stage3ConditionsUnchanged": true,
+  "Stage4FormalInputAudit": "PASS_67_FILES_50_CANDIDATES_150_VARIANTS",
+  "Stage4SelectedModeCounts": {
+    "E0": 50,
+    "E1": 0,
+    "E2": 0
+  },
+  "Stage5Tests": 68,
+  "Status": "PASS",
+  "Tests": 341,
+  "ValidationBoundaryTests": "PASS_SYNTHETIC_ONLY",
+  "ValidationContractSHA256": "646344d240323f81d46e6360ac1f5d4e15f2130db6399f7fbbcb013bc1a15c57",
+  "ValidationExecuted": false
+}

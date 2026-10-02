@@ -1,0 +1,128 @@
+{
+  "CandidateConditionsImmutable": true,
+  "CandidateFreezeFile": "research_inputs/b6/stage5_candidate_freeze.json",
+  "CandidateFreezeSHA256": "b98f36d92d1b101fcd53f65fdd900bee35f1a209cbdcdd71d71211dc15d00ae0",
+  "Comparison": "Raw unrounded R, no epsilon; undefined required comparison cannot PASS",
+  "DDLimit": {
+    "DiscoveryMultiplier": 1.5,
+    "DiscoveryRecalculationAllowed": false,
+    "DiscoverySource": "Candidate.DiscoveryMaxDDR raw unrounded value only",
+    "FloorR": 10.0
+  },
+  "EventCalendarReference": "stage5_candidate_freeze.json:EventCalendarProvenance",
+  "ExecutionContractReference": "stage5_candidate_freeze.json:ExecutionContract",
+  "Label": "B6 holdout validation / OOS-like",
+  "Limitation": "2024-2025 have been viewed in other research; not pristine unseen OOS",
+  "LiveAdoption": false,
+  "MetricsSemantics": {
+    "MissingTrade": "Not generated",
+    "PF": "positive R sum / abs(negative R sum)",
+    "PFNoLossNoPositive": "UNDEFINED",
+    "PFNoLossPositive": "INF",
+    "PipsDisplayDecimals": 6,
+    "RDisplayDecimals": 9,
+    "ZeroR": "Included in Trades; neither Wins nor Losses"
+  },
+  "MonitorExecuted": false,
+  "OutputRequirements": {
+    "Audit": [
+      "DiscoveryMaxDDR",
+      "ValidationDDLimit",
+      "SampleSufficient",
+      "SampleFailReasons",
+      "ValidationStatus",
+      "ValidationFailReasons"
+    ],
+    "Metrics": [
+      "Trades",
+      "Wins",
+      "Losses",
+      "ZeroR",
+      "PF",
+      "AvgR",
+      "TotalR",
+      "MaxDDR"
+    ],
+    "Periods": [
+      "2024",
+      "2025",
+      "Combined"
+    ]
+  },
+  "PassConditions": [
+    {
+      "Field": "2024.TotalR",
+      "Operator": ">",
+      "Value": 0
+    },
+    {
+      "Field": "2025.TotalR",
+      "Operator": ">",
+      "Value": 0
+    },
+    {
+      "Field": "Combined.PF",
+      "Operator": ">=",
+      "Value": 1.1
+    },
+    {
+      "Field": "Combined.AvgR",
+      "Operator": ">=",
+      "Value": 0.02
+    },
+    {
+      "Field": "Combined.MaxDDR",
+      "Operator": "<=",
+      "Value": "max(10.0, 1.5 * Stage5FrozenDiscoveryMaxDDR)"
+    }
+  ],
+  "Periods": {
+    "2024": {
+      "EndExclusive": "2025-01-01",
+      "StartInclusive": "2024-01-01"
+    },
+    "2025": {
+      "EndExclusive": "2026-01-01",
+      "StartInclusive": "2025-01-01"
+    },
+    "Combined": {
+      "EndExclusive": "2026-01-01",
+      "StartInclusive": "2024-01-01"
+    }
+  },
+  "ProhibitedExtraGates": [
+    "annual PF",
+    "annual AvgR",
+    "WinRate",
+    "Recovery",
+    "Discovery improvement",
+    "quarter or month profitability",
+    "statistical significance",
+    "event reselection"
+  ],
+  "SampleSufficiency": {
+    "AllRequired": true,
+    "AnnualMinLosses": 5,
+    "AnnualMinTrades": 30,
+    "CombinedMinTrades": 70,
+    "InsufficientIsFail": false,
+    "InsufficientStatus": "INSUFFICIENT_SAMPLE",
+    "SkipFormalPassFailIfInsufficient": true
+  },
+  "Stage6IdentityHardGate": [
+    "Stage5 commit SHA equals approved remote/local SHA",
+    "exact CandidateFreezeSHA256",
+    "exact Validation Contract SHA256 from Stage5 release manifest",
+    "Stage4 runtime input hashes and selected SHA",
+    "frozen execution/calendar identities"
+  ],
+  "Statuses": [
+    "PASS",
+    "FAIL",
+    "INSUFFICIENT_SAMPLE"
+  ],
+  "Timezone": "Asia/Tokyo naive",
+  "ValidationExecuted": false,
+  "schema": "b6-stage5-validation-contract-v1",
+  "status": "VALIDATION_CONTRACT_FROZEN_NOT_EXECUTED"
+}

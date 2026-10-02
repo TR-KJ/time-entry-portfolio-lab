@@ -1,0 +1,21 @@
+{
+  "AllOutputBytesIdentical": true,
+  "CandidateCount": 50,
+  "Files": {
+    "research_inputs/b6/stage5_candidate_freeze.json": "b98f36d92d1b101fcd53f65fdd900bee35f1a209cbdcdd71d71211dc15d00ae0",
+    "research_inputs/b6/stage5_validation_contract.json": "646344d240323f81d46e6360ac1f5d4e15f2130db6399f7fbbcb013bc1a15c57",
+    "results/b6/stage5_freeze/candidate_summary.csv": "f1928bf71e6f2300db9a16986f99f6ccff82ce465eb501e94a4657925c4883e4",
+    "results/b6/stage5_freeze/stage4_input_audit.json": "8c4490aacb3e9f43cef3f80dc832713d32ff9c2e3471314f3fb6a69aedc21d10"
+  },
+  "IndependentGenerations": 2,
+  "M1Reads": false,
+  "MonitorPerformanceReadOrCalculated": false,
+  "PriceReplay": false,
+  "SelectedModeCounts": {
+    "E0": 50,
+    "E1": 0,
+    "E2": 0
+  },
+  "Status": "PASS",
+  "ValidationPerformanceReadOrCalculated": false
+}

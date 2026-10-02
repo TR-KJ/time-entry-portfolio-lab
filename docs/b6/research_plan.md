@@ -1,6 +1,6 @@
-# B6 Recent-Era Time-Entry Rediscovery — Stage4実装Freeze
+# B6 Recent-Era Time-Entry Rediscovery — Stage5 Discovery Candidate Freeze
 
-状態：STAGE4 IMPLEMENTATION FREEZE。Stage3正式runtime 66ファイルを再監査しselected50件・Drop0を確認。最終時刻・SL/TPを固定し、E0/E1/E2だけを比較する実装。Workは本番探索を行わずGitHub Freezeで停止、Chat確認後Colabで実行する。
+状態：STAGE5 DISCOVERY CANDIDATE FREEZE。Stage4正式runtime67ファイル・50候補/150 variants完了、選択E0/E1/E2=50/0/0を再監査。全50件の条件・raw Discovery metrics・Validation判定規則を固定。Discovery探索終了。2024/2025 Validationと2026 Monitorは未実行。
 根拠：[source_of_truth.md](source_of_truth.md)、数値の分類：[parameter_decision_register.md](parameter_decision_register.md)。
 
 ## 目的・禁止範囲（合意済み）
@@ -123,7 +123,7 @@ Entry/Exit予定datetimeそれぞれに-5〜+5分を1分刻みで一度だけ加
 AnchorDistance=abs(EntryDelta)+abs(ExitDelta)。固定キーはAdjusted Entry分→Adjusted ExitDayOffset→Adjusted Exit分→EntryDelta→ExitDelta→CandidateID昇順。
 Point AvgR/PF/DD/TotalR/WinRate/Neighborhood PassRate/Stage2-B scoreはtie-breakに入れない。診断のみ。
 安定点なしはSTAGE3_DROPPED_NO_STABLE_TIME。他候補で補充せず、SL/TP探索・時刻再最適化へ戻らない。
-選定結果は時刻・offset・保有・SL/TPを固定したStage4入力候補。Stage3本番は完了済み。今回はStage4 Event Filter実装Freezeまでを行い、Stage4本番はColabへ分離する。
+選定結果は時刻・offset・保有・SL/TPを固定したStage4入力候補。Stage3本番は完了済み。Stage4もColab完了済み。今回はStage5で正式selected全件を固定する。
 
 ### Stage 4
 候補は最大3種類：E0なし、E1ペア構成通貨の中央銀行発表との予定保有overlap停止、E2=E1＋米NFP/CPI＋AUDを含む場合豪CPIのoverlap停止。
@@ -200,7 +200,7 @@ Workは正式入力監査、unit/synthetic/回帰/1分時刻の参照互換/限�
 GitHubへfast-forward保存しremote SHA=local HEAD・cleanを確認して停止する。
 WorkではStage3 full sweep未実行。Chat確認後にGoogle Colabで実行する。
 
-## Stage4 Event Filter実装Freeze
+## Stage4 Event Filter実装Freeze（履歴）
 
 正式数値・identityは `research_inputs/b6/stage4_config.json`、calendarは `stage4_event_calendar.json`、詳細は [stage4_implementation.md](stage4_implementation.md)。Stage3 selected50/drop0を正式runtimeで確認し、50×3=150 variantsに固定する。時刻/SL/TP/候補集合は変更しない。
 
@@ -212,3 +212,14 @@ Colabでは全候補E0の正式Stage3 full/yearly metrics完全一致が全filte
 Notebook全flag既定False、SHA空。COMPLETE_STAGE4_ONLYで停止しStage5 Freeze/Validation/Monitor/Portfolio/liveは未実行。過去freezeの実行ファイルは不変。
 GitHubへfast-forward保存しremote SHA=local HEAD・cleanを確認して停止する。
 WorkではStage4 full sweep未実行。Chat確認後にGoogle Colabで実行する。
+
+## Stage5 Discovery Candidate Freeze
+
+[stage5_candidate_freeze.md](stage5_candidate_freeze.md) に正式identity・再生成手順・実行境界を記録する。Stage4 selected50件を正式順のまま保持し、候補削除/補充/再ranking選抜なし。全件E0はE1/E2比較後の選択であり、Stage4を省略していない。条件・Discovery full/4年別metrics・raw DiscoveryMaxDDRをexactly固定する。
+Candidate Freeze SHA256: `b98f36d92d1b101fcd53f65fdd900bee35f1a209cbdcdd71d71211dc15d00ae0`。
+Validation Contract SHA256: `646344d240323f81d46e6360ac1f5d4e15f2130db6399f7fbbcb013bc1a15c57`。
+
+Stage6の正式規則はstage5_validation_contract.jsonだけ。2024/2025各年Trades≥30・Losses≥5、Combined Trades≥70のすべてを満たさなければINSUFFICIENT_SAMPLE（FAILではない）。十分なら各年TotalR>0、Combined PF≥1.10、AvgR≥.02、DD≤max(10,1.5×Stage5 raw DiscoveryDD)の5条件をすべて要求する。単年PF/AvgRなどの追加条件なし。
+2024〜2025は既閲覧期間を含むB6 holdout validation / OOS-like。pristine unseen OOSとは呼ばない。Stage5はM1不要の決定的成果物生成のみで、2024+ Candidate performanceを読込/計算/表示しない。
+GitHub remote/local SHA一致・cleanを確認して停止。Stage6は別指示。Validation通過もlive採用ではない。
+Stage5 Discovery Candidate Freeze完了。2024–2025 Validationは未実行。Chat確認後にStage6へ進む。
