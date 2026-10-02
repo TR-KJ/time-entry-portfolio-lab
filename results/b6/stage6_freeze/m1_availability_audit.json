@@ -1,0 +1,87 @@
+{
+  "Status": "PASS",
+  "FileCount": 56,
+  "ManifestSHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+  "CanonicalCoverage": [
+    {
+      "Symbol": "USDJPY",
+      "Rows": 741118,
+      "FirstJST": "2024-01-02 07:00:00",
+      "LastJST": "2025-12-31 06:58:00",
+      "Rows2024": 371695,
+      "Rows2025": 369423,
+      "OutsidePeriodRows": 0,
+      "Status": "PASS",
+      "CandidatePerformanceCalculated": false
+    },
+    {
+      "Symbol": "EURJPY",
+      "Rows": 741365,
+      "FirstJST": "2024-01-02 07:00:00",
+      "LastJST": "2025-12-31 07:00:00",
+      "Rows2024": 371803,
+      "Rows2025": 369562,
+      "OutsidePeriodRows": 0,
+      "Status": "PASS",
+      "CandidatePerformanceCalculated": false
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Rows": 741142,
+      "FirstJST": "2024-01-02 07:00:00",
+      "LastJST": "2025-12-31 07:00:00",
+      "Rows2024": 371691,
+      "Rows2025": 369451,
+      "OutsidePeriodRows": 0,
+      "Status": "PASS",
+      "CandidatePerformanceCalculated": false
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Rows": 741228,
+      "FirstJST": "2024-01-02 07:00:00",
+      "LastJST": "2025-12-31 07:00:00",
+      "Rows2024": 371768,
+      "Rows2025": 369460,
+      "OutsidePeriodRows": 0,
+      "Status": "PASS",
+      "CandidatePerformanceCalculated": false
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Rows": 741134,
+      "FirstJST": "2024-01-02 07:00:00",
+      "LastJST": "2025-12-31 07:00:00",
+      "Rows2024": 371733,
+      "Rows2025": 369401,
+      "OutsidePeriodRows": 0,
+      "Status": "PASS",
+      "CandidatePerformanceCalculated": false
+    },
+    {
+      "Symbol": "EURAUD",
+      "Rows": 741184,
+      "FirstJST": "2024-01-02 07:00:00",
+      "LastJST": "2025-12-31 07:00:00",
+      "Rows2024": 371755,
+      "Rows2025": 369429,
+      "OutsidePeriodRows": 0,
+      "Status": "PASS",
+      "CandidatePerformanceCalculated": false
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Rows": 741166,
+      "FirstJST": "2024-01-02 07:00:00",
+      "LastJST": "2025-12-31 07:00:00",
+      "Rows2024": 371702,
+      "Rows2025": 369464,
+      "OutsidePeriodRows": 0,
+      "Status": "PASS",
+      "CandidatePerformanceCalculated": false
+    }
+  ],
+  "CandidatePerformanceCalculated": false,
+  "FormalValidationExecuted": false,
+  "MonitorExecuted": false
+}

@@ -1,6 +1,6 @@
-# B6 Recent-Era Time-Entry Rediscovery — Stage5 Discovery Candidate Freeze
+# B6 Recent-Era Time-Entry Rediscovery — Stage6 Validation 実装Freeze
 
-状態：STAGE5 DISCOVERY CANDIDATE FREEZE。Stage4正式runtime67ファイル・50候補/150 variants完了、選択E0/E1/E2=50/0/0を再監査。全50件の条件・raw Discovery metrics・Validation判定規則を固定。Discovery探索終了。2024/2025 Validationと2026 Monitorは未実行。
+状態：STAGE6 IMPLEMENTATION FREEZE。Stage5候補50件・Validation Contractのexact identityを再確認し、条件不変の2024–2025 Validationコード/tests/Colab Notebookを実装する。Workは本番Validationを実行せず、Chat確認後Colabへ分離する。
 根拠：[source_of_truth.md](source_of_truth.md)、数値の分類：[parameter_decision_register.md](parameter_decision_register.md)。
 
 ## 目的・禁止範囲（合意済み）
@@ -213,7 +213,7 @@ Notebook全flag既定False、SHA空。COMPLETE_STAGE4_ONLYで停止しStage5 Fre
 GitHubへfast-forward保存しremote SHA=local HEAD・cleanを確認して停止する。
 WorkではStage4 full sweep未実行。Chat確認後にGoogle Colabで実行する。
 
-## Stage5 Discovery Candidate Freeze
+## Stage5 Discovery Candidate Freeze（完了済み）
 
 [stage5_candidate_freeze.md](stage5_candidate_freeze.md) に正式identity・再生成手順・実行境界を記録する。Stage4 selected50件を正式順のまま保持し、候補削除/補充/再ranking選抜なし。全件E0はE1/E2比較後の選択であり、Stage4を省略していない。条件・Discovery full/4年別metrics・raw DiscoveryMaxDDRをexactly固定する。
 Candidate Freeze SHA256: `b98f36d92d1b101fcd53f65fdd900bee35f1a209cbdcdd71d71211dc15d00ae0`。
@@ -223,3 +223,12 @@ Stage6の正式規則はstage5_validation_contract.jsonだけ。2024/2025各年T
 2024〜2025は既閲覧期間を含むB6 holdout validation / OOS-like。pristine unseen OOSとは呼ばない。Stage5はM1不要の決定的成果物生成のみで、2024+ Candidate performanceを読込/計算/表示しない。
 GitHub remote/local SHA一致・cleanを確認して停止。Stage6は別指示。Validation通過もlive採用ではない。
 Stage5 Discovery Candidate Freeze完了。2024–2025 Validationは未実行。Chat確認後にStage6へ進む。
+
+## Stage6 2024–2025 Validation実装Freeze
+
+詳細は [stage6_validation.md](stage6_validation.md)、固定実装設定はstage6_config.json。Stage5 Candidate/Contract/commitのexact SHAとancestryがhard gate。全50件の条件、spread/pip、EventMode、calendar、raw DiscoveryDDを変更しない。
+ValidationはB6 holdout validation / OOS-like。2024/2025各年とCombinedを別集計、年別帰属は予定Entry JST。canonical JSTで[2024-01-01,2026-01-01)だけをcopyし、executorの2023/2026行は拒否。過去Discovery loader/engineは不変。private period adapterで凍結参照/fast/event実装を再利用する。
+Combinedはtrade単位をCloseTime→EntryTime→CandidateIDの時系列で集計し、年別指標の平均は使わない。sample先行・正式5条件はStage5 contractとhelperを再利用、追加gateなし。候補の成績順位付け・絞込・再調整なし。
+Notebook全flag既定False、SHA空。正式本番はColab＋Chat確認＋RUN_STAGE6_FULLの両flag、clean release、Stage5 identity一致後だけ。50候補完走前にmetrics/statusを表示せず、COMPLETE_STAGE6_VALIDATION_ONLY後に全件を報告。Stage7/2026/Portfolio/liveは無効。
+Workの実データ監査は56hash・期間availabilityだけ。正式2024/2025/Combined Candidate performanceは未実行。GitHub fast-forward、remote=local・clean確認で停止。
+WorkではStage6 full Validation未実行。Chat確認後にGoogle Colabで2024–2025 Validationを実行する。

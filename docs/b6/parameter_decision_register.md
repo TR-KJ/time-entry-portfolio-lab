@@ -1,4 +1,4 @@
-# B6 decision register — 2026-10-02 Stage5 Discovery Candidate Freeze
+# B6 decision register — 2026-10-02 Stage6 Validation 実装Freeze
 
 根拠：ユーザーの「B6 Stage1 実装Freeze 指示」および「B6 Stage2-A 実装Freeze 指示」。「B6 Stage2-B 実装Freeze 指示」でN06bを正式固定。重複点の扱いは本タスクの追加回答で確認済み。
 Stage5正式Candidateは `stage5_candidate_freeze.json`、Stage6判定規則は `stage5_validation_contract.json`。Stage4 source of truthは `stage4_config.json` と `stage4_event_calendar.json`。Stage3 source of truthは `stage3_config.json`。Stage2-B source of truthは `stage2b_config.json`。Stage2-A source of truthは `stage2a_config.json`。Stage1 source of truthは `stage1_config.json`。旧 `proposal.json` は準備時点の記録であり実行設定ではない。
@@ -97,3 +97,19 @@ Stage2-A実装・Colab実行は完了。Stage2-BもColab完了済み。Stage3も
 |S509|Stage6不変|固定|Stage5 exact SHA/contract SHA/commitをhard gate。Candidate/time/SL/TP/EventMode/calendar/execution不変。Discovery DD再計算・差替えなし|
 |S510|期間隔離|固定|Stage5は正式保存結果の包装のみ。M1 price入力なし。2024/2025/2026 Candidate成績の読込/計算/表示なし。合成閾値helperのtestsのみ|
 |S511|停止|固定|Stage5 GitHub fast-forward、remote=local、cleanで停止。Stage6 Validationは別指示。2026/Portfolio/live未実行、Validation PASSもlive採用ではない|
+
+## Stage6追加決定
+根拠はユーザーの「B6 Stage6 2024–2025 Validation 実装Freeze 指示」。Stage5 Contractを変更しない。
+
+|ID|項目|区分|内容|
+|---|---|---|---|
+|S601|入力|固定|Stage5 commit e352257…、Candidate b98f36d…、Contract646344…、50件、Stage4selected c612f3…、ancestryとexact bytes hard gate|
+|S602|期間|固定|2024/2025/Combined JST、予定Entry年帰属。canonical slice後だけexecutorへ渡し2023/2026混入拒否|
+|S603|Execution adapter|実装固定|frozen source SHA照合後private modules。START/END、relative import、weekday epoch、event period guardのみ適合。共有globals/元ファイル変更なし|
+|S604|Combined|固定|trade-level raw R、CloseTime→EntryTime→ID、initial peak0。週次候補では旧Entry順と同じ。年別指標平均禁止|
+|S605|判定|継承|Stage5 JSON/helper一致を検証して再利用。sample不足はINSUFFICIENT_SAMPLE≠FAIL、十分なら5条件だけ。raw DDはStage5値|
+|S606|候補不変|固定|追加/削除/補充/Top N/時刻SLTP/Event再選択/Validation後の再探索なし。PASSもlive採用ではない|
+|S607|本番guard|固定|Colab、Chat確認、RUN flag、exact SHA、clean release、Stage5 ancestry/identity。Notebook既定全False・SHA空|
+|S608|出力/再開|固定|150 period行/50判定行、理由/診断/summary/review。code/config/Stage5/Candidate/Contract/count/56hash/calendar/runtime一致。全候補完走前はjob数だけ表示|
+|S609|Work境界|固定|synthetic中心、実データは56hash/availabilityだけ。正式2024/2025/Combined成績未実行。Stage7/2026/Portfolio/live無効|
+|S610|停止|固定|Implementation FreezeをGitHubへfast-forward保存しremote/local SHA・cleanで停止。Chat確認後Colabだけ本番実行|
