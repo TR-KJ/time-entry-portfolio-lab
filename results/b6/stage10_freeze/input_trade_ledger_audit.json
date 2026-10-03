@@ -1,0 +1,22 @@
+{
+  "B6FormalPath": "/Users/tomitaryou/Library/CloudStorage/GoogleDrive-ry103ta.i@gmail.com/マイドライブ/b6_stage8_archive/stage8_trade_ledger.csv.gz",
+  "B6LedgerSHA256": "af0caed1d3002af960042d56e50e290271a3aced5a82ee879997a30d4e418248",
+  "B6Trades": {
+    "B6-AUDJPY-L-W0-E0950-H1440": 339,
+    "B6-GBPJPY-L-W0-E0835-H1415": 338
+  },
+  "BaselineFormalPath": "/Users/tomitaryou/Library/CloudStorage/GoogleDrive-ry103ta.i@gmail.com/マイドライブ/time-entry-portfolio-lab/daily_stop/baseline_cc32f32e3df5/daily_stop_baseline_trades.csv",
+  "BaselineSHA256": "cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359",
+  "BaselineTrades": 16298,
+  "Current2020Trades": 9083,
+  "CurrentTrades": 15837,
+  "GlobalR2Applied": false,
+  "M1Read": false,
+  "PortfolioSimulationExecuted": false,
+  "ReplayExecuted": false,
+  "ReportingBoundaryCrossings": 0,
+  "SavedRIntegrity": "PASS",
+  "Stage8LedgerRows": 3043,
+  "Status": "PASS",
+  "TradingWeekCrossings": 0
+}

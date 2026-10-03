@@ -1,0 +1,22 @@
+{
+  "ActualDDComparisonExecuted": false,
+  "ActualFinalCapitalComparisonExecuted": false,
+  "BrokerConstrainedExecuted": false,
+  "Errors": 0,
+  "Failures": 0,
+  "GlobalR2Applied": false,
+  "HistoricalAssertionsUnchanged": true,
+  "HistoricalMoneyEngineUnchanged": true,
+  "HistoricalReleaseSnapshots": "Stage2A through Stage9 exact clean commits",
+  "HistoricalTests": 585,
+  "LiveChanged": false,
+  "M1Read": false,
+  "Passed": 635,
+  "RiskAllocationDecided": false,
+  "RiskPctChosen": false,
+  "Skipped": 0,
+  "Stage10FullMoneySimulationExecuted": false,
+  "Stage10Tests": 50,
+  "StrategyNumberingAssigned": false,
+  "Tests": 635
+}

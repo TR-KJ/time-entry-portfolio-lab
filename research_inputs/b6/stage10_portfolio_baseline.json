@@ -1,0 +1,70 @@
+{
+  "BaselineStrategyCount": 28,
+  "BaselineTradeLogSHA256": "cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359",
+  "BaselineTrades": 16298,
+  "CurrentPortfolioPolicyProvenance": "Portfolio Revision #1 excludes only22; Phase5 SET has exactly22 disabled and20 enabled; actual live application not independently verified",
+  "CurrentStrategyCount": 27,
+  "CurrentStrategyIDs": [
+    "1_EJ_Log1",
+    "2_EJ_NightBlitz_20",
+    "3_EJ_NightBlitz_21",
+    "4_GJ_Port_Log1",
+    "5_GJ_Port_Log2",
+    "6_GJ_Old_Mon",
+    "7_GJ_Mon_Blitz",
+    "8_AJ_Core1",
+    "9_AJ_Core2",
+    "10_AJ_SatA",
+    "11_AJ_SatB",
+    "12_UJ_Short_Core",
+    "13_UJ_Fix_MidWeek",
+    "14_UJ_Sat_3rd",
+    "15_UJ_Sat_Aug",
+    "16_UJ_T10A",
+    "17_EA_1B_Wed_Short",
+    "18_EA_2_MonWed_Short",
+    "19_EA_3_WedThu_Long",
+    "20_EA_1A_MonTue_Short",
+    "21_GA_B_3",
+    "23_GA_F_2",
+    "24_GA_D_1",
+    "25_AU_China_Demand",
+    "26_AJ_China_Demand",
+    "27_EA_China_Demand",
+    "28_GA_China_Demand"
+  ],
+  "CurrentTrades": 15837,
+  "ExcludedDeploymentIDs": [
+    "22_GA_C_2"
+  ],
+  "GlobalR2Applied": false,
+  "GlobalR2Identity": "R2_GLOBAL / R2_MODERATE",
+  "GlobalR2RiskTable": {
+    "Fallback": "0.90",
+    "Q1": "0.50",
+    "Q2": "0.70",
+    "Q3": "0.90",
+    "Q4": "1.10",
+    "Q5": "1.30"
+  },
+  "GlobalR2Type": "VOLATILITY_DEPENDENT_PER_TRADE_RISK_OVERLAY",
+  "LiveChanged": false,
+  "RiskPolicy": "SAME_FIXED_PER_TRADE_RISK_ALL_COMPONENTS",
+  "Sources": {
+    "configs/phase5/step9_2_4_dell_demo_vol_r2_phase5.set": {
+      "Commit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SHA256": "8f7a979214b163f8d289dd1a16193a864989b5788781df4d8715255448d6f1b7"
+    },
+    "docs/63_volatility_phase5_plan.md": {
+      "Commit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SHA256": "37d89f9ec2f63cd499d393360b0a7d78488c90ff19e1524ebbcb4e5a922ec75d"
+    },
+    "src/EA/phase5_demo/vol_r2_core.mqh": {
+      "Commit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SHA256": "28fc8fca8f8ac4bab01101f5812dfe40fb4ba7a0d9c0eff7148692fe2e1754bf"
+    }
+  },
+  "Strategy20Retained": true,
+  "UserOverride": "Latest explicit instruction: all existing27 and AJ/GJ use fixed 0.25/1.0/1.5/2.0% in Stage10; Global R2 excluded from this research comparison; existing operational R2 remains untouched",
+  "schema": "b6-stage10-portfolio-baseline-v1"
+}

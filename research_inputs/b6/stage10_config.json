@@ -1,0 +1,142 @@
+{
+  "BaselineArtifactSHA256": "2c91a08486fb536ecf0a5a8bdec2afd77c748299919eec12738e951972681215",
+  "DriveArchive": "/content/drive/MyDrive/b6_stage10_archive",
+  "EAConstrainedStatus": "NOT_RUN_MISSING_HISTORICAL_BROKER_INPUTS",
+  "ExternalInputs": {
+    "B6Ledger": {
+      "ColabPath": "/content/drive/MyDrive/b6_stage8_archive/stage8_trade_ledger.csv.gz",
+      "Rows": 3043,
+      "SHA256": "af0caed1d3002af960042d56e50e290271a3aced5a82ee879997a30d4e418248",
+      "SelectedRows": 677
+    },
+    "Baseline": {
+      "ColabPath": "/content/drive/MyDrive/time-entry-portfolio-lab/daily_stop/baseline_cc32f32e3df5/daily_stop_baseline_trades.csv",
+      "Rows": 16298,
+      "SHA256": "cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359"
+    }
+  },
+  "FinalCandidateSHA256": "e154b03d92f3af5d0108ec983fe3843ef374cf64a6e5f5d5feb54a3014108562",
+  "FormalRuntime": {
+    "Numpy": "2.3.5",
+    "Pandas": "2.2.3",
+    "Python": "3.13.15"
+  },
+  "GlobalR2Applied": false,
+  "GlobalR2Identity": "R2_GLOBAL / R2_MODERATE",
+  "InitialCapitalJPY": 500000,
+  "InputArtifactSHA256": {
+    "research_inputs/b6/stage10_portfolio_baseline.json": "2c91a08486fb536ecf0a5a8bdec2afd77c748299919eec12738e951972681215",
+    "research_inputs/b6/stage10_provenance/63_volatility_phase5_plan.md.json": "0ffc10e7d697e899b1eb3fd36beb27766948f324596c689862da08b078771cfd",
+    "research_inputs/b6/stage10_provenance/step9_2_4_dell_demo_vol_r2_phase5.set.json": "bbaee19d475d521e6580cb52990777f03cd64b1b817bbb54408870cec023974f",
+    "research_inputs/b6/stage10_provenance/vol_r2_core.mqh.json": "368a055cc7e1ebfe9bd78dccac5c01ee6609f13642d512452b48c22f2e6d4b1e",
+    "research_inputs/b6/stage10_source_spec.json": "86028343af96454a93a637503d8eb543c6ee0be8de8fec8b57bc3343bb77f442",
+    "research_inputs/b6/stage9_config.json": "b836d2082ed3d432a185d1f496d3499eeff581099d0e85028b193bc4943ef6cd",
+    "research_inputs/b6/stage9_family_consolidation.json": "b0e9e3b9aeb64a4ee886054bee702533b835cddf9b880f6ec6ea8fc2649aade5",
+    "research_inputs/b6/stage9_final_candidates.json": "e154b03d92f3af5d0108ec983fe3843ef374cf64a6e5f5d5feb54a3014108562",
+    "results/b6/stage10_freeze/input_trade_ledger_audit.json": "7817432507b30fc591bb0651274144968ae1630162128ef2ef0a08795f88e0fa",
+    "results/b6/stage10_freeze/stage9_input_audit.json": "8206b26cec2d5e45d65d65902c3afee7d38d457ee0b68deb408180f325c77060",
+    "results/b6/stage9_freeze/stage8_input_audit.json": "14624ffb3243f3f48a107bf8a139da780820d2699e207c37a3432f9a17dd2f47"
+  },
+  "InternalDecimalPrecision": 40,
+  "LiveEnabled": false,
+  "MetricDefinitions": {
+    "DDDelta": "negative improves, positive worsens",
+    "Interaction": "(P3-P0)-((P1-P0)+(P2-P0)) FinalCapital; diagnostic only",
+    "MaxDD": "positive peak-current; initial500k peak; mode-wide peak never resets at report boundaries",
+    "MoneyPF": "positive YenPnL / abs(negative YenPnL); no loss=>UNDEFINED",
+    "MoneyRoMD": "NetProfitJPY / MaxDDJPY; noDD=>UNDEFINED",
+    "PeriodAttribution": "Entry JST; boundaries and trading-week crossing rejected; capital settlement CloseTime",
+    "WorstDayPct": "minimum close-day PnL/day-start Balance*100; negative loss",
+    "WorstDayWeekDelta": "more negative worsens",
+    "WorstWeekPct": "minimum Monday06 close-week PnL/week-start Balance*100"
+  },
+  "MoneyMode": "THEORETICAL_UNCAPPED",
+  "MoneyModes": {
+    "CONTINUOUS_2020": {
+      "Periods": [
+        "Discovery",
+        "Validation",
+        "Monitor",
+        "PostDiscovery",
+        "FullAvailable"
+      ],
+      "Start": "2020-01-01"
+    },
+    "POSTDISCOVERY_RESET_2024": {
+      "Periods": [
+        "Validation",
+        "Monitor",
+        "PostDiscovery"
+      ],
+      "Start": "2024-01-01"
+    }
+  },
+  "NoAdoptionThreshold": true,
+  "NoRanking": true,
+  "NoRiskNormalization": true,
+  "NoRiskSelection": true,
+  "OutputRoot": "/content/b6_stage10",
+  "Periods": {
+    "Discovery": [
+      "2020-01-01",
+      "2024-01-01"
+    ],
+    "FullAvailable": [
+      "2020-01-01",
+      "2026-09-10"
+    ],
+    "Monitor": [
+      "2026-01-01",
+      "2026-09-10"
+    ],
+    "PostDiscovery": [
+      "2024-01-01",
+      "2026-09-10"
+    ],
+    "Validation": [
+      "2024-01-01",
+      "2026-01-01"
+    ]
+  },
+  "PortfolioBase": "current static27 excluding22; fixed risk; no Global R2 overlay",
+  "PortfolioConfigs": {
+    "P0_CURRENT": [],
+    "P1_CURRENT_PLUS_AJ": [
+      "B6-AUDJPY-L-W0-E0950-H1440"
+    ],
+    "P2_CURRENT_PLUS_GJ": [
+      "B6-GBPJPY-L-W0-E0835-H1415"
+    ],
+    "P3_CURRENT_PLUS_B6_BOTH": [
+      "B6-AUDJPY-L-W0-E0950-H1440",
+      "B6-GBPJPY-L-W0-E0835-H1415"
+    ]
+  },
+  "PortfolioSimulationExecuted": false,
+  "RSource": "Existing: Pips/SL with savedR integrity; B6: frozen rawR; no display-rounded R",
+  "RiskLoadDefinitions": {
+    "AvgConcurrentPositions": "time-weighted across entire reporting calendar interval including zero-exposure time",
+    "ConcurrentRiskPct": "simultaneously open positions*RiskPct; weekly-base stop-risk proxy, not broker margin",
+    "GrossRiskAllocationPct": "Trades*RiskPct; hypothetical gross allocated stop-risk, not actual loss",
+    "OpenInterval": "[EntryTime,CloseTime); close before open at ties; zero-length interval has no exposure",
+    "Overlap": "elapsed union/intersection; no-trade empty; either zero=>UNDEFINED; individual candidate vs union of existing positions"
+  },
+  "RiskPolicy": "SAME_FIXED_PER_TRADE_RISK_ALL_COMPONENTS",
+  "Risks": [
+    "0.25",
+    "1.0",
+    "1.5",
+    "2.0"
+  ],
+  "SettlementOrder": [
+    "CloseTime",
+    "EntryTime",
+    "PortfolioComponentKey",
+    "RowId"
+  ],
+  "Stage9CodeSHA": "e66c54b65ca4ee2e6f7f730a1adc69a3357cfdcd",
+  "StrategyNumberingEnabled": false,
+  "UserOverride": "Latest explicit instruction: all existing27 and AJ/GJ use fixed 0.25/1.0/1.5/2.0% in Stage10; Global R2 excluded from this research comparison; existing operational R2 remains untouched",
+  "WeeklyRule": "JST Monday06; week-start closed Balance fixed; RiskAmount=WeeklyBase*RiskPct/100; prior closed PnL compounds next week; no intra-week compounding",
+  "schema": "b6-stage10-config-v1"
+}

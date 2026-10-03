@@ -1,0 +1,21 @@
+{
+  "ActualDDComparisonExecuted": false,
+  "ActualFinalCapitalComparisonExecuted": false,
+  "BaselineIdentityResolved": true,
+  "BrokerConstrainedExecuted": false,
+  "CurrentStrategyCount": 27,
+  "ExpectedJobs": 32,
+  "FinalB6CandidateCount": 2,
+  "GlobalR2Applied": false,
+  "GlobalR2Identity": "R2_GLOBAL / R2_MODERATE",
+  "LiveChanged": false,
+  "MoneyModes": 2,
+  "PortfolioConfigs": 4,
+  "PortfolioSimulationExecuted": false,
+  "RiskAllocationDecided": false,
+  "RiskCount": 4,
+  "RiskPctChosen": false,
+  "RiskPolicy": "SAME_FIXED_PER_TRADE_RISK_ALL_COMPONENTS",
+  "State": "STAGE10_IMPLEMENTATION_FREEZE",
+  "StrategyNumberingAssigned": false
+}
