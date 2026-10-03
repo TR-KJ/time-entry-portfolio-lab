@@ -1,0 +1,38 @@
+{
+  "DeploymentEligible": 9,
+  "DeploymentIneligible": 8,
+  "EligibilityUsesMonitorMetrics": false,
+  "EligibleCandidateIDs": [
+    "B6-GBPJPY-L-W0-E0835-H1415",
+    "B6-GBPJPY-L-W0-E0835-H1325",
+    "B6-GBPJPY-L-W0-E0765-H1440",
+    "B6-GBPJPY-L-W0-E0870-H1290",
+    "B6-GBPJPY-L-W0-E0835-H1370",
+    "B6-GBPJPY-L-W0-E0800-H1360",
+    "B6-GBPJPY-L-W0-E0795-H1405",
+    "B6-AUDJPY-L-W0-E0950-H1440",
+    "B6-GBPJPY-L-W0-E0800-H1440"
+  ],
+  "ExcludedCandidateIDs": [
+    "B6-AUDJPY-L-W0-E0425-H1315",
+    "B6-AUDJPY-L-W0-E0425-H1255",
+    "B6-AUDJPY-L-W0-E0425-H1100",
+    "B6-AUDJPY-L-W0-E0425-H1360",
+    "B6-AUDJPY-L-W0-E0425-H1195",
+    "B6-AUDJPY-L-W0-E0425-H1020",
+    "B6-AUDJPY-L-W0-E0425-H1150",
+    "B6-AUDJPY-L-W0-E0425-H1430"
+  ],
+  "ExternalSpreadMeasurementUsed": false,
+  "LiveAdoption": false,
+  "NoRanking": true,
+  "NoRetuning": true,
+  "PairCounts": {
+    "AUDJPY": 1,
+    "EURJPY": 0,
+    "GBPJPY": 8
+  },
+  "ReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+  "ResearchCandidateCount": 17,
+  "ResearchHistoryUnchanged": true
+}

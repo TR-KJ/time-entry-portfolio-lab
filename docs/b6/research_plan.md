@@ -238,3 +238,9 @@ WorkではStage6 full Validation未実行。Chat確認後にGoogle Colabで2024�
 Stage6 formal Colab runtime at `a1f9e0266801d3d0b4cd383f8fea909fdbc0a678` completed 50 candidates / 150 rows: PASS 17, FAIL 33, INSUFFICIENT_SAMPLE 0. Prior Work non-execution records describe implementation-time state and remain unchanged. Stage7 inputs were independently audited from the formal archive, not reconstructed from Chat or review ZIP. The 17 formal PASS rows retain their order and conditions (AUDJPY 9, GBPJPY 8; Long/Monday/E0).
 
 Stage7 freezes `[2026-01-01, 2026-09-10)` JST as partial-year **Reference Monitor**, with actual M1 end 2026-09-09 06:00 JST. No Monitor PASS/FAIL threshold, ranking, retuning or candidate drop/refill exists. Stage6 statuses are immutable; Stage6 FAIL candidates are not replayed. Portfolio and live remain disabled; PASS ≠ live adoption. Candidate freeze SHA256: `c973c541726efba057b2c07a19cc99ffd2b5a2d457328d1e9df8e813d5e96b86`. See [Stage7 specification](stage7_monitor.md) for hard gates, evidence and tests. Work stops at implementation publication; formal Monitor requires Chat confirmation and Google Colab.
+
+## Stage8 — Deployment Eligibility + post-validation structural analysis
+
+Stage7正式runtimeは17/17 OBSERVEDで完走、Formal Validation PASSは全17件で維持する。ユーザー決定により、AUDJPY Monday 07:01の8件だけを `WEEKLY_OPEN_EXECUTION_MODEL_RISK` としてDeployment Review対象外へ固定。固定spreadモデルが週明けspread/slippage/gapの実行リスクを十分stressしていないためであり、成績や実測spreadに基づく判断ではない。研究候補削除・PASS取消し・Monitor変更なし。
+
+PoolはStage7相対順の9件（AUDJPY 15:50 singleton 1＋GBPJPY8）、SHA256 `dfe25f015da9532535fb9aae3e580e59835f68cf6f9c0e2b0fc6b4a215ec6d68`。Discovery / Validation / partial Monitor / FullAvailableを分け、36 pairs×4＝144 raw overlap/correlation rowsを保存する。FullAvailableはpost-validation structural analysisで、新しいValidationではない。Stage8に閾値・clustering・ranking・代表選定なし。Stage9でfamily consolidation、Stage10でincremental portfolio simulationを別途検討。今回Workは実装・合成tests・入力監査まで。詳細は [Stage8仕様](stage8_overlap_correlation.md)。

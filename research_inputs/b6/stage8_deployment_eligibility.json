@@ -1,0 +1,188 @@
+{
+  "Candidates": [
+    {
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1415",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "13:57",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1325",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "13:50",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "CandidateID": "B6-GBPJPY-L-W0-E0765-H1440",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "12:45",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0425-H1315",
+      "DeploymentReviewEligibility": "INELIGIBLE_EXECUTION_RISK",
+      "EligibilityReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+      "EligibilityReasonText": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+      "FinalEntryJST": "07:01",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-GBPJPY-L-W0-E0870-H1290",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "14:29",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0425-H1255",
+      "DeploymentReviewEligibility": "INELIGIBLE_EXECUTION_RISK",
+      "EligibilityReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+      "EligibilityReasonText": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+      "FinalEntryJST": "07:01",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1370",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "13:58",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0425-H1100",
+      "DeploymentReviewEligibility": "INELIGIBLE_EXECUTION_RISK",
+      "EligibilityReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+      "EligibilityReasonText": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+      "FinalEntryJST": "07:01",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0425-H1360",
+      "DeploymentReviewEligibility": "INELIGIBLE_EXECUTION_RISK",
+      "EligibilityReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+      "EligibilityReasonText": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+      "FinalEntryJST": "07:01",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0425-H1195",
+      "DeploymentReviewEligibility": "INELIGIBLE_EXECUTION_RISK",
+      "EligibilityReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+      "EligibilityReasonText": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+      "FinalEntryJST": "07:01",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0425-H1020",
+      "DeploymentReviewEligibility": "INELIGIBLE_EXECUTION_RISK",
+      "EligibilityReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+      "EligibilityReasonText": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+      "FinalEntryJST": "07:01",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0425-H1150",
+      "DeploymentReviewEligibility": "INELIGIBLE_EXECUTION_RISK",
+      "EligibilityReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+      "EligibilityReasonText": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+      "FinalEntryJST": "07:01",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0425-H1430",
+      "DeploymentReviewEligibility": "INELIGIBLE_EXECUTION_RISK",
+      "EligibilityReasonCode": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+      "EligibilityReasonText": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+      "FinalEntryJST": "07:01",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1360",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "13:22",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "CandidateID": "B6-GBPJPY-L-W0-E0795-H1405",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "13:13",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "CandidateID": "B6-AUDJPY-L-W0-E0950-H1440",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "15:50",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1440",
+      "DeploymentReviewEligibility": "ELIGIBLE",
+      "EligibilityReasonCode": "ELIGIBLE_FOR_STAGE8_DEPLOYMENT_REVIEW",
+      "EligibilityReasonText": "Eligible for Stage8 deployment review only; not live adoption.",
+      "FinalEntryJST": "13:22",
+      "FormalValidationStatus": "PASS",
+      "MonitorState": "OBSERVED",
+      "Symbol": "GBPJPY"
+    }
+  ],
+  "DecisionSource": "Explicit user execution-model-risk decision; no external spread measurement or performance criterion",
+  "DeploymentEligible": 9,
+  "DeploymentIneligible": 8,
+  "EligibilityUsesMonitorMetrics": false,
+  "FormalValidationChanged": false,
+  "MonitorResultsChanged": false,
+  "ResearchCandidateCount": 17,
+  "ResearchHistoryUnchanged": true,
+  "SourceStage7CandidateSHA256": "c973c541726efba057b2c07a19cc99ffd2b5a2d457328d1e9df8e813d5e96b86",
+  "SourceStage7CodeSHA": "805fccbb2dac5dddd4e4ed24d14bedf8887d3b1a",
+  "SourceStage7ConfigSHA256": "fa42a56ebf23135c4d9c11d973016614c5298c72ecab60a309218a395d58b683",
+  "SourceStage7SummarySHA256": "e03959f3b4f47a6c2b1f8dd22d5576e194540bb053ab3c491f262500f5bae8f8",
+  "schema": "b6-stage8-deployment-eligibility-v1",
+  "status": "STAGE8_DEPLOYMENT_ELIGIBILITY_FREEZE"
+}

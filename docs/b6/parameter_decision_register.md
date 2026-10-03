@@ -119,3 +119,19 @@ Stage2-A実装・Colab実行は完了。Stage2-BもColab完了済み。Stage3も
 Source is the exact Stage6 formal archive at code `a1f9e0266801d3d0b4cd383f8fea909fdbc0a678`, completing 17 PASS / 33 FAIL / 0 insufficient out of 50. Only the 17 PASS rows are input, in Stage6 formal result order: AUDJPY 9, GBPJPY 8, all Long/Monday/E0. Frozen candidate SHA256 `c973c541726efba057b2c07a19cc99ffd2b5a2d457328d1e9df8e813d5e96b86`. No parameter, SL/TP, time or EventMode is changed.
 
 Window `[2026-01-01, 2026-09-10)` JST remains fixed despite actual M1 end 2026-09-09 06:00. This is partial-year observation only: neutral `OBSERVED`, no Monitor PASS/FAIL, sample/performance threshold, ranking, retuning, candidate revival or Formal Validation status conversion. Raw R/PF/DD and all frozen execution semantics are inherited. Stage1–6 frozen code/config/Candidate/Contract artifacts remain unchanged. Portfolio/live remain disabled, PASS ≠ live adoption. Work may audit exact hashes and timestamps, but may not replay the 17 real 2026 candidates. See [Stage7 specification](stage7_monitor.md).
+
+## Stage8追加決定
+
+| ID | 項目 | 固定内容 |
+|---|---|---|
+| S801 | Research不変 | Stage7 code 805fccb…、17 PASS / OBSERVEDを維持。Monitor成績をeligibility判断へ使わない |
+| S802 | Deployment除外 | exact AUDJPY Monday07:01の8 IDsだけ。WEEKLY_OPEN_EXECUTION_MODEL_RISK。fixed-spreadモデルのstress不足であり実測spread/成績による除外ではない |
+| S803 | Pool | AUDJPY15:50 singleton1＋GBPJPY8、Stage7相対順。Pool SHA dfe25f015da9532535fb9aae3e580e59835f68cf6f9c0e2b0fc6b4a215ec6d68。ELIGIBLE≠live採用 |
+| S804 | Period | Discovery[2020,2024)、Validation[2024,2026)、Monitor[2026-01-01,2026-09-10)、FullAvailable[2020-01-01,2026-09-10) JST。予定Entry日帰属 |
+| S805 | Alignment | WeekKey=予定Entry JST日付。共通実取引だけraw R Pearson/Spearman、no-trade0埋めなし。n<2/variance0はUNDEFINED |
+| S806 | Overlap | trade/loss Jaccard、三値sign agreement、予定区間重複、actual elapsed exposure intersection/union、shorter exposure coverage。分母0はUNDEFINED |
+| S807 | Evidence | 36組×4期間=144行、9候補×4=36行。28 GBP内＋8 cross-pair。matrixはlong form派生、対角UNDEFINED。時刻差は絶対差、Exitはday offset込み |
+| S808 | 選択禁止 | threshold/clustering/family label/score/ranking/代表選定/retuningなし。Stage9 family consolidationとStage10 Portfolioは未実装・未実行 |
+| S809 | 実行境界 | frozen execution、no fill、実終端2026-09-09 06:00。Workは56hash/availability監査と合成testsのみ。Chat確認後Colabで本番 |
+
+詳細・exact IDs・SHA・理由文は [Stage8仕様](stage8_overlap_correlation.md)。Stage1〜7 frozen source/config/artifactsと研究結果は変更しない。

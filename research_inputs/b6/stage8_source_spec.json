@@ -1,0 +1,271 @@
+{
+  "calendar": {
+    "Clocks": {
+      "AUD_CPI": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "10:30"
+      },
+      "BOE": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "21:00"
+      },
+      "BOJ": {
+        "After": 180,
+        "Before": 180,
+        "DayOffset": 0,
+        "Time": "12:00"
+      },
+      "ECB": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "21:15"
+      },
+      "FOMC": {
+        "After": 180,
+        "Before": 180,
+        "DayOffset": 1,
+        "Time": "03:00"
+      },
+      "RBA": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "13:30"
+      },
+      "US_CPI": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "21:30"
+      },
+      "US_NFP": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "21:30"
+      }
+    },
+    "CurrencyCentralBank": {
+      "AUD": "RBA",
+      "EUR": "ECB",
+      "GBP": "BOE",
+      "JPY": "BOJ",
+      "USD": "FOMC"
+    },
+    "File": "research_inputs/b6/stage4_event_calendar.json",
+    "Modes": {
+      "E0": "NONE",
+      "E1": "PAIR_CENTRAL_BANKS",
+      "E2": "E1 + US_NFP + US_CPI + AUD_CPI iff pair contains AUD"
+    },
+    "NoCorrections": true,
+    "Overlap": "PlannedEntry <= WindowEnd AND PlannedExit >= WindowStart; inclusive; OR; scheduled exit only",
+    "SHA256": "1882b315f88d2a1b4fd18b2929f12bd269c87c98b5c2bf1a66203baf54865484",
+    "SourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+    "SourceFile": "src/portfolio_backtest_v1_2_add_aussie_logic.py",
+    "SourceSHA256": "4b71f6b7b1cdbe3266cd9b7cefae37811781561016a013a34d7c8c84247ef32d"
+  },
+  "candidate_count": 9,
+  "candidate_sha256": "b98f36d92d1b101fcd53f65fdd900bee35f1a209cbdcdd71d71211dc15d00ae0",
+  "contract_sha256": "646344d240323f81d46e6360ac1f5d4e15f2130db6399f7fbbcb013bc1a15c57",
+  "eligible_ids": [
+    "B6-GBPJPY-L-W0-E0835-H1415",
+    "B6-GBPJPY-L-W0-E0835-H1325",
+    "B6-GBPJPY-L-W0-E0765-H1440",
+    "B6-GBPJPY-L-W0-E0870-H1290",
+    "B6-GBPJPY-L-W0-E0835-H1370",
+    "B6-GBPJPY-L-W0-E0800-H1360",
+    "B6-GBPJPY-L-W0-E0795-H1405",
+    "B6-AUDJPY-L-W0-E0950-H1440",
+    "B6-GBPJPY-L-W0-E0800-H1440"
+  ],
+  "excluded_ids": [
+    "B6-AUDJPY-L-W0-E0425-H1315",
+    "B6-AUDJPY-L-W0-E0425-H1255",
+    "B6-AUDJPY-L-W0-E0425-H1100",
+    "B6-AUDJPY-L-W0-E0425-H1360",
+    "B6-AUDJPY-L-W0-E0425-H1195",
+    "B6-AUDJPY-L-W0-E0425-H1020",
+    "B6-AUDJPY-L-W0-E0425-H1150",
+    "B6-AUDJPY-L-W0-E0425-H1430"
+  ],
+  "execution_contract": {
+    "AdditionalPriceRounding": false,
+    "AdditionalSlippage": false,
+    "DST": {
+      "Ambiguous": "infer",
+      "Nonexistent": "shift_forward"
+    },
+    "DuplicateJST": "reject",
+    "Entry": "Exact planned Entry M1 Open",
+    "EntryBarInclusive": true,
+    "EntryStop": {
+      "End": "01-03",
+      "Inclusive": true,
+      "Start": "12-25"
+    },
+    "ExitBarInclusive": true,
+    "ExitFallbackMinutes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "ExitRequiredBeforePathScan": true,
+    "FrozenSourceSHA256": {
+      "src/research/b6/execution.py": "82663372d5ad1d7da9b44926627a24cbcbb7fb7aa2519126e61eb18997a21252",
+      "src/research/b6/stage1_engine.py": "44f07182cd0cca70383361f0faf1f3ca39be5448cffdabb43269fd7db4054848",
+      "src/research/b6/stage1_metrics.py": "c731a5ec657db8fb272895e00063b8f7b4a0cd1b624b7bd96b902a69f5ee08b4",
+      "src/research/b6/stage2a_engine.py": "78818304e3c3ccd153b8647fa45783104f2dccd410c21f6f7b420323260b6b81",
+      "src/research/b6/stage2a_metrics.py": "c6d4b21e55e9726ee9e7bfccf42c497d8276294175a239783890a755028b4ad3",
+      "src/research/b6/stage3_grid.py": "f1c732cc3eeeb7f13ad81c5cc7e074f0aea18c68309b289928bbef1cb3993926",
+      "src/research/b6/stage4_events.py": "b595e70487aa05b4c93587832291d3428b222d28b47d18f6157f23692080beeb",
+      "src/research/b6/stage4_metrics.py": "f6ae4b5f362945bb4680b454073b1e45c43816a799575d20bfabcec7acfe3bb2"
+    },
+    "HighLow": "raw",
+    "HitEpsilon": 0,
+    "IntermediateMissingInterpolation": false,
+    "LongEntry": "Open + fixed spread",
+    "Metrics": {
+      "Basis": "unrounded_R",
+      "DisplayDecimals": {
+        "Pips": 6,
+        "R": 9
+      },
+      "Drawdown": "Inherited cumulative raw R, initial peak 0",
+      "Missing": "No trade",
+      "NoLossNoPositivePF": "UNDEFINED",
+      "NoLossPositivePF": "INF",
+      "PF": "sum(positive raw R)/abs(sum(negative raw R))",
+      "TradeOrdering": "Inherited Stage3/Stage4 opportunity order",
+      "ZeroR": "Trades included; Wins/Losses excluded"
+    },
+    "MissingAllExitFallback": "NO_TRADE",
+    "MissingEntry": "NO_TRADE",
+    "Overnight": true,
+    "PipSize": {
+      "AUDJPY": 0.01,
+      "AUDUSD": 0.0001,
+      "EURAUD": 0.0001,
+      "EURJPY": 0.01,
+      "GBPAUD": 0.0001,
+      "GBPJPY": 0.01,
+      "USDJPY": 0.01
+    },
+    "SLTPBasis": "Spread-adjusted Entry",
+    "SameBar": "SL_FIRST",
+    "ShortEntry": "Open - fixed spread",
+    "SpreadPips": {
+      "AUDJPY": 1.5,
+      "AUDUSD": 1.5,
+      "EURAUD": 1.5,
+      "EURJPY": 1,
+      "GBPAUD": 2,
+      "GBPJPY": 2,
+      "USDJPY": 0.5
+    },
+    "Timezone": "Europe/Helsinki -> Asia/Tokyo -> naive JST",
+    "WeekendBridge": false
+  },
+  "expected_stage7_summary": {
+    "CandidateCount": 17,
+    "FormalValidationChanged": false,
+    "FormalValidationPASSCount": 17,
+    "LiveChanged": false,
+    "MonitorExecuted": true,
+    "MonitoredCount": 17,
+    "NoMonitorPassFail": true,
+    "NoRanking": true,
+    "NoRetuning": true,
+    "PortfolioExecuted": false,
+    "State": "COMPLETE_STAGE7_MONITOR_ONLY"
+  },
+  "formal_file_sha256": {
+    "checkpoints.json": "649d4bee54a3d877b1963ec2aad9b4676ea7cb5f38696616df52b6c3330da203",
+    "effective_config.json": "fa42a56ebf23135c4d9c11d973016614c5298c72ecab60a309218a395d58b683",
+    "identity.json": "a440640c18aed3916d006fd5b5119beab3ee4632038dcb102f261ac233de9f89",
+    "m1_input_audit.json": "2f3c8c2895a9f65ab81165d1921153692abe8fb4adeb4779149ae93b86470253",
+    "progress.json": "69437782696ee0e7d83977bb62e683fb3b474e7ccce9b8cfea1424fd82733e62",
+    "shards/B6-AUDJPY-L-W0-E0425-H1020.json": "195dc94215caf13dfab97c7d97a079affbcd2b0ed6d5a38d5599b8165285fef8",
+    "shards/B6-AUDJPY-L-W0-E0425-H1100.json": "ac60f3cb978e1971108b86dc0a8a9dc026c78de56ad706674c4e2e8b05252c61",
+    "shards/B6-AUDJPY-L-W0-E0425-H1150.json": "5df338f2fb0b89a659bdab395da47bd1bb6a764a587fde2d8a13f2895773386e",
+    "shards/B6-AUDJPY-L-W0-E0425-H1195.json": "16ae82c857ea4a02f2b24dca8e2b397028d8b457c7988269e5f24278802ab178",
+    "shards/B6-AUDJPY-L-W0-E0425-H1255.json": "a31d9d194e9c02fd96781a9383435fba31d0ba9fb6cd9dd0c4ea729f5755ab2d",
+    "shards/B6-AUDJPY-L-W0-E0425-H1315.json": "24bdcb491bcab659f7efdfc792f097bcf53f82d4ec391e5258244a94c537865f",
+    "shards/B6-AUDJPY-L-W0-E0425-H1360.json": "3675b9f05d14125830aee8ab33f521eefcc8d9395c8b94e443e0ff282819cef8",
+    "shards/B6-AUDJPY-L-W0-E0425-H1430.json": "c104785d89dd32adda05a8967b382b211ce57d4d10515d8640922d80a1f7faf3",
+    "shards/B6-AUDJPY-L-W0-E0950-H1440.json": "4d78980ca2d1a08d8b95692470ed04ef1931011002189d62eaeccaf9e1087511",
+    "shards/B6-GBPJPY-L-W0-E0765-H1440.json": "b6f26c2dc852fbe902e59d2728f6733976c8126f642dd889541ff9efd191ece6",
+    "shards/B6-GBPJPY-L-W0-E0795-H1405.json": "01ab7d33ec53c372bbd6d6aa7759ba00371aa917a892da45959becee72141774",
+    "shards/B6-GBPJPY-L-W0-E0800-H1360.json": "5cb3a01151f5b90f4e4ca67357f581608fc89cb55c05fc835e82926a0457d04e",
+    "shards/B6-GBPJPY-L-W0-E0800-H1440.json": "236b84a2020a2d6827ceb4de0e1ae85b068da7b119d95a69703a69149275facf",
+    "shards/B6-GBPJPY-L-W0-E0835-H1325.json": "595b6d74f961e69d704e9b32a3735421caeeee591fb9e3728909f592c8da9a65",
+    "shards/B6-GBPJPY-L-W0-E0835-H1370.json": "dc89d29674d5d25ac0272099f97f4ab00965846ef5d5acab66d70aa58de27d45",
+    "shards/B6-GBPJPY-L-W0-E0835-H1415.json": "de740061e06a71e9174edea8ac274b361c47a7969f3bd2dd4883bb316220293d",
+    "shards/B6-GBPJPY-L-W0-E0870-H1290.json": "d47914b83dfd267854637955f16b3df7557af2f5f98d471c39072553968949eb",
+    "stage6_input_audit.json": "10bc768ae5371dd4c5559f07597cab22527cd6439d9aa79a26429a73d103ed0b",
+    "stage7_diagnostics.csv.gz": "057e27bfb72097dc1b5a0965a89264eb306f3d95364d54eb512e84c9bc5f96aa",
+    "stage7_monitor_results.csv.gz": "b44a9594c8f007a9c0b993eb6603197f498253663461fd7be4c093e1c371fac1",
+    "stage7_review.json": "a95f001ee69783e7e8c18d1a94ae2cb0470dfd42c0428a3122e4b8f54fad373d",
+    "stage7_review.zip": "f4a4d07de679a3927791f2d0c0f8776a2b470f23f40176e76000e88f9975837f",
+    "stage7_summary.json": "e03959f3b4f47a6c2b1f8dd22d5576e194540bb053ab3c491f262500f5bae8f8"
+  },
+  "formal_runtime": {
+    "Numpy": "2.3.5",
+    "Pandas": "2.2.3",
+    "Python": "3.13.15"
+  },
+  "m1_manifest": {
+    "Count": 56,
+    "Manifest": "research_inputs/b6/expected_m1_manifest.csv",
+    "ManifestSHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+    "PriceFilesRead": false
+  },
+  "ordering": "Stage7 relative order; explicit deployment eligibility filter only; no reranking",
+  "pair_counts": {
+    "AUDJPY": 1,
+    "EURJPY": 0,
+    "GBPJPY": 8
+  },
+  "period_order": [
+    "Discovery",
+    "Validation",
+    "Monitor",
+    "FullAvailable"
+  ],
+  "periods": {
+    "Discovery": {
+      "EndExclusive": "2024-01-01",
+      "StartInclusive": "2020-01-01"
+    },
+    "FullAvailable": {
+      "EndExclusive": "2026-09-10",
+      "StartInclusive": "2020-01-01"
+    },
+    "Monitor": {
+      "EndExclusive": "2026-09-10",
+      "StartInclusive": "2026-01-01"
+    },
+    "Validation": {
+      "EndExclusive": "2026-01-01",
+      "StartInclusive": "2024-01-01"
+    }
+  },
+  "reason_code": "WEEKLY_OPEN_EXECUTION_MODEL_RISK",
+  "reason_text": "AUDJPY Monday 07:01 entry lies near the weekly market open. The frozen historical execution model uses a fixed spread and does not stress live weekly-open spread widening, slippage or gap-execution risk sufficiently for deployment review. The candidates remain research-valid; only deployment-review eligibility is changed.",
+  "runtime": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "schema": "b6-stage8-source-spec-v1",
+  "source_count": 17,
+  "stage7_candidate_sha256": "c973c541726efba057b2c07a19cc99ffd2b5a2d457328d1e9df8e813d5e96b86",
+  "stage7_code_sha": "805fccbb2dac5dddd4e4ed24d14bedf8887d3b1a",
+  "stage7_config_sha256": "fa42a56ebf23135c4d9c11d973016614c5298c72ecab60a309218a395d58b683"
+}
