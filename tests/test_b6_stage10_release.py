@@ -1,4 +1,5 @@
 import ast
+import hashlib
 import json
 import os
 import subprocess
@@ -39,3 +40,27 @@ class ReleaseTests(unittest.TestCase):
             subprocess.run([sys.executable,'-c',code],cwd=p,env=env,check=True)
             self.assertFalse(list(p.rglob('__pycache__')));self.assertFalse(list(p.rglob('*.pyc')))
             self.assertEqual(subprocess.check_output(['git','status','--porcelain'],cwd=p,text=True),'')
+
+    def test_provenance_sha256_exact_64_hex(self):
+        for path in (ROOT/INPUT/'stage10_provenance').glob('*.json'):
+            with self.subTest(path=path.name):
+                self.assertRegex(read(path)['SourceSHA256'], r'^[0-9a-f]{64}$')
+
+    def test_provenance_embedded_content_exact_sha256(self):
+        for path in (ROOT/INPUT/'stage10_provenance').glob('*.json'):
+            record=read(path)
+            with self.subTest(path=path.name):
+                self.assertEqual(hashlib.sha256(record['Content'].encode('utf-8')).hexdigest(),record['SourceSHA256'])
+
+    def test_global_r2_source_identity_and_baseline_reference(self):
+        record=read(ROOT/INPUT/'stage10_provenance/vol_r2_core.mqh.json')
+        expected_commit='5e93a8834e27d4d9ffdbc2980906511f74ddb27a'
+        expected_path='src/EA/phase5_demo/vol_r2_core.mqh'
+        expected_hash='28fc8fca8f8ac4bab01101f5812dfe40fb4ba7a0d9c0eff7148692fe2e1754bf'
+        self.assertEqual(record['SourceCommit'],expected_commit)
+        self.assertEqual(record['SourcePath'],expected_path)
+        self.assertEqual(record['SourceSHA256'],expected_hash)
+        baseline=read(ROOT/INPUT/'stage10_portfolio_baseline.json')
+        self.assertEqual(baseline['Sources'][expected_path],{'Commit':expected_commit,'SHA256':expected_hash})
+        self.assertIs(baseline['GlobalR2Applied'],False)
+        self.assertEqual(baseline['RiskPolicy'],'SAME_FIXED_PER_TRADE_RISK_ALL_COMPONENTS')

@@ -11,12 +11,12 @@
   "HistoricalTests": 585,
   "LiveChanged": false,
   "M1Read": false,
-  "Passed": 635,
+  "Passed": 638,
   "RiskAllocationDecided": false,
   "RiskPctChosen": false,
   "Skipped": 0,
   "Stage10FullMoneySimulationExecuted": false,
-  "Stage10Tests": 50,
+  "Stage10Tests": 53,
   "StrategyNumberingAssigned": false,
-  "Tests": 635
+  "Tests": 638
 }

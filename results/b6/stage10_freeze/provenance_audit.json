@@ -1,0 +1,19 @@
+{
+  "AuditedStage10Freeze": "030bae5cc21261efd20c0a25acddd0eb9cefde6d",
+  "ConfigSHA256": "79e825218b76f0266e19e4fda08b678cd7f905ae7cd99a6fae82be3631f12a1b",
+  "CorrectionScope": "Prior Chat SHA transcription corrected; regression tests and audit added; no scientific artifact or config value changes",
+  "EmbeddedContentSHA256": "28fc8fca8f8ac4bab01101f5812dfe40fb4ba7a0d9c0eff7148692fe2e1754bf",
+  "ExistingArtifactAlreadyCorrect": true,
+  "GlobalR2Applied": false,
+  "PortfolioCompositionChanged": false,
+  "ResearchLogicChanged": false,
+  "RiskConditionsChanged": false,
+  "RiskPolicy": "SAME_FIXED_PER_TRADE_RISK_ALL_COMPONENTS",
+  "SourceCommit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+  "SourceCommitBytesEqualEmbeddedContent": true,
+  "SourcePath": "src/EA/phase5_demo/vol_r2_core.mqh",
+  "SourceSHA256": "28fc8fca8f8ac4bab01101f5812dfe40fb4ba7a0d9c0eff7148692fe2e1754bf",
+  "SourceSHA256Length": 64,
+  "Stage10FullMoneySimulationExecuted": false,
+  "Status": "PASS"
+}
