@@ -1,12 +1,12 @@
 {
   "Status": "PASS",
-  "Tests": 393,
-  "Passed": 393,
+  "Tests": 395,
+  "Passed": 395,
   "Failures": 0,
   "Errors": 0,
   "Skipped": 0,
   "PriorTests": 341,
-  "Stage6Tests": 52,
+  "Stage6Tests": 54,
   "Stage6ConfigSHA256": "fa68b843ce900a83fa9828a7415cce9256d45982e1fee3de9d21980cbb418e4c",
   "Stage5Commit": "e35225782c84a59dd7546e9ff8d3944705c3709a",
   "CandidateFreezeSHA256": "b98f36d92d1b101fcd53f65fdd900bee35f1a209cbdcdd71d71211dc15d00ae0",
@@ -34,5 +34,6 @@
   "CombinedValidationExecuted": false,
   "MonitorExecuted": false,
   "PortfolioExecuted": false,
-  "LiveChanged": false
+  "LiveChanged": false,
+  "PreparationGuard": "PASS_SYS_DONT_WRITE_BYTECODE_BEFORE_B6_IMPORT_FRESH_CLEAN_CHECKOUT_NO_PYCACHE_OR_PYC_STRICT_DIRTY_GUARD_ORIGINAL_FAILURE_REGRESSION"
 }

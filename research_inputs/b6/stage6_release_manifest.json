@@ -41,7 +41,7 @@
   "results/b6/stage5_freeze/test_summary.json": "46f1c69b67abb3b69d4dfb28e5da72e1b1b5873be934b231adbd80e0f74f0c30",
   "results/b6/stage6_freeze/m1_availability_audit.json": "f82d83cf6b964de8be26c43497694f44b03d42d73eb4240642fdf16855b82ff2",
   "results/b6/stage6_freeze/stage5_input_audit.json": "07618df4b7610d839911fabc145d9080cdbec78aa9f93d84a9d80560de89f64c",
-  "results/b6/stage6_freeze/test_summary.json": "7fbf6ecedbbdbc4976328e721ad4b1a6bef47082368ab86f02d52a6ad3855e97",
+  "results/b6/stage6_freeze/test_summary.json": "66be75e01469e4bb57e8faa895c469ae155737e3e6112abf37eab2affa290b16",
   "src/research/b6/__init__.py": "c6c18fb5e509f319308332fb70dd376c6a2841571cf3ccf09352620571386f72",
   "src/research/b6/execution.py": "82663372d5ad1d7da9b44926627a24cbcbb7fb7aa2519126e61eb18997a21252",
   "src/research/b6/rules.py": "66460244a4fa341f7d0df46c7b2c646cd3f02d60b2a6e8a926ea24f57d80e975",
