@@ -113,3 +113,9 @@ Stage2-A実装・Colab実行は完了。Stage2-BもColab完了済み。Stage3も
 |S608|出力/再開|固定|150 period行/50判定行、理由/診断/summary/review。code/config/Stage5/Candidate/Contract/count/56hash/calendar/runtime一致。全候補完走前はjob数だけ表示|
 |S609|Work境界|固定|synthetic中心、実データは56hash/availabilityだけ。正式2024/2025/Combined成績未実行。Stage7/2026/Portfolio/live無効|
 |S610|停止|固定|Implementation FreezeをGitHubへfast-forward保存しremote/local SHA・cleanで停止。Chat確認後Colabだけ本番実行|
+
+## Stage7 — 2026 Reference Monitor freeze
+
+Source is the exact Stage6 formal archive at code `a1f9e0266801d3d0b4cd383f8fea909fdbc0a678`, completing 17 PASS / 33 FAIL / 0 insufficient out of 50. Only the 17 PASS rows are input, in Stage6 formal result order: AUDJPY 9, GBPJPY 8, all Long/Monday/E0. Frozen candidate SHA256 `c973c541726efba057b2c07a19cc99ffd2b5a2d457328d1e9df8e813d5e96b86`. No parameter, SL/TP, time or EventMode is changed.
+
+Window `[2026-01-01, 2026-09-10)` JST remains fixed despite actual M1 end 2026-09-09 06:00. This is partial-year observation only: neutral `OBSERVED`, no Monitor PASS/FAIL, sample/performance threshold, ranking, retuning, candidate revival or Formal Validation status conversion. Raw R/PF/DD and all frozen execution semantics are inherited. Stage1–6 frozen code/config/Candidate/Contract artifacts remain unchanged. Portfolio/live remain disabled, PASS ≠ live adoption. Work may audit exact hashes and timestamps, but may not replay the 17 real 2026 candidates. See [Stage7 specification](stage7_monitor.md).

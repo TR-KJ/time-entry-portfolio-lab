@@ -232,3 +232,9 @@ Combinedはtrade単位をCloseTime→EntryTime→CandidateIDの時系列で集�
 Notebook全flag既定False、SHA空。正式本番はColab＋Chat確認＋RUN_STAGE6_FULLの両flag、clean release、Stage5 identity一致後だけ。50候補完走前にmetrics/statusを表示せず、COMPLETE_STAGE6_VALIDATION_ONLY後に全件を報告。Stage7/2026/Portfolio/liveは無効。
 Workの実データ監査は56hash・期間availabilityだけ。正式2024/2025/Combined Candidate performanceは未実行。GitHub fast-forward、remote=local・clean確認で停止。
 WorkではStage6 full Validation未実行。Chat確認後にGoogle Colabで2024–2025 Validationを実行する。
+
+## Stage7 Implementation Freeze — formal Stage6 PASS-only reference Monitor
+
+Stage6 formal Colab runtime at `a1f9e0266801d3d0b4cd383f8fea909fdbc0a678` completed 50 candidates / 150 rows: PASS 17, FAIL 33, INSUFFICIENT_SAMPLE 0. Prior Work non-execution records describe implementation-time state and remain unchanged. Stage7 inputs were independently audited from the formal archive, not reconstructed from Chat or review ZIP. The 17 formal PASS rows retain their order and conditions (AUDJPY 9, GBPJPY 8; Long/Monday/E0).
+
+Stage7 freezes `[2026-01-01, 2026-09-10)` JST as partial-year **Reference Monitor**, with actual M1 end 2026-09-09 06:00 JST. No Monitor PASS/FAIL threshold, ranking, retuning or candidate drop/refill exists. Stage6 statuses are immutable; Stage6 FAIL candidates are not replayed. Portfolio and live remain disabled; PASS ≠ live adoption. Candidate freeze SHA256: `c973c541726efba057b2c07a19cc99ffd2b5a2d457328d1e9df8e813d5e96b86`. See [Stage7 specification](stage7_monitor.md) for hard gates, evidence and tests. Work stops at implementation publication; formal Monitor requires Chat confirmation and Google Colab.

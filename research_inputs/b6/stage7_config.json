@@ -1,0 +1,234 @@
+{
+  "calendar": {
+    "Clocks": {
+      "AUD_CPI": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "10:30"
+      },
+      "BOE": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "21:00"
+      },
+      "BOJ": {
+        "After": 180,
+        "Before": 180,
+        "DayOffset": 0,
+        "Time": "12:00"
+      },
+      "ECB": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "21:15"
+      },
+      "FOMC": {
+        "After": 180,
+        "Before": 180,
+        "DayOffset": 1,
+        "Time": "03:00"
+      },
+      "RBA": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "13:30"
+      },
+      "US_CPI": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "21:30"
+      },
+      "US_NFP": {
+        "After": 120,
+        "Before": 120,
+        "DayOffset": 0,
+        "Time": "21:30"
+      }
+    },
+    "CurrencyCentralBank": {
+      "AUD": "RBA",
+      "EUR": "ECB",
+      "GBP": "BOE",
+      "JPY": "BOJ",
+      "USD": "FOMC"
+    },
+    "File": "research_inputs/b6/stage4_event_calendar.json",
+    "Modes": {
+      "E0": "NONE",
+      "E1": "PAIR_CENTRAL_BANKS",
+      "E2": "E1 + US_NFP + US_CPI + AUD_CPI iff pair contains AUD"
+    },
+    "NoCorrections": true,
+    "Overlap": "PlannedEntry <= WindowEnd AND PlannedExit >= WindowStart; inclusive; OR; scheduled exit only",
+    "SHA256": "1882b315f88d2a1b4fd18b2929f12bd269c87c98b5c2bf1a66203baf54865484",
+    "SourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+    "SourceFile": "src/portfolio_backtest_v1_2_add_aussie_logic.py",
+    "SourceSHA256": "4b71f6b7b1cdbe3266cd9b7cefae37811781561016a013a34d7c8c84247ef32d"
+  },
+  "candidate_count": 17,
+  "candidate_sha256": "b98f36d92d1b101fcd53f65fdd900bee35f1a209cbdcdd71d71211dc15d00ae0",
+  "contract_sha256": "646344d240323f81d46e6360ac1f5d4e15f2130db6399f7fbbcb013bc1a15c57",
+  "evidence_file": "results/b6/stage7_freeze/stage6_formal_evidence.json",
+  "execution_contract": {
+    "AdditionalPriceRounding": false,
+    "AdditionalSlippage": false,
+    "DST": {
+      "Ambiguous": "infer",
+      "Nonexistent": "shift_forward"
+    },
+    "DuplicateJST": "reject",
+    "Entry": "Exact planned Entry M1 Open",
+    "EntryBarInclusive": true,
+    "EntryStop": {
+      "End": "01-03",
+      "Inclusive": true,
+      "Start": "12-25"
+    },
+    "ExitBarInclusive": true,
+    "ExitFallbackMinutes": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "ExitRequiredBeforePathScan": true,
+    "FrozenSourceSHA256": {
+      "src/research/b6/execution.py": "82663372d5ad1d7da9b44926627a24cbcbb7fb7aa2519126e61eb18997a21252",
+      "src/research/b6/stage1_engine.py": "44f07182cd0cca70383361f0faf1f3ca39be5448cffdabb43269fd7db4054848",
+      "src/research/b6/stage1_metrics.py": "c731a5ec657db8fb272895e00063b8f7b4a0cd1b624b7bd96b902a69f5ee08b4",
+      "src/research/b6/stage2a_engine.py": "78818304e3c3ccd153b8647fa45783104f2dccd410c21f6f7b420323260b6b81",
+      "src/research/b6/stage2a_metrics.py": "c6d4b21e55e9726ee9e7bfccf42c497d8276294175a239783890a755028b4ad3",
+      "src/research/b6/stage3_grid.py": "f1c732cc3eeeb7f13ad81c5cc7e074f0aea18c68309b289928bbef1cb3993926",
+      "src/research/b6/stage4_events.py": "b595e70487aa05b4c93587832291d3428b222d28b47d18f6157f23692080beeb",
+      "src/research/b6/stage4_metrics.py": "f6ae4b5f362945bb4680b454073b1e45c43816a799575d20bfabcec7acfe3bb2"
+    },
+    "HighLow": "raw",
+    "HitEpsilon": 0,
+    "IntermediateMissingInterpolation": false,
+    "LongEntry": "Open + fixed spread",
+    "Metrics": {
+      "Basis": "unrounded_R",
+      "DisplayDecimals": {
+        "Pips": 6,
+        "R": 9
+      },
+      "Drawdown": "Inherited cumulative raw R, initial peak 0",
+      "Missing": "No trade",
+      "NoLossNoPositivePF": "UNDEFINED",
+      "NoLossPositivePF": "INF",
+      "PF": "sum(positive raw R)/abs(sum(negative raw R))",
+      "TradeOrdering": "Inherited Stage3/Stage4 opportunity order",
+      "ZeroR": "Trades included; Wins/Losses excluded"
+    },
+    "MissingAllExitFallback": "NO_TRADE",
+    "MissingEntry": "NO_TRADE",
+    "Overnight": true,
+    "PipSize": {
+      "AUDJPY": 0.01,
+      "AUDUSD": 0.0001,
+      "EURAUD": 0.0001,
+      "EURJPY": 0.01,
+      "GBPAUD": 0.0001,
+      "GBPJPY": 0.01,
+      "USDJPY": 0.01
+    },
+    "SLTPBasis": "Spread-adjusted Entry",
+    "SameBar": "SL_FIRST",
+    "ShortEntry": "Open - fixed spread",
+    "SpreadPips": {
+      "AUDJPY": 1.5,
+      "AUDUSD": 1.5,
+      "EURAUD": 1.5,
+      "EURJPY": 1,
+      "GBPAUD": 2,
+      "GBPJPY": 2,
+      "USDJPY": 0.5
+    },
+    "Timezone": "Europe/Helsinki -> Asia/Tokyo -> naive JST",
+    "WeekendBridge": false
+  },
+  "expected_pass_ids": [
+    "B6-GBPJPY-L-W0-E0835-H1415",
+    "B6-GBPJPY-L-W0-E0835-H1325",
+    "B6-GBPJPY-L-W0-E0765-H1440",
+    "B6-AUDJPY-L-W0-E0425-H1315",
+    "B6-GBPJPY-L-W0-E0870-H1290",
+    "B6-AUDJPY-L-W0-E0425-H1255",
+    "B6-GBPJPY-L-W0-E0835-H1370",
+    "B6-AUDJPY-L-W0-E0425-H1100",
+    "B6-AUDJPY-L-W0-E0425-H1360",
+    "B6-AUDJPY-L-W0-E0425-H1195",
+    "B6-AUDJPY-L-W0-E0425-H1020",
+    "B6-AUDJPY-L-W0-E0425-H1150",
+    "B6-AUDJPY-L-W0-E0425-H1430",
+    "B6-GBPJPY-L-W0-E0800-H1360",
+    "B6-GBPJPY-L-W0-E0795-H1405",
+    "B6-AUDJPY-L-W0-E0950-H1440",
+    "B6-GBPJPY-L-W0-E0800-H1440"
+  ],
+  "formal_file_sha256": {
+    "effective_config.json": "fa68b843ce900a83fa9828a7415cce9256d45982e1fee3de9d21980cbb418e4c",
+    "m1_input_audit.json": "7f6efbd3176a83ccbeed94466ab18a591d00225f687dc55a520e00d69cc3d1ab",
+    "progress.json": "efc43495a7fd603ef57311384cd60b5b90855a11477c22b998e64b2cbaefe96e",
+    "search_space.json": "4bbb0988f2ba05df72b3ec5bbc6eb4c9b49837b5b782affa4d445bedec26b93e",
+    "stage5_input_audit.json": "07618df4b7610d839911fabc145d9080cdbec78aa9f93d84a9d80560de89f64c",
+    "stage6_diagnostics.csv.gz": "b85b58c31f618760dad4d2bc146cf27f0ccdc9df07bf4bb7d0ebe4a22b3c046c",
+    "stage6_period_results.csv.gz": "428a67573f30a6c24c0af5922374ebac08528ef322e0adcd3e824e8084682ecb",
+    "stage6_review.json": "28cba13bf2e760567d20fa7af2fe42b94ea362f3dc70a87ccd480051a0f7190a",
+    "stage6_summary.json": "94392e47bb5495c1fcbfbb34b4efe01b29fcb377ad68de828b8561b59f40c4c4",
+    "stage6_validation_results.csv.gz": "03a62360c7121da80b9db7fc91319b14b92b62b25766550a0c3f44c70e33659e"
+  },
+  "formal_runtime": {
+    "Numpy": "2.3.5",
+    "Pandas": "2.2.3",
+    "Python": "3.13.15"
+  },
+  "formal_validation_immutable": true,
+  "input_audit_file": "results/b6/stage7_freeze/stage6_input_audit.json",
+  "input_sha256": {
+    "research_inputs/b6/stage7_monitor_candidates.json": "c973c541726efba057b2c07a19cc99ffd2b5a2d457328d1e9df8e813d5e96b86",
+    "research_inputs/b6/stage7_source_spec.json": "a78b0d42f1198f9d47481f3a71406c0fc2b7990649b403ecda13aa94317d5b40",
+    "results/b6/stage7_freeze/stage6_formal_evidence.json": "ce4fa69a87e479bce907241f8bad28555f907cbd1ccfc6702c5def847b6a1860",
+    "results/b6/stage7_freeze/stage6_input_audit.json": "10bc768ae5371dd4c5559f07597cab22527cd6439d9aa79a26429a73d103ed0b"
+  },
+  "live_enabled": false,
+  "m1_manifest": {
+    "Count": 56,
+    "Manifest": "research_inputs/b6/expected_m1_manifest.csv",
+    "ManifestSHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+    "PriceFilesRead": false
+  },
+  "monitor_candidate_file": "research_inputs/b6/stage7_monitor_candidates.json",
+  "monitor_candidate_sha256": "c973c541726efba057b2c07a19cc99ffd2b5a2d457328d1e9df8e813d5e96b86",
+  "monitor_period": {
+    "EndExclusive": "2026-09-10",
+    "PartialYear": true,
+    "StartInclusive": "2026-01-01",
+    "Timezone": "Asia/Tokyo naive"
+  },
+  "no_formal_monitor_gate": true,
+  "no_ranking": true,
+  "no_retuning": true,
+  "ordering": "Stage6 formal validation result row order; PASS filter only",
+  "pair_counts": {
+    "AUDJPY": 9,
+    "EURJPY": 0,
+    "GBPJPY": 8
+  },
+  "portfolio_enabled": false,
+  "runtime": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "schema": "b6-stage7-config-v1",
+  "stage5_commit": "e35225782c84a59dd7546e9ff8d3944705c3709a",
+  "stage6_code_sha": "a1f9e0266801d3d0b4cd383f8fea909fdbc0a678",
+  "stage6_config_sha256": "fa68b843ce900a83fa9828a7415cce9256d45982e1fee3de9d21980cbb418e4c",
+  "status": "STAGE7_IMPLEMENTATION_FREEZE"
+}
