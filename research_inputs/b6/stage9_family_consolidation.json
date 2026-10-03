@@ -1,0 +1,115 @@
+{
+  "AJGBPCompetition": false,
+  "CandidateTradeRecomputed": false,
+  "ClusteringExecuted": false,
+  "CorrelationRecomputed": false,
+  "EAChanged": false,
+  "EntryScope": "13:00 <= FinalEntryJST < 14:00; Stage8 Pool field, not CandidateID",
+  "ExistingPortfolioComparisonExecuted": false,
+  "Families": [
+    {
+      "Disposition": "AUTO_RETAINED_SINGLETON",
+      "Members": [
+        "B6-AUDJPY-L-W0-E0950-H1440"
+      ],
+      "Name": "AUDJPY_SINGLETON"
+    },
+    {
+      "Members": [
+        "B6-GBPJPY-L-W0-E0835-H1415",
+        "B6-GBPJPY-L-W0-E0835-H1325",
+        "B6-GBPJPY-L-W0-E0765-H1440",
+        "B6-GBPJPY-L-W0-E0870-H1290",
+        "B6-GBPJPY-L-W0-E0835-H1370",
+        "B6-GBPJPY-L-W0-E0800-H1360",
+        "B6-GBPJPY-L-W0-E0795-H1405",
+        "B6-GBPJPY-L-W0-E0800-H1440"
+      ],
+      "Name": "GBPJPY_FAMILY",
+      "RepresentativeCount": 1
+    }
+  ],
+  "FinalCandidateCount": 2,
+  "FormalValidationChanged": false,
+  "GlobalR2ComparisonExecuted": false,
+  "LiveChanged": false,
+  "LotDecided": false,
+  "M1Read": false,
+  "MetricDefinitions": {
+    "Comparison": "raw IEEE-754 binary64 parsed from formal CSV; no rounding, epsilon or tolerance",
+    "Correlation": "family policy basis only; never a selection key",
+    "FullAvailable": "[2020-01-01, 2026-09-10)",
+    "PF": "audit only; never a selection key",
+    "PerformanceSource": "stage8_candidate_period_metrics.csv.gz only",
+    "Validation": "[2024-01-01, 2026-01-01)",
+    "WorstSegmentMaxDDR": "max(Discovery.MaxDDR, Validation.MaxDDR, Monitor.MaxDDR)"
+  },
+  "MoneySimulationExecuted": false,
+  "MonitorResultsChanged": false,
+  "OutsideSelectionScope": [
+    "B6-GBPJPY-L-W0-E0765-H1440",
+    "B6-GBPJPY-L-W0-E0870-H1290"
+  ],
+  "PolicyBasis": "Explicit user decision based on Stage8 structural evidence; no clustering algorithm",
+  "PortfolioExecuted": false,
+  "RelativeLotMarginProxy": {
+    "ActualBrokerMargin": false,
+    "Assumption": "same symbol, equal fixed monetary risk",
+    "Formula": "30.0 / SL_pips",
+    "Interpretation": "relative lot / margin proxy; lower is less",
+    "LotDecided": false,
+    "RiskAllocationDecided": false,
+    "Symbol": "GBPJPY"
+  },
+  "ReplayExecuted": false,
+  "RepresentativeSelectionScope": [
+    "B6-GBPJPY-L-W0-E0835-H1415",
+    "B6-GBPJPY-L-W0-E0835-H1325",
+    "B6-GBPJPY-L-W0-E0835-H1370",
+    "B6-GBPJPY-L-W0-E0800-H1360",
+    "B6-GBPJPY-L-W0-E0795-H1405",
+    "B6-GBPJPY-L-W0-E0800-H1440"
+  ],
+  "ResearchHistoryUnchanged": true,
+  "RetuningExecuted": false,
+  "RiskAllocationDecided": false,
+  "RiskPercentageDecided": false,
+  "SETChanged": false,
+  "SelectionKeys": [
+    {
+      "Field": "WorstSegmentMaxDDR",
+      "Order": "ASC"
+    },
+    {
+      "Field": "RelativeLotMarginProxy",
+      "Order": "ASC"
+    },
+    {
+      "Field": "FullAvailableMaxDDR",
+      "Order": "ASC"
+    },
+    {
+      "Field": "ValidationAvgR",
+      "Order": "DESC"
+    },
+    {
+      "Field": "FullAvailableTotalR",
+      "Order": "DESC"
+    },
+    {
+      "Field": "CandidateID",
+      "Order": "ASC"
+    }
+  ],
+  "Stage10Executed": false,
+  "Stage8EligibilityChanged": false,
+  "Stage8Identity": {
+    "candidate_pool_sha256": "dfe25f015da9532535fb9aae3e580e59835f68cf6f9c0e2b0fc6b4a215ec6d68",
+    "code_sha": "68d84078c2edc3108c0e3d6ca78d64d9b3d91ab5",
+    "config_sha256": "addcaab2c618df492bd73d7ae2d83d626d8c9513420c939da5f98625bd4704c7",
+    "eligibility_sha256": "7e62f0ca36a8160233a7f037c08f1c084cab49f418688718559afefa30adf852"
+  },
+  "StrategyNumberingAssigned": false,
+  "VPSChanged": false,
+  "schema": "b6-stage9-family-consolidation-v1"
+}

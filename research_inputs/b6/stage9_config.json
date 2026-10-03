@@ -1,0 +1,121 @@
+{
+  "AutoRetainedAUDJPY": "B6-AUDJPY-L-W0-E0950-H1440",
+  "CandidateTradeRecomputed": false,
+  "CorrelationRecomputed": false,
+  "EAChanged": false,
+  "EntryScope": "13:00 <= FinalEntryJST < 14:00; Stage8 Pool field, not CandidateID",
+  "ExistingPortfolioComparisonExecuted": false,
+  "FamilyPolicy": "AUDJPY singleton + one GBPJPY family representative",
+  "FamilySHA256": "b0e9e3b9aeb64a4ee886054bee702533b835cddf9b880f6ec6ea8fc2649aade5",
+  "FinalCandidateCount": 2,
+  "FinalCandidateSHA256": "e154b03d92f3af5d0108ec983fe3843ef374cf64a6e5f5d5feb54a3014108562",
+  "FormalRuntimeSHA256": {
+    "checkpoints.json": "c6180fdd66258657757127fd95fd5ee3659a2cd7ffc144e86dbe607b2661bcfd",
+    "deployment_eligibility_audit.json": "dac429cf9bf02e8de20cc6e332be7cc44b91c1e40821c819ddc5ab6665acf016",
+    "effective_config.json": "addcaab2c618df492bd73d7ae2d83d626d8c9513420c939da5f98625bd4704c7",
+    "identity.json": "d85a57f866aa66cb3b00d8b5a7a4f77a3a3a8a78e4bfad09d791bbd1903b8c49",
+    "m1_input_audit.json": "3f92611a101c64475e1645839ba668ed7c1e39d5f076b1c6d6b3dd64813b209f",
+    "matrix_Discovery_ActualExposureJaccard.csv": "4104046ab6a3e14ad13dfae441de6cffd76055f2b4596e5965e05a633f4e471b",
+    "matrix_Discovery_LossJaccard.csv": "96101b5d8c0713d634d5d23f4e2aef80b68415200c53cf23e7c1d83e3a3ed8fd",
+    "matrix_Discovery_PearsonR.csv": "f326c1547aa9473bd4087a52ca63c126c22ebec4d4feb359ffd5cac3c595c7be",
+    "matrix_Discovery_SpearmanR.csv": "78001a137047931751bfa1dbb753550779d09553bf5927f667202ac902d59223",
+    "matrix_Discovery_TradeJaccard.csv": "67bd247337c381a2f55628a6eee1376d38f651a71cf994d4e428ed27ed518dc9",
+    "matrix_FullAvailable_ActualExposureJaccard.csv": "1b124b3adb9bb3e260860b2c4c4ea67aa877565f49c39226d8be3e1437e05681",
+    "matrix_FullAvailable_LossJaccard.csv": "fab061da27b6d66e8fde2a656fe2c9a021cb373e53017635bd104b6c40b33da0",
+    "matrix_FullAvailable_PearsonR.csv": "ed1a4560c88a8e7a81f951b87c2d96e39a3dee64a325ad7a67032b9ee429c8f1",
+    "matrix_FullAvailable_SpearmanR.csv": "7d3dfe4a6e422116f3f7c83aeaa599fbf7d5c59face697bf7a7749d42a54af47",
+    "matrix_FullAvailable_TradeJaccard.csv": "2bb8347e94aae3a6b48591c9841fbb781ebace1aecefba30a20fb204c07ff55b",
+    "matrix_Monitor_ActualExposureJaccard.csv": "1f15a8673b2247e1ca85a58965cd868724fbbbf58a874319115edcc901d42013",
+    "matrix_Monitor_LossJaccard.csv": "8f1adfc474ce8e2ff8486f565ed1f55a48190ba07d4a297d235a4b2f0853fc25",
+    "matrix_Monitor_PearsonR.csv": "531db460524892bfd1b521de887a68f752864895f07c84d6d873e2d3e2d07076",
+    "matrix_Monitor_SpearmanR.csv": "cccaa83cf4f237d08fa84407c2ea94342566b1215a1c5b1796a227ed875774a9",
+    "matrix_Monitor_TradeJaccard.csv": "67bd247337c381a2f55628a6eee1376d38f651a71cf994d4e428ed27ed518dc9",
+    "matrix_Validation_ActualExposureJaccard.csv": "03e6fc76bfc66a74091723c98705e858cfec4ac95690067ab784cb853e6768aa",
+    "matrix_Validation_LossJaccard.csv": "b5d48b760331b6f3e53e8cc00f3c993e78a2e064c6156c5b9112d4f31d70be12",
+    "matrix_Validation_PearsonR.csv": "32b61ae3777f8a181339a64a8b8f1ef8bda6a9c5b7a7b1ef2d71681f48bd9621",
+    "matrix_Validation_SpearmanR.csv": "82e6f10a94dc7e0b312f41d37d605ecfeeb49955df5841cd8908695bb7e966d5",
+    "matrix_Validation_TradeJaccard.csv": "1b08feb14aacd57d87114ce6ee63c30f79f6779a736d4e3aae30959f0e62d6fd",
+    "progress.json": "623a77f5bec3515d24bcc444faa068b8b7819487ccc7864dcfb87f5cfd09c565",
+    "shards/B6-AUDJPY-L-W0-E0950-H1440.json": "560c50cb8fb0ee8c7ab0f6b4620508b2c030a4101965e9449b03ec9dbb09d106",
+    "shards/B6-GBPJPY-L-W0-E0765-H1440.json": "ba89bfb430ee7ead644d265d3b70990717f613351a10ee0a49e226123891ba82",
+    "shards/B6-GBPJPY-L-W0-E0795-H1405.json": "b9e29d810c94fc767820462f38e996aebd9069221963505a00359162bf47ca66",
+    "shards/B6-GBPJPY-L-W0-E0800-H1360.json": "e21e7fba0da93e71b15df0a72d8b4f37aba32ef28d4226c8503d744383729904",
+    "shards/B6-GBPJPY-L-W0-E0800-H1440.json": "231dcaed0407e7e0d963e8031d890918de2e84be36fcc987bb45d66aac427192",
+    "shards/B6-GBPJPY-L-W0-E0835-H1325.json": "b46b7750870dffee21397eeb057c4193734d70d9a22050b0be4a2638e9069df2",
+    "shards/B6-GBPJPY-L-W0-E0835-H1370.json": "e9be9ce721c48a42277dae84382d1e613ab38868eb32b5ccaa36eea9d697a661",
+    "shards/B6-GBPJPY-L-W0-E0835-H1415.json": "4a8530a69d27d0ab664d3e20bf2adb7a3d155642505a7ea76369c1bcc16fdbb2",
+    "shards/B6-GBPJPY-L-W0-E0870-H1290.json": "5f8647f85410cb798f11586dd6a0e6a5c31d866ef303ab74e475fe31b90ff083",
+    "stage7_input_audit.json": "6e9e72ab51a3c54fe46386b25f74ff34f205a53625d239485fcfe5cb0ef10fc5",
+    "stage8_candidate_period_metrics.csv.gz": "58df2a01acbac9d765a9baf511e4ac0424612fc2484b94178d950108eea39690",
+    "stage8_candidate_pool.json": "dfe25f015da9532535fb9aae3e580e59835f68cf6f9c0e2b0fc6b4a215ec6d68",
+    "stage8_deployment_eligibility.json": "7e62f0ca36a8160233a7f037c08f1c084cab49f418688718559afefa30adf852",
+    "stage8_diagnostics.csv.gz": "9c8c2c702bf4d8f4765b5f1318b191541a3be16a95a499abfabb3dd4a701b80b",
+    "stage8_pairwise_metrics.csv.gz": "55de8433911d4bce1179febb48c948b0e4e565fe9939225683b02bf1de6f2164",
+    "stage8_review.json": "e65ff657fa5ba3bb689366a33284e16744b58f7bb621641c643df98f63c2cc02",
+    "stage8_review.zip": "02c6a1653d302baea7c661b1e4220ae14d3755b668eb4481f24b7a11631a78e4",
+    "stage8_summary.json": "5673e9f2e08642c52d41c134b19102e349b43f9425e51b5f64494b731f4fe3c6",
+    "stage8_trade_ledger.csv.gz": "af0caed1d3002af960042d56e50e290271a3aced5a82ee879997a30d4e418248"
+  },
+  "GlobalR2ComparisonExecuted": false,
+  "LiveChanged": false,
+  "LiveEnabled": false,
+  "LotDecided": false,
+  "M1Read": false,
+  "MoneySimulationExecuted": false,
+  "PortfolioEnabled": false,
+  "PortfolioExecuted": false,
+  "RelativeLotMarginProxy": {
+    "ActualBrokerMargin": false,
+    "Assumption": "same symbol, equal fixed monetary risk",
+    "Formula": "30.0 / SL_pips",
+    "Interpretation": "relative lot / margin proxy; lower is less",
+    "LotDecided": false,
+    "RiskAllocationDecided": false,
+    "Symbol": "GBPJPY"
+  },
+  "ReplayExecuted": false,
+  "RetuningExecuted": false,
+  "RiskAllocationDecided": false,
+  "RiskPercentageDecided": false,
+  "SETChanged": false,
+  "SelectionKeys": [
+    {
+      "Field": "WorstSegmentMaxDDR",
+      "Order": "ASC"
+    },
+    {
+      "Field": "RelativeLotMarginProxy",
+      "Order": "ASC"
+    },
+    {
+      "Field": "FullAvailableMaxDDR",
+      "Order": "ASC"
+    },
+    {
+      "Field": "ValidationAvgR",
+      "Order": "DESC"
+    },
+    {
+      "Field": "FullAvailableTotalR",
+      "Order": "DESC"
+    },
+    {
+      "Field": "CandidateID",
+      "Order": "ASC"
+    }
+  ],
+  "SourceAuditSHA256": "14624ffb3243f3f48a107bf8a139da780820d2699e207c37a3432f9a17dd2f47",
+  "SourceSpecSHA256": "4c443bb3b21a45cd9ca24c1e157b58d802ad2e521289ce10dc455426ce88cde7",
+  "Stage10Executed": false,
+  "Stage10RequiredFinalCandidateSHA256": "e154b03d92f3af5d0108ec983fe3843ef374cf64a6e5f5d5feb54a3014108562",
+  "Stage8Identity": {
+    "candidate_pool_sha256": "dfe25f015da9532535fb9aae3e580e59835f68cf6f9c0e2b0fc6b4a215ec6d68",
+    "code_sha": "68d84078c2edc3108c0e3d6ca78d64d9b3d91ab5",
+    "config_sha256": "addcaab2c618df492bd73d7ae2d83d626d8c9513420c939da5f98625bd4704c7",
+    "eligibility_sha256": "7e62f0ca36a8160233a7f037c08f1c084cab49f418688718559afefa30adf852"
+  },
+  "StrategyNumberingAssigned": false,
+  "StrategyNumberingEnabled": false,
+  "VPSChanged": false,
+  "schema": "b6-stage9-config-v1"
+}

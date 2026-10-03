@@ -135,3 +135,11 @@ Window `[2026-01-01, 2026-09-10)` JST remains fixed despite actual M1 end 2026-0
 | S809 | 実行境界 | frozen execution、no fill、実終端2026-09-09 06:00。Workは56hash/availability監査と合成testsのみ。Chat確認後Colabで本番 |
 
 詳細・exact IDs・SHA・理由文は [Stage8仕様](stage8_overlap_correlation.md)。Stage1〜7 frozen source/config/artifactsと研究結果は変更しない。
+
+## Stage9 — user-fixed family consolidation and final set
+
+- Formal input: Stage8 `68d84078c2edc3108c0e3d6ca78d64d9b3d91ab5`, 45 original archive file hashes locked in stage9_source_spec.json. Scientific performance comes only from saved candidate-period metrics; ZIP is inventory-only.
+- Two families: AUDJPY 15:50 singleton auto-retained; GBPJPY8 treated as one family by explicit user policy, without clustering. GBP representative count fixed at exactly1, scope actual FinalEntryJST [13:00,14:00), six candidates. 12:45 and 14:29 remain valid members outside selection scope, not performance FAIL.
+- Exact raw lexicographic keys: WorstSegmentMaxDDR ASC → RelativeLotMarginProxy=30.0/SL ASC → FullAvailableMaxDDR ASC → ValidationAvgR DESC → FullAvailableTotalR DESC → CandidateID ASC. No rounding/epsilon/tolerance. Proxy is same-symbol/equal-risk relative lot/margin only; no actual broker margin. No PF, Monitor TotalR or correlation ranking.
+- Selected GBPJPY `B6-GBPJPY-L-W0-E0835-H1415` wins at key1. Final count2, AUDJPY then GBPJPY; conditions copied unchanged. Eight Stage8 AUDJPY exclusions remain excluded; all prior PASS/OBSERVED history retained.
+- No M1 read/replay or metric recomputation. Final exact SHA256 is bound in Stage9 config for Stage10. Stage10 Portfolio / Money Simulation and existing-portfolio comparison unexecuted; risk/lot undecided; no EA/SET/VPS/live change or Strategy29+ assignment. PASS != live adoption. See stage9_family_consolidation.md and raw selection audit.

@@ -1,0 +1,1269 @@
+{
+  "CandidatePeriodRows": [
+    {
+      "AvgLossR": "-1.0",
+      "AvgR": "0.5907590759075801",
+      "AvgWinR": "3.01666666666664",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1415",
+      "Losses": "122",
+      "MaxDDR": "11.07333333333348",
+      "PF": "1.9781420765027145",
+      "Period": "Discovery",
+      "TotalR": "119.33333333333118",
+      "Trades": "202",
+      "WinRate": "0.39603960396039606",
+      "Wins": "80",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9797014925373153",
+      "AvgR": "0.11323432343233049",
+      "AvgWinR": "2.2669607843136914",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1415",
+      "Losses": "67",
+      "MaxDDR": "9.796666666666699",
+      "PF": "1.174233191143592",
+      "Period": "Validation",
+      "TotalR": "11.43666666666538",
+      "Trades": "101",
+      "WinRate": "0.33663366336633666",
+      "Wins": "34",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-1.0",
+      "AvgR": "0.5103809523809423",
+      "AvgWinR": "2.5242222222221993",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1415",
+      "Losses": "20",
+      "MaxDDR": "6.0",
+      "PF": "1.8931666666666491",
+      "Period": "Monitor",
+      "TotalR": "17.86333333333298",
+      "Trades": "35",
+      "WinRate": "0.42857142857142855",
+      "Wins": "15",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9934928229665076",
+      "AvgR": "0.4397435897435785",
+      "AvgWinR": "2.7618087855296873",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1415",
+      "Losses": "209",
+      "MaxDDR": "11.07333333333348",
+      "PF": "1.7158222564695123",
+      "Period": "FullAvailable",
+      "TotalR": "148.63333333332955",
+      "Trades": "338",
+      "WinRate": "0.3816568047337278",
+      "Wins": "129",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9520606826801539",
+      "AvgR": "0.5753182461103117",
+      "AvgWinR": "2.5145746388442736",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1325",
+      "Losses": "113",
+      "MaxDDR": "12.105714285714413",
+      "PF": "2.0802305199978472",
+      "Period": "Discovery",
+      "TotalR": "116.21428571428297",
+      "Trades": "202",
+      "WinRate": "0.4405940594059406",
+      "Wins": "89",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9866517857142865",
+      "AvgR": "0.08280056577085246",
+      "AvgWinR": "1.9326640926640657",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1325",
+      "Losses": "64",
+      "MaxDDR": "10.917142857143258",
+      "PF": "1.132437446269383",
+      "Period": "Validation",
+      "TotalR": "8.362857142856098",
+      "Trades": "101",
+      "WinRate": "0.36633663366336633",
+      "Wins": "37",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-1.0",
+      "AvgR": "0.4665306122448788",
+      "AvgWinR": "1.8515873015872641",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1325",
+      "Losses": "17",
+      "MaxDDR": "6.14857142857144",
+      "PF": "1.9605042016806327",
+      "Period": "Monitor",
+      "TotalR": "16.328571428570758",
+      "Trades": "35",
+      "WinRate": "0.5142857142857142",
+      "Wins": "18",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9676730486008851",
+      "AvgR": "0.416880811496183",
+      "AvgWinR": "2.282182539682511",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1325",
+      "Losses": "194",
+      "MaxDDR": "12.105714285714413",
+      "PF": "1.7505821474773358",
+      "Period": "FullAvailable",
+      "TotalR": "140.90571428570985",
+      "Trades": "338",
+      "WinRate": "0.4260355029585799",
+      "Wins": "144",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9802604166666681",
+      "AvgR": "0.549372937293715",
+      "AvgWinR": "3.195225225225188",
+      "CandidateID": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Losses": "128",
+      "MaxDDR": "12.863333333333305",
+      "PF": "1.8844375963019786",
+      "Period": "Discovery",
+      "TotalR": "110.97333333333042",
+      "Trades": "202",
+      "WinRate": "0.36633663366336633",
+      "Wins": "74",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9891542288557226",
+      "AvgR": "0.18927392739272514",
+      "AvgWinR": "2.5114705882352544",
+      "CandidateID": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Losses": "67",
+      "MaxDDR": "9.103333333333449",
+      "PF": "1.288451866009434",
+      "Period": "Validation",
+      "TotalR": "19.11666666666524",
+      "Trades": "101",
+      "WinRate": "0.33663366336633666",
+      "Wins": "34",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9596825396825385",
+      "AvgR": "0.5296190476190428",
+      "AvgWinR": "2.7635714285714146",
+      "CandidateID": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Losses": "21",
+      "MaxDDR": "6.0",
+      "PF": "1.9197816738339326",
+      "Period": "Monitor",
+      "TotalR": "18.5366666666665",
+      "Trades": "35",
+      "WinRate": "0.4",
+      "Wins": "14",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9810185185185195",
+      "AvgR": "0.4397238658776987",
+      "AvgWinR": "2.9551366120218234",
+      "CandidateID": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Losses": "216",
+      "MaxDDR": "12.863333333333305",
+      "PF": "1.7014000314613589",
+      "Period": "FullAvailable",
+      "TotalR": "148.62666666666215",
+      "Trades": "338",
+      "WinRate": "0.3609467455621302",
+      "Wins": "122",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-1.0",
+      "AvgR": "0.3531930693069204",
+      "AvgWinR": "4.466899999999958",
+      "CandidateID": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Losses": "152",
+      "MaxDDR": "17.0",
+      "PF": "1.4693749999999863",
+      "Period": "Discovery",
+      "TotalR": "71.34499999999792",
+      "Trades": "202",
+      "WinRate": "0.24752475247524752",
+      "Wins": "50",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9916447368421057",
+      "AvgR": "0.12069306930691885",
+      "AvgWinR": "3.5021999999999536",
+      "CandidateID": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Losses": "76",
+      "MaxDDR": "12.02000000000001",
+      "PF": "1.1617461686459072",
+      "Period": "Validation",
+      "TotalR": "12.189999999998804",
+      "Trades": "101",
+      "WinRate": "0.24752475247524752",
+      "Wins": "25",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-1.0",
+      "AvgR": "0.5545714285714082",
+      "AvgWinR": "3.534166666666607",
+      "CandidateID": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Losses": "23",
+      "MaxDDR": "6.0",
+      "PF": "1.8439130434782298",
+      "Period": "Monitor",
+      "TotalR": "19.409999999999286",
+      "Trades": "35",
+      "WinRate": "0.34285714285714286",
+      "Wins": "12",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9974701195219124",
+      "AvgR": "0.304571005917148",
+      "AvgWinR": "4.0610344827585765",
+      "CandidateID": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Losses": "251",
+      "MaxDDR": "17.0",
+      "PF": "1.4111796776705852",
+      "Period": "FullAvailable",
+      "TotalR": "102.94499999999601",
+      "Trades": "338",
+      "WinRate": "0.257396449704142",
+      "Wins": "87",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9873497267759578",
+      "AvgR": "0.5830198019801814",
+      "AvgWinR": "2.9778333333332934",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Losses": "122",
+      "MaxDDR": "11.530000000000044",
+      "PF": "1.977695990259262",
+      "Period": "Discovery",
+      "TotalR": "117.76999999999666",
+      "Trades": "202",
+      "WinRate": "0.39603960396039606",
+      "Wins": "80",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9804477611940323",
+      "AvgR": "0.11168316831681713",
+      "AvgWinR": "2.263823529411727",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Losses": "67",
+      "MaxDDR": "9.94333333333331",
+      "PF": "1.1717156340386436",
+      "Period": "Validation",
+      "TotalR": "11.27999999999853",
+      "Trades": "101",
+      "WinRate": "0.33663366336633666",
+      "Wins": "34",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-1.0",
+      "AvgR": "0.5036190476190379",
+      "AvgWinR": "2.5084444444444216",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Losses": "20",
+      "MaxDDR": "6.0",
+      "PF": "1.8813333333333166",
+      "Period": "Monitor",
+      "TotalR": "17.626666666666324",
+      "Trades": "35",
+      "WinRate": "0.42857142857142855",
+      "Wins": "15",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9863476874003207",
+      "AvgR": "0.433954635108466",
+      "AvgWinR": "2.7350645994831666",
+      "CandidateID": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Losses": "209",
+      "MaxDDR": "11.530000000000044",
+      "PF": "1.7115160726990228",
+      "Period": "FullAvailable",
+      "TotalR": "146.6766666666615",
+      "Trades": "338",
+      "WinRate": "0.3816568047337278",
+      "Wins": "129",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9869010416666677",
+      "AvgR": "0.5351650165016361",
+      "AvgWinR": "3.1679279279278907",
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Losses": "128",
+      "MaxDDR": "13.080000000000252",
+      "PF": "1.8557669472517377",
+      "Period": "Discovery",
+      "TotalR": "108.10333333333048",
+      "Trades": "202",
+      "WinRate": "0.36633663366336633",
+      "Wins": "74",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9882051282051293",
+      "AvgR": "0.2246534653465179",
+      "AvgWinR": "2.414537037036992",
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Losses": "65",
+      "MaxDDR": "8.536666666666784",
+      "PF": "1.3532433834976378",
+      "Period": "Validation",
+      "TotalR": "22.689999999998307",
+      "Trades": "101",
+      "WinRate": "0.3564356435643564",
+      "Wins": "36",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-1.0",
+      "AvgR": "0.5997142857142671",
+      "AvgWinR": "2.2935294117646676",
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Losses": "18",
+      "MaxDDR": "6.226666666666631",
+      "PF": "2.166111111111075",
+      "Period": "Monitor",
+      "TotalR": "20.98999999999935",
+      "Trades": "35",
+      "WinRate": "0.4857142857142857",
+      "Wins": "17",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9884202211690373",
+      "AvgR": "0.44906311637079327",
+      "AvgWinR": "2.8373228346456303",
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Losses": "211",
+      "MaxDDR": "13.080000000000252",
+      "PF": "1.727779820032899",
+      "Period": "FullAvailable",
+      "TotalR": "151.78333333332813",
+      "Trades": "338",
+      "WinRate": "0.3757396449704142",
+      "Wins": "127",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9774278215223103",
+      "AvgR": "0.4920297029702843",
+      "AvgWinR": "2.980311111111078",
+      "CandidateID": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Losses": "127",
+      "MaxDDR": "12.5266666666667",
+      "PF": "1.800671321160022",
+      "Period": "Discovery",
+      "TotalR": "99.38999999999743",
+      "Trades": "202",
+      "WinRate": "0.3712871287128713",
+      "Wins": "75",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9762745098039223",
+      "AvgR": "0.13927392739272743",
+      "AvgWinR": "2.4379797979797635",
+      "CandidateID": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Losses": "68",
+      "MaxDDR": "8.87333333333358",
+      "PF": "1.2118899377384837",
+      "Period": "Validation",
+      "TotalR": "14.066666666665471",
+      "Trades": "101",
+      "WinRate": "0.32673267326732675",
+      "Wins": "33",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9576190476190456",
+      "AvgR": "0.48161904761904384",
+      "AvgWinR": "2.640476190476178",
+      "CandidateID": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Losses": "21",
+      "MaxDDR": "9.0",
+      "PF": "1.8382231062489593",
+      "Period": "Monitor",
+      "TotalR": "16.856666666666534",
+      "Trades": "35",
+      "WinRate": "0.4",
+      "Wins": "14",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9751388888888892",
+      "AvgR": "0.3855424063116256",
+      "AvgWinR": "2.7946174863387667",
+      "CandidateID": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Losses": "216",
+      "MaxDDR": "12.5266666666667",
+      "PF": "1.6186836316447295",
+      "Period": "FullAvailable",
+      "TotalR": "130.31333333332947",
+      "Trades": "338",
+      "WinRate": "0.3609467455621302",
+      "Wins": "122",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9610975609756089",
+      "AvgR": "0.4803465346534635",
+      "AvgWinR": "2.7246202531645514",
+      "CandidateID": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Losses": "123",
+      "MaxDDR": "12.319999999999936",
+      "PF": "1.8207926236095227",
+      "Period": "Discovery",
+      "TotalR": "97.02999999999963",
+      "Trades": "202",
+      "WinRate": "0.3910891089108911",
+      "Wins": "79",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.991081081081081",
+      "AvgR": "0.2563235294117658",
+      "AvgWinR": "3.5530357142857176",
+      "CandidateID": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Losses": "74",
+      "MaxDDR": "15.784999999999997",
+      "PF": "1.356490319061905",
+      "Period": "Validation",
+      "TotalR": "26.14500000000011",
+      "Trades": "102",
+      "WinRate": "0.27450980392156865",
+      "Wins": "28",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9602173913043469",
+      "AvgR": "0.3299999999999991",
+      "AvgWinR": "2.8029166666666625",
+      "CandidateID": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Losses": "23",
+      "MaxDDR": "8.575000000000031",
+      "PF": "1.5229793977812986",
+      "Period": "Monitor",
+      "TotalR": "11.549999999999969",
+      "Trades": "35",
+      "WinRate": "0.34285714285714286",
+      "Wins": "12",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9710909090909086",
+      "AvgR": "0.39741887905604634",
+      "AvgWinR": "2.9274369747899125",
+      "CandidateID": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Losses": "220",
+      "MaxDDR": "16.67500000000001",
+      "PF": "1.6306169256693495",
+      "Period": "FullAvailable",
+      "TotalR": "134.7249999999997",
+      "Trades": "339",
+      "WinRate": "0.35103244837758113",
+      "Wins": "119",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9864843750000012",
+      "AvgR": "0.5475577557755626",
+      "AvgWinR": "3.2010360360359966",
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Losses": "128",
+      "MaxDDR": "12.68666666666671",
+      "PF": "1.8759536443071474",
+      "Period": "Discovery",
+      "TotalR": "110.60666666666366",
+      "Trades": "202",
+      "WinRate": "0.36633663366336633",
+      "Wins": "74",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9976262626262633",
+      "AvgR": "0.18089108910889756",
+      "AvgWinR": "2.4032380952380583",
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Losses": "66",
+      "MaxDDR": "10.040000000000134",
+      "PF": "1.2774768389611497",
+      "Period": "Validation",
+      "TotalR": "18.269999999998653",
+      "Trades": "101",
+      "WinRate": "0.3465346534653465",
+      "Wins": "35",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-1.0",
+      "AvgR": "0.5637142857142748",
+      "AvgWinR": "2.4206249999999763",
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Losses": "19",
+      "MaxDDR": "6.413333333333337",
+      "PF": "2.0384210526315587",
+      "Period": "Monitor",
+      "TotalR": "19.72999999999962",
+      "Trades": "35",
+      "WinRate": "0.45714285714285713",
+      "Wins": "16",
+      "ZeroR": "0"
+    },
+    {
+      "AvgLossR": "-0.9911424100156504",
+      "AvgR": "0.4396646942800648",
+      "AvgWinR": "2.8777599999999635",
+      "CandidateID": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Losses": "213",
+      "MaxDDR": "12.68666666666671",
+      "PF": "1.7039189061167546",
+      "Period": "FullAvailable",
+      "TotalR": "148.6066666666619",
+      "Trades": "338",
+      "WinRate": "0.3698224852071006",
+      "Wins": "125",
+      "ZeroR": "0"
+    }
+  ],
+  "PairRowIdentities": [
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1325",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0795-H1405",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0795-H1405",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-AUDJPY-L-W0-E0950-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Discovery"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1325",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0795-H1405",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0795-H1405",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-AUDJPY-L-W0-E0950-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Validation"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1325",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0795-H1405",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0795-H1405",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-AUDJPY-L-W0-E0950-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "Monitor"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1325",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1415",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0765-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1325",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0870-H1290",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0765-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0835-H1370",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0870-H1290",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1360",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0835-H1370",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-GBPJPY-L-W0-E0795-H1405",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0800-H1360",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0795-H1405",
+      "CandidateB": "B6-AUDJPY-L-W0-E0950-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-GBPJPY-L-W0-E0795-H1405",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "FullAvailable"
+    },
+    {
+      "CandidateA": "B6-AUDJPY-L-W0-E0950-H1440",
+      "CandidateB": "B6-GBPJPY-L-W0-E0800-H1440",
+      "Period": "FullAvailable"
+    }
+  ],
+  "SourceFile": "stage8_candidate_period_metrics.csv.gz",
+  "SourceSHA256": "58df2a01acbac9d765a9baf511e4ac0424612fc2484b94178d950108eea39690",
+  "schema": "b6-stage9-source-evidence-v1"
+}

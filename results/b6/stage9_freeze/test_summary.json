@@ -1,0 +1,21 @@
+{
+  "Errors": 0,
+  "Failures": 0,
+  "FormalArchiveFilesAudited": 45,
+  "HistoricalAssertionsUnchanged": true,
+  "HistoricalReleaseSnapshots": "Stage2A through Stage8 exact clean commits",
+  "HistoricalTests": 519,
+  "IndependentBuildCount": 2,
+  "IndependentBuildsByteIdentical": true,
+  "LiveChanged": false,
+  "MoneySimulationExecuted": false,
+  "Passed": 585,
+  "PortfolioExecuted": false,
+  "Skipped": 0,
+  "Stage10Executed": false,
+  "Stage9M1Read": false,
+  "Stage9ReplayExecuted": false,
+  "Stage9Tests": 66,
+  "StrategyNumberingAssigned": false,
+  "Tests": 585
+}
