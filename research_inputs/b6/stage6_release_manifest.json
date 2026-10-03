@@ -13,7 +13,7 @@
   "notebooks/b6_stage2b_local_optimization.ipynb": "5cc106e5ae1f62b1f3b03233fa84bb662b42025818060b83a73be6d72b26ff32",
   "notebooks/b6_stage3_time_finetune.ipynb": "7b19f9415ed647d628392bbbcea2800eda7bd8fdf1261c368a1e27253075d244",
   "notebooks/b6_stage4_event_filter.ipynb": "4bf53784880228e5ca9f5bfdce0b4f217aeb53384be68d4d4665035bafa8cc92",
-  "notebooks/b6_stage6_validation.ipynb": "a14d1a11513545ba4b0f86188ed4a76d2c44a86456b5fd68ac4703aacc044ec0",
+  "notebooks/b6_stage6_validation.ipynb": "569a2e84177a4aac3edaf281da7b95570d2da8ea19817fb742b4607509d75ab7",
   "research_inputs/b6/expected_m1_manifest.csv": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
   "research_inputs/b6/stage1_config.json": "93cc9a92c6473cf770f98b72511de076375411db1c27ae1568f976f96212b37e",
   "research_inputs/b6/stage1_release_manifest.json": "ccb71ac367fd77ee55e9c6faaf5856cc7ddbb1a43a4e6291add92046892b6883",
@@ -115,5 +115,6 @@
   "tests/test_b6_stage5.py": "1a487f9a0a4ab79480de0c220864f5de063321bc2170ab755aab1941477315db",
   "tests/test_b6_stage5_release.py": "0f207ea9427182a5ac34f5526495a246f4f2e85646efd813115529379ef8c9c2",
   "tests/test_b6_stage6.py": "02f22a3d0d2a809107e957d8ecc7530ecaca936f0f8a43e4b9dd5629d9692994",
+  "tests/test_b6_stage6_preparation.py": "ce283c2ae6d93056312796cb301679e59b3682290a689ea9bc1604c4d52d5104",
   "tests/test_b6_stage6_release.py": "838458a24305f225d1c60548655fda971b503636516cdd43e108feb7a2abcb55"
 }
