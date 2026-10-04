@@ -1,0 +1,20 @@
+[
+  {
+    "Symbol": "EURUSD",
+    "Selected": "EURUSD_M1_202604010000_202609090000_RECHECK.csv",
+    "Excluded": "EURUSD_M1_202604010000_202609090000.csv",
+    "ExactTimestampOHLCSubset": true,
+    "SelectedRows": 165596,
+    "ExcludedRows": 18720,
+    "Reason": "SUPERSET_WITH_IDENTICAL_OVERLAP"
+  },
+  {
+    "Symbol": "GBPUSD",
+    "Selected": "GBPUSD_M1_202604010000_202609090000_RECHECK.csv",
+    "Excluded": "GBPUSD_M1_202604010000_202609090000.csv",
+    "ExactTimestampOHLCSubset": true,
+    "SelectedRows": 165589,
+    "ExcludedRows": 18719,
+    "Reason": "SUPERSET_WITH_IDENTICAL_OVERLAP"
+  }
+]

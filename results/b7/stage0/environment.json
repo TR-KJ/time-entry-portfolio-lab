@@ -1,0 +1,9 @@
+{
+  "Python": "3.12.14",
+  "NumPy": "2.3.5",
+  "pandas": "2.2.3",
+  "OS": "Darwin",
+  "Architecture": "arm64",
+  "TimezonePolicy": "Europe/Helsinki -> Asia/Tokyo -> naive JST",
+  "formal_colab_run": false
+}

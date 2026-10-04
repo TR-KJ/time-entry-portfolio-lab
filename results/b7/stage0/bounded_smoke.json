@@ -1,0 +1,226 @@
+{
+  "Anchor": "2020-02-04 09:00 JST",
+  "HoldingMinutes": 30,
+  "SLPips": 20,
+  "Cases": [
+    {
+      "Symbol": "USDJPY",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "USDJPY",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "USDJPY",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "USDJPY",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURJPY",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURJPY",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURJPY",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURJPY",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURAUD",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURAUD",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURAUD",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURAUD",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURUSD",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURUSD",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURUSD",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "EURUSD",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPUSD",
+      "Direction": "Long",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPUSD",
+      "Direction": "Long",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPUSD",
+      "Direction": "Short",
+      "TPMode": "NONE",
+      "Status": "PASS"
+    },
+    {
+      "Symbol": "GBPUSD",
+      "Direction": "Short",
+      "TPMode": "FIXED30",
+      "Status": "PASS"
+    }
+  ],
+  "PnL_or_ranking_saved": false,
+  "CandidateSelection": false,
+  "ValidationMonitorPerformance": false
+}

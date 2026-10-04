@@ -1,0 +1,186 @@
+{
+  "Scope": "B7_STAGE0_BLOCKED_AUDIT_SNAPSHOT",
+  "SelfExcluded": true,
+  "Files": [
+    {
+      "Path": "docs/b7/parameter_decision_register.md",
+      "SHA256": "68c181d1edef7024b332c8c69e83ce65fbddf6a95d5642909cc6ef1e7f01b318",
+      "Bytes": 5343
+    },
+    {
+      "Path": "docs/b7/research_plan.md",
+      "SHA256": "23958c98428c4759fdd38e478fed50adfdb9fafb930eaf1cf917e1eb6f4e5b1f",
+      "Bytes": 7706
+    },
+    {
+      "Path": "docs/b7/sl_calibration_prespec.md",
+      "SHA256": "640e3ec6027967e360b4ffb5e65dd1ed07d80a733aa66cdcca99559d81f05b0e",
+      "Bytes": 1996
+    },
+    {
+      "Path": "docs/b7/source_of_truth.md",
+      "SHA256": "cfc00375099e35d9b82a0f97083dece2e33e84fc93c1d862c626dbeddecc1e56",
+      "Bytes": 6233
+    },
+    {
+      "Path": "docs/b7/stage0_validation.md",
+      "SHA256": "09d20a929ce88101bd50991448dad5959f63a02bf872075231857e02e5d37489",
+      "Bytes": 9026
+    },
+    {
+      "Path": "research_inputs/b7/b6_reference_manifest.csv",
+      "SHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+      "Bytes": 8998
+    },
+    {
+      "Path": "research_inputs/b7/b6_sl_reference.csv",
+      "SHA256": "9aee1ae097cc8d106e7017f89cc1d779c575a718fb86a0bebb2c3dcd9508bb38",
+      "Bytes": 258
+    },
+    {
+      "Path": "research_inputs/b7/expected_m1_manifest.csv",
+      "SHA256": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a",
+      "Bytes": 11556
+    },
+    {
+      "Path": "research_inputs/b7/sl_grid_proposal.csv",
+      "SHA256": "6f3f0a76dbb01908eefb563fc8545d930847c4ac6b753edbb77609233062c489",
+      "Bytes": 348
+    },
+    {
+      "Path": "research_inputs/b7/stage0_protocol.json",
+      "SHA256": "d0425de445b1a1390ee74fcf3c446d0f83c324fb019ba38e3254325f37171293",
+      "Bytes": 4708
+    },
+    {
+      "Path": "results/b7/stage0/alternate_exports.json",
+      "SHA256": "cd56a41bad508459b1834183e95aa37cf86b007d60ac7f441e337d1787f60f4e",
+      "Bytes": 603
+    },
+    {
+      "Path": "results/b7/stage0/alternate_overlap_diagnostics.json",
+      "SHA256": "8242dd15c26ed8aa40e3d008d4dfad7ef3cb0126ab1875390498cd75b52c2ccc",
+      "Bytes": 1027
+    },
+    {
+      "Path": "results/b7/stage0/bounded_smoke.json",
+      "SHA256": "ae460f1e3936c21e8cef641ee4cf31226b706454d703955299477bed6f3828f3",
+      "Bytes": 4341
+    },
+    {
+      "Path": "results/b7/stage0/calibration_day_diagnostics.csv.gz",
+      "SHA256": "44c7abb6146d8ad025d041cb48d25f81489e744d302082720177d30edfec8e13",
+      "Bytes": 46329
+    },
+    {
+      "Path": "results/b7/stage0/calibration_method_identity.json",
+      "SHA256": "867cac0f47e3f422a2475a574991d8065add3c8e6db124d378b34add16653530",
+      "Bytes": 270
+    },
+    {
+      "Path": "results/b7/stage0/coverage.csv",
+      "SHA256": "0bfa5431d2c2cc28fc72223d887459272d50882a1861cdc7629ca0b6e132da02",
+      "Bytes": 2736
+    },
+    {
+      "Path": "results/b7/stage0/environment.json",
+      "SHA256": "5bf85c2d0b7a843700ab6d8c4bf1a4e55f687052fdba3f897b244a37ed1a31a8",
+      "Bytes": 207
+    },
+    {
+      "Path": "results/b7/stage0/existing_audit_search.json",
+      "SHA256": "3d0c9a95a576ae773fc47a0257a5de9d9b10c000b9e57e21685a2264476a8904",
+      "Bytes": 2400
+    },
+    {
+      "Path": "results/b7/stage0/input_audit.csv",
+      "SHA256": "fd722d6fafe1842b51156735a27ae45db7a20f49e3ab34882da221a414481f10",
+      "Bytes": 25089
+    },
+    {
+      "Path": "results/b7/stage0/pair_audit.csv",
+      "SHA256": "8c8bb6e139774e0738f668313cc6904c980bd01cdc2e8a3a09deac572d77d829",
+      "Bytes": 944
+    },
+    {
+      "Path": "results/b7/stage0/price_statistics.json",
+      "SHA256": "0a3e1abaa02ef25af5d670574cd03e258da90c647caef74d17f17cc9f01a3856",
+      "Bytes": 5869
+    },
+    {
+      "Path": "results/b7/stage0/provenance_status.json",
+      "SHA256": "5bf0b7c33c939ea8dce1b93e67abf020adf52b8e93edab3d92e150bffa176ce6",
+      "Bytes": 438
+    },
+    {
+      "Path": "results/b7/stage0/repository_refs.json",
+      "SHA256": "0f3df745dd609af1877b1246c63fd4414107def21f67753334d0bcb98150996d",
+      "Bytes": 3540
+    },
+    {
+      "Path": "results/b7/stage0/run_status.json",
+      "SHA256": "d1e00d86a963acfa0a060ed288c87bceb3eafa0e0b987e5a4748e137775af934",
+      "Bytes": 331
+    },
+    {
+      "Path": "results/b7/stage0/sl_grid_proposal.csv",
+      "SHA256": "6f3f0a76dbb01908eefb563fc8545d930847c4ac6b753edbb77609233062c489",
+      "Bytes": 348
+    },
+    {
+      "Path": "results/b7/stage0/source_manifest.json",
+      "SHA256": "40b61b62749b7a8a88921854cf922bb90e595040710e6de9c347a181ada0270b",
+      "Bytes": 83494
+    },
+    {
+      "Path": "results/b7/stage0/spread_pip_audit.json",
+      "SHA256": "17d9a3700fa3e7b4f771fb45119cae5868cfa35ef8bcb891d54279bd49ba46b0",
+      "Bytes": 660
+    },
+    {
+      "Path": "results/b7/stage0/synthetic_tests.txt",
+      "SHA256": "774be4e7e5f48a5ec570b23c7e4ae340ea340895b996c154314982cb630682a7",
+      "Bytes": 3036
+    },
+    {
+      "Path": "src/research/b7/__init__.py",
+      "SHA256": "df5f29c3c2e7417979058c84bde568cf792649b83cbb6f1283f80017655b71fa",
+      "Bytes": 22
+    },
+    {
+      "Path": "src/research/b7/calibration.py",
+      "SHA256": "9e52440a884cf77d46726f8c5ead3e1341af9b184bc58e3ffb699a762a57eb4e",
+      "Bytes": 2535
+    },
+    {
+      "Path": "src/research/b7/compatibility.py",
+      "SHA256": "cfa74644604466dc7847f681a5c16227db3a262852e88c5aa1c903e36b3d79c9",
+      "Bytes": 3459
+    },
+    {
+      "Path": "src/research/b7/execution.py",
+      "SHA256": "362c5fd53e35f43a6effa6c3f4ca9a34c6a41652828be0ce49cfef60670bcbf1",
+      "Bytes": 1220
+    },
+    {
+      "Path": "src/research/b7/reference/b6_execution.py",
+      "SHA256": "82663372d5ad1d7da9b44926627a24cbcbb7fb7aa2519126e61eb18997a21252",
+      "Bytes": 3711
+    },
+    {
+      "Path": "src/research/b7/stage0_audit.py",
+      "SHA256": "968dc7b331d45d80d184ed0d65fdab2e052b5b74b333351da6bfb463ed2cda70",
+      "Bytes": 9672
+    },
+    {
+      "Path": "tests/test_b7_audit.py",
+      "SHA256": "5b8a84f098a650babce1c3cda05cde79344a82e233880f3be6b1fde5232328eb",
+      "Bytes": 4464
+    },
+    {
+      "Path": "tests/test_b7_compatibility.py",
+      "SHA256": "a50e3c9a29304b3970b6a38d69d8712e3b246229462c5bd1709e0127d19b0546",
+      "Bytes": 7096
+    }
+  ]
+}

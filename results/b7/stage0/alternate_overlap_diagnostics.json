@@ -1,0 +1,44 @@
+[
+  {
+    "Symbol": "EURUSD",
+    "OriginalRows": 18720,
+    "RecheckRows": 165596,
+    "CommonTimestamps": 18720,
+    "OriginalOnly": 0,
+    "RecheckOnly": 146876,
+    "CommonOHLCDifferentRows": 0,
+    "OriginalIntervalCounts": {
+      "0 days 00:01:00": 18715,
+      "2 days 00:01:00": 2,
+      "0 days 00:02:00": 1,
+      "144 days 00:01:00": 1
+    },
+    "RecheckIntervalCounts": {
+      "0 days 00:01:00": 165569,
+      "2 days 00:01:00": 23,
+      "0 days 00:03:00": 2,
+      "0 days 00:02:00": 1
+    }
+  },
+  {
+    "Symbol": "GBPUSD",
+    "OriginalRows": 18719,
+    "RecheckRows": 165589,
+    "CommonTimestamps": 18719,
+    "OriginalOnly": 0,
+    "RecheckOnly": 146870,
+    "CommonOHLCDifferentRows": 0,
+    "OriginalIntervalCounts": {
+      "0 days 00:01:00": 18713,
+      "2 days 00:01:00": 2,
+      "0 days 00:02:00": 2,
+      "144 days 00:01:00": 1
+    },
+    "RecheckIntervalCounts": {
+      "0 days 00:01:00": 165555,
+      "2 days 00:01:00": 23,
+      "0 days 00:02:00": 8,
+      "0 days 00:03:00": 2
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "Status": "BLOCKED_UNVERIFIED_NOT_CONFIRMED_DIFFERENT",
+  "SameDirectoryTree": true,
+  "SameMT5Schema": true,
+  "EU_GU_Old_Recheck_OHLC_OverlapExact": true,
+  "UserRecall": "Probably same; maybe Forex; possibly FXCM",
+  "BrokerConfirmed": false,
+  "InferenceFromPricesOrDirectoryAllowed": false,
+  "RequiredBeforeClearance": "Traceable export/acquisition provenance establishing broker/source equivalence with existing seven pairs"
+}

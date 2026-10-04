@@ -1,0 +1,27 @@
+{
+  "spread_pips": {
+    "USDJPY": 0.5,
+    "EURJPY": 1,
+    "GBPJPY": 2,
+    "AUDJPY": 1.5,
+    "AUDUSD": 1.5,
+    "EURAUD": 1.5,
+    "GBPAUD": 2,
+    "EURUSD": 1,
+    "GBPUSD": 1.5
+  },
+  "pip_size": {
+    "USDJPY": 0.01,
+    "EURJPY": 0.01,
+    "GBPJPY": 0.01,
+    "AUDJPY": 0.01,
+    "AUDUSD": 0.0001,
+    "EURAUD": 0.0001,
+    "GBPAUD": 0.0001,
+    "EURUSD": 0.0001,
+    "GBPUSD": 0.0001
+  },
+  "EU_GU_spreads": "AGREED research assumptions; not historical measured averages",
+  "price_format": "positive finite OHLC on fractional-pip decimal grid; see input_audit.csv",
+  "broker_identity": "UNVERIFIED: directory/header similarity alone is not proof"
+}

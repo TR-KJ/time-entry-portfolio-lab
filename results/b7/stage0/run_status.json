@@ -1,0 +1,11 @@
+{
+  "DataIntegrity": "PASS",
+  "BrokerIdentity": "UNVERIFIED",
+  "Stage0": "BLOCKED_PENDING_PROVENANCE",
+  "Stage1": "NOT_IMPLEMENTED_NOT_RUN",
+  "ValidationPerformance": "NOT_RUN",
+  "MonitorPerformance": "NOT_RUN",
+  "AllPeriodDataIntegrityRead": true,
+  "CalibrationPeriod": "Discovery only",
+  "B6CandidateInputsUsed": false
+}

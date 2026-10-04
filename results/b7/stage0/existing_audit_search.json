@@ -1,0 +1,54 @@
+{
+  "RepositorySearch": "All 37 fetched remote branch tips; git grep EURUSD|GBPUSD in docs/research_inputs/results/src/research returned no matches. Not a proof about deleted or inaccessible historical records.",
+  "DriveRecords": [
+    {
+      "Path": "マイドライブ/b6_stage7_archive/m1_input_audit.json",
+      "SHA256": "2f3c8c2895a9f65ab81165d1921153692abe8fb4adeb4779149ae93b86470253",
+      "ContainsEURUSD": false,
+      "ContainsGBPUSD": false
+    },
+    {
+      "Path": "マイドライブ/b6_stage6_archive/m1_input_audit.json",
+      "SHA256": "7f6efbd3176a83ccbeed94466ab18a591d00225f687dc55a520e00d69cc3d1ab",
+      "ContainsEURUSD": false,
+      "ContainsGBPUSD": false
+    },
+    {
+      "Path": "マイドライブ/b6_stage1_20260929/input_audit.csv",
+      "SHA256": "2cbd9111eecf8228f4fa49a9e3d09c30f99d3d5cdc0bbec0bb9f0e0106f81abc",
+      "ContainsEURUSD": false,
+      "ContainsGBPUSD": false
+    },
+    {
+      "Path": "マイドライブ/time-entry-portfolio-lab/daily_stop/is_selection_cc32f32e3df5/daily_stop_is_output_manifest.csv",
+      "SHA256": "3bf1fc2c30f6c6a5c5acc8fd2acc5ecf2549dd7324891e76014bebf92e52de3f",
+      "ContainsEURUSD": false,
+      "ContainsGBPUSD": false
+    },
+    {
+      "Path": "マイドライブ/time-entry-portfolio-lab/daily_stop/baseline_cc32f32e3df5/daily_stop_baseline_manifest.csv",
+      "SHA256": "9b098c1fbf5b940c18deebb42e2c838f5341696b3f604c8fb1a75e1119e4be58",
+      "ContainsEURUSD": false,
+      "ContainsGBPUSD": false
+    },
+    {
+      "Path": "マイドライブ/time-entry-portfolio-lab/daily_stop/frozen_minus4_oos_cc32f32e3df5/daily_stop_output_manifest.csv",
+      "SHA256": "f2cbcede7656f1422fe27ebe8f6396e9b4282ae2e7b799be78b575b0782eb059",
+      "ContainsEURUSD": false,
+      "ContainsGBPUSD": false
+    },
+    {
+      "Path": "マイドライブ/b6_stage8_archive/m1_input_audit.json",
+      "SHA256": "3f92611a101c64475e1645839ba668ed7c1e39d5f076b1c6d6b3dd64813b209f",
+      "ContainsEURUSD": false,
+      "ContainsGBPUSD": false
+    },
+    {
+      "Path": "マイドライブ/b6_stage11_archive/m1_input_audit.json",
+      "SHA256": "39c64723cc34d30dc6f7f710605cd9d6092047db1b148e859f90d4d67aea99e6",
+      "ContainsEURUSD": false,
+      "ContainsGBPUSD": false
+    }
+  ],
+  "ReuseStatus": "NO_MATCHING_FORMAL_EU_GU_AUDIT_LOCATED; NEW_TECHNICAL_AUDIT_REQUIRED"
+}

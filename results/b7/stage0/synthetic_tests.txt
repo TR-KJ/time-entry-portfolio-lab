@@ -1,0 +1,31 @@
+test_audit_inventory_and_isolation_evidence (test_b7_audit.B7AuditTests.test_audit_inventory_and_isolation_evidence) ... ok
+test_audit_status_does_not_clear_broker (test_b7_audit.B7AuditTests.test_audit_status_does_not_clear_broker) ... ok
+test_calibration_and_reference_source_identity (test_b7_audit.B7AuditTests.test_calibration_and_reference_source_identity) ... ok
+test_discovery_copy_never_returns_future (test_b7_audit.B7AuditTests.test_discovery_copy_never_returns_future) ... ok
+test_half_up_boundaries (test_b7_audit.B7AuditTests.test_half_up_boundaries) ... ok
+test_insufficient_calibration_is_not_fabricated (test_b7_audit.B7AuditTests.test_insufficient_calibration_is_not_fabricated) ... ok
+test_invalid_data_rejected (test_b7_audit.B7AuditTests.test_invalid_data_rejected) ... ok
+test_protocol_has_no_implicit_stage1_defaults (test_b7_audit.B7AuditTests.test_protocol_has_no_implicit_stage1_defaults) ... ok
+test_unsorted_raw_rejected (test_b7_audit.B7AuditTests.test_unsorted_raw_rejected) ... ok
+test_boundary_even_if_sl_before_exit (test_b7_compatibility.B7CompatibilityTests.test_boundary_even_if_sl_before_exit) ... ok
+test_direction_pip_spread_and_reference (test_b7_compatibility.B7CompatibilityTests.test_direction_pip_spread_and_reference) ... ok
+test_duplicates_unsorted_ohlc_timezone (test_b7_compatibility.B7CompatibilityTests.test_duplicates_unsorted_ohlc_timezone) ... ok
+test_entry_exact_hits_and_same_bar (test_b7_compatibility.B7CompatibilityTests.test_entry_exact_hits_and_same_bar) ... ok
+test_exit_bar_first_hit (test_b7_compatibility.B7CompatibilityTests.test_exit_bar_first_hit) ... ok
+test_fallback_all_delays (test_b7_compatibility.B7CompatibilityTests.test_fallback_all_delays) ... ok
+test_fallback_boundary_guard (test_b7_compatibility.B7CompatibilityTests.test_fallback_boundary_guard) ... ok
+test_loader_timezone_and_duplicate_rejection (test_b7_compatibility.B7CompatibilityTests.test_loader_timezone_and_duplicate_rejection) ... ok
+test_missing_entry_and_internal_gap (test_b7_compatibility.B7CompatibilityTests.test_missing_entry_and_internal_gap) ... ok
+test_missing_exit_not_rescued_by_early_sl (test_b7_compatibility.B7CompatibilityTests.test_missing_exit_not_rescued_by_early_sl) ... ok
+test_no_epsilon (test_b7_compatibility.B7CompatibilityTests.test_no_epsilon) ... ok
+test_no_weekend_reconnection (test_b7_compatibility.B7CompatibilityTests.test_no_weekend_reconnection) ... ok
+test_overnight_and_holding_limits (test_b7_compatibility.B7CompatibilityTests.test_overnight_and_holding_limits) ... ok
+test_reproducible (test_b7_compatibility.B7CompatibilityTests.test_reproducible) ... ok
+test_rounding_and_search_locked (test_b7_compatibility.B7CompatibilityTests.test_rounding_and_search_locked) ... ok
+test_time_exit_open_not_close (test_b7_compatibility.B7CompatibilityTests.test_time_exit_open_not_close) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.214s
+
+OK
+Loaded USDJPY: 2 rows | 2020-02-04 10:00:00 -> 2020-07-07 09:00:00 JST
