@@ -1,0 +1,18 @@
+{
+  "CalculationExecuted": false,
+  "Sources": {
+    "docs/63_volatility_phase5_plan.md": {
+      "SourceCommit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SourceSHA256": "37d89f9ec2f63cd499d393360b0a7d78488c90ff19e1524ebbcb4e5a922ec75d"
+    },
+    "src/EA/phase5_demo/vol_r2_core.mqh": {
+      "SourceCommit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SourceSHA256": "28fc8fca8f8ac4bab01101f5812dfe40fb4ba7a0d9c0eff7148692fe2e1754bf"
+    },
+    "src/research/volatility_phase5_audit.py": {
+      "SourceCommit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SourceSHA256": "68d385daa8bf6239a120c88bd26d151ec91842a212549aa7af9e4f97ebf98702"
+    }
+  },
+  "Status": "PASS"
+}

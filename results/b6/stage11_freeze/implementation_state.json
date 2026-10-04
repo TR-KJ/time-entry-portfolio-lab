@@ -1,0 +1,15 @@
+{
+  "AJOnlyConfigurationExists": false,
+  "DeploymentDecided": false,
+  "EAChanged": false,
+  "FinalCapitalDDCalculated": false,
+  "FixedRiskFallbackResearch": false,
+  "LiveChanged": false,
+  "MoneySimulationExecuted": false,
+  "R2AssignmentsGenerated": false,
+  "RiskAllocationDecided": false,
+  "SETChanged": false,
+  "State": "IMPLEMENTATION_FREEZE_ONLY",
+  "StrategyNumberingAssigned": false,
+  "VPSChanged": false
+}

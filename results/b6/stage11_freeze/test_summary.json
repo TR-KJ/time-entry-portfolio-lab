@@ -1,0 +1,41 @@
+{
+  "ActualR2AssignmentsExecuted": false,
+  "AllExecutedPassed": 748,
+  "AllExecutedTests": 748,
+  "Errors": 0,
+  "Failed": 0,
+  "FormalPython": "3.13.15",
+  "FormalRuntimeExecuted": false,
+  "FormalStage11FullRunExecuted": false,
+  "GlobalR2ActualAssignmentExecuted": false,
+  "HistoricalSnapshots": [
+    "/private/tmp/b6-stage5-history2a",
+    "/private/tmp/b6-stage5-history2b",
+    "/private/tmp/b6-stage5-history3",
+    "/private/tmp/b6-stage5-history4",
+    "/private/tmp/b6-stage6-history5",
+    "/private/tmp/b6-stage7-history6",
+    "/private/tmp/b6-stage8-history7",
+    "/private/tmp/b6-stage9-history8",
+    "/private/tmp/b6-stage10-history9",
+    "/private/tmp/b6-stage11-history10"
+  ],
+  "HistoricalTests": 638,
+  "LocalPython": "3.12.14",
+  "MoneySimulationExecuted": false,
+  "NoHistoricalAssertionsWeakened": true,
+  "Passed": 712,
+  "Phase5FrozenTests": {
+    "Errors": 0,
+    "Failed": 0,
+    "Passed": 36,
+    "Pattern": "test*phase5*.py",
+    "Skipped": 0,
+    "SourceCommit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+    "Tests": 36,
+    "UnchangedTests": true
+  },
+  "Skipped": 0,
+  "Stage11Tests": 74,
+  "Tests": 712
+}

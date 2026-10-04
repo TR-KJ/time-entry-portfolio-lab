@@ -1,0 +1,27 @@
+{
+  "B6LedgerSHA256": "af0caed1d3002af960042d56e50e290271a3aced5a82ee879997a30d4e418248",
+  "B6Trades": {
+    "B6-AUDJPY-L-W0-E0950-H1440": 339,
+    "B6-GBPJPY-L-W0-E0835-H1415": 338
+  },
+  "BaselineSHA256": "cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359",
+  "BaselineTrades": 16298,
+  "Current2020Trades": 9083,
+  "CurrentTrades": 15837,
+  "GlobalR2Applied": false,
+  "M1Read": false,
+  "MoneySimulationExecuted": false,
+  "PortfolioSimulationExecuted": false,
+  "R2AssignmentsGenerated": false,
+  "ReplayExecuted": false,
+  "ReportingBoundaryCrossings": 0,
+  "SavedRIntegrity": "PASS",
+  "Stage11PortfolioCounts": {
+    "R0_CURRENT_R2": 9083,
+    "R1_CURRENT_R2_PLUS_GJ": 9421,
+    "R2_CURRENT_R2_PLUS_GJ_AJ": 9760
+  },
+  "Stage8LedgerRows": 3043,
+  "Status": "PASS",
+  "TradingWeekCrossings": 0
+}

@@ -1,0 +1,59 @@
+{
+  "ExpectedCounts": {
+    "AJ": 339,
+    "Assignments": 9760,
+    "Current27Strategies": 27,
+    "Current27Trades2020": 9083,
+    "GJ": 338
+  },
+  "ExternalInputs": {
+    "B6Ledger": {
+      "ColabPath": "/content/drive/MyDrive/b6_stage8_archive/stage8_trade_ledger.csv.gz",
+      "Rows": 3043,
+      "SHA256": "af0caed1d3002af960042d56e50e290271a3aced5a82ee879997a30d4e418248",
+      "SelectedRows": 677
+    },
+    "Baseline": {
+      "ColabPath": "/content/drive/MyDrive/time-entry-portfolio-lab/daily_stop/baseline_cc32f32e3df5/daily_stop_baseline_trades.csv",
+      "Rows": 16298,
+      "SHA256": "cc32f32e3df57cb03416d111e3cf848fb6b2edc7f193b6da90201a2462420359"
+    },
+    "M1": {
+      "ColabPath": "/content/drive/MyDrive/ゆうのすけさん2025",
+      "Files": 56,
+      "Manifest": "research_inputs/b6/expected_m1_manifest.csv",
+      "SHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f"
+    }
+  },
+  "FrozenArtifactSHA256": {
+    "research_inputs/b6/expected_m1_manifest.csv": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+    "research_inputs/b6/stage10_config.json": "79e825218b76f0266e19e4fda08b678cd7f905ae7cd99a6fae82be3631f12a1b",
+    "research_inputs/b6/stage10_portfolio_baseline.json": "2c91a08486fb536ecf0a5a8bdec2afd77c748299919eec12738e951972681215",
+    "research_inputs/b6/stage9_final_candidates.json": "e154b03d92f3af5d0108ec983fe3843ef374cf64a6e5f5d5feb54a3014108562"
+  },
+  "HistoricalAssignment": {
+    "ImplementationSHA": "ddbf4611053bb4cbdf2112e8bedb18461a357d01",
+    "SHA256": "077be95f9796b3cd00568992316447f7f02116618b8d6b5d9eabbb2c0da14126",
+    "ScientificInput": false,
+    "Status": "REFERENCE_ONLY_EXACT_BYTES_UNAVAILABLE"
+  },
+  "Sources": {
+    "docs/63_volatility_phase5_plan.md": {
+      "Artifact": "research_inputs/b6/stage11_provenance/63_volatility_phase5_plan.md.json",
+      "SourceCommit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SourceSHA256": "37d89f9ec2f63cd499d393360b0a7d78488c90ff19e1524ebbcb4e5a922ec75d"
+    },
+    "src/EA/phase5_demo/vol_r2_core.mqh": {
+      "Artifact": "research_inputs/b6/stage11_provenance/vol_r2_core.mqh.json",
+      "SourceCommit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SourceSHA256": "28fc8fca8f8ac4bab01101f5812dfe40fb4ba7a0d9c0eff7148692fe2e1754bf"
+    },
+    "src/research/volatility_phase5_audit.py": {
+      "Artifact": "research_inputs/b6/stage11_provenance/volatility_phase5_audit.py.json",
+      "SourceCommit": "5e93a8834e27d4d9ffdbc2980906511f74ddb27a",
+      "SourceSHA256": "68d385daa8bf6239a120c88bd26d151ec91842a212549aa7af9e4f97ebf98702"
+    }
+  },
+  "Stage10CodeSHA": "0b8a8507b5021baeded4fcfc5fb3f1ce1644cc7d",
+  "Stage9CodeSHA": "e66c54b65ca4ee2e6f7f730a1adc69a3357cfdcd"
+}

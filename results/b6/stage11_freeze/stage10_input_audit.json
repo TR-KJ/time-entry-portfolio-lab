@@ -1,0 +1,26 @@
+{
+  "GlobalR2Applied": false,
+  "LiveChanged": false,
+  "MetadataSHA256": {
+    "effective_config.json": "79e825218b76f0266e19e4fda08b678cd7f905ae7cd99a6fae82be3631f12a1b",
+    "identity.json": "5fee2693cc20ad0b716bab7612e0812b7d94e8acab0769fddc42dea6ef91406a",
+    "progress.json": "a30677a9a61e0ca7d57999aad254a61a515c6194d8dd2ac90cd465a48c0c759d",
+    "stage10_review.json": "08e76dabc09c5dcac67a1a50ae35dae48a50a9762aa3fee81911318724e1a532",
+    "stage10_summary.json": "a30677a9a61e0ca7d57999aad254a61a515c6194d8dd2ac90cd465a48c0c759d"
+  },
+  "OutputSHA256": {
+    "stage10_b6_overlap.csv.gz": "9393c3a1cdb53700a80d637282ca071077a2e766d89a11261ac85046973902bc",
+    "stage10_concurrency.csv.gz": "0b67a31bdbd202ad58109ece56fff8ca9bc7fbed0f60bfce94769ebd94ba55c3",
+    "stage10_decision_evidence.csv.gz": "2e4c6230f0470e5b32372521f1ef058c9b0bbba41b30a8e5511a705088e746ba",
+    "stage10_diagnostics.csv.gz": "a74ee8bcbed4d702ffe85720517f14f6088f32a123ba9689ec8faab77e4dff9d",
+    "stage10_portfolio_period_results.csv.gz": "1763347f1fd26c301a62f1fb345f72f79128291116fe3918d917a4962581c94e",
+    "stage10_risk_comparison.csv.gz": "0f53d8747ebac02fe15c10fe53524b8220fbce0c1ee6a1ded9f293c17c323be0",
+    "stage10_risk_load.csv.gz": "c9673a9789595a5e710c8983db1d2eddd5938eecce1903f46f1f92a22d62fb0e",
+    "stage10_weekly.csv.gz": "f1fa647d977e95005b1653b072a9a5f7f43e83d314a001b87e0df87cc29a258b"
+  },
+  "PerformanceUsed": false,
+  "RiskAllocationDecided": false,
+  "ScientificInput": false,
+  "State": "COMPLETE_STAGE10_INCREMENTAL_PORTFOLIO_ONLY",
+  "Status": "PASS"
+}
