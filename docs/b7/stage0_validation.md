@@ -1,6 +1,6 @@
-# B7 Stage0 audit results — BLOCKED_PENDING_PROVENANCE
+# B7 Stage0 audit results — PASS_WITH_PROVENANCE_LIMITATION
 
-Technical data/protocol checks completed; **scientific Stage0 clearance is blocked by unverified broker/source equivalence**. This is an audit snapshot Freeze, not a declaration that all Stage0 prerequisites pass. No different broker has been demonstrated. No Stage1 implementation/sweep, candidate selection, Validation/Monitor performance or money/R2 work was performed.
+Technical data/protocol checks remain PASS. B01 is CLEAR_WITH_LIMITATION under the user research decision accepting the frozen 72-file Research Data Collection with a symmetric provenance standard for all nine pairs. BrokerIdentity = HISTORICAL_NOT_FULLY_CERTIFIED. Stage1 is permitted only AFTER_STAGE1_CONDITIONS_FREEZE; no Stage1 implementation/sweep or candidate ranking was performed.
 
 ## Verification
 
@@ -9,12 +9,12 @@ Technical data/protocol checks completed; **scientific Stage0 clearance is block
 |Independent main-based B7 branch|PASS|main1df6b8c…; B6 read-only7ac8f554…; repository_refs/source_manifest|
 |Existing EU/GU formal audit reuse|NOT FOUND in searched scope|37 branch tips +8 Drive M1/input/manifest records; none matched; new technical audit performed|
 |Actual M1 files inspected|81|input_audit.csv includes selected and excluded alternate exports|
-|B7 measured inventory|72 files,9×8|expected_m1_manifest.csv; broker clearance still BLOCKED|
+|B7 measured inventory|72 files,9×8|expected_m1_manifest.csv; Research Data Collection accepted with provenance limitations|
 |Existing7 identity|56/56 exact|filename,SHA256,rows,FirstRaw,LastRaw match frozen B6 manifest|
 |Selected data integrity|PASS|OHLC,finite,positive,decimal price grid,raw ordering; pair raw/JST duplicates0|
 |Helsinki→Tokyo conversion|PASS as prescribed interpretation|ambiguous=infer,nonexistent=shift_forward; original broker timezone not independently certified|
 |Actual last timestamp|2026-09-09 06:00 JST for all9|no tail fill; requested Monitor end remains2026-09-10 exclusive|
-|EU/GU broker/source equivalence|BLOCKED / UNVERIFIED|B01 re-review accepts scoped eight-pair2026 OANDA acquisition evidence; historical/Q1 andGA source bridges remain unresolved; see b01_provenance_review.md|
+|Research source acceptance, all nine pairs|CLEAR_WITH_LIMITATION|Historical broker identity not fully independently certified for all nine; scoped eight-pair2026 OANDA evidence preserved; see b01_provenance_review.md|
 |EU/GU alternate exports|PASS subset equivalence|RECHECK contains all original timestamps with exact OHLC, plus actual additional rows; no files spliced|
 |Spread|AGREED|EU1.0,GU1.5 pips; research assumptions,not historical averages|
 |Pip|FORMAT CONSISTENT|JPY.01/non-JPY.0001; finite positive prices on fractional-pip decimal grid|
@@ -98,8 +98,8 @@ No raw M1,complete trade log,credentials or personal absolute path is saved. No 
 
 ## Stopping conditions / Chat handoff
 
-B01 was re-evaluated on2026-10-05. The specific Sep9 OANDA acquisition record and exact-file metadata support the eight2026Apr–Sep RECHECKs. The remaining blocker is a sufficient historical/Q1 andGA acquisition-source bridge, not the earlier vague Forex/FXCM recollection or absence of CSV broker metadata. Therefore complete Stage0 PASS must not be claimed. See b01_provenance_review.md. Stage1 remains disabled. Confirm the SL proposals and resolve Pure Time eligibility,5SL robustness,plateau thresholds,family de-duplication/fixed key/weekday transition,undefined metrics,SL/TP rules,calendar/month sample-removal rules,event thresholds and future Validation contract; full list in the Decision Register. No B6 numerical gates are silently inherited.
+B01 is now CLEAR_WITH_LIMITATION by the user research decision. Stage0 = PASS_WITH_PROVENANCE_LIMITATION; DataIntegrity = PASS; BrokerIdentity = HISTORICAL_NOT_FULLY_CERTIFIED. No new broker certification is claimed. Stage1 may start only AFTER_STAGE1_CONDITIONS_FREEZE, which has not occurred. Confirm the SL proposals and resolve Pure Time eligibility,5SL robustness,plateau thresholds,family de-duplication/fixed key/weekday transition,undefined metrics,SL/TP rules,calendar/month sample-removal rules,event thresholds and future Validation contract; full list in the Decision Register. No B6 numerical gates are silently inherited.
 
 Validation/Monitor **performance was not opened or computed**. Their raw-file bytes,OHLC validity,timestamps and coverage were read under the specifically authorized data-integrity audit. Consequently do not state that all Validation/Monitor raw data remained unopened. This distinction preserves the audit requirement and research blindness accurately.
 
-Git publication status and final SHA are verified after committing, in the returned handoff, avoiding a self-referential commit hash. Publication of this BLOCKED snapshot does not clear the blocker or authorize Stage1.
+Git publication status and final SHA are verified after committing, in the returned handoff, avoiding a self-referential commit hash. Publication records provenance acceptance with limitations; Stage1 execution remains conditional on the separate Stage1 conditions Freeze.

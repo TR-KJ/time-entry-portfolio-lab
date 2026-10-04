@@ -12,15 +12,24 @@ B6 Stage0 `round5` and `calibrate` function bodies are copied exactly into B7 ca
 
 B6 expected M1 manifest is byte-identical to the C1/A3 and Phase5 inventory, SHA256 `8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f`; its 56 expected identities are kept separately. B7's72-row inventory is measured, not a guessed expansion. Phase5/R2 sources at `5e93a8834e27d4d9ffdbc2980906511f74ddb27a` are audit-only; their OANDA New York server-clock context does **not** establish the historical M1 broker and does not replace B6 Helsinki conversion. B7 does not run money/R2.
 
-## Drive source and unresolved provenance
+## Research Data Collection and provenance limitations
 
-Read-only synchronized Google Drive location: `ゆうのすけさん2025/再現性100%/<currency:currency>/MT5データ/` and its `1分足/` subfolder. Exact source folders are recorded without personal absolute paths in `input_audit.csv`. All9 pair exports share the MT5 tab-separated schema; this does not prove broker equivalence. B01 reassessment (2026-10-05) accepts the user-supplied concrete Sep9 acquisition record: the data-export MT5 was Dell Inspiron OANDA DEMO and the eight named 2026Apr–Sep RECHECKs were acquired in that workflow. Their exact-file modification sequence corroborates the record. This supersedes the earlier vague Forex/FXCM recollection for that scope. Full-nine/all-segment identity remains BLOCKED because historical/Q1 EU/GU and GA lack a sufficient source bridge; no different broker has been established. This is not a demand for embedded broker metadata. See b01_provenance_review.md and provenance_evidence.json.
+Read-only synchronized Google Drive location: `ゆうのすけさん2025/再現性100%/<currency:currency>/MT5データ/` and its `1分足/` subfolder. Exact source folders are recorded without personal absolute paths in `input_audit.csv`. All9 pair exports share the MT5 tab-separated schema; this does not prove broker equivalence. B01 reassessment (2026-10-05) accepts the user-supplied concrete Sep9 acquisition record: the data-export MT5 was Dell Inspiron OANDA DEMO and the eight named 2026Apr–Sep RECHECKs were acquired in that workflow. Their exact-file modification sequence corroborates the record. This supersedes the earlier vague Forex/FXCM recollection for that scope. User research decision: apply the same provenance standard to all nine pairs. Adopt the audited, SHA256-frozen 72 M1 files as the formal Research Data Collection; historical broker identity is not independently certified for every file of the existing seven pairs either. This is acceptance with known limitations, not new broker certification. See b01_provenance_review.md and provenance_evidence.json.
 
 Search for existing EU/GU audit evidence covered all37 fetched branch tips in docs/research_inputs/results/src/research plus8 identifiable Drive M1/input/manifest records. No EURUSD/GBPUSD matching formal audit was located. This is a bounded search finding, not proof no deleted/inaccessible historical record exists. Hence EU/GU undergo a new technical audit; no previous formal audit PASS is reused by filename/coverage alone.
 
 81 actual M1 CSVs were inspected in the source tree;72 are inventory-selected (9×8),9 alternate exports remain excluded. EU/GU ordinary2026Apr–Sep exports contain a144-day gap. All original timestamps/OHLC are an exact subset of their respective RECHECK exports; RECHECK has additional actual rows. Select the complete RECHECK file **without merging,interpolation or cross-source filling**. Both versions' hashes/rows/endpoints and subset diagnostics are retained. Initial code incorrectly required a contiguous prefix; diagnosis showed exact timestamp subsets instead. This was an integrity-check correction before accepting data, not a rule changed after PnL. No PnL was computed.
 
-Manifest inclusion establishes observed file identity and integrity, **not broker certification or Stage1 eligibility**. Do not interpret `expected_m1_manifest.csv` as completed source clearance while B01 is BLOCKED.
+**B01 = CLEAR_WITH_LIMITATION; Stage0 = PASS_WITH_PROVENANCE_LIMITATION; DataIntegrity = PASS; BrokerIdentity = HISTORICAL_NOT_FULLY_CERTIFIED.** The audited, SHA256-frozen 72 M1 files are the formal B7 **Research Data Collection**. This adopts the same research provenance standard for EU/GU and the existing seven pairs; it does not independently certify broker identity.
+
+Known limitations and binding restrictions:
+
+- Historical segment broker names are not fully independently certified for all nine pairs.
+- Concrete records support the eight 2026 Apr–Sep RECHECKs acquired through Dell Inspiron OANDA DEMO MT5; this evidence is not automatically extended to historical/Q1 or GA.
+- No explicit evidence of different-broker mixing has been confirmed.
+- After seeing results, source replacement, data reacquisition and filling are prohibited. The exact 72 files and manifest stay frozen.
+
+**Stage1MayStart = true AFTER_STAGE1_CONDITIONS_FREEZE.** Stage1 conditions are not yet frozen; Stage1 must not start now. All existing condition-freeze requirements in the Decision Register remain unchanged. This update changes only the provenance research judgment.
 
 ## Reproduction and audit limitations
 

@@ -1,16 +1,16 @@
 {
-  "Scope": "B7_STAGE0_B01_PROVENANCE_REASSESSMENT_BLOCKED",
+  "Scope": "B7_STAGE0_B01_RESEARCH_DECISION_CLEAR_WITH_LIMITATION",
   "SelfExcluded": true,
   "Files": [
     {
       "Path": "docs/b7/b01_provenance_review.md",
-      "SHA256": "d9075e00a4c46bf4d76573172c32fdde36860183a05adfdc36f147d3d99e38b8",
-      "Bytes": 7242
+      "SHA256": "f0435e22388c6458b926bd93a8fcf41705ca3f2c3a4c70a3a6751ac895d721f6",
+      "Bytes": 6386
     },
     {
       "Path": "docs/b7/parameter_decision_register.md",
-      "SHA256": "0737e91bba31a057a08431638a90e5d0cd9b095d11386ae010396c916e0fdfe3",
-      "Bytes": 5557
+      "SHA256": "9e26a87e6f3c72fa68c27d79ad49c6728072036f829a404c8ac863c5fc3a7041",
+      "Bytes": 5639
     },
     {
       "Path": "docs/b7/research_plan.md",
@@ -24,13 +24,13 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "bde6451b2f8f83a847440b5a5333b0b1783e61fe363aa92688bcb3aa04de29ff",
-      "Bytes": 6630
+      "SHA256": "6043efa29f2cbb2f9a3bd70bde4184bfca21ec139f339df117ed3b77d4e5d8dd",
+      "Bytes": 7726
     },
     {
       "Path": "docs/b7/stage0_validation.md",
-      "SHA256": "d2866c0924fdb9f9f8f8ce49bb7344737656bfb14b896ca5aa9b203e46201fe0",
-      "Bytes": 9270
+      "SHA256": "3b2164f61a56fa2b7f1a01cb9450fc6969018339115d7383ea98e86bc263f851",
+      "Bytes": 9265
     },
     {
       "Path": "research_inputs/b7/b6_reference_manifest.csv",
@@ -114,8 +114,8 @@
     },
     {
       "Path": "results/b7/stage0/provenance_evidence.json",
-      "SHA256": "fdbf99095e4040d3203f379d5f73a96ddcfcef73725a224d7ca2afd6821f815f",
-      "Bytes": 17567
+      "SHA256": "c5959eb7b4460cc4adfa01eaa076f8aa7365d3c350f9cb966f7ecfec2bbc1cd6",
+      "Bytes": 18352
     },
     {
       "Path": "results/b7/stage0/provenance_file_metadata.csv",
@@ -124,8 +124,8 @@
     },
     {
       "Path": "results/b7/stage0/provenance_status.json",
-      "SHA256": "c6b825d159d1b9238497055a69342e7991f05feb1213a0e721517d1111b56898",
-      "Bytes": 726
+      "SHA256": "62e883059e8e5f47a7d6eb578bb40070aa17c2b7f62b484a5dcda851ffbda0c6",
+      "Bytes": 1861
     },
     {
       "Path": "results/b7/stage0/provenance_verification.json",
@@ -139,8 +139,8 @@
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "bd9d896982e75bba248646d65cf5869b929a4d01de31a85d5c9a2b568c3a0bad",
-      "Bytes": 493
+      "SHA256": "d8fdf7abb7c28a014d9805f292228b4f31c145ff1681b43e595b73b033f9da39",
+      "Bytes": 1509
     },
     {
       "Path": "results/b7/stage0/sl_grid_proposal.csv",

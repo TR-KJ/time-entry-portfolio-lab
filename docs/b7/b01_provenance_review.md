@@ -1,15 +1,19 @@
 # B01 provenance再監査 — 2026-10-05
 
-**最終判定：BLOCKED。Stage0：BLOCKED_PENDING_PROVENANCE。Stage1開始不可。**
-基点Stage0 Freeze：`0a5cd78ea6cdcfad81154b6c423413f52a3c470f`。今回の変更はB01の証拠・判定・関連記録だけ。価格の解析、再較正、戦略成績計算、再export・補完・置換なし。
+**現在の判定：CLEAR_WITH_LIMITATION。Stage0：PASS_WITH_PROVENANCE_LIMITATION。DataIntegrity：PASS。BrokerIdentity：HISTORICAL_NOT_FULLY_CERTIFIED。**
 
-## 判定の変化と理由
+今回の基点Freeze：`85a7f71770e5751e37698a11bc8a47552befa772`。ユーザーの研究判断によるB01判定更新のみ。追加の取得証拠やbroker認証を得たという意味ではない。
 
-新しい具体的証拠「2026-09-09の取得用MT5＝Dell Inspiron上のOANDAデモ口座、同じ流れで8pairのRECHECK取得」を正式に評価した。EU/GUを含む8pairの2026Apr–Sep RECHECKについて、OANDA取得を支持する証拠が得られた。先の「Forex/FXCMかも」という記憶を、今回のBLOCKED根拠には使用しない。
+## 研究判断の更新
 
-ただし、8pairのこの取得セッションから、別日に作成されたhistorical2015–2025の全export、2026Jan–Mar、またはGAの全セグメントまで同一sourceと遡及推定しない。既存7pairの正式な管理・監査チェーンは強いが、その記録はEU/GUを含まず、歴史的exportのbrokerも明示しない。したがって全9pairの研究source comparabilityを説明するための橋渡し記録がまだ足りない。
+既存7pairもhistorical 2015–2025のbroker名が全fileで独立証明されているわけではない。EU/GUだけにより厳しい証明を要求する非対称性を避け、監査済み・SHA256固定済みの72 M1 filesを正式なResearch Data Collectionとして採用する。以前のBLOCKED判定はこの研究判断により置き換える。以下の取得証拠・期間別評価自体は変更しない。
 
-CLEAR_WITH_LIMITATIONを採用しなかった理由は「各CSVにbroker欄がない」ことではない。欠けているのは**historical/Q1 EU/GUおよびGAを、そのOANDA取得環境または同一source familyへ結び付ける具体的な取得記録**である。原export記録、当時の一括取得・管理記録、範囲を特定した明確な取得元申告等で十分であり、全fileのbroker metadataや法的証明は要求しない。
+- historical broker名は全9pairについて完全には独立証明されていない。
+- 2026 Apr–Sepの8pair RECHECKにはDell Inspiron上のOANDAデモMT5取得を支持する具体的記録がある。
+- 別broker混入を示す明示的証拠は確認されていない。
+- 結果を見た後のsource差替え・再取得・補完は禁止。72-file manifestおよび元データは固定する。
+
+**Stage1開始はStage1条件Freeze後に可能。現在は条件Freeze未完了のため開始しない。**
 
 ## 2026 RECHECKとGA
 
@@ -50,10 +54,8 @@ Historical更新は2026/1/26〜2/8、Q1更新は4/18・4/22、RECHECKは9/9に�
 - OANDA live/forwardのRepo記録は環境の存在を示す補助情報に留め、historical broker判定には使用しない。価格類似・server timeによるbroker推定も行っていない。
 - Repo37branch先端とDaily Stop関連の歴史的commit、Driveの関連metadata・文書/log候補を確認。Chat取得ツールは最近のturnだけを返し、9/9へ進むcursorがなかった。内蔵ブラウザは未ログイン、Chrome閲覧は承認されず、元Chat原文の独立照合は未完了。ただしユーザーが今回提供した具体的記録を無視していない。
 
-## 成果物・不変性・次の停止位置
+## 今回の更新範囲と停止位置
 
-`provenance_evidence.json` にsource/date/scope/証明すること/証明しないこと/confidence・limitationと27個のpair×period記録を保存。`provenance_file_metadata.csv` は72fileの凍結SHA・今回SHA・mtime・相対保存先。`provenance_status.json`、run status、B01行、Source of Truth・Stage0結果のB01部分、artifact manifestだけを更新した。新規のB01文書・検証記録を追加。
+必要なB01文書・status・判定artifact・artifact manifestだけを更新。取得証拠の各record、27区分の期間別評価、M1 metadataは変更しない。M1 files、72-file manifest、spread/pip、SL proposal、execution、Stage sequence、ranking philosophy、Validation blind rule、code/tests、EA/SET/VPS/live、B6/mainは変更しない。
 
-spread/pip、72-file manifest、M1 hash期待値、SL proposal、execution、Stage sequence、ranking、Validation blind rule、全コード・tests、B01以外の数値成果物は不変。検証記録で基点との差分と保護ファイルのhash不変を確認する。B7 branchのみfast-forward公開し、remote=local/cleanを確認する。新Freeze SHAは公開後の引継ぎ報告に記載する。
-
-**Stage1開始不可。今回もStage1実装/sweep・ranking・Top8・Validation・Monitor・Money・R2・B6 Candidate比較・EA/SET/VPS/live変更を行わず、B01再監査で停止。** 他のStage1未決条件もそのままであり、B01判定だけで自動的に研究開始を許可しない。
+Stage1MayStart = true AFTER_STAGE1_CONDITIONS_FREEZE。Stage1条件は未Freezeであり、今回Stage1実装・full sweep・Candidate ranking等は実施しない。既存のStage1未決条件はそのまま維持する。

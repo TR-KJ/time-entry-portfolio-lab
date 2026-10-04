@@ -1,8 +1,8 @@
 {
-  "Status": "BLOCKED",
-  "Stage0": "BLOCKED_PENDING_PROVENANCE",
-  "Review": "B01_ONLY",
-  "BaseFreezeSHA": "0a5cd78ea6cdcfad81154b6c423413f52a3c470f",
+  "Status": "CLEAR_WITH_LIMITATION",
+  "Stage0": "PASS_WITH_PROVENANCE_LIMITATION",
+  "Review": "B01_RESEARCH_JUDGMENT_UPDATE",
+  "BaseFreezeSHA": "85a7f71770e5751e37698a11bc8a47552befa772",
   "BrokerConfirmedForAllNineAllSegments": false,
   "OANDA2026RecheckSupported": [
     "USDJPY",
@@ -17,7 +17,20 @@
   "GA": "formal existing7 dataset lineage and same-day re-export evidence;broker not established",
   "HistoricalAndQ1": "no sufficient documented source bridge to OANDA reacquisition",
   "DifferentBrokerEvidenceFound": false,
-  "Stage1MayStart": false,
+  "Stage1MayStart": true,
   "Evidence": "provenance_evidence.json",
-  "EarlierVagueRecollection": "not used as the basis for continued blocking"
+  "EarlierVagueRecollection": "Not evidence of an alternative broker; not used in this research decision",
+  "DataIntegrity": "PASS",
+  "BrokerIdentity": "HISTORICAL_NOT_FULLY_CERTIFIED",
+  "Stage1StartCondition": "AFTER_STAGE1_CONDITIONS_FREEZE",
+  "Stage1ConditionsFrozen": false,
+  "Stage1MayStartNow": false,
+  "DecisionReason": "User research decision: apply the same provenance standard to all nine pairs. Adopt the audited, SHA256-frozen 72 M1 files as the formal Research Data Collection; historical broker identity is not independently certified for every file of the existing seven pairs either. This is acceptance with known limitations, not new broker certification.",
+  "KnownLimitations": [
+    "Historical segment broker names are not fully independently certified for all nine pairs.",
+    "Concrete acquisition records support the eight 2026 Apr-Sep RECHECKs from Dell Inspiron OANDA DEMO MT5.",
+    "No explicit evidence of different-broker mixing has been confirmed.",
+    "Do not replace sources, reacquire data, or fill data after seeing results."
+  ],
+  "ResearchDataCollection": "Audited SHA256-frozen 72 M1 files; expected_m1_manifest.csv unchanged"
 }

@@ -1,16 +1,15 @@
 {
   "ReviewScope": "B01_ONLY",
-  "BaseFreezeSHA": "0a5cd78ea6cdcfad81154b6c423413f52a3c470f",
-  "Decision": "BLOCKED",
-  "Stage0Status": "BLOCKED_PENDING_PROVENANCE",
-  "Stage1MayStart": false,
-  "DecisionReason": "The new specific OANDA acquisition evidence supports the eight2026Apr-Sep RECHECKs. No sufficient source bridge was found for EU/GU historical six-segment exports or2026Jan-Mar,or forGA. Formal seven-pair audit continuity and timing support collection lineage but do not name the missing acquisition source. Full-nine-period comparability cannot yet be reasonably established.",
+  "BaseFreezeSHA": "85a7f71770e5751e37698a11bc8a47552befa772",
+  "Decision": "CLEAR_WITH_LIMITATION",
+  "Stage0Status": "PASS_WITH_PROVENANCE_LIMITATION",
+  "Stage1MayStart": true,
+  "DecisionReason": "User research decision: apply the same provenance standard to all nine pairs. Adopt the audited, SHA256-frozen 72 M1 files as the formal Research Data Collection; historical broker identity is not independently certified for every file of the existing seven pairs either. This is acceptance with known limitations, not new broker certification.",
   "EarlierForexFxcmRecollection": "SUPERSEDED_AS_BASIS_FOR_2026_RECHECK;not evidence of an alternative broker",
   "DifferentBrokerEvidenceFound": false,
   "MixedHistoricalSourceEvidenceFound": false,
   "ContradictoryProvenanceEvidenceFound": false,
   "DecisionDoesNotRequireCSVEmbeddedBrokerMetadata": true,
-  "AcceptableMissingEvidence": "A traceable original export/acquisition record or definite retrospective source declaration covering the historical/Q1 dataset andGA would suffice; per-file broker metadata or legal proof is not required.",
   "Records": [
     {
       "id": "E01",
@@ -395,5 +394,18 @@
   ],
   "RawPriceParsingOrPerformanceExecuted": false,
   "FilesReexportedOrReplaced": false,
-  "ExactHashesVerified": 72
+  "ExactHashesVerified": 72,
+  "OptionalFutureEvidence": "A traceable original export/acquisition record or definite retrospective source declaration covering the historical/Q1 dataset andGA would suffice; per-file broker metadata or legal proof is not required. This is a remaining limitation, not a B01 clearance prerequisite under the updated research decision.",
+  "DataIntegrity": "PASS",
+  "BrokerIdentity": "HISTORICAL_NOT_FULLY_CERTIFIED",
+  "Stage1StartCondition": "AFTER_STAGE1_CONDITIONS_FREEZE",
+  "Stage1ConditionsFrozen": false,
+  "Stage1MayStartNow": false,
+  "KnownLimitations": [
+    "Historical segment broker names are not fully independently certified for all nine pairs.",
+    "Concrete acquisition records support the eight 2026 Apr-Sep RECHECKs from Dell Inspiron OANDA DEMO MT5.",
+    "No explicit evidence of different-broker mixing has been confirmed.",
+    "Do not replace sources, reacquire data, or fill data after seeing results."
+  ],
+  "ResearchDataCollection": "Audited SHA256-frozen 72 M1 files; expected_m1_manifest.csv unchanged"
 }

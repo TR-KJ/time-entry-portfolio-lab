@@ -1,15 +1,26 @@
 {
   "DataIntegrity": "PASS",
-  "BrokerIdentity": "UNVERIFIED",
-  "Stage0": "BLOCKED_PENDING_PROVENANCE",
+  "BrokerIdentity": "HISTORICAL_NOT_FULLY_CERTIFIED",
+  "Stage0": "PASS_WITH_PROVENANCE_LIMITATION",
   "Stage1": "NOT_IMPLEMENTED_NOT_RUN",
   "ValidationPerformance": "NOT_RUN",
   "MonitorPerformance": "NOT_RUN",
   "AllPeriodDataIntegrityRead": true,
   "CalibrationPeriod": "Discovery only",
   "B6CandidateInputsUsed": false,
-  "B01": "BLOCKED",
-  "ProvenanceReview": "B01_ONLY_NEW_OANDA_EVIDENCE_EVALUATED",
+  "B01": "CLEAR_WITH_LIMITATION",
+  "ProvenanceReview": "B01_RESEARCH_JUDGMENT_UPDATE",
   "ProvenanceEvidence": "provenance_evidence.json",
-  "Stage1MayStart": false
+  "Stage1MayStart": true,
+  "Stage1StartCondition": "AFTER_STAGE1_CONDITIONS_FREEZE",
+  "Stage1ConditionsFrozen": false,
+  "Stage1MayStartNow": false,
+  "DecisionReason": "User research decision: apply the same provenance standard to all nine pairs. Adopt the audited, SHA256-frozen 72 M1 files as the formal Research Data Collection; historical broker identity is not independently certified for every file of the existing seven pairs either. This is acceptance with known limitations, not new broker certification.",
+  "KnownLimitations": [
+    "Historical segment broker names are not fully independently certified for all nine pairs.",
+    "Concrete acquisition records support the eight 2026 Apr-Sep RECHECKs from Dell Inspiron OANDA DEMO MT5.",
+    "No explicit evidence of different-broker mixing has been confirmed.",
+    "Do not replace sources, reacquire data, or fill data after seeing results."
+  ],
+  "ResearchDataCollection": "Audited SHA256-frozen 72 M1 files; expected_m1_manifest.csv unchanged"
 }
