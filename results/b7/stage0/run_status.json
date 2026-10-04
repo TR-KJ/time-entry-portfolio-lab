@@ -22,5 +22,28 @@
     "No explicit evidence of different-broker mixing has been confirmed.",
     "Do not replace sources, reacquire data, or fill data after seeing results."
   ],
-  "ResearchDataCollection": "Audited SHA256-frozen 72 M1 files; expected_m1_manifest.csv unchanged"
+  "ResearchDataCollection": "Audited SHA256-frozen 72 M1 files; expected_m1_manifest.csv unchanged",
+  "Stage1ConditionsFreeze": "PARTIAL_P01_P02_U01_U05_AGREED_FROZEN",
+  "FrozenDecisionIDs": [
+    "P01",
+    "P02",
+    "U01",
+    "U02",
+    "U03",
+    "U04",
+    "U05"
+  ],
+  "UnresolvedDecisionIDs": [
+    "U06",
+    "U07",
+    "U08",
+    "U09",
+    "U10",
+    "U11",
+    "U12"
+  ],
+  "Stage1Prespec": "research_inputs/b7/stage1_prespec.json",
+  "Stage1ImplementationAuthorized": false,
+  "Stage1ExecutionAuthorized": false,
+  "NewPerformanceResultsOpened": false
 }

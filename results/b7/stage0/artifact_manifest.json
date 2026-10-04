@@ -1,5 +1,5 @@
 {
-  "Scope": "B7_STAGE0_B01_RESEARCH_DECISION_CLEAR_WITH_LIMITATION",
+  "Scope": "B7_STAGE0_WITH_P01_P02_U01_U05_CONDITIONS_FREEZE",
   "SelfExcluded": true,
   "Files": [
     {
@@ -9,13 +9,13 @@
     },
     {
       "Path": "docs/b7/parameter_decision_register.md",
-      "SHA256": "9e26a87e6f3c72fa68c27d79ad49c6728072036f829a404c8ac863c5fc3a7041",
-      "Bytes": 5639
+      "SHA256": "0716d1c77a1e134c39a6115bd36a648856f7e71cf8fd6520377eddb9616c44b6",
+      "Bytes": 6347
     },
     {
       "Path": "docs/b7/research_plan.md",
-      "SHA256": "23958c98428c4759fdd38e478fed50adfdb9fafb930eaf1cf917e1eb6f4e5b1f",
-      "Bytes": 7706
+      "SHA256": "13ea459c9289c0fd6eb1b26d0e19f96566baf679638e75b635b15971541ba814",
+      "Bytes": 8356
     },
     {
       "Path": "docs/b7/sl_calibration_prespec.md",
@@ -24,13 +24,18 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "6043efa29f2cbb2f9a3bd70bde4184bfca21ec139f339df117ed3b77d4e5d8dd",
-      "Bytes": 7726
+      "SHA256": "4371e672194dc9015d81e84c8ae8595af88db9434846093d5a3bdc9af08d1ee3",
+      "Bytes": 8547
     },
     {
       "Path": "docs/b7/stage0_validation.md",
-      "SHA256": "3b2164f61a56fa2b7f1a01cb9450fc6969018339115d7383ea98e86bc263f851",
-      "Bytes": 9265
+      "SHA256": "368ddd2f126ef4089b0e3514b5f30324a1253f716c91dcbb9b67fc2bfc83dbc0",
+      "Bytes": 9372
+    },
+    {
+      "Path": "docs/b7/stage1_conditions_freeze.md",
+      "SHA256": "cdcacd33a47983520188ed9581477996d56ef5d3d7703b74aea0108c7f2176e3",
+      "Bytes": 11255
     },
     {
       "Path": "research_inputs/b7/b6_reference_manifest.csv",
@@ -56,6 +61,11 @@
       "Path": "research_inputs/b7/stage0_protocol.json",
       "SHA256": "d0425de445b1a1390ee74fcf3c446d0f83c324fb019ba38e3254325f37171293",
       "Bytes": 4708
+    },
+    {
+      "Path": "research_inputs/b7/stage1_prespec.json",
+      "SHA256": "1449bfe9e9fc066ce4a59cc156e8247cc67e11522d9cdfb007cafefaf69d05e5",
+      "Bytes": 10202
     },
     {
       "Path": "results/b7/stage0/alternate_exports.json",
@@ -139,8 +149,8 @@
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "d8fdf7abb7c28a014d9805f292228b4f31c145ff1681b43e595b73b033f9da39",
-      "Bytes": 1509
+      "SHA256": "2dc6b96a14732a3b8712203141997288d9829c28ec0c1fbe72dc078e97ba975d",
+      "Bytes": 1976
     },
     {
       "Path": "results/b7/stage0/sl_grid_proposal.csv",

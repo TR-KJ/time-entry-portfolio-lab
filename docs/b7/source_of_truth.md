@@ -45,3 +45,9 @@ PYTHONPATH=src/research PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s
 The original projectless directory refused shell writes even after a filesystem grant. A fresh isolated temporary clone was used; no pre-existing checkout was changed. This does not affect scientific identity, which uses Git/file hashes, not personal paths. Audit artifacts are published only under B7 paths.
 
 The row-level calibration diagnostics are gzip-compressed to keep publication compact; they contain dates/counts/status only, not M1 prices. GitHub publication uses the connected GitHub API when local Git transport authentication is unavailable.
+
+## P01/P02/U01–U05 formal conditions Freeze
+
+The user has formally frozen P01/P02/U01–U05 as AGREED/FROZEN. `stage1_conditions_freeze.md` preserves the full agreed specification; `research_inputs/b7/stage1_prespec.json` records the official SL grids, numeric semantics, Pure Time/SL gates, Plateau, family/fixed-key and PF semantics. Original proposal/calibration artifacts remain historical snapshots; their numeric values are unchanged and are now formally adopted.
+
+This is a partial pre-implementation conditions Freeze. U06–U12 remain UNDECIDED; U12 runtime/resume/artifact/Colab contract has not been frozen. Stage1MayStartNow remains false. This request authorizes documentation/config only, with no new performance reads or execution. B01 and Stage0 status and all provenance limitations remain unchanged.

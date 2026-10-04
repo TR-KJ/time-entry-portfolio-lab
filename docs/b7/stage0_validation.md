@@ -71,7 +71,7 @@ Same discovered source root: `ゆうのすけさん2025/再現性100%/EUR:USD/MT
 
 Gap diagnostics include weekends/holidays and segment joins. They are descriptive counts, not a verified exchange-session missing-bar classification. The original EU/GU2026Apr–Sep files have a144-day gap: EU18,720/GU18,719 rows. RECHECK has EU165,596/GU165,589; overlap differs in0 OHLC rows. No broker is inferred from that match.
 
-## Price-only five-SL proposals — PROVISIONAL
+## Price-only five-SL calibration snapshot — now adopted by P01
 
 |Symbol|Eligible days|Daily median pips|SL1|SL2|SL3|SL4|SL5|
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -85,7 +85,7 @@ Gap diagnostics include weekends/holidays and segment joins. They are descriptiv
 |EURUSD|808|74.4500|10|20|35|60|90|
 |GBPUSD|808|101.1000|15|30|50|80|120|
 
-All grids use the inherited prespecified Tue–Fri eligible-day median High−Low,2020–2023 only, multipliers.15/.30/.50/.80/1.20,half-up5pips,min10,max300,strictly increasing5pips correction. No clamp/duplicate correction occurred. Exact eligibility and annual counts,quantiles and auxiliary30-minute/4-hour diagnostics are in price_statistics.json. These are price diagnostics,not candidate performance and not formal Stage1 adoption.
+All grids use the inherited prespecified Tue–Fri eligible-day median High−Low,2020–2023 only, multipliers.15/.30/.50/.80/1.20,half-up5pips,min10,max300,strictly increasing5pips correction. No clamp/duplicate correction occurred. Exact eligibility and annual counts,quantiles and auxiliary30-minute/4-hour diagnostics are in price_statistics.json. These are original price diagnostics, not candidate performance. P01 now formally adopts the exact five-SL grids; the original proposal artifacts remain unchanged historical records.
 
 ## Artifacts
 
@@ -98,7 +98,7 @@ No raw M1,complete trade log,credentials or personal absolute path is saved. No 
 
 ## Stopping conditions / Chat handoff
 
-B01 is now CLEAR_WITH_LIMITATION by the user research decision. Stage0 = PASS_WITH_PROVENANCE_LIMITATION; DataIntegrity = PASS; BrokerIdentity = HISTORICAL_NOT_FULLY_CERTIFIED. No new broker certification is claimed. Stage1 may start only AFTER_STAGE1_CONDITIONS_FREEZE, which has not occurred. Confirm the SL proposals and resolve Pure Time eligibility,5SL robustness,plateau thresholds,family de-duplication/fixed key/weekday transition,undefined metrics,SL/TP rules,calendar/month sample-removal rules,event thresholds and future Validation contract; full list in the Decision Register. No B6 numerical gates are silently inherited.
+B01 is now CLEAR_WITH_LIMITATION by the user research decision. Stage0 = PASS_WITH_PROVENANCE_LIMITATION; DataIntegrity = PASS; BrokerIdentity = HISTORICAL_NOT_FULLY_CERTIFIED. No new broker certification is claimed. Stage1 may start only AFTER_STAGE1_CONDITIONS_FREEZE, which has not occurred. P01/P02/U01–U05 are now AGREED/FROZEN in stage1_conditions_freeze.md and stage1_prespec.json. U06–U12 remain UNDECIDED, including the U12 runtime/resume/artifact/Colab execution contract. The present update is documentation/config only; no implementation or execution is authorized. No B6 numerical gates are silently inherited.
 
 Validation/Monitor **performance was not opened or computed**. Their raw-file bytes,OHLC validity,timestamps and coverage were read under the specifically authorized data-integrity audit. Consequently do not state that all Validation/Monitor raw data remained unopened. This distinction preserves the audit requirement and research blindness accurately.
 

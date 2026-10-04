@@ -1,0 +1,381 @@
+{
+  "SchemaVersion": 1,
+  "Scope": "STAGE1_CONDITIONS_DOCUMENTATION_ONLY",
+  "BaseFreezeSHA": "723ac634fdfbea0827d4e397f722df6b1c771b2d",
+  "DecisionSource": {
+    "Type": "Explicit user agreed conditions",
+    "AttachmentSHA256": "ec2113715c1e48ec28adadba46c6ec1e1e37e2f106868a9485850770426e5e18"
+  },
+  "DecisionStatus": {
+    "P01": "AGREED/FROZEN",
+    "P02": "AGREED/FROZEN",
+    "U01": "AGREED/FROZEN",
+    "U02": "AGREED/FROZEN",
+    "U03": "AGREED/FROZEN",
+    "U04": "AGREED/FROZEN",
+    "U05": "AGREED/FROZEN"
+  },
+  "UnresolvedDecisions": {
+    "U06": "UNDECIDED",
+    "U07": "UNDECIDED",
+    "U08": "UNDECIDED",
+    "U09": "UNDECIDED",
+    "U10": "UNDECIDED",
+    "U11": "UNDECIDED",
+    "U12": "UNDECIDED"
+  },
+  "DiscoveryYears": [
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "P01": {
+    "SLGridPips": {
+      "USDJPY": [
+        10,
+        25,
+        40,
+        60,
+        95
+      ],
+      "EURJPY": [
+        15,
+        30,
+        50,
+        75,
+        115
+      ],
+      "GBPJPY": [
+        20,
+        40,
+        65,
+        100,
+        150
+      ],
+      "AUDJPY": [
+        10,
+        25,
+        40,
+        65,
+        100
+      ],
+      "AUDUSD": [
+        10,
+        20,
+        35,
+        55,
+        85
+      ],
+      "EURAUD": [
+        20,
+        35,
+        60,
+        95,
+        145
+      ],
+      "GBPAUD": [
+        20,
+        40,
+        70,
+        110,
+        160
+      ],
+      "EURUSD": [
+        10,
+        20,
+        35,
+        60,
+        90
+      ],
+      "GBPUSD": [
+        15,
+        30,
+        50,
+        80,
+        120
+      ]
+    },
+    "Stage1SLVariants": "Exactly these five SL values per symbol, each TP_NONE; no additional SL",
+    "Calibration": {
+      "Period": "Discovery 2020-2023 only",
+      "PnLUsed": false,
+      "Method": "Same price-only calibration methodology as B6",
+      "Statistic": "Median Daily High-Low on JST Tue-Fri eligible days",
+      "Multipliers": [
+        0.15,
+        0.3,
+        0.5,
+        0.8,
+        1.2
+      ],
+      "Rounding": "5-pip half-up",
+      "MinPips": 10,
+      "MaxPips": 300,
+      "StrictlyIncreasing": true
+    },
+    "ResultDrivenChangesAllowed": false
+  },
+  "P02": {
+    "MetricInput": "Internal unrounded Pips for gates/ranking/PF/DD; display values never feed decisions",
+    "Display": {
+      "PipsDecimalsRecommended": 6,
+      "RatiosAndPF": "Reasonable fixed precision for display only"
+    },
+    "AnnualAttribution": "Planned Entry JST year, not Exit year",
+    "PFpips": "sum(positive pips) / abs(sum(negative pips))",
+    "MaxDDPips": {
+      "InitialCumulativePips": 0,
+      "InitialPeak": 0,
+      "Formula": "PeakCumulativePips - CurrentCumulativePips",
+      "StoredValue": "Maximum drawdown magnitude, nonnegative (zero if no drawdown)",
+      "TradeOrder": [
+        "CloseTime JST",
+        "EntryTime JST",
+        "deterministic fixed key"
+      ]
+    }
+  },
+  "U01": {
+    "Variant": {
+      "SL": null,
+      "TP": null
+    },
+    "AllConditionsRequired": true,
+    "Gate": {
+      "TotalTrades": {
+        "operator": ">=",
+        "value": 150
+      },
+      "TradesEachDiscoveryYear": {
+        "operator": ">=",
+        "value": 30
+      },
+      "TotalLosses": {
+        "operator": ">=",
+        "value": 10
+      },
+      "OverallAvgPips": {
+        "operator": ">",
+        "value": 0
+      },
+      "PFpips": {
+        "operator": ">=",
+        "value": 1.1
+      },
+      "PositiveYearCount": {
+        "operator": ">=",
+        "value": 3,
+        "of": 4
+      },
+      "MaxDDPipsAbsoluteCap": null
+    },
+    "PositiveYear": "Annual TotalPips > 0; zero is not positive",
+    "MaxDDUse": "Store metric and use later ranking criterion; no common pair-wide Pips DD cap"
+  },
+  "U02": {
+    "Variants": "Each official fixed SL x TP_NONE",
+    "AllPerSLConditionsRequired": true,
+    "PerSLGate": {
+      "TotalTrades": {
+        "operator": ">=",
+        "value": 150
+      },
+      "TradesEachDiscoveryYear": {
+        "operator": ">=",
+        "value": 30
+      },
+      "TotalLosses": {
+        "operator": ">=",
+        "value": 10
+      },
+      "OverallAvgPips": {
+        "operator": ">",
+        "value": 0
+      },
+      "PFpips": {
+        "operator": ">=",
+        "value": 1.05
+      },
+      "PositiveYearCount": {
+        "operator": ">=",
+        "value": 3,
+        "of": 4
+      }
+    },
+    "MinimumPassingSLCount": 3,
+    "SLCount": 5,
+    "OutputLabel": "SL_ROBUSTNESS_PASS",
+    "PureTimeIsPrimary": true,
+    "BestSLSelectionInStage1": false,
+    "SLPerformanceAsPrimaryRanking": false
+  },
+  "Stage1FormalPointPass": "Pure Time PASS AND SL_ROBUSTNESS_PASS; this point-level PASS is used inside neighborhoods before the separate Plateau gate (not recursive Plateau PASS)",
+  "U03": {
+    "GridMinutes": 5,
+    "EntryOffsetsMinutes": [
+      -5,
+      0,
+      5
+    ],
+    "ExitOffsetsMinutes": [
+      -5,
+      0,
+      5
+    ],
+    "CenterIncluded": true,
+    "MaximumPoints": 9,
+    "ValidNeighborRequirements": [
+      "Planned holding 30 through 1440 minutes inclusive",
+      "Same symbol",
+      "Same direction",
+      "Same Entry weekday",
+      "Same Exit day offset rule",
+      "Valid under frozen execution year-boundary/schedule rules"
+    ],
+    "InvalidSchedules": "Exclude from valid count and PASS-ratio denominator; do not count as FAIL",
+    "AllConditionsRequired": true,
+    "CenterMustFormalPass": true,
+    "MinimumValidPoints": 4,
+    "MinimumFormalPassRatio": {
+      "Numerator": 2,
+      "Denominator": 3
+    },
+    "MedianAvgPipsMinimumCenterMultiplier": 0.8,
+    "MedianPopulation": "All valid neighborhood points including FAIL points; not only PASS points",
+    "Purpose": "Local stability, not an isolated sharp peak; suppress winner's curse"
+  },
+  "U04": {
+    "NearConditionsAllRequired": {
+      "SameSymbol": true,
+      "SameDirection": true,
+      "EntryCircularDistanceMaxMinutes": 30,
+      "ExitCircularDistanceMaxMinutes": 30,
+      "PlannedHoldingDifferenceMaxMinutes": 30,
+      "SameExitDayOffset": true
+    },
+    "CircularTimeDistance": "min(abs(a-b), 1440-abs(a-b)) on minute-of-day",
+    "DifferentEntryWeekdaysMayBeSuppressed": true,
+    "RepresentativeSelection": "Traverse official Stage1 ranking; first unsuppressed eligible candidate is representative; suppress only subsequent candidates directly near that representative",
+    "TransitiveMergeAllowed": false,
+    "RepresentativeArtifactRequired": [
+      "Anchor weekday",
+      "Supporting weekdays",
+      "Original metrics for each weekday",
+      "Suppressed CandidateIDs"
+    ],
+    "MaximumFamiliesPerPair": 8,
+    "MinimumGuaranteedFamilies": 0,
+    "Refill": "Next unsuppressed eligible candidate in official ranking order; no failed-candidate rescue",
+    "FixedKey": [
+      "Symbol",
+      "Direction (LONG before SHORT)",
+      "Entry weekday (Monday through Friday)",
+      "Entry minute of day",
+      "Exit day offset",
+      "Exit minute of day",
+      "Planned holding minutes",
+      "CandidateID"
+    ],
+    "CandidateID": "Deterministically generated from the preceding fixed structure fields; not input/filesystem/parallel completion order",
+    "CandidateIDEncoding": "Not specified here; concrete serialization belongs to pending U12 artifact contract",
+    "ForbiddenTieBreaks": [
+      "filesystem order",
+      "DataFrame original order",
+      "parallel completion order"
+    ]
+  },
+  "U05": {
+    "PFStates": [
+      {
+        "When": "positive sum > 0 and negative sum < 0",
+        "State": "FINITE",
+        "Value": "positive sum / abs(negative sum)"
+      },
+      {
+        "When": "positive sum > 0 and negative sum = 0",
+        "State": "INF",
+        "Value": "Infinity, no finite numeric sentinel"
+      },
+      {
+        "When": "positive sum = 0 and negative sum < 0",
+        "State": "FINITE",
+        "Value": 0
+      },
+      {
+        "When": "positive sum = 0 and negative sum = 0, or Trades = 0, or all trades ZeroPips",
+        "State": "UNDEFINED",
+        "Value": null
+      }
+    ],
+    "NumericSentinelsAllowed": false,
+    "UndefinedToZeroOrInfinityAllowed": false,
+    "INFFormalPass": false,
+    "INFReason": "Total Losses >= 10 is mandatory in both Pure Time and each SL gate; INF is not a top-ranking numeric value",
+    "ZeroPips": {
+      "IncludedInTrades": true,
+      "IncludedInWins": false,
+      "IncludedInLosses": false,
+      "IncludedInPositiveSum": false,
+      "IncludedInNegativeSum": false
+    },
+    "AnnualPositive": "Annual TotalPips > 0",
+    "AnnualZero": "Not positive",
+    "AnnualNegative": "Annual TotalPips < 0",
+    "AnnualSample": "All four Discovery years must each have at least 30 trades",
+    "MedianAnnualAvgPips": "Median of all four annual AvgPips only after all four annual sample gates pass; never omit missing/undersampled years",
+    "FormalRankingPF": "Normal finite PF defined for formal eligible candidates; INF/UNDEFINED cannot pass"
+  },
+  "PairRanking": [
+    {
+      "Metric": "PositiveYearCount",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "MedianAnnualAvgPips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "WorstYearAvgPips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "PFpips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "OverallAvgPips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "TotalPips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "MaxDDPips",
+      "Order": "ASC"
+    },
+    {
+      "Metric": "FixedKey",
+      "Order": "ASC as defined in U04"
+    }
+  ],
+  "RankingPopulation": "Formal eligible candidates satisfying Pure Time, SL robustness and Plateau; within pair only",
+  "Authorization": {
+    "Stage1ExecutorImplementation": false,
+    "Stage1NotebookImplementation": false,
+    "FullSweep": false,
+    "CandidatePerformanceCalculation": false,
+    "CandidateRankingExecution": false,
+    "Top8Selection": false,
+    "Stage1RuntimeContractFrozen": false,
+    "AllStage1ConditionsFrozen": false,
+    "Stage1MayStartNow": false
+  },
+  "UnchangedStatus": {
+    "B01": "CLEAR_WITH_LIMITATION",
+    "Stage0": "PASS_WITH_PROVENANCE_LIMITATION",
+    "DataIntegrity": "PASS",
+    "BrokerIdentity": "HISTORICAL_NOT_FULLY_CERTIFIED"
+  }
+}
