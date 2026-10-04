@@ -1,10 +1,23 @@
 {
-  "Status": "BLOCKED_UNVERIFIED_NOT_CONFIRMED_DIFFERENT",
-  "SameDirectoryTree": true,
-  "SameMT5Schema": true,
-  "EU_GU_Old_Recheck_OHLC_OverlapExact": true,
-  "UserRecall": "Probably same; maybe Forex; possibly FXCM",
-  "BrokerConfirmed": false,
-  "InferenceFromPricesOrDirectoryAllowed": false,
-  "RequiredBeforeClearance": "Traceable export/acquisition provenance establishing broker/source equivalence with existing seven pairs"
+  "Status": "BLOCKED",
+  "Stage0": "BLOCKED_PENDING_PROVENANCE",
+  "Review": "B01_ONLY",
+  "BaseFreezeSHA": "0a5cd78ea6cdcfad81154b6c423413f52a3c470f",
+  "BrokerConfirmedForAllNineAllSegments": false,
+  "OANDA2026RecheckSupported": [
+    "USDJPY",
+    "EURJPY",
+    "GBPJPY",
+    "AUDJPY",
+    "EURUSD",
+    "GBPUSD",
+    "AUDUSD",
+    "EURAUD"
+  ],
+  "GA": "formal existing7 dataset lineage and same-day re-export evidence;broker not established",
+  "HistoricalAndQ1": "no sufficient documented source bridge to OANDA reacquisition",
+  "DifferentBrokerEvidenceFound": false,
+  "Stage1MayStart": false,
+  "Evidence": "provenance_evidence.json",
+  "EarlierVagueRecollection": "not used as the basis for continued blocking"
 }

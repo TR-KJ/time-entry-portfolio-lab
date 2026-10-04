@@ -7,5 +7,9 @@
   "MonitorPerformance": "NOT_RUN",
   "AllPeriodDataIntegrityRead": true,
   "CalibrationPeriod": "Discovery only",
-  "B6CandidateInputsUsed": false
+  "B6CandidateInputsUsed": false,
+  "B01": "BLOCKED",
+  "ProvenanceReview": "B01_ONLY_NEW_OANDA_EVIDENCE_EVALUATED",
+  "ProvenanceEvidence": "provenance_evidence.json",
+  "Stage1MayStart": false
 }

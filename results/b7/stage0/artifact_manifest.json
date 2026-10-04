@@ -1,11 +1,16 @@
 {
-  "Scope": "B7_STAGE0_BLOCKED_AUDIT_SNAPSHOT",
+  "Scope": "B7_STAGE0_B01_PROVENANCE_REASSESSMENT_BLOCKED",
   "SelfExcluded": true,
   "Files": [
     {
+      "Path": "docs/b7/b01_provenance_review.md",
+      "SHA256": "d9075e00a4c46bf4d76573172c32fdde36860183a05adfdc36f147d3d99e38b8",
+      "Bytes": 7242
+    },
+    {
       "Path": "docs/b7/parameter_decision_register.md",
-      "SHA256": "68c181d1edef7024b332c8c69e83ce65fbddf6a95d5642909cc6ef1e7f01b318",
-      "Bytes": 5343
+      "SHA256": "0737e91bba31a057a08431638a90e5d0cd9b095d11386ae010396c916e0fdfe3",
+      "Bytes": 5557
     },
     {
       "Path": "docs/b7/research_plan.md",
@@ -19,13 +24,13 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "cfc00375099e35d9b82a0f97083dece2e33e84fc93c1d862c626dbeddecc1e56",
-      "Bytes": 6233
+      "SHA256": "bde6451b2f8f83a847440b5a5333b0b1783e61fe363aa92688bcb3aa04de29ff",
+      "Bytes": 6630
     },
     {
       "Path": "docs/b7/stage0_validation.md",
-      "SHA256": "09d20a929ce88101bd50991448dad5959f63a02bf872075231857e02e5d37489",
-      "Bytes": 9026
+      "SHA256": "d2866c0924fdb9f9f8f8ce49bb7344737656bfb14b896ca5aa9b203e46201fe0",
+      "Bytes": 9270
     },
     {
       "Path": "research_inputs/b7/b6_reference_manifest.csv",
@@ -108,9 +113,24 @@
       "Bytes": 5869
     },
     {
+      "Path": "results/b7/stage0/provenance_evidence.json",
+      "SHA256": "fdbf99095e4040d3203f379d5f73a96ddcfcef73725a224d7ca2afd6821f815f",
+      "Bytes": 17567
+    },
+    {
+      "Path": "results/b7/stage0/provenance_file_metadata.csv",
+      "SHA256": "db1aa4f817162c8bee7dbdc633d38f0c0af0b1cd4c04d5b88f64df396f1d2a98",
+      "Bytes": 19571
+    },
+    {
       "Path": "results/b7/stage0/provenance_status.json",
-      "SHA256": "5bf0b7c33c939ea8dce1b93e67abf020adf52b8e93edab3d92e150bffa176ce6",
-      "Bytes": 438
+      "SHA256": "c6b825d159d1b9238497055a69342e7991f05feb1213a0e721517d1111b56898",
+      "Bytes": 726
+    },
+    {
+      "Path": "results/b7/stage0/provenance_verification.json",
+      "SHA256": "16bdca6dec32ad330d430169b045db350a6c7101c61298fa70c18df73cf4d4e6",
+      "Bytes": 1968
     },
     {
       "Path": "results/b7/stage0/repository_refs.json",
@@ -119,8 +139,8 @@
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "d1e00d86a963acfa0a060ed288c87bceb3eafa0e0b987e5a4748e137775af934",
-      "Bytes": 331
+      "SHA256": "bd9d896982e75bba248646d65cf5869b929a4d01de31a85d5c9a2b568c3a0bad",
+      "Bytes": 493
     },
     {
       "Path": "results/b7/stage0/sl_grid_proposal.csv",

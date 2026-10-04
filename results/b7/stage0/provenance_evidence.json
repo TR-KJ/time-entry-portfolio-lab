@@ -1,0 +1,399 @@
+{
+  "ReviewScope": "B01_ONLY",
+  "BaseFreezeSHA": "0a5cd78ea6cdcfad81154b6c423413f52a3c470f",
+  "Decision": "BLOCKED",
+  "Stage0Status": "BLOCKED_PENDING_PROVENANCE",
+  "Stage1MayStart": false,
+  "DecisionReason": "The new specific OANDA acquisition evidence supports the eight2026Apr-Sep RECHECKs. No sufficient source bridge was found for EU/GU historical six-segment exports or2026Jan-Mar,or forGA. Formal seven-pair audit continuity and timing support collection lineage but do not name the missing acquisition source. Full-nine-period comparability cannot yet be reasonably established.",
+  "EarlierForexFxcmRecollection": "SUPERSEDED_AS_BASIS_FOR_2026_RECHECK;not evidence of an alternative broker",
+  "DifferentBrokerEvidenceFound": false,
+  "MixedHistoricalSourceEvidenceFound": false,
+  "ContradictoryProvenanceEvidenceFound": false,
+  "DecisionDoesNotRequireCSVEmbeddedBrokerMetadata": true,
+  "AcceptableMissingEvidence": "A traceable original export/acquisition record or definite retrospective source declaration covering the historical/Q1 dataset andGA would suffice; per-file broker metadata or legal proof is not required.",
+  "Records": [
+    {
+      "id": "E01",
+      "source": "User-supplied B01 follow-up, section1; request attachment SHA256 f8e37f853db63d30c9f8f1f9c117f69797143e51c565c3c25fb666e3fc66586c",
+      "date": "Reported acquisition date 2026-09-09",
+      "scope": "USDJPY,EURJPY,GBPJPY,AUDJPY,EURUSD,GBPUSD,AUDUSD,EURAUD;2026Apr-Sep RECHECK",
+      "what_it_proves": "Concrete acquisition-workflow evidence explicitly identifies the data-export MT5 as Dell Inspiron OANDA DEMO and identifies the eight-pair reacquisition workflow. Accepted as materially stronger than the earlier vague Forex/FXCM recollection.",
+      "what_it_does_NOT_prove": "Does not identify every2015-2025 export,2026Jan-Mar export,or the GA2026Apr-Sep ordinary file; original Sep9 transcript was not independently retrieved.",
+      "confidence_limitation": "Specific user-supplied historical-workflow attestation; corroborated by E02. Accepted for its stated scope,not generalized."
+    },
+    {
+      "id": "E02",
+      "source": "Read-only synchronized Drive filesystem metadata bound to exact72-file SHA256 inventory; provenance_file_metadata.csv",
+      "date": "Observed during B01 follow-up; preserved mtimes include2026-09-09",
+      "scope": "All72 exact frozen files; eight RECHECK exports",
+      "what_it_proves": "Eight RECHECK mtimes occur Sep9 15:31:46-15:56:01 JST: UJ,EJ,GJ,AJ,EU,GU,EA,AU. Exact file hashes match the Stage0 Freeze. This independently corroborates the reported workflow sequence.",
+      "what_it_does_NOT_prove": "mtime is not an authenticated export log,Drive revision history,account ID or broker identity; cannot establish broker by timestamp alone.",
+      "confidence_limitation": "High for observed metadata and bytes; supporting only for session association."
+    },
+    {
+      "id": "E03",
+      "source": "docs/28_daily_stop_validation.md at a0d38bf6c0245dadf11a072d99348c48050377f9",
+      "date": "2026-09-09T16:50:23+09:00",
+      "scope": "Existing7 includingGA,2015-2026",
+      "what_it_proves": "Contemporaneous formal full-period seven-pair/56-file audit; GA2019 gaps reproduced after re-export and inM5; explicit no other-broker filling.",
+      "what_it_does_NOT_prove": "Does not name the export broker or includeEU/GU; dataset integrity/audit does not alone establish all-file broker identity.",
+      "confidence_limitation": "Strong formal dataset-chain evidence; broker attribution absent.",
+      "source_sha256": "1760e8796890546674936dad5e3acee7c68e10572e8fe7170335f59de7093816"
+    },
+    {
+      "id": "E04",
+      "source": "B6 expected_m1_manifest.csv at7ac8f554970fbc19d758f52151dd948e3a67d9fa and B7 expected_m1_manifest.csv at0a5cd78ea6cdcfad81154b6c423413f52a3c470f",
+      "date": "B6 snapshot2026-10-04;original daily-stop lineage2026-09-09",
+      "scope": "Existing7 all56 files plusB7 exactEU/GU16",
+      "what_it_proves": "Frozen hashes preserve the same audited seven-pair dataset,includingGA. GA2026Apr-Sep is the non-RECHECK file; GA2019-2020 is the RECHECK file.",
+      "what_it_does_NOT_prove": "Hash continuity is not independent evidence naming a broker for historicalEU/GU orGA.",
+      "confidence_limitation": "Strong exact-file lineage; limited broker scope.",
+      "b6_manifest_sha256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+      "b7_manifest_sha256": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a"
+    },
+    {
+      "id": "E05",
+      "source": "GA records in provenance_file_metadata.csv,correlated withE03",
+      "date": "2026-09-09",
+      "scope": "GA2026Apr-Sep ordinary;GA2019-2020 RECHECK",
+      "what_it_proves": "GA2026Apr-Sep mtime12:12:42 JST predates the eight RECHECKs;GA2019-2020 RECHECK mtime16:00:28 immediately follows them. Consistent with GAApr-Sep retained and GA historical-gap re-export in the same audit episode.",
+      "what_it_does_NOT_prove": "No contemporaneous acquired account/export-session ID binds GA toOANDA. Timing plus the seven-pair audit cannot certify that identity.",
+      "confidence_limitation": "Strong audit-episode association; OANDA attribution forGA remains unestablished."
+    },
+    {
+      "id": "E06",
+      "source": "All72 metadata + source tree + formal seven-pair inventory",
+      "date": "Historical export mtimes Jan26-Feb8 2026;Q1 mtimes Apr18/Apr22 2026",
+      "scope": "2015-2025 six segments/pair,2026Jan-Mar",
+      "what_it_proves": "EU/GU historical exports cluster Feb3 alongsideAU;GA/EA cluster Feb1-Feb2. Q1 exports spanApr18/Apr22. All are coherently segmented and managed in the same research collection.",
+      "what_it_does_NOT_prove": "Shared collection,batch timing,format and naming do not identify the historical broker; no formal all-nine acquisition-source declaration was located.",
+      "confidence_limitation": "Supports dataset organization; insufficient to bridge historical broker attribution."
+    },
+    {
+      "id": "E07",
+      "source": "Repository OANDA forward/demo records (docs/04,05,06,Phase5) and read-only repo search",
+      "date": "Records pre/postSep9,includingPhase5Sep16+",
+      "scope": "Operational OANDA environment",
+      "what_it_proves": "Dell/OANDA environment exists and is consistent with the acquisition environment stated inE01.",
+      "what_it_does_NOT_prove": "An operational account cannot establish historical M1 source. These records are not used to infer the historical broker.",
+      "confidence_limitation": "Context only; excluded as standalone acquisition proof."
+    },
+    {
+      "id": "E08",
+      "source": "Scope-limited search of37 pre-B7 remote tips and historical daily-stop records; Drive metadata/text/log candidates; Chat read tool",
+      "date": "B01 follow-up",
+      "scope": "Broker mismatch search and original-record retrieval",
+      "what_it_proves": "No explicit alternative-broker attribution,mixed historical-source declaration,or contradictory acquisition evidence was located. Read-thread returned recent turns only and no older cursor for the daily-stop Chat. In-app browser was unauthenticated;Chrome access was not approved.",
+      "what_it_does_NOT_prove": "Search is not exhaustive proof of no mixing. OriginalSep9 full transcript/terminal export logs and native Drive revision metadata were not independently available.",
+      "confidence_limitation": "Absence of contrary evidence is not positive equivalence proof; no credential or private transcript published."
+    }
+  ],
+  "PairSegmentMatrix": [
+    {
+      "Symbol": "USDJPY",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "USDJPY",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "USDJPY",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "OANDA_DEMO_SUPPORTED_BY_SPECIFIC_WORKFLOW_RECORD",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E01",
+        "E02"
+      ],
+      "Limitation": "Original transcript not independently fetched; attribution limited to this reacquisition"
+    },
+    {
+      "Symbol": "EURJPY",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "EURJPY",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "EURJPY",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "OANDA_DEMO_SUPPORTED_BY_SPECIFIC_WORKFLOW_RECORD",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E01",
+        "E02"
+      ],
+      "Limitation": "Original transcript not independently fetched; attribution limited to this reacquisition"
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "GBPJPY",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "OANDA_DEMO_SUPPORTED_BY_SPECIFIC_WORKFLOW_RECORD",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E01",
+        "E02"
+      ],
+      "Limitation": "Original transcript not independently fetched; attribution limited to this reacquisition"
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "AUDJPY",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "OANDA_DEMO_SUPPORTED_BY_SPECIFIC_WORKFLOW_RECORD",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E01",
+        "E02"
+      ],
+      "Limitation": "Original transcript not independently fetched; attribution limited to this reacquisition"
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "AUDUSD",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "OANDA_DEMO_SUPPORTED_BY_SPECIFIC_WORKFLOW_RECORD",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E01",
+        "E02"
+      ],
+      "Limitation": "Original transcript not independently fetched; attribution limited to this reacquisition"
+    },
+    {
+      "Symbol": "EURAUD",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "EURAUD",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "EURAUD",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "OANDA_DEMO_SUPPORTED_BY_SPECIFIC_WORKFLOW_RECORD",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E01",
+        "E02"
+      ],
+      "Limitation": "Original transcript not independently fetched; attribution limited to this reacquisition"
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "GBPAUD",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;EARLIER_SEVEN_PAIR_FORMAL_AUDIT",
+      "Evidence": [
+        "E03",
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "EURUSD",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;SAME_MANAGED_COLLECTION",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "EURUSD",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;SAME_MANAGED_COLLECTION",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "EURUSD",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "OANDA_DEMO_SUPPORTED_BY_SPECIFIC_WORKFLOW_RECORD",
+      "DatasetLineage": "B7_EXACT_IDENTITY;SAME_MANAGED_COLLECTION",
+      "Evidence": [
+        "E01",
+        "E02"
+      ],
+      "Limitation": "Original transcript not independently fetched; attribution limited to this reacquisition"
+    },
+    {
+      "Symbol": "GBPUSD",
+      "Segment": "2015-2025",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;SAME_MANAGED_COLLECTION",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "GBPUSD",
+      "Segment": "2026Jan-Mar",
+      "BrokerAttribution": "NOT_ESTABLISHED",
+      "DatasetLineage": "B7_EXACT_IDENTITY;SAME_MANAGED_COLLECTION",
+      "Evidence": [
+        "E04",
+        "E06"
+      ],
+      "Limitation": "No sufficient acquisition-source bridge to the scoped OANDA RECHECK record"
+    },
+    {
+      "Symbol": "GBPUSD",
+      "Segment": "2026Apr-Sep",
+      "BrokerAttribution": "OANDA_DEMO_SUPPORTED_BY_SPECIFIC_WORKFLOW_RECORD",
+      "DatasetLineage": "B7_EXACT_IDENTITY;SAME_MANAGED_COLLECTION",
+      "Evidence": [
+        "E01",
+        "E02"
+      ],
+      "Limitation": "Original transcript not independently fetched; attribution limited to this reacquisition"
+    }
+  ],
+  "RawPriceParsingOrPerformanceExecuted": false,
+  "FilesReexportedOrReplaced": false,
+  "ExactHashesVerified": 72
+}

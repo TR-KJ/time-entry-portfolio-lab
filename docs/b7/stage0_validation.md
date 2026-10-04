@@ -14,7 +14,7 @@ Technical data/protocol checks completed; **scientific Stage0 clearance is block
 |Selected data integrity|PASS|OHLC,finite,positive,decimal price grid,raw ordering; pair raw/JST duplicates0|
 |Helsinki→Tokyo conversion|PASS as prescribed interpretation|ambiguous=infer,nonexistent=shift_forward; original broker timezone not independently certified|
 |Actual last timestamp|2026-09-09 06:00 JST for all9|no tail fill; requested Monitor end remains2026-09-10 exclusive|
-|EU/GU broker/source equivalence|BLOCKED / UNVERIFIED|CSV lacks broker field; shared directory/schema and uncertain recollection are insufficient proof|
+|EU/GU broker/source equivalence|BLOCKED / UNVERIFIED|B01 re-review accepts scoped eight-pair2026 OANDA acquisition evidence; historical/Q1 andGA source bridges remain unresolved; see b01_provenance_review.md|
 |EU/GU alternate exports|PASS subset equivalence|RECHECK contains all original timestamps with exact OHLC, plus actual additional rows; no files spliced|
 |Spread|AGREED|EU1.0,GU1.5 pips; research assumptions,not historical averages|
 |Pip|FORMAT CONSISTENT|JPY.01/non-JPY.0001; finite positive prices on fractional-pip decimal grid|
@@ -98,7 +98,7 @@ No raw M1,complete trade log,credentials or personal absolute path is saved. No 
 
 ## Stopping conditions / Chat handoff
 
-B01 is unresolved broker/source identity. Therefore complete Stage0 PASS must not be claimed even after publishing the tested snapshot. Require traceable provenance before official data-source clearance. Stage1 remains disabled. Confirm the SL proposals and resolve Pure Time eligibility,5SL robustness,plateau thresholds,family de-duplication/fixed key/weekday transition,undefined metrics,SL/TP rules,calendar/month sample-removal rules,event thresholds and future Validation contract; full list in the Decision Register. No B6 numerical gates are silently inherited.
+B01 was re-evaluated on2026-10-05. The specific Sep9 OANDA acquisition record and exact-file metadata support the eight2026Apr–Sep RECHECKs. The remaining blocker is a sufficient historical/Q1 andGA acquisition-source bridge, not the earlier vague Forex/FXCM recollection or absence of CSV broker metadata. Therefore complete Stage0 PASS must not be claimed. See b01_provenance_review.md. Stage1 remains disabled. Confirm the SL proposals and resolve Pure Time eligibility,5SL robustness,plateau thresholds,family de-duplication/fixed key/weekday transition,undefined metrics,SL/TP rules,calendar/month sample-removal rules,event thresholds and future Validation contract; full list in the Decision Register. No B6 numerical gates are silently inherited.
 
 Validation/Monitor **performance was not opened or computed**. Their raw-file bytes,OHLC validity,timestamps and coverage were read under the specifically authorized data-integrity audit. Consequently do not state that all Validation/Monitor raw data remained unopened. This distinction preserves the audit requirement and research blindness accurately.
 

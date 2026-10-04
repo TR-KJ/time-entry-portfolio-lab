@@ -34,7 +34,7 @@ This register derives B7 decisions from the user's current Stage0 instruction, n
 |U10|UNDECIDED|Event calendar source/version,windows,clock/overlap freeze,minimum retained/removed samples and Pips adoption thresholds|
 |U11|UNDECIDED|B7 Validation minimum sample,annual/combined pass gates,DD comparison and insufficient-sample labels,freeze before opening results|
 |U12|UNDECIDED|Stage1 runtime/dependencies,output/resume/hash contract and authorized execution environment|
-|B01|BLOCKED|Broker/source equivalence EU/GU vs7 pairs not proven. User says probably same, perhaps Forex/FXCM; not an assertion of identity. CSV has no broker field. No mismatch is established either.|
+|B01|BLOCKED|2026-10-05 reassessment: concrete Sep9 Dell/OANDA DEMO acquisition evidence supports eight2026Apr–Sep RECHECKs, includingEU/GU. Historical2015–2025 and2026Jan–Mar source bridge, especiallyGA, remains insufficient. No different broker/mixed source established. Vague Forex/FXCM recollection is not the blocking rationale; embedded CSV broker metadata is not required. See b01_provenance_review.md.|
 |I01|IMPLEMENTATION_DETAIL|All-period integrity audit isolated from Discovery price-only copy; period validators reject future rows|
 |I02|IMPLEMENTATION_DETAIL|Audit MT5 headers,hash before/after read,OHLC/finite,ordering,duplicates,gaps,fractional-pip grid; no raw price output|
 |I03|IMPLEMENTATION_DETAIL|EU/GU original vsRECHECK verified by timestamp subset and identical overlapping OHLC; no merging/filling. Selected file's entire actual bytes are hashed|
