@@ -29,7 +29,7 @@ Known limitations and binding restrictions:
 - No explicit evidence of different-broker mixing has been confirmed.
 - After seeing results, source replacement, data reacquisition and filling are prohibited. The exact 72 files and manifest stay frozen.
 
-**Stage1MayStart = true AFTER_STAGE1_CONDITIONS_FREEZE.** Stage1 conditions are not yet frozen; Stage1 must not start now. All existing condition-freeze requirements in the Decision Register remain unchanged. This update changes only the provenance research judgment.
+**Stage1MayStart = true AFTER_STAGE1_CONDITIONS_FREEZE.** Research conditions are now fully frozen under the subsequent full conditions Freeze. This is still not implementation/execution authorization: both flags remain false and a separate user instruction is required. Provenance research judgment and limitations are unchanged.
 
 ## Reproduction and audit limitations
 
@@ -50,4 +50,6 @@ The row-level calibration diagnostics are gzip-compressed to keep publication co
 
 The user has formally frozen P01/P02/U01–U05 as AGREED/FROZEN. `stage1_conditions_freeze.md` preserves the full agreed specification; `research_inputs/b7/stage1_prespec.json` records the official SL grids, numeric semantics, Pure Time/SL gates, Plateau, family/fixed-key and PF semantics. Original proposal/calibration artifacts remain historical snapshots; their numeric values are unchanged and are now formally adopted.
 
-This is a partial pre-implementation conditions Freeze. U06–U12 remain UNDECIDED; U12 runtime/resume/artifact/Colab contract has not been frozen. Stage1MayStartNow remains false. This request authorizes documentation/config only, with no new performance reads or execution. B01 and Stage0 status and all provenance limitations remain unchanged.
+The partial Freeze above is preserved as historical evidence. The subsequent full Freeze formally adopts U06–U12 and U10-P without changing P01/P02/U01–U05. Current authoritative artifacts are `full_research_conditions_freeze.md` and `research_inputs/b7/full_research_prespec.json`; both reference the prior immutable artifacts and hashes.
+
+Stage1ConditionsFrozen = true; Stage1ImplementationAuthorized = false; Stage1ExecutionAuthorized = false; Stage1MayStartNow = false. No new performance result is opened. The current full protocol supersedes historical pending/authorization fields, not underlying provenance evidence. The current run_status.json is authoritative for authorization. B01/Stage0 and all source limitations remain unchanged.

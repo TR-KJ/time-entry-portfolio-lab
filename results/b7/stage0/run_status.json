@@ -13,7 +13,7 @@
   "ProvenanceEvidence": "provenance_evidence.json",
   "Stage1MayStart": true,
   "Stage1StartCondition": "AFTER_STAGE1_CONDITIONS_FREEZE",
-  "Stage1ConditionsFrozen": false,
+  "Stage1ConditionsFrozen": true,
   "Stage1MayStartNow": false,
   "DecisionReason": "User research decision: apply the same provenance standard to all nine pairs. Adopt the audited, SHA256-frozen 72 M1 files as the formal Research Data Collection; historical broker identity is not independently certified for every file of the existing seven pairs either. This is acceptance with known limitations, not new broker certification.",
   "KnownLimitations": [
@@ -23,7 +23,7 @@
     "Do not replace sources, reacquire data, or fill data after seeing results."
   ],
   "ResearchDataCollection": "Audited SHA256-frozen 72 M1 files; expected_m1_manifest.csv unchanged",
-  "Stage1ConditionsFreeze": "PARTIAL_P01_P02_U01_U05_AGREED_FROZEN",
+  "Stage1ConditionsFreeze": "FULL_P01_P02_U01_U12_U10_P_AGREED_FROZEN",
   "FrozenDecisionIDs": [
     "P01",
     "P02",
@@ -31,19 +31,22 @@
     "U02",
     "U03",
     "U04",
-    "U05"
-  ],
-  "UnresolvedDecisionIDs": [
+    "U05",
     "U06",
     "U07",
     "U08",
     "U09",
     "U10",
+    "U10-P",
     "U11",
     "U12"
   ],
+  "UnresolvedDecisionIDs": [],
   "Stage1Prespec": "research_inputs/b7/stage1_prespec.json",
   "Stage1ImplementationAuthorized": false,
   "Stage1ExecutionAuthorized": false,
-  "NewPerformanceResultsOpened": false
+  "NewPerformanceResultsOpened": false,
+  "FullResearchPrespec": "research_inputs/b7/full_research_prespec.json",
+  "FullResearchConditions": "docs/b7/full_research_conditions_freeze.md",
+  "NextAuthorizationRequired": "Separate user instruction for Stage1 implementation only"
 }

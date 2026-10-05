@@ -1,0 +1,1530 @@
+{
+  "SchemaVersion": 1,
+  "Scope": "FULL_RESEARCH_CONDITIONS_DOCUMENTATION_CONFIG_ONLY",
+  "BaseFreezeSHA": "d625dfb4e360166923b1c390efb94bd1185e1ca6",
+  "DecisionSource": {
+    "Type": "Explicit user-agreed full research conditions",
+    "AttachmentSHA256": "0d952c1cff3c4f3eec2f37ff12deff6ca0f47ee3d9242bb01206eea4efa0869f"
+  },
+  "DecisionStatus": {
+    "P01": "AGREED/FROZEN",
+    "P02": "AGREED/FROZEN",
+    "U01": "AGREED/FROZEN",
+    "U02": "AGREED/FROZEN",
+    "U03": "AGREED/FROZEN",
+    "U04": "AGREED/FROZEN",
+    "U05": "AGREED/FROZEN",
+    "U06": "AGREED/FROZEN",
+    "U07": "AGREED/FROZEN",
+    "U08": "AGREED/FROZEN",
+    "U09": "AGREED/FROZEN",
+    "U10": "AGREED/FROZEN",
+    "U10-P": "AGREED/FROZEN",
+    "U11": "AGREED/FROZEN",
+    "U12": "AGREED/FROZEN"
+  },
+  "HistoricalFreezeReferences": [
+    {
+      "Path": "research_inputs/b7/stage1_prespec.json",
+      "SHA256": "1449bfe9e9fc066ce4a59cc156e8247cc67e11522d9cdfb007cafefaf69d05e5",
+      "Commit": "d625dfb4e360166923b1c390efb94bd1185e1ca6",
+      "Immutable": true
+    },
+    {
+      "Path": "docs/b7/stage1_conditions_freeze.md",
+      "SHA256": "cdcacd33a47983520188ed9581477996d56ef5d3d7703b74aea0108c7f2176e3",
+      "Commit": "d625dfb4e360166923b1c390efb94bd1185e1ca6",
+      "Immutable": true
+    }
+  ],
+  "Preservation": "P01/P02/U01-U05 objects and their prior ranking definitions are copied without modification; historical artifact bytes are unchanged. Current full conditions and authorization are recorded here and in run_status.json.",
+  "DiscoveryYears": [
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "Stage1FormalPointPass": "Pure Time PASS AND SL_ROBUSTNESS_PASS; this point-level PASS is used inside neighborhoods before the separate Plateau gate (not recursive Plateau PASS)",
+  "PairRanking": [
+    {
+      "Metric": "PositiveYearCount",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "MedianAnnualAvgPips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "WorstYearAvgPips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "PFpips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "OverallAvgPips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "TotalPips",
+      "Order": "DESC"
+    },
+    {
+      "Metric": "MaxDDPips",
+      "Order": "ASC"
+    },
+    {
+      "Metric": "FixedKey",
+      "Order": "ASC as defined in U04"
+    }
+  ],
+  "RankingPopulation": "Formal eligible candidates satisfying Pure Time, SL robustness and Plateau; within pair only",
+  "StageSequence": [
+    "Stage0 Source/Data/Protocol",
+    "Stage1 5m Pure Pips + 5SL robustness",
+    "SL local Plateau / Freeze",
+    "TP search / Freeze",
+    "Weekday",
+    "DOM",
+    "Month Seasonality / LOMO",
+    "Calendar Freeze",
+    "1m Fine Tune",
+    "E2 Event Policy + E0/E1/E2 diagnostics",
+    "MFE/Giveback + Profit Protection",
+    "Candidate Freeze",
+    "Validation 2024–2025",
+    "Monitor 2026",
+    "B6 structural comparison",
+    "Money/R/Portfolio/Global R2"
+  ],
+  "GateDefinitions": {
+    "U01Equivalent": {
+      "TotalTrades": {
+        "operator": ">=",
+        "value": 150
+      },
+      "TradesEachDiscoveryYear": {
+        "operator": ">=",
+        "value": 30
+      },
+      "TotalLosses": {
+        "operator": ">=",
+        "value": 10
+      },
+      "OverallAvgPips": {
+        "operator": ">",
+        "value": 0
+      },
+      "PFpips": {
+        "operator": ">=",
+        "value": 1.1
+      },
+      "PositiveYearCount": {
+        "operator": ">=",
+        "value": 3,
+        "of": 4
+      }
+    },
+    "U02Individual": {
+      "TotalTrades": {
+        "operator": ">=",
+        "value": 150
+      },
+      "TradesEachDiscoveryYear": {
+        "operator": ">=",
+        "value": 30
+      },
+      "TotalLosses": {
+        "operator": ">=",
+        "value": 10
+      },
+      "OverallAvgPips": {
+        "operator": ">",
+        "value": 0
+      },
+      "PFpips": {
+        "operator": ">=",
+        "value": 1.05
+      },
+      "PositiveYearCount": {
+        "operator": ">=",
+        "value": 3,
+        "of": 4
+      }
+    }
+  },
+  "NoResultDrivenChanges": true,
+  "NoCandidateScarcityRelaxation": true,
+  "NoZeroCandidateRescue": true,
+  "NoValidationReturnToDiscovery": true,
+  "NoB6CandidateTargeting": true,
+  "P01": {
+    "SLGridPips": {
+      "USDJPY": [
+        10,
+        25,
+        40,
+        60,
+        95
+      ],
+      "EURJPY": [
+        15,
+        30,
+        50,
+        75,
+        115
+      ],
+      "GBPJPY": [
+        20,
+        40,
+        65,
+        100,
+        150
+      ],
+      "AUDJPY": [
+        10,
+        25,
+        40,
+        65,
+        100
+      ],
+      "AUDUSD": [
+        10,
+        20,
+        35,
+        55,
+        85
+      ],
+      "EURAUD": [
+        20,
+        35,
+        60,
+        95,
+        145
+      ],
+      "GBPAUD": [
+        20,
+        40,
+        70,
+        110,
+        160
+      ],
+      "EURUSD": [
+        10,
+        20,
+        35,
+        60,
+        90
+      ],
+      "GBPUSD": [
+        15,
+        30,
+        50,
+        80,
+        120
+      ]
+    },
+    "Stage1SLVariants": "Exactly these five SL values per symbol, each TP_NONE; no additional SL",
+    "Calibration": {
+      "Period": "Discovery 2020-2023 only",
+      "PnLUsed": false,
+      "Method": "Same price-only calibration methodology as B6",
+      "Statistic": "Median Daily High-Low on JST Tue-Fri eligible days",
+      "Multipliers": [
+        0.15,
+        0.3,
+        0.5,
+        0.8,
+        1.2
+      ],
+      "Rounding": "5-pip half-up",
+      "MinPips": 10,
+      "MaxPips": 300,
+      "StrictlyIncreasing": true
+    },
+    "ResultDrivenChangesAllowed": false
+  },
+  "P02": {
+    "MetricInput": "Internal unrounded Pips for gates/ranking/PF/DD; display values never feed decisions",
+    "Display": {
+      "PipsDecimalsRecommended": 6,
+      "RatiosAndPF": "Reasonable fixed precision for display only"
+    },
+    "AnnualAttribution": "Planned Entry JST year, not Exit year",
+    "PFpips": "sum(positive pips) / abs(sum(negative pips))",
+    "MaxDDPips": {
+      "InitialCumulativePips": 0,
+      "InitialPeak": 0,
+      "Formula": "PeakCumulativePips - CurrentCumulativePips",
+      "StoredValue": "Maximum drawdown magnitude, nonnegative (zero if no drawdown)",
+      "TradeOrder": [
+        "CloseTime JST",
+        "EntryTime JST",
+        "deterministic fixed key"
+      ]
+    }
+  },
+  "U01": {
+    "Variant": {
+      "SL": null,
+      "TP": null
+    },
+    "AllConditionsRequired": true,
+    "Gate": {
+      "TotalTrades": {
+        "operator": ">=",
+        "value": 150
+      },
+      "TradesEachDiscoveryYear": {
+        "operator": ">=",
+        "value": 30
+      },
+      "TotalLosses": {
+        "operator": ">=",
+        "value": 10
+      },
+      "OverallAvgPips": {
+        "operator": ">",
+        "value": 0
+      },
+      "PFpips": {
+        "operator": ">=",
+        "value": 1.1
+      },
+      "PositiveYearCount": {
+        "operator": ">=",
+        "value": 3,
+        "of": 4
+      },
+      "MaxDDPipsAbsoluteCap": null
+    },
+    "PositiveYear": "Annual TotalPips > 0; zero is not positive",
+    "MaxDDUse": "Store metric and use later ranking criterion; no common pair-wide Pips DD cap"
+  },
+  "U02": {
+    "Variants": "Each official fixed SL x TP_NONE",
+    "AllPerSLConditionsRequired": true,
+    "PerSLGate": {
+      "TotalTrades": {
+        "operator": ">=",
+        "value": 150
+      },
+      "TradesEachDiscoveryYear": {
+        "operator": ">=",
+        "value": 30
+      },
+      "TotalLosses": {
+        "operator": ">=",
+        "value": 10
+      },
+      "OverallAvgPips": {
+        "operator": ">",
+        "value": 0
+      },
+      "PFpips": {
+        "operator": ">=",
+        "value": 1.05
+      },
+      "PositiveYearCount": {
+        "operator": ">=",
+        "value": 3,
+        "of": 4
+      }
+    },
+    "MinimumPassingSLCount": 3,
+    "SLCount": 5,
+    "OutputLabel": "SL_ROBUSTNESS_PASS",
+    "PureTimeIsPrimary": true,
+    "BestSLSelectionInStage1": false,
+    "SLPerformanceAsPrimaryRanking": false
+  },
+  "U03": {
+    "GridMinutes": 5,
+    "EntryOffsetsMinutes": [
+      -5,
+      0,
+      5
+    ],
+    "ExitOffsetsMinutes": [
+      -5,
+      0,
+      5
+    ],
+    "CenterIncluded": true,
+    "MaximumPoints": 9,
+    "ValidNeighborRequirements": [
+      "Planned holding 30 through 1440 minutes inclusive",
+      "Same symbol",
+      "Same direction",
+      "Same Entry weekday",
+      "Same Exit day offset rule",
+      "Valid under frozen execution year-boundary/schedule rules"
+    ],
+    "InvalidSchedules": "Exclude from valid count and PASS-ratio denominator; do not count as FAIL",
+    "AllConditionsRequired": true,
+    "CenterMustFormalPass": true,
+    "MinimumValidPoints": 4,
+    "MinimumFormalPassRatio": {
+      "Numerator": 2,
+      "Denominator": 3
+    },
+    "MedianAvgPipsMinimumCenterMultiplier": 0.8,
+    "MedianPopulation": "All valid neighborhood points including FAIL points; not only PASS points",
+    "Purpose": "Local stability, not an isolated sharp peak; suppress winner's curse"
+  },
+  "U04": {
+    "NearConditionsAllRequired": {
+      "SameSymbol": true,
+      "SameDirection": true,
+      "EntryCircularDistanceMaxMinutes": 30,
+      "ExitCircularDistanceMaxMinutes": 30,
+      "PlannedHoldingDifferenceMaxMinutes": 30,
+      "SameExitDayOffset": true
+    },
+    "CircularTimeDistance": "min(abs(a-b), 1440-abs(a-b)) on minute-of-day",
+    "DifferentEntryWeekdaysMayBeSuppressed": true,
+    "RepresentativeSelection": "Traverse official Stage1 ranking; first unsuppressed eligible candidate is representative; suppress only subsequent candidates directly near that representative",
+    "TransitiveMergeAllowed": false,
+    "RepresentativeArtifactRequired": [
+      "Anchor weekday",
+      "Supporting weekdays",
+      "Original metrics for each weekday",
+      "Suppressed CandidateIDs"
+    ],
+    "MaximumFamiliesPerPair": 8,
+    "MinimumGuaranteedFamilies": 0,
+    "Refill": "Next unsuppressed eligible candidate in official ranking order; no failed-candidate rescue",
+    "FixedKey": [
+      "Symbol",
+      "Direction (LONG before SHORT)",
+      "Entry weekday (Monday through Friday)",
+      "Entry minute of day",
+      "Exit day offset",
+      "Exit minute of day",
+      "Planned holding minutes",
+      "CandidateID"
+    ],
+    "CandidateID": "Deterministically generated from the preceding fixed structure fields; not input/filesystem/parallel completion order",
+    "CandidateIDEncoding": "Not specified here; concrete serialization belongs to pending U12 artifact contract",
+    "ForbiddenTieBreaks": [
+      "filesystem order",
+      "DataFrame original order",
+      "parallel completion order"
+    ]
+  },
+  "U05": {
+    "PFStates": [
+      {
+        "When": "positive sum > 0 and negative sum < 0",
+        "State": "FINITE",
+        "Value": "positive sum / abs(negative sum)"
+      },
+      {
+        "When": "positive sum > 0 and negative sum = 0",
+        "State": "INF",
+        "Value": "Infinity, no finite numeric sentinel"
+      },
+      {
+        "When": "positive sum = 0 and negative sum < 0",
+        "State": "FINITE",
+        "Value": 0
+      },
+      {
+        "When": "positive sum = 0 and negative sum = 0, or Trades = 0, or all trades ZeroPips",
+        "State": "UNDEFINED",
+        "Value": null
+      }
+    ],
+    "NumericSentinelsAllowed": false,
+    "UndefinedToZeroOrInfinityAllowed": false,
+    "INFFormalPass": false,
+    "INFReason": "Total Losses >= 10 is mandatory in both Pure Time and each SL gate; INF is not a top-ranking numeric value",
+    "ZeroPips": {
+      "IncludedInTrades": true,
+      "IncludedInWins": false,
+      "IncludedInLosses": false,
+      "IncludedInPositiveSum": false,
+      "IncludedInNegativeSum": false
+    },
+    "AnnualPositive": "Annual TotalPips > 0",
+    "AnnualZero": "Not positive",
+    "AnnualNegative": "Annual TotalPips < 0",
+    "AnnualSample": "All four Discovery years must each have at least 30 trades",
+    "MedianAnnualAvgPips": "Median of all four annual AvgPips only after all four annual sample gates pass; never omit missing/undersampled years",
+    "FormalRankingPF": "Normal finite PF defined for formal eligible candidates; INF/UNDEFINED cannot pass"
+  },
+  "U06": {
+    "SL": {
+      "PASSAnchors": "Only original five SL values passing U02 individual gate; Stage1 3/5 requirement unchanged",
+      "GateRef": "GateDefinitions.U02Individual",
+      "LocalScan": {
+        "RadiusFraction": 0.2,
+        "StepPips": 5,
+        "EndpointRule": "Deterministically round range endpoints to 5-pip units; preserve anchor; follow the normative examples",
+        "ResultDrivenExpansionAllowed": false,
+        "DeduplicateEvaluation": true,
+        "SmallAnchorException": "Only when fewer than three 5-pip points exist in the anchor ±20% range, mechanically extend to Anchor-5/Anchor/Anchor+5",
+        "Examples": {
+          "65": [
+            50,
+            55,
+            60,
+            65,
+            70,
+            75,
+            80
+          ],
+          "10": [
+            5,
+            10,
+            15
+          ],
+          "15": [
+            10,
+            15,
+            20
+          ]
+        }
+      },
+      "MergeLocalMaps": true,
+      "PASSZone": {
+        "MinimumConsecutivePASSPoints": 3,
+        "StepPips": 5,
+        "ExtractMaximalRuns": true,
+        "Retention": "Zone Median AvgPips >= Pure Time AvgPips * 0.80",
+        "RetentionMultiplier": 0.8,
+        "Double80PercentCondition": false
+      },
+      "ZoneRanking": [
+        "ZoneMedianAvgPips DESC",
+        "ConsecutivePASSPointCount DESC",
+        "ZoneWorstAvgPips DESC",
+        "ZoneMedianPFpips DESC",
+        "ZoneCentralValue ASC"
+      ],
+      "Selection": "Lower median SL of winning zone; may differ from original five anchors",
+      "EvenExample": {
+        "Zone": [
+          50,
+          55,
+          60,
+          65
+        ],
+        "Selected": 55
+      },
+      "NoQualifiedZone": "CANDIDATE_DROP"
+    },
+    "TP": {
+      "Prerequisite": "Formal SL frozen; never change SL from TP results",
+      "CoarseAnchors": [
+        "TP_NONE",
+        0.5,
+        1,
+        1.5,
+        2,
+        3
+      ],
+      "FiniteAnchorUnit": "R = Formal SL pips",
+      "FiniteRounding": "5-pip half-up",
+      "MinimumFinitePips": 5,
+      "DeduplicateRoundedAnchors": true,
+      "FullFivePipGridSearchAllowed": false,
+      "GateRef": "GateDefinitions.U02Individual",
+      "LocalEligibility": "Passing finite anchor must have at least one adjacent coarse finite anchor also passing; TP_NONE is not a neighbor",
+      "EndpointAdjacency": {
+        "0.5R": "1.0R",
+        "3.0R": "2.0R"
+      },
+      "LocalScan": {
+        "RadiusFraction": 0.2,
+        "StepPips": 5,
+        "EndpointRule": "Deterministically round range endpoints to 5-pip units; preserve anchor; follow the normative examples",
+        "ResultDrivenExpansionAllowed": false,
+        "DeduplicateEvaluation": true
+      },
+      "PASSZone": {
+        "MinimumConsecutivePASSPoints": 3,
+        "StepPips": 5
+      },
+      "ZoneRanking": [
+        "ZoneMedianAvgPips DESC",
+        "ConsecutivePASSPointCount DESC",
+        "ZoneWorstAvgPips DESC",
+        "ZoneMedianPFpips DESC",
+        "ZoneCentralValue ASC"
+      ],
+      "FiniteCandidate": "Lower median TP of winning zone",
+      "Baseline": "Formal SL + TP_NONE",
+      "AdoptionAllRequired": {
+        "PositiveYearCount": "finite >= TP_NONE",
+        "WorstYearAvgPips": "finite >= TP_NONE",
+        "MedianAnnualAvgPipsImprovement": "finite - TP_NONE >= max(0.10 pips/trade, TP_NONE MedianAnnualAvgPips * 0.05)"
+      },
+      "Fallback": "TP_NONE if no qualified finite candidate or adoption conditions not met",
+      "MFEGivebackUsedForSelection": false
+    },
+    "AfterFreeze": "Never return to SL/TP from Weekday/DOM/Month/1m/Event/MFE results"
+  },
+  "U07": {
+    "FixedAcrossWeekdays": [
+      "Pair",
+      "Direction",
+      "Entry",
+      "Exit",
+      "SL",
+      "TP"
+    ],
+    "IndividualDiagnostics": [
+      "Trades",
+      "Wins",
+      "Losses",
+      "ZeroPips",
+      "AvgPips",
+      "TotalPips",
+      "PFpips",
+      "MaxDDPips",
+      "annual metrics",
+      "PositiveYearCount",
+      "NegativeYearCount"
+    ],
+    "COREGateRef": "GateDefinitions.U01Equivalent",
+    "SUPPORTGateRef": "GateDefinitions.U02Individual",
+    "SUPPORT": "Not CORE but passes SUPPORT gate",
+    "Other": "NON_SUPPORT",
+    "Anchor": "U04 family representative Entry weekday; must remain CORE after formal SL/TP, otherwise DROP",
+    "Sets": {
+      "W0": "Anchor only",
+      "W1": "All CORE",
+      "W2": "All CORE + SUPPORT",
+      "W3": "All Mon-Fri"
+    },
+    "DeduplicateSets": true,
+    "MaximumSets": 4,
+    "ArbitrarySubsetSearchAllowed": false,
+    "FormalSetGateRef": "GateDefinitions.U01Equivalent",
+    "Best": "Formal PASS set with maximum MedianAnnualAvgPips",
+    "PlateauAllRequired": [
+      "Set MedianAnnualAvgPips >= Best MedianAnnualAvgPips * 0.80",
+      "Set PositiveYearCount >= Best PositiveYearCount"
+    ],
+    "Selection": "Most active weekdays in plateau",
+    "TiePriority": [
+      "W3",
+      "W2",
+      "W1",
+      "W0"
+    ]
+  },
+  "U08": {
+    "DOM": {
+      "Prerequisite": "U07 frozen",
+      "Buckets": {
+        "D1": [
+          1,
+          10
+        ],
+        "D2": [
+          11,
+          20
+        ],
+        "D3": "21 through EOM"
+      },
+      "MinimumSample": {
+        "OverallCandidateTradeFraction": 0.2,
+        "EachYearCandidateTradeFraction": 0.2
+      },
+      "OFFAllRequired": [
+        "Minimum sample satisfied",
+        "TotalPips < 0",
+        "AvgPips < 0",
+        "PFpips < 1.00",
+        "NegativeYearCount >= 3 of 4"
+      ],
+      "OFFCandidatesFrozenAt": "Initial three-bucket diagnostics; no new OFF candidate after exclusion",
+      "OFFRanking": [
+        "NegativeYearCount DESC",
+        "AvgPips ASC",
+        "PFpips ASC",
+        "TotalPips ASC",
+        "D1 before D2 before D3"
+      ],
+      "Comparisons": {
+        "DOM0": "All ON",
+        "DOM1": "Worst eligible OFF bucket disabled",
+        "DOM2": "Top two eligible OFF buckets disabled"
+      },
+      "ExhaustiveSevenSubsetsAllowed": false,
+      "SequentialAdoption": {
+        "StrictlyImprove": [
+          "AvgPips",
+          "PFpips",
+          "MedianAnnualAvgPips"
+        ],
+        "DoNotWorsen": [
+          "PositiveYearCount",
+          "MaxDDPips"
+        ],
+        "AdditionalAbsoluteImprovementFloor": null
+      },
+      "Sequence": "DOM1 must improve DOM0; DOM2 must further improve adopted DOM1; otherwise retain preceding set",
+      "MaximumOFFBuckets": 2,
+      "OneActiveBucketAllowed": true,
+      "FinalGateRef": "GateDefinitions.U01Equivalent",
+      "FinalGateFailure": "CANDIDATE_DROP"
+    },
+    "Month": {
+      "Prerequisite": "DOM frozen",
+      "Diagnostics": [
+        "Trades",
+        "Wins",
+        "Losses",
+        "AvgPips",
+        "TotalPips",
+        "PFpips",
+        "MaxDDPips",
+        "2020-2023 annual TotalPips",
+        "PositiveYearCount",
+        "NegativeYearCount"
+      ],
+      "MinimumSample": {
+        "FourYearTrades": 16,
+        "TradesEachYear": 3
+      },
+      "OFFAllRequired": [
+        "Minimum sample satisfied",
+        "Four-year TotalPips < 0",
+        "PFpips < 1.00",
+        "NegativeYearCount >= 3 of 4"
+      ],
+      "OFFCandidatesFrozenAt": "M0 initial twelve-month diagnostics; no additions after exclusions",
+      "LOMO": "Diagnose each of all twelve leave-one-month-out cases",
+      "OFFCandidateLOMORequired": {
+        "StrictlyImprove": [
+          "AvgPips",
+          "PFpips",
+          "MedianAnnualAvgPips"
+        ],
+        "DoNotWorsen": [
+          "PositiveYearCount",
+          "MaxDDPips"
+        ],
+        "AdditionalAbsoluteImprovementFloor": null
+      },
+      "OFFRanking": [
+        "NegativeYearCount DESC",
+        "AvgPips ASC",
+        "PFpips ASC",
+        "TotalPips ASC",
+        "MonthNumber ASC"
+      ],
+      "Comparisons": {
+        "M0": "No month OFF",
+        "M1": "Worst formal OFF candidate month OFF",
+        "M2": "Top two formal OFF candidate months OFF"
+      },
+      "M2Adoption": "Must further satisfy the same improvement conditions relative to M1",
+      "MaximumOFFMonths": 2,
+      "Exhaustive4095SearchAllowed": false
+    },
+    "Completion": "Freeze Weekday, DOM and Month stop as Calendar Freeze; no return after 1m/Event"
+  },
+  "U09": {
+    "Prerequisite": "Calendar Freeze",
+    "Fixed": [
+      "Pair",
+      "Direction",
+      "SL",
+      "TP",
+      "Weekday",
+      "DOM",
+      "Month stop"
+    ],
+    "Search": {
+      "EntryRadiusMinutes": 5,
+      "ExitRadiusMinutes": 5,
+      "StepMinutes": 1,
+      "MaximumPoints": 121,
+      "Anchor": "Original five-minute anchor",
+      "ExtensionAllowed": false
+    },
+    "InvalidIf": [
+      "Entry date/weekday changes",
+      "Exit day offset changes",
+      "Holding outside 30-1440 minutes",
+      "Execution schedule invalid"
+    ],
+    "InvalidTreatment": "Exclude; not FAIL",
+    "PointGateRef": "GateDefinitions.U01Equivalent",
+    "Plateau": {
+      "EntryRadiusMinutes": 1,
+      "ExitRadiusMinutes": 1,
+      "CenterIncluded": true,
+      "MaximumPoints": 9,
+      "CenterMustFormalPASS": true,
+      "MinimumValidPoints": 4,
+      "MinimumFormalPASSRatio": {
+        "Numerator": 2,
+        "Denominator": 3
+      },
+      "AllValidMedianAvgPipsMinCenterMultiplier": 0.8,
+      "FAILPointsIncludedInMedian": true
+    },
+    "Ranking": [
+      "Neighborhood Median AvgPips DESC",
+      "Neighborhood Median PFpips DESC",
+      "Center MedianAnnualAvgPips DESC",
+      "L1 distance from five-minute anchor ASC",
+      "fixed key"
+    ],
+    "L1": "abs(EntryShiftMinutes) + abs(ExitShiftMinutes)",
+    "ChangeRequiredImprovement": "Best 1m Neighborhood Median AvgPips - five-minute-anchor Neighborhood Median AvgPips >= max(0.05 pips/trade, anchor Neighborhood Median AvgPips * 0.025)",
+    "InsufficientImprovement": "Retain five-minute anchor",
+    "NoPlateau": "ANCHOR_RETAINED_NO_1M_PLATEAU; retain anchor, not DROP",
+    "ReanchorAllowed": false
+  },
+  "U10": {
+    "FormalMode": "E2",
+    "ModeChosenBeforeResults": true,
+    "OptimizationStage": false,
+    "CalendarSourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+    "Reuse": "B6 audited frozen calendar infrastructure only",
+    "B6CandidateCStrategyMatrixAllowed": false,
+    "HistoricalReleaseTimeReconstructionAllowed": false,
+    "FixedDiscoveryEvents": {
+      "FOMC": {
+        "FixedJST": "03:00",
+        "WindowPlusMinusMinutes": 180
+      },
+      "US_NFP": {
+        "FixedJST": "21:30",
+        "WindowPlusMinusMinutes": 120
+      },
+      "US_CPI": {
+        "FixedJST": "21:30",
+        "WindowPlusMinusMinutes": 120
+      },
+      "BOJ": {
+        "FixedJST": "12:00",
+        "WindowPlusMinusMinutes": 180
+      },
+      "BOE": {
+        "FixedJST": "21:00",
+        "WindowPlusMinusMinutes": 120
+      },
+      "ECB": {
+        "FixedJST": "21:15",
+        "WindowPlusMinusMinutes": 120
+      },
+      "RBA": {
+        "FixedJST": "13:30",
+        "WindowPlusMinusMinutes": 120
+      },
+      "AUD_CPI": {
+        "FixedJST": "10:30",
+        "WindowPlusMinusMinutes": 120
+      }
+    },
+    "Modes": {
+      "E0": "No exclusions",
+      "E1": "Pair constituent central banks",
+      "E2": "E1 + US_NFP + US_CPI + AUD_CPI only for AUD pairs"
+    },
+    "CurrencyCentralBank": {
+      "USD": "FOMC",
+      "JPY": "BOJ",
+      "EUR": "ECB",
+      "GBP": "BOE",
+      "AUD": "RBA"
+    },
+    "Overlap": {
+      "TradeInterval": "Planned Entry through planned Time Exit, even with earlier SL/TP exit",
+      "EndpointsInclusive": true,
+      "MultipleEvents": "Remove trade once"
+    },
+    "DiagnosticsModes": [
+      "E0",
+      "E1",
+      "E2"
+    ],
+    "Diagnostics": [
+      "Trades",
+      "RemovedTrades",
+      "Retention",
+      "AvgPips",
+      "TotalPips",
+      "PFpips",
+      "MaxDDPips",
+      "annual metrics"
+    ],
+    "DiagnosticsNotAdoptionGates": [
+      "Retention >= 80%",
+      "Removed >= 20",
+      "Improvement from E0"
+    ],
+    "FormalPostE2GateRef": "GateDefinitions.U01Equivalent",
+    "PostE2Failure": "CANDIDATE_DROP",
+    "FallbackToE0E1Allowed": false
+  },
+  "U10-P": {
+    "Position": "After E2, before Candidate Freeze",
+    "FrozenBefore": [
+      "Pair",
+      "Direction",
+      "Entry",
+      "Exit",
+      "SL",
+      "TP",
+      "Weekday",
+      "DOM",
+      "Month",
+      "1m result",
+      "Event E2"
+    ],
+    "NoReturnToEarlierConditions": true,
+    "TradeDiagnostics": {
+      "MFE": "Maximum favorable excursion in pips during holding",
+      "MAE": "Maximum adverse excursion in pips during holding",
+      "FinalPips": "Formal exit result",
+      "GivebackPips": "MFE - FinalPips"
+    },
+    "RNormalization": "Formal SL pips; diagnostic/trigger normalization only, not B7 Candidate ranking",
+    "DiagnosticReachR": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "WinnerToLoser": "MFE >= 0.50R AND FinalPips < 0",
+    "WinnerToLoserOutputs": [
+      "Count",
+      "Fraction",
+      "Giveback"
+    ],
+    "Modes": {
+      "P0": {
+        "Protection": false
+      },
+      "P1": {
+        "TriggerR": 0.5,
+        "LockR": 0,
+        "Lock": "Break Even"
+      },
+      "P2": {
+        "TriggerR": 0.75,
+        "LockR": 0.25
+      },
+      "P3": {
+        "TriggerR": 1.0,
+        "LockR": 0.5
+      }
+    },
+    "OtherTriggerLockSearchAllowed": false,
+    "TrailingWidthSweepAllowed": false,
+    "Activation": "Effective from next M1 bar after trigger confirmed; never infer within-bar High/Low order",
+    "TP": "Frozen TP unchanged; mark NOT_APPLICABLE if TP executes before protection can matter, including TP=0.5R with P1",
+    "AdoptionAllRequired": {
+      "GateRef": "GateDefinitions.U01Equivalent",
+      "DoNotWorsen": [
+        "TotalPips",
+        "PFpips",
+        "MedianAnnualAvgPips",
+        "PositiveYearCount",
+        "MaxDDPips"
+      ],
+      "WinnerToLoserReductionFractionMin": 0.2,
+      "WinnerToLoserReductionCountMin": 5
+    },
+    "Ranking": [
+      "WinnerToLoser reduction count DESC",
+      "MaxDDPips ASC",
+      "PFpips DESC",
+      "TotalPips DESC",
+      "P1 before P2 before P3"
+    ],
+    "NoPASSMode": "P0"
+  },
+  "CandidateFreeze": {
+    "After": "U10-P",
+    "Fields": [
+      "Pair",
+      "Direction",
+      "Entry",
+      "Exit",
+      "SL",
+      "TP",
+      "Weekday Set",
+      "DOM Set",
+      "Month stop",
+      "Event E2",
+      "Profit Protection P0/P1/P2/P3",
+      "spread",
+      "pip size",
+      "execution convention",
+      "data identity",
+      "Discovery metrics",
+      "all config/code/data hashes"
+    ],
+    "ValidationMayOpenOnlyAfter": true
+  },
+  "U11": {
+    "ValidationPeriod": "[2024-01-01, 2026-01-01) JST",
+    "ImmutableCandidateFreezeRequired": true,
+    "SampleAllRequired": {
+      "Trades2024Min": 30,
+      "Trades2025Min": 30,
+      "CombinedTradesMin": 70,
+      "Losses2024Min": 5,
+      "Losses2025Min": 5
+    },
+    "FormalPASSAllRequired": [
+      "2024 TotalPips > 0",
+      "2025 TotalPips > 0",
+      "Combined AvgPips > 0",
+      "Combined PFpips >= 1.10",
+      "Validation MaxDDPips <= Discovery MaxDDPips * 1.50"
+    ],
+    "RetentionGateAdded": false,
+    "DiagnosticsOnly": [
+      "Discovery-to-Validation AvgPips retention",
+      "PF change",
+      "TotalPips change",
+      "MaxDD change",
+      "WinRate",
+      "annual/monthly metrics",
+      "WinnerToLoser/Giveback",
+      "E2 removed trades",
+      "Protection activation count",
+      "Other predefined diagnostics"
+    ],
+    "Statuses": {
+      "PASS": "Sufficient sample and all formal conditions PASS",
+      "FAIL": "Sufficient sample and one or more formal conditions FAIL",
+      "INSUFFICIENT_SAMPLE": "Any sample condition not met"
+    },
+    "RescuePASSAllowed": false,
+    "PostValidationRetuningAllowed": false,
+    "FutureDifferentHypothesis": "Separate Research ID, not B7",
+    "Monitor": {
+      "Eligible": "Formal Validation PASS only",
+      "Period": "[2026-01-01, 2026-09-10) JST",
+      "Status": "OBSERVED_ONLY",
+      "OverrideValidationAllowed": false
+    }
+  },
+  "U12": {
+    "Workflow": [
+      "Work implementation Freeze",
+      "Chat confirmation",
+      "Google Colab formal full sweep"
+    ],
+    "FutureWorkScopeAfterSeparateAuthorization": [
+      "Stage1 code",
+      "tests",
+      "synthetic tests",
+      "bounded actual-data smoke",
+      "notebook",
+      "config/manifest/release artifact",
+      "GitHub Freeze"
+    ],
+    "WorkForbidden": [
+      "Discovery full sweep",
+      "Formal Candidate ranking",
+      "Formal Top8 selection",
+      "Formal U06+ exploration",
+      "Validation",
+      "Monitor",
+      "Money",
+      "Portfolio",
+      "R2"
+    ],
+    "ReferenceEnvironment": {
+      "Python": "3.12.14",
+      "NumPy": "2.3.5",
+      "pandas": "2.2.3"
+    },
+    "ColabPythonDifference": "Record actual Python; pin NumPy/pandas; tests and reference replay agreement mandatory; no silent tolerance",
+    "Input": {
+      "Collection": "Frozen 72-file B7 Research Data Collection",
+      "Manifest": "research_inputs/b7/expected_m1_manifest.csv",
+      "ReauditAtStart": [
+        "Filename",
+        "SHA256",
+        "Rows",
+        "FirstRaw",
+        "LastRaw"
+      ],
+      "RequiredMatches": 72,
+      "AnyMismatch": "STOP"
+    },
+    "DiscoveryIsolation": {
+      "Interval": "[2020-01-01, 2024-01-01) JST",
+      "TestsRequired": "No Validation/Monitor rows in Stage1 calculation arrays, even when present in the same CSV"
+    },
+    "SearchSpace": {
+      "Pairs": 9,
+      "Directions": [
+        "LONG",
+        "SHORT"
+      ],
+      "EntryWeekdays": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "EntryStepMinutes": 5,
+      "HoldingMinMinutes": 30,
+      "HoldingMaxMinutes": 1440,
+      "HoldingStepMinutes": 5,
+      "Variants": "Pure Time + formal five SL x TP_NONE",
+      "TimeStructures": 7335360,
+      "Evaluations": 44012160,
+      "TimePruningAllowed": false
+    },
+    "Determinism": {
+      "ParallelAllowed": true,
+      "IndependentOf": [
+        "thread count",
+        "process count",
+        "shard order",
+        "completion order",
+        "filesystem order"
+      ],
+      "TradeAggregation": "Deterministic order; no decision changes from parallel floating-point reduction",
+      "FinalSorting": "Frozen fixed key"
+    },
+    "Jobs": {
+      "Unit": "Pair x Direction x Weekday",
+      "Count": 90,
+      "EntryPointsPerJob": 288,
+      "HoldingPointsPerJob": 283
+    },
+    "Checkpoint": {
+      "When": "After each job completes",
+      "IdentityMustMatch": [
+        "Stage1 implementation commit SHA",
+        "stage1_prespec SHA256",
+        "72-file manifest SHA256",
+        "official SL grid",
+        "spreads",
+        "pip sizes",
+        "execution convention identity",
+        "Discovery period",
+        "Python/NumPy/pandas versions",
+        "job definition",
+        "U01-U05 gate/ranking/family config"
+      ],
+      "Mismatch": "Reject; never automatically reuse old result"
+    },
+    "OutputLevels": {
+      "Level1": [
+        "90 job summaries",
+        "evaluated count",
+        "missing counts",
+        "Pure Time PASS count",
+        "SL robustness PASS count",
+        "errors",
+        "runtime identity"
+      ],
+      "Level2": {
+        "Population": "U01 + U02 formal PASS only",
+        "Fields": [
+          "CandidateID",
+          "structure fields",
+          "overall metrics",
+          "annual metrics",
+          "five-SL metrics",
+          "PF",
+          "AvgPips",
+          "TotalPips",
+          "MaxDDPips"
+        ]
+      },
+      "Level3": [
+        "neighborhood diagnostics",
+        "Plateau status",
+        "family suppression",
+        "representative",
+        "supporting weekdays",
+        "suppressed IDs",
+        "pair Top8"
+      ]
+    },
+    "TradeLogs": {
+      "PermanentlyStoreAllVariants": false,
+      "CandidateLogs": "100% regenerable from code/config/data hashes; generate only limited logs when needed"
+    },
+    "BoundedSmoke": {
+      "Scope": "Pre-fixed few pairs/few days; no performance exploration",
+      "Checks": [
+        "Entry Open",
+        "spread",
+        "Pure Time",
+        "5SL",
+        "SL hit",
+        "Time Exit",
+        "missing/fallback",
+        "boundary",
+        "deterministic replay"
+      ],
+      "FormalRankingTop8PerformanceTablesAllowed": false
+    },
+    "ColabPreflightAllPASS": [
+      "Repo SHA",
+      "stage1 config/prespec hash",
+      "72-file manifest",
+      "72 M1 hashes",
+      "environment",
+      "tests",
+      "bounded reference smoke"
+    ],
+    "AnyBarrierFailure": "STOP",
+    "CompleteStatus": "COMPLETE_STAGE1_ONLY",
+    "CompleteAllRequired": [
+      "90/90 jobs complete",
+      "All job identities match",
+      "No missing shard",
+      "No duplicate job",
+      "Expected evaluation count matches",
+      "Formal ranking complete",
+      "U03 Plateau complete",
+      "U04 family suppression complete",
+      "At most eight families per pair fixed",
+      "Artifact SHA256 manifest created"
+    ],
+    "IntermediateCandidateEvaluationOrManualSelectionAllowed": false,
+    "ColabOutput": {
+      "ComputeDirectory": "/content/b7_stage1",
+      "DriveSave": "Only after completion; new folder such as /MyDrive/b7_stage1_<date>; never overwrite existing folder",
+      "Artifacts": [
+        "effective config",
+        "environment",
+        "input audit",
+        "progress",
+        "90 job summaries",
+        "formal PASS structures",
+        "plateau diagnostics",
+        "family suppression",
+        "selected Top8/pair",
+        "review JSON",
+        "artifact SHA256 manifest",
+        "archive ZIP"
+      ],
+      "RawM1Saved": false
+    },
+    "PostResultsChangesForbidden": [
+      "PF1.10",
+      "3/5",
+      "Plateau80%",
+      "Family30minutes",
+      "Top8",
+      "SL grid",
+      "source",
+      "spread"
+    ],
+    "ZeroCandidatePair": "Zero remains zero; no rescue search"
+  },
+  "InheritedEnvironmentAndExecution": {
+    "SpreadsPips": {
+      "USDJPY": 0.5,
+      "EURJPY": 1,
+      "GBPJPY": 2,
+      "AUDJPY": 1.5,
+      "AUDUSD": 1.5,
+      "EURAUD": 1.5,
+      "GBPAUD": 2,
+      "EURUSD": 1,
+      "GBPUSD": 1.5
+    },
+    "PipSize": {
+      "USDJPY": 0.01,
+      "EURJPY": 0.01,
+      "GBPJPY": 0.01,
+      "AUDJPY": 0.01,
+      "AUDUSD": 0.0001,
+      "EURAUD": 0.0001,
+      "GBPAUD": 0.0001,
+      "EURUSD": 0.0001,
+      "GBPUSD": 0.0001
+    },
+    "FrozenStage0Protocol": {
+      "Path": "research_inputs/b7/stage0_protocol.json",
+      "SHA256": "d0425de445b1a1390ee74fcf3c446d0f83c324fb019ba38e3254325f37171293"
+    },
+    "Frozen72FileManifest": {
+      "Path": "research_inputs/b7/expected_m1_manifest.csv",
+      "SHA256": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a"
+    }
+  },
+  "CurrentAuthorization": {
+    "Stage1ConditionsFrozen": true,
+    "Stage1ImplementationAuthorized": false,
+    "Stage1ExecutionAuthorized": false,
+    "Stage1MayStartNow": false,
+    "NextStep": "Separate user instruction for B7 Stage1 implementation only",
+    "NewPerformanceResultsOpened": false
+  },
+  "UnchangedStatus": {
+    "B01": "CLEAR_WITH_LIMITATION",
+    "Stage0": "PASS_WITH_PROVENANCE_LIMITATION",
+    "DataIntegrity": "PASS",
+    "BrokerIdentity": "HISTORICAL_NOT_FULLY_CERTIFIED"
+  },
+  "NormativeUserSections": {
+    "U06": [
+      {
+        "Section": 1,
+        "Text": "# 1. U06 — SL正式選択\n\nStage1では既にFreeze済みの正式5SLを用いて、\n\n**5SL中3/5以上PASS**\n\nを要求します。\n\nこれはU02のままです。\n\nStage1では最良SLを選びません。\n\nU06で初めて正式SLを1本決定します。\n\n---\n\n## U06-SL Step 1 — PASS Anchor\n\nStage1の正式5SLのうち、\n\nU02単体GateをPASSしたSLを\n\n`PASS Anchor`\n\nとします。\n\nU02 Gate：\n\n- Total Trades >=150\n- 各Discovery年 Trades >=30\n- Total Losses >=10\n- AvgPips >0\n- PFpips >=1.05\n- Positive Years >=3/4\n\n---\n\n## U06-SL Step 2 — Local SL scan\n\n各PASS Anchorについて、\n\n**Anchor ±20%**\n\nの範囲を、\n\n**5pips刻み**\n\nで全探索します。\n\n範囲端は5pips単位へ決定論的に丸め、\n\nAnchor自身を必ず含めてください。\n\n例：\n\nAnchor = 65\n\n→ 約52〜78pips\n\n→ local scan：\n\n`50 / 55 / 60 / 65 / 70 / 75 / 80`\n\n---\n\n## 小さいSLの例外\n\nAnchor±20%内に5pips刻みの点が3点未満しか存在しない場合のみ、\n\n最低限、\n\n`Anchor-5 / Anchor / Anchor+5`\n\nの3点まで機械的に拡張してください。\n\n例：\n\nAnchor10 → `5 / 10 / 15`\n\nAnchor15 → `10 / 15 / 20`\n\n結果を見て探索範囲を拡張しないこと。\n\nこの拡張ルールは事前固定です。\n\n---\n\n## U06-SL Step 3 — 重複scan統合\n\n複数Anchorのlocal scan範囲が重複した場合、\n\n同一SL値を複数回評価しないでください。\n\n一度だけ評価し、\n\n全local SL点を5pips刻みの一つのSL mapとして統合してください。\n\n---\n\n## U06-SL Step 4 — PASS Zone\n\nlocal scanの各SL点について、\n\nU02単体Gateを適用します。\n\nそのうえで、\n\n**5pips間隔で3点以上連続してU02 PASSする区間**\n\nをPASS Zone候補とします。\n\n例：\n\n45 PASS  \n50 PASS  \n55 PASS  \n60 PASS  \n65 FAIL  \n70 PASS  \n75 PASS  \n80 PASS\n\nなら、\n\n- Zone A = 45/50/55/60\n- Zone B = 70/75/80\n\nです。\n\n最大連続区間として抽出してください。\n\n---\n\n## U06-SL Step 5 — Pure Time edge retention\n\n各PASS Zoneについて、\n\n`Zone Median AvgPips >= Pure Time AvgPips × 0.80`\n\nを要求します。\n\nこれは、\n\nSL自身80% × 近傍80%\n\nの二重条件にはしません。\n\n**Zone全体の中央値をPure Timeへ直接比較する一本の80%条件**\n\nとします。\n\nこれを満たさないZoneは不採用。\n\n---\n\n## U06-SL Step 6 — 複数Zone ranking\n\n正式Zoneが複数ある場合は、\n\n次の固定順で選択してください。\n\n1. Zone Median AvgPips DESC\n2. 連続PASS点数 DESC\n3. Zone Worst AvgPips DESC\n4. Zone Median PFpips DESC\n5. Zone中央SL ASC\n\n結果を見て重み付け変更禁止。\n\n---\n\n## U06-SL Step 7 — 最終SL\n\n採用Zoneの中央SLを正式SLとします。\n\n奇数点：\n\n中央1点。\n\n偶数点：\n\n中央2点のうち、\n\n**lower median = 小さい方**\n\nを採用。\n\n例：\n\n50/55/60/65\n\n→ 55pips\n\nです。\n\nしたがって最終SLは、元の正式5SL Anchor以外の値になることを許可します。\n\n---\n\n## U06-SL DROP\n\n正式PASS Zoneが一つも存在しない場合、\n\nCandidate DROP。\n\n結果を見て、\n\n- ±30%へ拡張\n- 2点連続へ緩和\n- 80%を70%へ緩和\n- 新SL追加\n\n等は禁止です。\n\n---\n\n"
+      },
+      {
+        "Section": 2,
+        "Text": "# 2. U06 — TP正式探索・決定\n\n正式SLを1本Freezeした後だけTPを探索します。\n\nSLをTP結果から変更しないこと。\n\n---\n\n## U06-TP coarse anchors\n\n正式SLに対して、\n\n- TP_NONE\n- 0.5R\n- 1.0R\n- 1.5R\n- 2.0R\n- 3.0R\n\nを評価します。\n\nここで、\n\n`1R = Formal SL pips`\n\nです。\n\n有限TPは、\n\n**5pips half-up**\n\nで固定。\n\n同じpips値へ丸められた重複TPは1回だけ評価してください。\n\n最低有限TPは5pips。\n\n5pips刻みの全面総当たりは禁止。\n\n---\n\n## U06-TP minimum Gate\n\n各有限TP Anchorは、\n\n- Trades >=150\n- 各年 Trades >=30\n- Losses >=10\n- AvgPips >0\n- PFpips >=1.05\n- Positive Years >=3/4\n\nを満たす必要があります。\n\n---\n\n## 孤立TP Anchor\n\n有限TP AnchorがPASSしても、\n\n**隣接するcoarse TP Anchorの最低1本もPASS**\n\nしていなければ、\n\nそのTPを局所scanへ進めないでください。\n\n例：\n\n1.5RだけPASS  \n1.0R FAIL  \n2.0R FAIL\n\n→ isolated peakとしてlocal scan対象外。\n\n端：\n\n0.5Rは1.0Rを見る。  \n3.0Rは2.0Rを見る。\n\nTP_NONEはlocal TP plateauの隣接Anchorとして扱わない。\n\n---\n\n## U06-TP local scan\n\n局所scan対象となった有限TP Anchorについて、\n\n**Anchor TP pips ±20%**\n\nを5pips刻みで評価します。\n\nSL local scanと同様、\n\n重複TP値は1回だけ評価。\n\n結果を見て探索範囲を追加しないこと。\n\n---\n\n## U06-TP PASS Zone\n\n有限TP local mapから、\n\nU06-TP minimum Gateを満たすTPが\n\n**5pips刻みで連続3点以上**\n\n存在する区間をPASS Zoneとします。\n\n---\n\n## TP Zone ranking\n\n複数Zoneがある場合：\n\n1. Zone Median AvgPips DESC\n2. 連続PASS点数 DESC\n3. Zone Worst AvgPips DESC\n4. Zone Median PFpips DESC\n5. Zone中央TP ASC\n\n最終有限TP候補は、\n\n採用Zoneの\n\n**lower median TP**\n\nとしてください。\n\n---\n\n"
+      },
+      {
+        "Section": 3,
+        "Text": "# 3. TP_NONEとの正式比較\n\n局所Plateauから有限TP候補が得られても、\n\n自動採用しません。\n\n正式SL + TP_NONEをBaselineとします。\n\n有限TP正式採用には、TP_NONEに対して以下をすべて要求します。\n\n- PositiveYearCount >= TP_NONE\n- WorstYearAvgPips >= TP_NONE\n- MedianAnnualAvgPips がTP_NONEより\n\n`max(0.10 pips/trade, 5%)`\n\n以上改善\n\n5%はTP_NONE MedianAnnualAvgPipsを基準にします。\n\n最低絶対改善幅は0.10 pips/trade。\n\n条件を満たさなければ、\n\n**TP_NONE採用。**\n\n有限TP側に採用理由を要求します。\n\nMFE/GivebackをTP選択に使用しないでください。\n\n---\n\n"
+      },
+      {
+        "Section": 4,
+        "Text": "# 4. U06完了後\n\nU06で正式にFreezeするもの：\n\n- Formal SL\n- Formal TP\n\n以後、\n\nWeekday / DOM / Month / 1m / Event / MFE結果を見て、\n\nSL/TPへ戻らないこと。\n\n---\n\n"
+      }
+    ],
+    "U07": [
+      {
+        "Section": 5,
+        "Text": "# 5. U07 — Weekday ON/OFF\n\nU06で固定した\n\n- Pair\n- Direction\n- Entry\n- Exit\n- SL\n- TP\n\nを全曜日で固定します。\n\n曜日ごとに時間やSL/TPを変更しないこと。\n\n---\n\n## Weekday individual diagnostics\n\nMon〜Friそれぞれについて、\n\n最低限：\n\n- Trades\n- Wins\n- Losses\n- ZeroPips\n- AvgPips\n- TotalPips\n- PFpips\n- MaxDDPips\n- annual metrics\n- PositiveYearCount\n- NegativeYearCount\n\nを保存。\n\n---\n\n## CORE weekday\n\n以下すべて：\n\n- Trades >=150\n- 各年 Trades >=30\n- Losses >=10\n- AvgPips >0\n- PFpips >=1.10\n- Positive Years >=3/4\n\nなら\n\n`CORE`\n\n---\n\n## SUPPORT weekday\n\nCOREには届かないが、\n\n- Trades >=150\n- 各年 Trades >=30\n- Losses >=10\n- AvgPips >0\n- PFpips >=1.05\n- Positive Years >=3/4\n\nなら\n\n`SUPPORT`\n\n---\n\n## NON_SUPPORT\n\nそれ以外。\n\n---\n\n"
+      },
+      {
+        "Section": 6,
+        "Text": "# 6. Anchor weekday\n\nU04のTime Family RepresentativeのEntry weekdayを\n\n`Anchor weekday`\n\nとします。\n\n最終SL/TP固定後のU07再評価でも、\n\nAnchor weekdayは\n\n**CORE条件を満たすことを必須**\n\nとします。\n\nAnchorがCOREでなくなった場合、\n\nCandidate DROP。\n\n曜日組み合わせでAnchorの消失を救済しないこと。\n\n---\n\n"
+      },
+      {
+        "Section": 7,
+        "Text": "# 7. Weekday候補Set\n\n31通り総当たりは禁止。\n\n最大4つのnested setのみ作成。\n\n### W0\nAnchor weekday only\n\n### W1\n全CORE weekdays\n\n### W2\n全CORE + SUPPORT weekdays\n\n### W3\nMon〜Fri全5曜日\n\n同一setになる場合は重複除去。\n\narbitrary subsetは作らない。\n\n---\n\n"
+      },
+      {
+        "Section": 8,
+        "Text": "# 8. Weekday Set Formal Gate\n\n各W set合算で、\n\n- Trades >=150\n- 各年 Trades >=30\n- Losses >=10\n- AvgPips >0\n- PFpips >=1.10\n- Positive Years >=3/4\n\nを要求。\n\nPASS setのみ正式比較。\n\n---\n\n"
+      },
+      {
+        "Section": 9,
+        "Text": "# 9. Weekday Set選択\n\nFormal PASSしたsetのうち、\n\n**MedianAnnualAvgPips最大のset**\n\nをBestとします。\n\nそのBestに対し、\n\n`Set MedianAnnualAvgPips >= Best × 0.80`\n\nかつ、\n\n`PositiveYearCount >= Best`\n\nのsetを\n\n`Weekday Performance Plateau`\n\nとします。\n\nそのPlateau内で、\n\n**Active Weekdays数が最も多いset**\n\nを正式採用。\n\n同じ曜日数の重複候補が残る場合は、\n\nW3 → W2 → W1 → W0\n\nの固定優先順で決定してください。\n\n目的：\n\nedgeを大きく薄めない範囲では広い曜日稼働を優先。\n\n一方、本当にAnchor曜日のみが強ければW0を認めます。\n\n---\n\n"
+      }
+    ],
+    "U08": [
+      {
+        "Section": 10,
+        "Text": "# 10. U08-A — Day-of-Month 3 bucket\n\nU07までを完全固定した状態で、\n\n- D1 = 1〜10日\n- D2 = 11〜20日\n- D3 = 21日〜月末\n\nを個別診断。\n\n---\n\n## DOM minimum sample\n\n各bucketについて、\n\n- Candidate全体Tradesの20%以上\n- 各年でも、その年Candidate Tradesの20%以上\n\nを最低sample条件とします。\n\nsample不足bucketをOFF候補にしないこと。\n\n---\n\n## DOM OFF候補\n\nminimum sampleを満たし、さらに全部：\n\n- TotalPips <0\n- AvgPips <0\n- PFpips <1.00\n- Negative Years >=3/4\n\nならOFF候補。\n\n最初の3bucket診断で候補を固定してください。\n\nbucket除外後に新しいOFF候補を追加しないこと。\n\n---\n\n## DOM OFF候補順位\n\n1. NegativeYearCount DESC\n2. AvgPips ASC\n3. PFpips ASC\n4. TotalPips ASC\n5. 固定bucket順\n   - 1〜10\n   - 11〜20\n   - 21〜EOM\n\n---\n\n## DOM比較\n\n最大：\n\n### DOM0\n全bucket ON\n\n### DOM1\n最悪OFF候補1つ停止\n\n### DOM2\n上位OFF候補2つ停止\n\n7通り総当たりは禁止。\n\n---\n\n## DOM1採用\n\nDOM0→DOM1で全部：\n\n- AvgPips改善\n- PFpips改善\n- MedianAnnualAvgPips改善\n- PositiveYearCount悪化なし\n- MaxDDPips悪化なし\n\nを要求。\n\n---\n\n## DOM2採用\n\nDOM1→DOM2でも同じ条件で、\n\n**さらに改善**\n\nする場合だけDOM2。\n\n改善しなければDOM1。\n\n最大2bucket OFF。\n\n条件を満たせば、最終的に1bucketのみ稼働も許可します。\n\n---\n\n## DOM最終Gate\n\n最終DOM setは、\n\n- Trades >=150\n- 各年 Trades >=30\n- Losses >=10\n- AvgPips >0\n- PFpips >=1.10\n- Positive Years >=3/4\n\nを要求。\n\n満たさなければCandidate DROP。\n\n---\n\n"
+      },
+      {
+        "Section": 11,
+        "Text": "# 11. U08-B — Month Seasonality / LOMO\n\nDOM Freeze後。\n\nJan〜Decを個別診断。\n\n保存：\n\n- Trades\n- Wins/Losses\n- AvgPips\n- TotalPips\n- PFpips\n- MaxDDPips\n- 2020〜2023各年TotalPips\n- PositiveYearCount\n- NegativeYearCount\n\n---\n\n## Month minimum sample\n\n月停止候補として評価するには、\n\n- Discovery4年合計 Trades >=16\n- 各年 Trades >=3\n\nを要求。\n\n---\n\n## Month OFF候補\n\nminimum sampleを満たし、\n\n- 4年合算 TotalPips <0\n- PFpips <1.00\n- Negative Years >=3/4\n\nをすべて満たす月のみ。\n\nM0状態の12ヶ月診断で候補を固定。\n\n月停止後に新候補を追加しない。\n\n---\n\n"
+      },
+      {
+        "Section": 12,
+        "Text": "# 12. LOMO\n\n12ヶ月それぞれについて、\n\n`Leave One Month Out`\n\nを診断します。\n\nOFF候補月を1ヶ月外した場合に、\n\n- Overall AvgPips改善\n- PFpips改善\n- MedianAnnualAvgPips改善\n- PositiveYearCount悪化なし\n- MaxDDPips悪化なし\n\nを要求。\n\n追加の0.10pips等の最低改善幅は設けません。\n\n月自体がすでに、\n\n3/4年マイナス＋PF<1＋Total<0\n\nを満たしていることを前提とします。\n\n---\n\n## Month順位\n\n1. NegativeYearCount DESC\n2. AvgPips ASC\n3. PFpips ASC\n4. TotalPips ASC\n5. Month number ASC\n\n---\n\n## Month比較\n\n### M0\n月停止なし\n\n### M1\n最悪の正式OFF候補1ヶ月停止\n\n### M2\n上位正式OFF候補2ヶ月停止\n\n最大2ヶ月停止。\n\n4095通りのmonth ON/OFFは禁止。\n\nM2は、\n\nM1からさらに同じ改善条件を満たした場合のみ採用。\n\n---\n\n"
+      },
+      {
+        "Section": 13,
+        "Text": "# 13. U08完了\n\nU08終了後、\n\n- Weekday\n- DOM\n- Month stop\n\nを\n\n**Calendar Freeze**\n\nしてください。\n\n以後1分Fine TuneやEvent結果を見てCalendarへ戻らない。\n\n---\n\n"
+      }
+    ],
+    "U09": [
+      {
+        "Section": 14,
+        "Text": "# 14. U09 — 1-minute Fine Tune\n\nCalendar Freeze後。\n\n固定：\n\n- Pair\n- Direction\n- SL\n- TP\n- Weekday\n- DOM\n- Month stop\n\n5分Anchorに対し、\n\n- Entry = Anchor ±5分\n- Exit = Anchor ±5分\n- 1分刻み\n\n最大11×11 = 121点。\n\n探索範囲を延長しない。\n\n---\n\n## Invalid shift\n\n1分shiftにより、\n\n- Entry date/weekdayが変わる\n- Exit day offsetが変わる\n- holdingが30〜1440分外\n- execution schedule上無効\n\nとなるpointはinvalid。\n\nFAILとして水増しせず、探索対象外。\n\n---\n\n## 1m Point Gate\n\n各1分point：\n\n- Trades >=150\n- 各年 Trades >=30\n- Losses >=10\n- AvgPips >0\n- PFpips >=1.10\n- Positive Years >=3/4\n\n---\n\n"
+      },
+      {
+        "Section": 15,
+        "Text": "# 15. 1m Plateau\n\n各centerについて、\n\nEntry ±1分  \nExit ±1分\n\nの最大3×3。\n\ncenter含む。\n\n条件：\n\n1. Center formal PASS\n2. Valid point >=4\n3. Formal PASS率 >=2/3\n4. 全Valid pointのMedian AvgPips >= Center AvgPips ×0.80\n\nFAIL点をMedianから除外しない。\n\n---\n\n"
+      },
+      {
+        "Section": 16,
+        "Text": "# 16. 1m ranking\n\nPlateau PASS pointを、\n\n1. Neighborhood Median AvgPips DESC\n2. Neighborhood Median PFpips DESC\n3. Center MedianAnnualAvgPips DESC\n4. 5分AnchorからのL1距離 ASC\n5. fixed key\n\nで順位付け。\n\nL1距離：\n\n`abs(EntryShiftMinutes) + abs(ExitShiftMinutes)`\n\n---\n\n"
+      },
+      {
+        "Section": 17,
+        "Text": "# 17. Anchor retain rule\n\n1分探索したからといって時刻変更を必須にしません。\n\n正式1分候補へ変更するには、\n\n最良1m candidateのNeighborhood Median AvgPipsが、\n\n5分Anchorを基準としたNeighborhood Median AvgPipsより、\n\n`max(0.05 pips/trade, 2.5%)`\n\n以上改善することを要求。\n\n満たさなければ、\n\n**5分Anchor維持。**\n\n1m Plateauが一つも存在しない場合も、\n\nCandidate DROPではなく、\n\n`ANCHOR_RETAINED_NO_1M_PLATEAU`\n\nとして5分Anchor維持。\n\n再anchor・探索延長禁止。\n\n---\n\n"
+      }
+    ],
+    "U10": [
+      {
+        "Section": 18,
+        "Text": "# 18. U10 — Event Policy\n\nU10はEvent Filterの最適化Stageではありません。\n\nB7正式Event Modeは、\n\n**結果を見る前にE2を事前採用**\n\nします。\n\n理由：\n\n重要経済イベントによる値動きは、B7で探索した時間edgeとは別の外生的イベントリスクとして扱うため。\n\n---\n\n"
+      },
+      {
+        "Section": 19,
+        "Text": "# 19. Event calendar\n\nB6で監査・Freeze済みのcalendar infrastructureを再利用。\n\nsource commit：\n\n`173be2a114dad6bd183a0a1515581528850f0850`\n\nB6 Candidate C strategy-specific matrixは使用しない。\n\n固定Discovery Event：\n\n| Event | Fixed JST | Window |\n|---|---:|---:|\n| FOMC | 03:00 | ±180m |\n| US_NFP | 21:30 | ±120m |\n| US_CPI | 21:30 | ±120m |\n| BOJ | 12:00 | ±180m |\n| BOE | 21:00 | ±120m |\n| ECB | 21:15 | ±120m |\n| RBA | 13:30 | ±120m |\n| AUD_CPI | 10:30 | ±120m |\n\n歴史的発表時刻を今から修正・再構築しないこと。\n\n---\n\n"
+      },
+      {
+        "Section": 20,
+        "Text": "# 20. E0/E1/E2\n\n### E0\nEvent除外なし\n\n### E1\nPair構成通貨の中央銀行\n\nUSD → FOMC  \nJPY → BOJ  \nEUR → ECB  \nGBP → BOE  \nAUD → RBA\n\n### E2\nE1 +\n\n- US NFP\n- US CPI\n- AUD pairのみAUD CPI\n\n正式採用は常にE2。\n\n---\n\n"
+      },
+      {
+        "Section": 21,
+        "Text": "# 21. Event overlap\n\n判定区間：\n\n**planned Entry ～ planned Time Exit**\n\nevent windowとのoverlapは両端inclusive。\n\n実際にSL/TPで早期決済した場合でも、\n\nplanned Time ExitまでをEvent overlap判定に使用。\n\n複数event overlapはtrade除外1回。\n\n---\n\n"
+      },
+      {
+        "Section": 22,
+        "Text": "# 22. E0/E1/E2診断\n\nDiscoveryで、\n\nE0/E1/E2をすべて計算し、比較報告してください。\n\n最低限：\n\n- Trades\n- RemovedTrades\n- Retention\n- AvgPips\n- TotalPips\n- PFpips\n- MaxDDPips\n- annual metrics\n\nただし、\n\n**結果をEvent Mode選択に使わない。**\n\nE0が一番良くてもE0へ戻らない。\n\nE1が一番良くてもE1へ変更しない。\n\n正式Event Mode = E2固定。\n\n従来案の\n\n- Retention>=80%\n- Removed>=20\n- E0からの改善Gate\n\n等は、\n\n採否Gateではなく診断情報としてください。\n\n---\n\n"
+      },
+      {
+        "Section": 23,
+        "Text": "# 23. E2後 Formal Gate\n\n正式戦略はE2適用後の状態です。\n\nE2適用後に、\n\n- Trades >=150\n- 各年 Trades >=30\n- Losses >=10\n- AvgPips >0\n- PFpips >=1.10\n- Positive Years >=3/4\n\nを要求。\n\n満たさなければCandidate DROP。\n\n成績が悪いからE0/E1へ戻すことは禁止。\n\n---\n\n"
+      }
+    ],
+    "U10-P": [
+      {
+        "Section": 24,
+        "Text": "# 24. U10-P — MFE / Giveback / Profit Protection\n\nU10-PはEvent後、Candidate Freeze前の独立Stage。\n\nここまでに、\n\n- Pair\n- Direction\n- Entry/Exit\n- SL\n- TP\n- Weekday\n- DOM\n- Month\n- 1m result\n- Event E2\n\nを完全固定。\n\nMFE結果を見て前段条件へ戻らない。\n\n---\n\n"
+      },
+      {
+        "Section": 25,
+        "Text": "# 25. MFE / MAE diagnostics\n\n各正式tradeについて保存：\n\n### MFE\nMaximum Favorable Excursion\n\n保有中最大含み益pips。\n\n### MAE\nMaximum Adverse Excursion\n\n保有中最大含み損pips。\n\n### FinalPips\n正式Exit結果。\n\n### GivebackPips\n\n`MFE - FinalPips`\n\n---\n\n## R normalization\n\nここでのみ、\n\n`1R = Formal SL pips`\n\nとして、\n\n- +0.25R\n- +0.50R\n- +0.75R\n- +1.00R\n\n到達後の最終結果を診断。\n\nRはB7 Candidate rankingには使用しません。\n\nProfit Protection triggerをpair間で共通化するための診断単位のみ。\n\n---\n\n"
+      },
+      {
+        "Section": 26,
+        "Text": "# 26. Winner→Loser\n\n主要Giveback指標：\n\n**MFE >= +0.50Rに到達したのに FinalPips <0**\n\nのtradeを、\n\n`WinnerToLoser`\n\nと定義。\n\n件数・割合・Givebackを保存。\n\n---\n\n"
+      },
+      {
+        "Section": 27,
+        "Text": "# 27. Profit Protection候補\n\n探索自由度を増やさないため、\n\n以下4modeだけ。\n\n### P0\nProtectionなし\n\n### P1\n+0.50R到達  \n→ SLをBreak Evenへ\n\n### P2\n+0.75R到達  \n→ +0.25RをLock\n\n### P3\n+1.00R到達  \n→ +0.50RをLock\n\nその他のtrigger/lock値を探索しない。\n\nTrailing幅総当たり禁止。\n\n---\n\n"
+      },
+      {
+        "Section": 28,
+        "Text": "# 28. M1同一bar安全ルール\n\n同一M1 bar内で、\n\nProtection trigger到達と逆行の順序が不明な場合、\n\n楽観的にProtection発動済みと扱わない。\n\n**Protectionはtrigger到達を確認した次のM1 barから有効**\n\nとしてください。\n\nM1内High/Low順序を推測しない。\n\n---\n\n"
+      },
+      {
+        "Section": 29,
+        "Text": "# 29. TPとの関係\n\nFreeze済みTPを変更しない。\n\n既存TPがProtection trigger以前に成立するため該当Protectionが意味を持たない場合、\n\n`NOT_APPLICABLE`\n\nとしてください。\n\n例：\n\nTP=0.5RでP1 +0.5R BEなど。\n\nMFE結果からTP再最適化禁止。\n\n---\n\n"
+      },
+      {
+        "Section": 30,
+        "Text": "# 30. Profit Protection採用Gate\n\nP1〜P3をP0と比較。\n\n正式採用には全部必要：\n\n- U01相当Gate維持\n- TotalPips 悪化なし\n- PFpips 悪化なし\n- MedianAnnualAvgPips 悪化なし\n- PositiveYearCount 悪化なし\n- MaxDDPips 悪化なし\n- WinnerToLoser件数を **20%以上削減**\n- かつ WinnerToLoserを **最低5trade以上削減**\n\n満たさないProtectionは不採用。\n\n---\n\n"
+      },
+      {
+        "Section": 31,
+        "Text": "# 31. 複数Protection PASS時\n\n1. WinnerToLoser削減数 DESC\n2. MaxDDPips ASC\n3. PFpips DESC\n4. TotalPips DESC\n5. 単純な方\n   - P1\n   - P2\n   - P3\n\nで固定。\n\n全てFAILなら、\n\n**P0 = Protectionなし**\n\nを正式採用。\n\n---\n\n"
+      }
+    ],
+    "CandidateFreeze": [
+      {
+        "Section": 32,
+        "Text": "# 32. Candidate Freeze\n\nU10-P終了後、\n\n以下すべてを完全Freezeしてください。\n\n- Pair\n- Direction\n- Entry\n- Exit\n- SL\n- TP\n- Weekday Set\n- DOM Set\n- Month stop\n- Event = E2\n- Profit Protection P0/P1/P2/P3\n- spread\n- pip size\n- execution convention\n- data identity\n- Discovery metrics\n- all config/code/data hashes\n\nこのFreeze後にValidationを開きます。\n\n---\n\n"
+      }
+    ],
+    "U11": [
+      {
+        "Section": 33,
+        "Text": "# 33. U11 — Validation contract\n\nValidation：\n\n`[2024-01-01, 2026-01-01) JST`\n\nCandidate Freeze条件を一切変更せず実行。\n\n---\n\n## Sample Sufficiency\n\n以下すべて必要：\n\n- 2024 Trades >=30\n- 2025 Trades >=30\n- Combined Trades >=70\n- 2024 Losses >=5\n- 2025 Losses >=5\n\n不足：\n\n`INSUFFICIENT_SAMPLE`\n\nFAILとは別status。\n\n---\n\n"
+      },
+      {
+        "Section": 34,
+        "Text": "# 34. Validation Formal PASS\n\nsample十分なCandidateについて、全部必要：\n\n- 2024 TotalPips >0\n- 2025 TotalPips >0\n- Combined AvgPips >0\n- Combined PFpips >=1.10\n- Validation MaxDDPips <= Discovery MaxDDPips ×1.50\n\nDiscovery AvgPips retention率等をFormal PASS Gateに追加しない。\n\n---\n\n"
+      },
+      {
+        "Section": 35,
+        "Text": "# 35. Validation diagnostics\n\nFormal Gateには使用しないが、\n\n以下は報告可：\n\n- Discovery→Validation AvgPips retention\n- PF変化\n- TotalPips変化\n- MaxDD変化\n- WinRate\n- annual/monthly metrics\n- WinnerToLoser / Giveback\n- E2 removed trades\n- Protection発動回数\n- その他事前定義diagnostics\n\n見た後にValidation Gateを追加しない。\n\n---\n\n"
+      },
+      {
+        "Section": 36,
+        "Text": "# 36. Validation status\n\n### PASS\nSample sufficient + Formal PASS全条件\n\n### FAIL\nSample sufficientだが条件のどれかFAIL\n\n### INSUFFICIENT_SAMPLE\nsample不足\n\n準PASS・救済PASS等を作らない。\n\n---\n\n"
+      },
+      {
+        "Section": 37,
+        "Text": "# 37. Validation後の禁止\n\nFAIL Candidateについて、\n\n- Entry/Exit変更\n- SL変更\n- TP変更\n- Weekday変更\n- DOM変更\n- Month変更\n- Event変更\n- Protection変更\n\n禁止。\n\n将来別仮説を試す場合は、\n\nB7とは別Research IDとすること。\n\n---\n\n"
+      },
+      {
+        "Section": 38,
+        "Text": "# 38. 2026 Monitor\n\nFormal Validation PASS Candidateのみ。\n\nMonitor：\n\n`[2026-01-01, 2026-09-10)`\n\nstatusは、\n\n`OBSERVED_ONLY`\n\nValidation判定を上書きしない。\n\n2026好成績でFAILを救済しない。\n\n2026不調でPASSを取消さない。\n\n---\n\n"
+      }
+    ],
+    "U12": [
+      {
+        "Section": 39,
+        "Text": "# 39. U12 — Stage1実装と正式探索の分離\n\nStage1実装はWork。\n\n正式Stage1 full sweepは、\n\n**Work implementation Freeze → Chat確認 → Google Colab**\n\nの順。\n\n---\n\n## Workで実施可能\n\n- Stage1 code implementation\n- tests\n- synthetic tests\n- bounded actual-data smoke\n- notebook作成\n- config/manifest/release artifact\n- GitHub Freeze\n\n---\n\n## Workで禁止\n\n- Discovery full sweep\n- Candidate ranking本結果\n- Top8正式選定\n- U06以降の正式探索\n- Validation\n- Monitor\n- Money\n- Portfolio\n- R2\n\n---\n\n"
+      },
+      {
+        "Section": 40,
+        "Text": "# 40. U12正式reference environment\n\nStage0記録をreferenceとする。\n\n- Python 3.12.14\n- NumPy 2.3.5\n- pandas 2.2.3\n\nColabでPython exact version固定が困難な場合：\n\n- 実Python versionを保存\n- NumPy/pandasは固定\n- tests/reference replay一致必須\n\n環境差を黙って許容しない。\n\n---\n\n"
+      },
+      {
+        "Section": 41,
+        "Text": "# 41. U12 Stage1正式input\n\n正式M1：\n\n**B7 frozen 72-file Research Data Collection**\n\nmanifest：\n\n`research_inputs/b7/expected_m1_manifest.csv`\n\n実行開始時に72/72：\n\n- Filename\n- SHA256\n- Rows\n- FirstRaw\n- LastRaw\n\nを再監査。\n\n1つでも不一致ならSTOP。\n\n---\n\n"
+      },
+      {
+        "Section": 42,
+        "Text": "# 42. Discovery isolation\n\nStage1 calculationへ入れるのは、\n\n`[2020-01-01, 2024-01-01) JST`\n\nのみ。\n\nValidation/Monitor rowが同じCSV内に存在しても、\n\nStage1 calculation arrayへ混入しないことをtestsで保証。\n\n---\n\n"
+      },
+      {
+        "Section": 43,
+        "Text": "# 43. Stage1 formal search space\n\nFreeze済み条件のみ：\n\n- 9 pairs\n- Long / Short\n- Entry weekday Mon〜Fri個別\n- Entry 5分刻み\n- holding 30〜1440分、5分刻み\n- Pure Time\n- Formal Fixed 5SL × TP_NONE\n\nTime Structures：\n\n**7,335,360**\n\nPure + 5SL evaluations：\n\n**44,012,160**\n\n勝手な時間pruning禁止。\n\n---\n\n"
+      },
+      {
+        "Section": 44,
+        "Text": "# 44. Determinism\n\n並列化は許可。\n\nただし結果が、\n\n- thread数\n- process数\n- shard順\n- completion順\n- filesystem順\n\nで変わらないこと。\n\ntrade集計は決定論的順序。\n\n最終sortingはFreeze済みfixed key。\n\nparallel floating-point reduceで判定結果が変わらない設計とする。\n\n---\n\n"
+      },
+      {
+        "Section": 45,
+        "Text": "# 45. Stage1 jobs\n\n基本job単位：\n\n**Pair × Direction × Weekday**\n\n9 × 2 × 5 =\n\n**90 jobs**\n\n各job内：\n\n- Entry 288点\n- Hold 283点\n\n---\n\n"
+      },
+      {
+        "Section": 46,
+        "Text": "# 46. Checkpoint / Resume\n\n各job完了後にcheckpoint可能。\n\nただしResume identity完全一致が必要。\n\n最低限：\n\n- Stage1 implementation commit SHA\n- stage1_prespec SHA256\n- 72-file manifest SHA256\n- official SL grid\n- spreads\n- pip sizes\n- execution convention identity\n- Discovery period\n- Python/NumPy/pandas versions\n- job definition\n- U01〜U05 Gate/ranking/family config\n\n不一致checkpointは拒否。\n\n古い結果を自動流用しない。\n\n---\n\n"
+      },
+      {
+        "Section": 47,
+        "Text": "# 47. Stage1 output levels\n\n## Level 1 — Job Summary\n\n90jobs：\n\n- evaluated count\n- missing counts\n- Pure Time PASS count\n- SL robustness PASS count\n- errors\n- runtime identity\n\n---\n\n## Level 2 — Formal PASS structures\n\nU01 + U02 formal PASSのみ詳細保存。\n\n最低限：\n\n- CandidateID\n- structure fields\n- overall metrics\n- annual metrics\n- five-SL metrics\n- PF\n- AvgPips\n- TotalPips\n- MaxDDPips\n\n---\n\n## Level 3 — Plateau / Family / Top8\n\nU03/U04後：\n\n- neighborhood diagnostics\n- Plateau status\n- family suppression\n- representative\n- supporting weekdays\n- suppressed IDs\n- pair Top8\n\nを保存。\n\n---\n\n"
+      },
+      {
+        "Section": 48,
+        "Text": "# 48. Raw trade log\n\n全44M variantsのtrade-by-trade logを恒久保存しない。\n\nTop8 families等、後段Candidateについては、\n\ncode/config/data hashからtrade logを100%再生成可能にする。\n\n必要になった時点で限定生成。\n\n---\n\n"
+      },
+      {
+        "Section": 49,
+        "Text": "# 49. Work bounded actual-data smoke\n\nWorkではperformance探索をしない。\n\n事前固定の少数pair/少数日だけを使い、\n\n- Entry Open\n- spread\n- Pure Time\n- 5SL\n- SL hit\n- Time Exit\n- missing/fallback\n- boundary\n- deterministic replay\n\nを確認。\n\n正式ranking・Top8・成績表を出さない。\n\n---\n\n"
+      },
+      {
+        "Section": 50,
+        "Text": "# 50. Colab正式本番Barrier\n\nformal full sweep開始前に全部PASS：\n\n1. Repo SHA\n2. stage1 config/prespec hash\n3. 72-file manifest\n4. 72 M1 hashes\n5. environment\n6. tests\n7. bounded reference smoke\n\n1つでもFAILならSTOP。\n\n---\n\n"
+      },
+      {
+        "Section": 51,
+        "Text": "# 51. COMPLETE_STAGE1_ONLY条件\n\n以下すべて完了時のみStage1 COMPLETE：\n\n- 90/90 jobs complete\n- 全job identity一致\n- missing shardなし\n- duplicate jobなし\n- expected evaluation count一致\n- Formal ranking完了\n- Plateau U03完了\n- Family suppression U04完了\n- pair Top8以下確定\n- artifact SHA256 manifest作成\n\n途中結果を正式Candidateとして見ない。\n\n`COMPLETE_STAGE1_ONLY`\n\nまで正式Candidate結果の評価・手動選択をしない。\n\n---\n\n"
+      },
+      {
+        "Section": 52,
+        "Text": "# 52. Colab output\n\n計算：\n\n`/content/b7_stage1`\n\n完了後のみGoogle Driveへ保存。\n\n例：\n\n`/MyDrive/b7_stage1_<date>`\n\n既存folder上書き禁止。\n\n保存：\n\n- effective config\n- environment\n- input audit\n- progress\n- 90 job summaries\n- formal PASS structures\n- plateau diagnostics\n- family suppression\n- selected Top8/pair\n- review JSON\n- artifact SHA256 manifest\n- archive ZIP\n\nRaw M1は保存しない。\n\n---\n\n"
+      },
+      {
+        "Section": 53,
+        "Text": "# 53. Stage1結果後の禁止\n\n結果を見たあと、\n\n- PF1.10変更\n- 3/5変更\n- Plateau80%変更\n- Family30分変更\n- Top8変更\n- SL grid変更\n- source変更\n- spread変更\n\n等は禁止。\n\npair Candidate 0なら、\n\n**0は0。**\n\n救済探索しない。\n\n---\n\n"
+      }
+    ],
+    "GlobalRules": [
+      {
+        "Section": 0,
+        "Text": "# 0. 最重要ルール\n\n今回Freezeする条件は、\n\n**Discovery結果を見る前に固定するB7正式研究ルール**\n\nです。\n\n以下は禁止：\n\n- 結果を見て閾値変更\n- Candidateが少ないことを理由に条件緩和\n- 0 Candidate pairの救済探索\n- SL/TP/曜日/Calendar/Event条件の後付け変更\n- Validationを見てDiscoveryへ戻る\n- B6既知Candidateへ寄せる\n\nP01/P02/U01〜U05は変更しないでください。\n\n---\n\n"
+      }
+    ],
+    "StageSequence": [
+      {
+        "Section": 55,
+        "Text": "# 55. Stage sequence更新\n\n正式B7 sequenceを、\n\n1. Stage0 Source/Data/Protocol\n2. Stage1 5m Pure Pips + 5SL robustness\n3. SL local Plateau / Freeze\n4. TP search / Freeze\n5. Weekday\n6. DOM\n7. Month Seasonality / LOMO\n8. Calendar Freeze\n9. 1m Fine Tune\n10. E2 Event Policy + E0/E1/E2 diagnostics\n11. MFE/Giveback + Profit Protection\n12. Candidate Freeze\n13. Validation 2024–2025\n14. Monitor 2026\n15. B6 structural comparison\n16. Money/R/Portfolio/Global R2\n\nへ正式更新してください。\n\n---\n\n"
+      }
+    ],
+    "CurrentScope": [
+      {
+        "Section": 56,
+        "Text": "# 56. 今回のWorkで実施しないこと\n\n今回は条件Freezeのみ。\n\n禁止：\n\n- Stage1 executor実装\n- Stage1 notebook実装\n- M1 performance sweep\n- Candidate ranking\n- Top8\n- SL scan実行\n- TP scan実行\n- Weekday/Calendar実行\n- 1m実行\n- Event performance実行\n- MFE実行\n- Validation\n- Monitor\n\n新しいperformance結果を開かない。\n\n---\n\n"
+      },
+      {
+        "Section": 58,
+        "Text": "# 58. Status更新\n\n全条件Freezeが完了したら、\n\n- `Stage1ConditionsFrozen = true`\n\nへ更新可能です。\n\nただし今回のユーザー指示はFreezeのみなので、\n\n- `Stage1ImplementationAuthorized = false`\n- `Stage1ExecutionAuthorized = false`\n\nのままとしてください。\n\nStage1実装は**次の別ユーザー指示**で開始します。\n\n---\n\n"
+      }
+    ]
+  },
+  "NormativeRule": "Exact user section text is preserved alongside structured fields. Implementations must satisfy both; summaries do not authorize new thresholds or searches."
+}

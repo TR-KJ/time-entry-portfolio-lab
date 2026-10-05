@@ -1,5 +1,5 @@
 {
-  "Scope": "B7_STAGE0_WITH_P01_P02_U01_U05_CONDITIONS_FREEZE",
+  "Scope": "B7_FULL_RESEARCH_CONDITIONS_FREEZE_DOCUMENTATION_ONLY",
   "SelfExcluded": true,
   "Files": [
     {
@@ -8,14 +8,19 @@
       "Bytes": 6386
     },
     {
+      "Path": "docs/b7/full_research_conditions_freeze.md",
+      "SHA256": "e4cc4f594ca5b350cdc2fdcace5930d17a856779fa2d7461df31d9e288330823",
+      "Bytes": 38695
+    },
+    {
       "Path": "docs/b7/parameter_decision_register.md",
-      "SHA256": "0716d1c77a1e134c39a6115bd36a648856f7e71cf8fd6520377eddb9616c44b6",
-      "Bytes": 6347
+      "SHA256": "378f8fea8b6fcaffcb11cbdb4d341f8bdf44c88585c38a16e123c2bf24a20491",
+      "Bytes": 8003
     },
     {
       "Path": "docs/b7/research_plan.md",
-      "SHA256": "13ea459c9289c0fd6eb1b26d0e19f96566baf679638e75b635b15971541ba814",
-      "Bytes": 8356
+      "SHA256": "1a20bbc7a4d4ad19104d8e4fce312296fdc77a08c187eebb62e98919881fdf46",
+      "Bytes": 8243
     },
     {
       "Path": "docs/b7/sl_calibration_prespec.md",
@@ -24,8 +29,8 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "4371e672194dc9015d81e84c8ae8595af88db9434846093d5a3bdc9af08d1ee3",
-      "Bytes": 8547
+      "SHA256": "de6fa215988d281de2076afd453d9a5782b7049eab27403382032aa441d5026c",
+      "Bytes": 9012
     },
     {
       "Path": "docs/b7/stage0_validation.md",
@@ -51,6 +56,11 @@
       "Path": "research_inputs/b7/expected_m1_manifest.csv",
       "SHA256": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a",
       "Bytes": 11556
+    },
+    {
+      "Path": "research_inputs/b7/full_research_prespec.json",
+      "SHA256": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea",
+      "Bytes": 68639
     },
     {
       "Path": "research_inputs/b7/sl_grid_proposal.csv",
@@ -149,8 +159,8 @@
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "2dc6b96a14732a3b8712203141997288d9829c28ec0c1fbe72dc078e97ba975d",
-      "Bytes": 1976
+      "SHA256": "3638c5eeb79573777db6d23b92d1ac3b6ebf3bc414022368030a88cef7cbf365",
+      "Bytes": 2228
     },
     {
       "Path": "results/b7/stage0/sl_grid_proposal.csv",
