@@ -2,7 +2,7 @@
   "DataIntegrity": "PASS",
   "BrokerIdentity": "HISTORICAL_NOT_FULLY_CERTIFIED",
   "Stage0": "PASS_WITH_PROVENANCE_LIMITATION",
-  "Stage1": "NOT_IMPLEMENTED_NOT_RUN",
+  "Stage1": "IMPLEMENTED_NOT_FORMALLY_RUN",
   "ValidationPerformance": "NOT_RUN",
   "MonitorPerformance": "NOT_RUN",
   "AllPeriodDataIntegrityRead": true,
@@ -43,10 +43,12 @@
   ],
   "UnresolvedDecisionIDs": [],
   "Stage1Prespec": "research_inputs/b7/stage1_prespec.json",
-  "Stage1ImplementationAuthorized": false,
+  "Stage1ImplementationAuthorized": true,
   "Stage1ExecutionAuthorized": false,
   "NewPerformanceResultsOpened": false,
   "FullResearchPrespec": "research_inputs/b7/full_research_prespec.json",
   "FullResearchConditions": "docs/b7/full_research_conditions_freeze.md",
-  "NextAuthorizationRequired": "Separate user instruction for Stage1 implementation only"
+  "NextAuthorizationRequired": "Separate Chat confirmation before Google Colab formal full sweep",
+  "Stage1ImplementationStatus": "FROZEN_READY_FOR_CHAT_REVIEW",
+  "ImplementationDocumentation": "docs/b7/stage1_implementation.md"
 }

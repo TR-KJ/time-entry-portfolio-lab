@@ -1,0 +1,93 @@
+{
+  "SchemaVersion": 1,
+  "Scope": "STAGE1_IMPLEMENTATION_ONLY",
+  "ConditionsFreezeSHA": "5dbac7af2d41aa912308868e6ad1a6dbf7cdd107",
+  "Stage1ConditionsFrozen": true,
+  "Stage1ImplementationAuthorized": true,
+  "Stage1ExecutionAuthorized": false,
+  "FormalRunDefault": false,
+  "FormalRunEnvironment": "Google Colab only; separate explicit Chat approval",
+  "CandidateIDEncoding": "B7S1:{Symbol}:{LONG|SHORT}:{MON|TUE|WED|THU|FRI}:E{entry:04d}:D{offset}:X{exit:04d}:H{holding:04d}",
+  "JobIDEncoding": "{Symbol}_{LONG|SHORT}_{MON|TUE|WED|THU|FRI}",
+  "JobOrder": "Symbol lexicographic, LONG then SHORT, Monday to Friday",
+  "Numerics": "float64; no rounding before decisions; chronological deterministic NumPy reductions within each structure/variant; no parallel floating-point reduction",
+  "PFJSON": "PFState FINITE/INF/UNDEFINED; PFpips numeric only for FINITE, null otherwise; never numeric sentinel",
+  "UndefinedNeighborhood": "Schedule-valid no-trade neighbor remains in population; undefined AvgPips propagates undefined median and cannot satisfy the >= condition. Never exclude to improve median.",
+  "Stage1Schedule": "Entry date/weekday and Exit day offset fixed; no neighborhood wrap to another date; all grid structures enumerated even if all trades missing",
+  "ReferenceEnvironment": {
+    "Python": "3.12.14",
+    "NumPy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "Smoke": {
+    "AnchorJST": "2020-02-04 09:00",
+    "HoldingMinutes": 30,
+    "LoadEndExclusive": "2020-02-04 09:35",
+    "Symbols": "all nine",
+    "Directions": [
+      "LONG",
+      "SHORT"
+    ],
+    "Variants": "Pure + official5SL",
+    "SelectionByResults": false
+  },
+  "CheckpointUnit": "Completed atomic job directory; never reuse unfinished scratch job; reject identity/hash mismatch",
+  "OutputSchemas": {
+    "JobSummary": [
+      "JobID",
+      "Symbol",
+      "Direction",
+      "Weekday",
+      "ExpectedStructures",
+      "EvaluatedStructures",
+      "EvaluatedVariants",
+      "PurePassCount",
+      "SLRobustPassCount",
+      "FormalPointPassCount",
+      "Errors",
+      "MissingDiagnostics",
+      "RuntimeIdentitySHA256"
+    ],
+    "FormalPASS": [
+      "CandidateID",
+      "Symbol",
+      "Direction",
+      "Weekday",
+      "EntryMinute",
+      "ExitMinute",
+      "ExitDayOffset",
+      "HoldingMinutes",
+      "FixedKey",
+      "PureMetrics including Annual",
+      "FiveSLMetrics",
+      "SLPASS",
+      "PassingSLCount",
+      "SLRobustnessPASS",
+      "FormalPASS"
+    ],
+    "PointMap": "288x283 avg/formal/valid arrays for all points, including formal FAIL, to preserve U03 population",
+    "Plateau": [
+      "CandidateID",
+      "NeighborhoodMembers",
+      "ValidCount",
+      "PassCount",
+      "PassRatio",
+      "AllValidMedianAvgPips",
+      "PlateauPASS"
+    ],
+    "Family": [
+      "Representative",
+      "AnchorWeekday",
+      "SupportingWeekdays",
+      "SuppressedCandidateIDs",
+      "SuppressionReason",
+      "Members definitions and original PureMetrics",
+      "PairRank",
+      "Top8"
+    ]
+  },
+  "Completion": "COMPLETE_STAGE1_ONLY after 90 exact jobs and all selection phases and artifact manifest; marker binds manifest hash",
+  "AllVariantRawTradeLogsPermanentlySaved": false,
+  "FutureTradeRegenerationAPI": "b7.stage1.regenerate(engine, candidate_id)",
+  "NewDependencies": []
+}

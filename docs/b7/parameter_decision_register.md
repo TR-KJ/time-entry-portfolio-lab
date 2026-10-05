@@ -47,3 +47,7 @@ This register derives B7 decisions from the user's current Stage0 instruction, n
 P01/P02/U01–U12 + U10-P are all AGREED/FROZEN. P01/P02/U01–U05 and B01 rows remain unchanged. The authoritative full documents are full_research_conditions_freeze.md and research_inputs/b7/full_research_prespec.json. Historical partial Freeze artifacts remain byte-identical and are referenced with SHA256.
 
 Stage1ConditionsFrozen = true. Stage1ImplementationAuthorized = false; Stage1ExecutionAuthorized = false. This request authorizes documentation/config only. The next separate user instruction may authorize implementation; formal full sweep requires Work implementation Freeze → Chat confirmation → Google Colab. No new performance results were opened. No candidate scarcity relaxation, zero-pair rescue, result-driven threshold change or return from Validation to Discovery.
+
+## Subsequent Stage1 implementation-only authorization
+
+The separate user instruction authorizes Stage1 engine, tests, fixed bounded compatibility smoke, notebook and runtime/release infrastructure. Research decision rows above remain frozen. Stage1ImplementationAuthorized=true; Stage1ExecutionAuthorized=false. Implementation details, deterministic ID encoding and test evidence are in stage1_implementation.md and stage1_runtime_config.json. The prior conditions-only authorization paragraph records the earlier Freeze phase.

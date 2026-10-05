@@ -1,0 +1,671 @@
+{
+  "Anchor": "2020-02-04 09:00 JST",
+  "CandidatePerformanceSaved": false,
+  "CaseCount": 108,
+  "Cases": [
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL10"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL25"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL40"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL65"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL100"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL10"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL25"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL40"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL65"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDJPY",
+      "Variant": "SL100"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL10"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL35"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL55"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL85"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL10"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL35"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL55"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "AUDUSD",
+      "Variant": "SL85"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL35"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL60"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL95"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL145"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL35"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL60"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL95"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURAUD",
+      "Variant": "SL145"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL15"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL30"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL50"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL75"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL115"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL15"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL30"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL50"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL75"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURJPY",
+      "Variant": "SL115"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL10"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL35"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL60"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL90"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL10"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL35"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL60"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "EURUSD",
+      "Variant": "SL90"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL40"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL70"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL110"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL160"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL40"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL70"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL110"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPAUD",
+      "Variant": "SL160"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL40"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL65"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL100"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL150"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL20"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL40"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL65"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL100"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPJPY",
+      "Variant": "SL150"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL15"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL30"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL50"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL80"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL120"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL15"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL30"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL50"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL80"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "GBPUSD",
+      "Variant": "SL120"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL10"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL25"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL40"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL60"
+    },
+    {
+      "Direction": "LONG",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL95"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "PURE"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL10"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL25"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL40"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL60"
+    },
+    {
+      "Direction": "SHORT",
+      "ExactReplay": "PASS",
+      "Symbol": "USDJPY",
+      "Variant": "SL95"
+    }
+  ],
+  "Compared": [
+    "TradeCount",
+    "EntryTime",
+    "CloseTime",
+    "Pips",
+    "ExitReason",
+    "AllTradeFields",
+    "Metrics",
+    "Gate"
+  ],
+  "Comparison": "EXACT; no numeric tolerance",
+  "ElapsedSeconds": 5.293504333007149,
+  "FullSweep": false,
+  "HoldingMinutes": 30,
+  "Ranking": false,
+  "Status": "PASS"
+}

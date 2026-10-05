@@ -1,0 +1,8 @@
+{
+  "ElapsedSeconds": 0.049452582956291735,
+  "FullDiscoveryExtrapolation": "NOT_ESTIMATED; one-day kernel timing is not a formal-runtime estimate",
+  "NoCandidatePerformance": true,
+  "Scope": "SYNTHETIC_FIXED_ONE_DAY_ONLY",
+  "Structures": 100,
+  "Variants": 600
+}

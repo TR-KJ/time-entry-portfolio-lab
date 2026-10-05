@@ -29,7 +29,7 @@ Known limitations and binding restrictions:
 - No explicit evidence of different-broker mixing has been confirmed.
 - After seeing results, source replacement, data reacquisition and filling are prohibited. The exact 72 files and manifest stay frozen.
 
-**Stage1MayStart = true AFTER_STAGE1_CONDITIONS_FREEZE.** Research conditions are now fully frozen under the subsequent full conditions Freeze. This is still not implementation/execution authorization: both flags remain false and a separate user instruction is required. Provenance research judgment and limitations are unchanged.
+**Stage1MayStart = true AFTER_STAGE1_CONDITIONS_FREEZE.** Research conditions are now fully frozen under the subsequent full conditions Freeze. This is still not implementation/execution authorization: execution authorization remains false; the subsequent implementation-only instruction authorizes implementation, not the formal sweep. Provenance research judgment and limitations are unchanged.
 
 ## Reproduction and audit limitations
 
@@ -52,4 +52,8 @@ The user has formally frozen P01/P02/U01–U05 as AGREED/FROZEN. `stage1_conditi
 
 The partial Freeze above is preserved as historical evidence. The subsequent full Freeze formally adopts U06–U12 and U10-P without changing P01/P02/U01–U05. Current authoritative artifacts are `full_research_conditions_freeze.md` and `research_inputs/b7/full_research_prespec.json`; both reference the prior immutable artifacts and hashes.
 
-Stage1ConditionsFrozen = true; Stage1ImplementationAuthorized = false; Stage1ExecutionAuthorized = false; Stage1MayStartNow = false. No new performance result is opened. The current full protocol supersedes historical pending/authorization fields, not underlying provenance evidence. The current run_status.json is authoritative for authorization. B01/Stage0 and all source limitations remain unchanged.
+Stage1ConditionsFrozen = true; Stage1ImplementationAuthorized = true under the separate implementation-only instruction; Stage1ExecutionAuthorized = false; Stage1MayStartNow = false. No new performance result is opened. The current full protocol supersedes historical pending/authorization fields, not underlying provenance evidence. The current run_status.json is authoritative for authorization. B01/Stage0 and all source limitations remain unchanged.
+
+## Stage1 Implementation Only release
+
+The explicit subsequent user instruction authorizes Stage1 engine/tests/bounded compatibility smoke/notebook/runtime infrastructure only. See stage1_implementation.md and results/b7/stage1_implementation. Status is FROZEN_READY_FOR_CHAT_REVIEW after checks. Formal execution still requires a separate Chat confirmation and Colab barriers; the historical full-prespec authorization fields record their original Freeze, while run_status.json and stage1_runtime_config.json record the current implementation-only authorization. No research conditions or old Freeze artifacts changed.

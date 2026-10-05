@@ -51,7 +51,8 @@ class B7AuditTests(unittest.TestCase):
             if r['Symbol'] not in ('EURUSD','GBPUSD'):self.assertTrue(r['B6GridExactMatch'])
     def test_audit_status_does_not_clear_broker(self):
         c=json.loads((ROOT/'results/b7/stage0/run_status.json').read_text())
-        self.assertEqual(c['BrokerIdentity'],'UNVERIFIED');self.assertEqual(c['Stage0'],'BLOCKED_PENDING_PROVENANCE')
+        self.assertEqual(c['BrokerIdentity'],'HISTORICAL_NOT_FULLY_CERTIFIED');self.assertEqual(c['Stage0'],'PASS_WITH_PROVENANCE_LIMITATION')
+        self.assertEqual(c['B01'],'CLEAR_WITH_LIMITATION');self.assertFalse(c['Stage1ExecutionAuthorized'])
         self.assertEqual(c['ValidationPerformance'],'NOT_RUN');self.assertEqual(c['MonitorPerformance'],'NOT_RUN')
 
 if __name__=='__main__':unittest.main()
