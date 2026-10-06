@@ -1,0 +1,19 @@
+{
+  "Status": "PASS",
+  "Candidates": 72,
+  "Pairs": 9,
+  "PerPair": 8,
+  "CompactInputSHA256": "09b5b5ec4944474e02eb51e8b6fce8e5b3193857d759b9c08fbfdb31d8b8fa1a",
+  "CompactInputBytes": 544581,
+  "SelectedSHA256": "b77baa21fc23da8ddf9ce6ad00bb863384d7b88b9c0b506d49b63bbc04b9370b",
+  "SourceAuditSHA256": "3db47c30905893b8af730a3b18c01e90aeb15b5f508fffaa439cbc380bf909b2",
+  "SourceJobCount": 17,
+  "OfficialFiveSLRecords": 360,
+  "PassingSLCountDistribution": {
+    "3": 6,
+    "4": 16,
+    "5": 50
+  },
+  "SourceFilesVerified": "identity and relevant checkpoint/summary/formal_pass bytes; point map hash bound through original audit/checkpoint, not reread",
+  "NoNewU06Performance": true
+}

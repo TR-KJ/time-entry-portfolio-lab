@@ -1,0 +1,174 @@
+{
+  "Scope": "B7_U06_IMPLEMENTATION_ONLY",
+  "ConditionsFreezeSHA": "5dbac7af2d41aa912308868e6ad1a6dbf7cdd107",
+  "FullPrespecSHA256": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea",
+  "FrozenU06": {
+    "SL": {
+      "PASSAnchors": "Only original five SL values passing U02 individual gate; Stage1 3/5 requirement unchanged",
+      "GateRef": "GateDefinitions.U02Individual",
+      "LocalScan": {
+        "RadiusFraction": 0.2,
+        "StepPips": 5,
+        "EndpointRule": "Deterministically round range endpoints to 5-pip units; preserve anchor; follow the normative examples",
+        "ResultDrivenExpansionAllowed": false,
+        "DeduplicateEvaluation": true,
+        "SmallAnchorException": "Only when fewer than three 5-pip points exist in the anchor \u00b120% range, mechanically extend to Anchor-5/Anchor/Anchor+5",
+        "Examples": {
+          "65": [
+            50,
+            55,
+            60,
+            65,
+            70,
+            75,
+            80
+          ],
+          "10": [
+            5,
+            10,
+            15
+          ],
+          "15": [
+            10,
+            15,
+            20
+          ]
+        }
+      },
+      "MergeLocalMaps": true,
+      "PASSZone": {
+        "MinimumConsecutivePASSPoints": 3,
+        "StepPips": 5,
+        "ExtractMaximalRuns": true,
+        "Retention": "Zone Median AvgPips >= Pure Time AvgPips * 0.80",
+        "RetentionMultiplier": 0.8,
+        "Double80PercentCondition": false
+      },
+      "ZoneRanking": [
+        "ZoneMedianAvgPips DESC",
+        "ConsecutivePASSPointCount DESC",
+        "ZoneWorstAvgPips DESC",
+        "ZoneMedianPFpips DESC",
+        "ZoneCentralValue ASC"
+      ],
+      "Selection": "Lower median SL of winning zone; may differ from original five anchors",
+      "EvenExample": {
+        "Zone": [
+          50,
+          55,
+          60,
+          65
+        ],
+        "Selected": 55
+      },
+      "NoQualifiedZone": "CANDIDATE_DROP"
+    },
+    "TP": {
+      "Prerequisite": "Formal SL frozen; never change SL from TP results",
+      "CoarseAnchors": [
+        "TP_NONE",
+        0.5,
+        1,
+        1.5,
+        2,
+        3
+      ],
+      "FiniteAnchorUnit": "R = Formal SL pips",
+      "FiniteRounding": "5-pip half-up",
+      "MinimumFinitePips": 5,
+      "DeduplicateRoundedAnchors": true,
+      "FullFivePipGridSearchAllowed": false,
+      "GateRef": "GateDefinitions.U02Individual",
+      "LocalEligibility": "Passing finite anchor must have at least one adjacent coarse finite anchor also passing; TP_NONE is not a neighbor",
+      "EndpointAdjacency": {
+        "0.5R": "1.0R",
+        "3.0R": "2.0R"
+      },
+      "LocalScan": {
+        "RadiusFraction": 0.2,
+        "StepPips": 5,
+        "EndpointRule": "Deterministically round range endpoints to 5-pip units; preserve anchor; follow the normative examples",
+        "ResultDrivenExpansionAllowed": false,
+        "DeduplicateEvaluation": true
+      },
+      "PASSZone": {
+        "MinimumConsecutivePASSPoints": 3,
+        "StepPips": 5
+      },
+      "ZoneRanking": [
+        "ZoneMedianAvgPips DESC",
+        "ConsecutivePASSPointCount DESC",
+        "ZoneWorstAvgPips DESC",
+        "ZoneMedianPFpips DESC",
+        "ZoneCentralValue ASC"
+      ],
+      "FiniteCandidate": "Lower median TP of winning zone",
+      "Baseline": "Formal SL + TP_NONE",
+      "AdoptionAllRequired": {
+        "PositiveYearCount": "finite >= TP_NONE",
+        "WorstYearAvgPips": "finite >= TP_NONE",
+        "MedianAnnualAvgPipsImprovement": "finite - TP_NONE >= max(0.10 pips/trade, TP_NONE MedianAnnualAvgPips * 0.05)"
+      },
+      "Fallback": "TP_NONE if no qualified finite candidate or adoption conditions not met",
+      "MFEGivebackUsedForSelection": false
+    },
+    "AfterFreeze": "Never return to SL/TP from Weekday/DOM/Month/1m/Event/MFE results"
+  },
+  "EndpointSupplement": {
+    "LowerRaw": "Anchor * 0.80",
+    "UpperRaw": "Anchor * 1.20",
+    "Rounding": "Nearest 5 pips HALF_UP independently for each endpoint; Decimal, never builtin round",
+    "Grid": "Lower through Upper inclusive, step5; anchor included",
+    "SLSmallGrid": "If fewer than3 points, Anchor-5/Anchor/Anchor+5",
+    "TPSmallGridExpansion": false,
+    "Source": "Explicit user supplemental decision after endpoint ambiguity STOP",
+    "Examples": {
+      "65": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "30": [
+        25,
+        30,
+        35
+      ],
+      "25": [
+        20,
+        25,
+        30
+      ],
+      "10_SL": [
+        5,
+        10,
+        15
+      ],
+      "10_TP": [
+        10
+      ],
+      "15_SL": [
+        10,
+        15,
+        20
+      ]
+    }
+  },
+  "Stage1ResultFreezeSHA": "72b8244c69d165fae4a3c806a1cdb5d6fcfa1a38",
+  "SelectedSHA256": "b77baa21fc23da8ddf9ce6ad00bb863384d7b88b9c0b506d49b63bbc04b9370b",
+  "CompactInputSHA256": "09b5b5ec4944474e02eb51e8b6fce8e5b3193857d759b9c08fbfdb31d8b8fa1a",
+  "JobCount": 72,
+  "DiscoveryBounds": [
+    "2020-01-01",
+    "2024-01-01"
+  ],
+  "Approval": "CHAT_APPROVED_COLAB_B7_U06_ONLY",
+  "ExecutionAuthorized": false,
+  "EnvironmentPolicy": "Normal resume exact Python/NumPy/pandas; NumPy2.3.5/pandas2.2.3 required",
+  "DriveMirroring": "Synchronous verified staging; marker last; before next candidate",
+  "FinalizeOnly": "NOT_IMPLEMENTED",
+  "NoReplacement": true
+}
