@@ -1,7 +1,7 @@
 {
-  "Scope": "B7_U06_IMPLEMENTATION_ONLY",
+  "Scope": "B7_U06_FINALIZE_ONLY_IMPLEMENTATION",
   "SelfExcluded": true,
-  "Stage1ResultFreezeSHA": "72b8244c69d165fae4a3c806a1cdb5d6fcfa1a38",
+  "ProducerImplementationSHA": "14e43b7b1307492a07b8653e8de9263b37cb02a9",
   "Files": [
     {
       "Path": "docs/b7/b01_provenance_review.md",
@@ -59,6 +59,11 @@
       "Bytes": 5531
     },
     {
+      "Path": "docs/b7/u06_finalize_only.md",
+      "SHA256": "d12ec3eea962c543f5ffe1de22caa267c001f370f5311a0d2f20d78c46cc0e13",
+      "Bytes": 5836
+    },
+    {
       "Path": "docs/b7/u06_implementation.md",
       "SHA256": "806747307a53d90406f18c8b063660010160af11c30391a150e759a41682c0af",
       "Bytes": 8019
@@ -67,6 +72,11 @@
       "Path": "notebooks/b7_stage1_discovery.ipynb",
       "SHA256": "0b97d9afc548b8c91dac88f82f02fb34aaf5a17be45430bc3eb301eb839a5988",
       "Bytes": 11943
+    },
+    {
+      "Path": "notebooks/b7_u06_finalize_only.ipynb",
+      "SHA256": "f8a00474f1cdb9bddd18c7a838c12c7b6cd0089e098d30ee6265a8a0f90957ee",
+      "Bytes": 3356
     },
     {
       "Path": "notebooks/b7_u06_sl_tp.ipynb",
@@ -132,6 +142,11 @@
       "Path": "research_inputs/b7/u06_config.json",
       "SHA256": "cdbd6f2347eb628b93a520ac7221c61ff39451861f8bedd91797dd87f5b230ba",
       "Bytes": 5382
+    },
+    {
+      "Path": "research_inputs/b7/u06_finalize_only_config.json",
+      "SHA256": "1f4eafafc944b039aea16d706f8a8634eda8c5d81fabc3a579b986add3183808",
+      "Bytes": 27418
     },
     {
       "Path": "research_inputs/b7/u06_selected72_input.json",
@@ -224,24 +239,19 @@
       "Bytes": 8044
     },
     {
-      "Path": "results/b7/u06_implementation/bounded_smoke.json",
-      "SHA256": "4dbe273a999a3edfd62bda69acd308cc0f41ffabda6edf7c21770fe9e3efaee5",
-      "Bytes": 265
+      "Path": "results/b7/u06_finalize_only/freeze_audit.json",
+      "SHA256": "fa95b247c9ba6044c433191c88e349d21a6ef6a9022f3e15c0f6c946a426862e",
+      "Bytes": 15454
     },
     {
-      "Path": "results/b7/u06_implementation/freeze_audit.json",
-      "SHA256": "392bb0a5575000419d5b18a34da6c575a61e032376d734c14dd65ab700c5bbb6",
-      "Bytes": 13398
+      "Path": "results/b7/u06_finalize_only/test_results.json",
+      "SHA256": "e148bf33918c675cb619345b9c4184b3cdd1655d6766964a5e7c7dc0d721ae55",
+      "Bytes": 14769
     },
     {
-      "Path": "results/b7/u06_implementation/input_audit.json",
-      "SHA256": "4b3d9a740fa496559b05a0a0e7474db74d679e15e5cc9273d38711c3754ca7e1",
-      "Bytes": 693
-    },
-    {
-      "Path": "results/b7/u06_implementation/test_results.json",
-      "SHA256": "05a9cebec901e5fdbbb4ebf0193db70ac3306d15ba0d04b729a0413f2fdefd9f",
-      "Bytes": 12445
+      "Path": "results/b7/u06_implementation/release_manifest.json",
+      "SHA256": "0d3237ed3eab662c802c0bd05d50eb69570f4644659ddc234c4d97f5dec085e0",
+      "Bytes": 13214
     },
     {
       "Path": "src/research/b7/__init__.py",
@@ -319,6 +329,11 @@
       "Bytes": 3767
     },
     {
+      "Path": "src/research/b7/u06_finalize_only.py",
+      "SHA256": "e462375d015023090fd918327f93b6a1ee4dba6b777ab5efa11cac30657fbcac",
+      "Bytes": 10033
+    },
+    {
       "Path": "src/research/b7/u06_input.py",
       "SHA256": "fe66a5119cb1387304a7f67a20c566d920d43af565ae258868515ca99cceb2f0",
       "Bytes": 5617
@@ -382,6 +397,11 @@
       "Path": "tests/test_b7_u06.py",
       "SHA256": "d986345cdc2f1e8a76e2be9f6766acae7c5f8addf79bf89fb9dad62ec79331a7",
       "Bytes": 20651
+    },
+    {
+      "Path": "tests/test_b7_u06_finalize_only.py",
+      "SHA256": "d21721d55090a572ef8a5d781868c64add8ea34863ae24bd8355b8b01ecc7912",
+      "Bytes": 14536
     }
   ]
 }

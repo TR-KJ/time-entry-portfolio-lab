@@ -65,5 +65,7 @@
   "U06ConditionsFrozen": true,
   "U06ImplementationStatus": "FROZEN_READY_FOR_CHAT_REVIEW",
   "U06ExecutionAuthorized": false,
-  "U06Executed": false
+  "U06Executed": false,
+  "U06FinalizeOnlyImplementationStatus": "FROZEN_READY_FOR_CHAT_REVIEW",
+  "U06FinalizeOnlyExecutionAuthorized": false
 }

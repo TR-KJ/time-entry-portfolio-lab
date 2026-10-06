@@ -30,8 +30,8 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "fd5c94f7455dd15f33b2a50a6cf46fd3bf2c27f026e0cab6d7c9f048933653b6",
-      "Bytes": 12247
+      "SHA256": "6381ecfb14c90468951a2eda7fd8ffc241d9b9e474080bffb3c4fc06219250a0",
+      "Bytes": 12991
     },
     {
       "Path": "docs/b7/stage0_validation.md",
@@ -95,13 +95,13 @@
     },
     {
       "Path": "results/b7/stage0/artifact_manifest.json",
-      "SHA256": "9515696f2e49382cc6ccb1783a331d8e1c04351721601ea7817587ecc2f381d6",
+      "SHA256": "85f966d90f5dafc88ed0a66d393996f51fe59cf35f841e4bf2a75eddc0773052",
       "Bytes": 7679
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "9f115f2a08d88153a2dd48786188ae099923cc9860d7fbfc3c072a03ce6bb556",
-      "Bytes": 3030
+      "SHA256": "0c15e07b8f1fda049c3a5950c06ef6cff9c9f60f02fa2c0c6ac2c7d092f822f7",
+      "Bytes": 3150
     },
     {
       "Path": "results/b7/stage1_implementation/benchmark.json",

@@ -1,0 +1,690 @@
+{
+  "ProducerImplementationSHA": "14e43b7b1307492a07b8653e8de9263b37cb02a9",
+  "ExpectedIdentityWithoutEnvironment": {
+    "ImplementationSHA": "14e43b7b1307492a07b8653e8de9263b37cb02a9",
+    "ConditionsFreezeSHA": "5dbac7af2d41aa912308868e6ad1a6dbf7cdd107",
+    "FullPrespecSHA256": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea",
+    "U06ConfigSHA256": "cdbd6f2347eb628b93a520ac7221c61ff39451861f8bedd91797dd87f5b230ba",
+    "Stage1ResultFreezeSHA": "72b8244c69d165fae4a3c806a1cdb5d6fcfa1a38",
+    "SelectedSHA256": "b77baa21fc23da8ddf9ce6ad00bb863384d7b88b9c0b506d49b63bbc04b9370b",
+    "CompactInputSHA256": "09b5b5ec4944474e02eb51e8b6fce8e5b3193857d759b9c08fbfdb31d8b8fa1a",
+    "SourceAuditSHA256": "3db47c30905893b8af730a3b18c01e90aeb15b5f508fffaa439cbc380bf909b2",
+    "M1ManifestSHA256": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a",
+    "M1ExactIdentity": [
+      {
+        "Symbol": "USDJPY",
+        "Filename": "USDJPY_M1_201501020900_201612302359.csv",
+        "SHA256": "8f4fed06d70ccd507ad5f0e2cf7f45b68258da4e2543aa1c2c57a18887a3c2b5",
+        "Rows": 744183,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "USDJPY",
+        "Filename": "USDJPY_M1_201701020001_201812282357.csv",
+        "SHA256": "6dd1b5ad4704e90e9e021e95320f6bf0fb898218a0f65a55b199b78e97304501",
+        "Rows": 741122,
+        "FirstRaw": "2017-01-02 00:01:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "USDJPY",
+        "Filename": "USDJPY_M1_201901020600_202012310000.csv",
+        "SHA256": "e71ae600031120dd7e5856d85f68c1fdaa9ceac892f5285571291af5c1c5620c",
+        "Rows": 743150,
+        "FirstRaw": "2019-01-02 06:00:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "USDJPY",
+        "Filename": "USDJPY_M1_202101040002_202212302355.csv",
+        "SHA256": "67619cc7d74203e8bef46cb48832ee6657c7d1f14520d052cc4d900aa06d0949",
+        "Rows": 745813,
+        "FirstRaw": "2021-01-04 00:02:00",
+        "LastRaw": "2022-12-30 23:55:00"
+      },
+      {
+        "Symbol": "USDJPY",
+        "Filename": "USDJPY_M1_202301020700_202412310000.csv",
+        "SHA256": "32aafd8b812e8325d8830519ed5c340dab8ec31c638922c50e19ec6d19aa024a",
+        "Rows": 742835,
+        "FirstRaw": "2023-01-02 07:00:00",
+        "LastRaw": "2024-12-31 00:00:00"
+      },
+      {
+        "Symbol": "USDJPY",
+        "Filename": "USDJPY_M1_202501010000_202512302358.csv",
+        "SHA256": "e4f64af920744d39b37ff90df78d8d62ab8d088abdc855162f109217cf56db12",
+        "Rows": 369423,
+        "FirstRaw": "2025-01-01 00:00:00",
+        "LastRaw": "2025-12-30 23:58:00"
+      },
+      {
+        "Symbol": "USDJPY",
+        "Filename": "USDJPY_M1_202601020001_202603310000.csv",
+        "SHA256": "f66871bba2c64a2058d9e1b0c7cc6061639f42d4ababf83aec11b3dafe5e222d",
+        "Rows": 88678,
+        "FirstRaw": "2026-01-02 00:01:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "USDJPY",
+        "Filename": "USDJPY_M1_202604010000_202609090000_RECHECK.csv",
+        "SHA256": "4fb9aee7e8b4f1df9ebdb6a144201b12eff137e6a80c65c6c1c622de9e5b1a6c",
+        "Rows": 165589,
+        "FirstRaw": "2026-04-01 00:00:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      },
+      {
+        "Symbol": "EURJPY",
+        "Filename": "EURJPY_M1_201501020900_201612302359.csv",
+        "SHA256": "981c8be6fd35ece573479c0440aa35369ba2c22b3d1b3d02b46f931377ba429f",
+        "Rows": 744322,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "EURJPY",
+        "Filename": "EURJPY_M1_201701020003_201812282357.csv",
+        "SHA256": "f2063af1e80a725c725776cb280bce6177afab915099ac603ae2345ed2bba4ae",
+        "Rows": 741194,
+        "FirstRaw": "2017-01-02 00:03:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "EURJPY",
+        "Filename": "EURJPY_M1_201901020600_202012310000.csv",
+        "SHA256": "b995356bfec3b89149cc663c0d612060cf38b4d822ddba4092b4aa096b9cd740",
+        "Rows": 743222,
+        "FirstRaw": "2019-01-02 06:00:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURJPY",
+        "Filename": "EURJPY_M1_202101040002_202212302355.csv",
+        "SHA256": "599b603442b9ab7b47ea4eb89f7c2a7c6e3256810d04cfa35d37a2c8b668c6e8",
+        "Rows": 746202,
+        "FirstRaw": "2021-01-04 00:02:00",
+        "LastRaw": "2022-12-30 23:55:00"
+      },
+      {
+        "Symbol": "EURJPY",
+        "Filename": "EURJPY_M1_202301020701_202412310000.csv",
+        "SHA256": "35e969fff6c1c97ed85ef1801ceb1c03e21b72dc74d53d4bc01b352a6e5cdbe7",
+        "Rows": 743133,
+        "FirstRaw": "2023-01-02 07:01:00",
+        "LastRaw": "2024-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURJPY",
+        "Filename": "EURJPY_M1_202501010000_202512310000.csv",
+        "SHA256": "fbb9e7e813e6ba61de3d525a36b3417caa17578c1edef02cd358b4f8dddead77",
+        "Rows": 369562,
+        "FirstRaw": "2025-01-01 00:00:00",
+        "LastRaw": "2025-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURJPY",
+        "Filename": "EURJPY_M1_202601020000_202603310000.csv",
+        "SHA256": "1034421e50c7a8a7367215e18d979c3b71a28a7d21b7d52f8cf96c6fbcc02d2d",
+        "Rows": 88729,
+        "FirstRaw": "2026-01-02 00:00:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "EURJPY",
+        "Filename": "EURJPY_M1_202604010000_202609090000_RECHECK.csv",
+        "SHA256": "1348375eba6b69c1eb74dd9bef2c0c2745abf7c8683ffebb8675cc732601649a",
+        "Rows": 165595,
+        "FirstRaw": "2026-04-01 00:00:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      },
+      {
+        "Symbol": "GBPJPY",
+        "Filename": "GBPJPY_M1_201501020900_201612302359.csv",
+        "SHA256": "7b0ffa6563a7a0c4f6c73f2a329e32684890ca0f39ee1ebc25c4d8a368319b45",
+        "Rows": 744139,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "GBPJPY",
+        "Filename": "GBPJPY_M1_201701020004_201812282357.csv",
+        "SHA256": "5962cd5b3af0e0b849af906f8ee55ebb1071733d93bfca9ced636d5bb98a79ed",
+        "Rows": 740299,
+        "FirstRaw": "2017-01-02 00:04:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "GBPJPY",
+        "Filename": "GBPJPY_M1_201901020600_202012310000.csv",
+        "SHA256": "0f817a80c17d514cf166f1037619b1d012b55e6cf01349ca1a9535d08c43be1a",
+        "Rows": 743179,
+        "FirstRaw": "2019-01-02 06:00:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPJPY",
+        "Filename": "GBPJPY_M1_202101040002_202212302355.csv",
+        "SHA256": "05b1b8d82d5c49fc05721d008b0358d2794af0aa628ba8af72938e37530a2cc7",
+        "Rows": 745962,
+        "FirstRaw": "2021-01-04 00:02:00",
+        "LastRaw": "2022-12-30 23:55:00"
+      },
+      {
+        "Symbol": "GBPJPY",
+        "Filename": "GBPJPY_M1_202301020700_202412302359.csv",
+        "SHA256": "abf10429198513cdd219e753f2dfde0159b1c750a5747b169c25ab52a63a7446",
+        "Rows": 742980,
+        "FirstRaw": "2023-01-02 07:00:00",
+        "LastRaw": "2024-12-30 23:59:00"
+      },
+      {
+        "Symbol": "GBPJPY",
+        "Filename": "GBPJPY_M1_202501020001_202512310000.csv",
+        "SHA256": "a73cc7c9ce88cffcd8f2beef633b71873ecd0cb0281cb6990061ac542497e777",
+        "Rows": 369451,
+        "FirstRaw": "2025-01-02 00:01:00",
+        "LastRaw": "2025-12-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPJPY",
+        "Filename": "GBPJPY_M1_202601020001_202603310000.csv",
+        "SHA256": "bd17e7e3b6c33da2d60ca44a2a4574c949e4da1c36141c738e16b5df3c026f58",
+        "Rows": 88701,
+        "FirstRaw": "2026-01-02 00:01:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPJPY",
+        "Filename": "GBPJPY_M1_202604010000_202609090000_RECHECK.csv",
+        "SHA256": "31e9c47866992f8338de7650f3e6d668bff2ef5e1fd3c47ab1384028c4befc16",
+        "Rows": 165590,
+        "FirstRaw": "2026-04-01 00:00:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      },
+      {
+        "Symbol": "AUDJPY",
+        "Filename": "AUDJPY_M1_201501020900_201612302359.csv",
+        "SHA256": "48db506677eb97d875564b82fc3b89d884105b1f518f8eeb6c779af2cab4797e",
+        "Rows": 743693,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "AUDJPY",
+        "Filename": "AUDJPY_M1_201701020002_201812282357.csv",
+        "SHA256": "0d16b92f73ccb48129112bcfed55c306a4e82ff86f776f8dd15da70cfb57cf69",
+        "Rows": 741050,
+        "FirstRaw": "2017-01-02 00:02:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "AUDJPY",
+        "Filename": "AUDJPY_M1_201901020600_202012310000.csv",
+        "SHA256": "cc4a7438da71d95e93a689ade1d7e061845e5a360c9387098c72991f4495dedd",
+        "Rows": 743177,
+        "FirstRaw": "2019-01-02 06:00:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "AUDJPY",
+        "Filename": "AUDJPY_M1_202101040002_202212302355.csv",
+        "SHA256": "f9cd00d840e244ea5238c159e66a4b556649ef51d14655f5608f60ae1fd77f89",
+        "Rows": 745843,
+        "FirstRaw": "2021-01-04 00:02:00",
+        "LastRaw": "2022-12-30 23:55:00"
+      },
+      {
+        "Symbol": "AUDJPY",
+        "Filename": "AUDJPY_M1_202301020702_202412310000.csv",
+        "SHA256": "e2b6fef66b30f730fd118fe66486d439b7ef55c66b5be347f274992156fe22b7",
+        "Rows": 743024,
+        "FirstRaw": "2023-01-02 07:02:00",
+        "LastRaw": "2024-12-31 00:00:00"
+      },
+      {
+        "Symbol": "AUDJPY",
+        "Filename": "AUDJPY_M1_202501020000_202512310000.csv",
+        "SHA256": "f65fe521449e0a75adde9cf7e2c4dc764c43362e7bab4dc4c1b9ac9d5e87a1b4",
+        "Rows": 369460,
+        "FirstRaw": "2025-01-02 00:00:00",
+        "LastRaw": "2025-12-31 00:00:00"
+      },
+      {
+        "Symbol": "AUDJPY",
+        "Filename": "AUDJPY_M1_202601020001_202603310000.csv",
+        "SHA256": "b7629e60aba62e6385e5a2b2cfc351c0c415364d7ac2b59044e0bd5a4ce8e499",
+        "Rows": 88706,
+        "FirstRaw": "2026-01-02 00:01:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "AUDJPY",
+        "Filename": "AUDJPY_M1_202604010001_202609090000_RECHECK.csv",
+        "SHA256": "fa652b724e22294af04128d7fcfd42da2b31210cecbd28e4b5fcfb9192350788",
+        "Rows": 165555,
+        "FirstRaw": "2026-04-01 00:01:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      },
+      {
+        "Symbol": "AUDUSD",
+        "Filename": "AUDUSD_M1_201501020900_201612302359.csv",
+        "SHA256": "0c5f6960e18c8d1fd79c4d344fdcb54a18ceb521fecc78d260a3eadad9d4957d",
+        "Rows": 743967,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "AUDUSD",
+        "Filename": "AUDUSD_M1_201701020001_201812282357.csv",
+        "SHA256": "6743b142b3723dfc2fd30526271b11579234ed2a8b2034f2c3a3932b3a3614ea",
+        "Rows": 740832,
+        "FirstRaw": "2017-01-02 00:01:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "AUDUSD",
+        "Filename": "AUDUSD_M1_201901020600_202012310000.csv",
+        "SHA256": "f2e3228fa344a26a9c659b13abf8bd01af9181d78c885ad957860ec237dbf78d",
+        "Rows": 743049,
+        "FirstRaw": "2019-01-02 06:00:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "AUDUSD",
+        "Filename": "AUDUSD_M1_202101040002_202212302355.csv",
+        "SHA256": "8734a5f48b0882ddd262f124c999abd503569c76f0720e26b7514d80d3374ef2",
+        "Rows": 745362,
+        "FirstRaw": "2021-01-04 00:02:00",
+        "LastRaw": "2022-12-30 23:55:00"
+      },
+      {
+        "Symbol": "AUDUSD",
+        "Filename": "AUDUSD_M1_202301020706_202412310000.csv",
+        "SHA256": "77add329b727d74f0c4c4b270545587b17ec7fdfaa5bfec7fae20682d61b29e5",
+        "Rows": 742864,
+        "FirstRaw": "2023-01-02 07:06:00",
+        "LastRaw": "2024-12-31 00:00:00"
+      },
+      {
+        "Symbol": "AUDUSD",
+        "Filename": "AUDUSD_M1_202501010000_202512310000.csv",
+        "SHA256": "b8cb01ad76a40e5fe1f57bfcf28a5061c723b7d8c422d992f452b7f6b762aa26",
+        "Rows": 369401,
+        "FirstRaw": "2025-01-01 00:00:00",
+        "LastRaw": "2025-12-31 00:00:00"
+      },
+      {
+        "Symbol": "AUDUSD",
+        "Filename": "AUDUSD_M1_202601020001_202603310000.csv",
+        "SHA256": "c6402d3883078100f23da48f98009212dcaf1b0c891987f704d7c20965a3a0d5",
+        "Rows": 88702,
+        "FirstRaw": "2026-01-02 00:01:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "AUDUSD",
+        "Filename": "AUDUSD_M1_202604010000_202609090000_RECHECK.csv",
+        "SHA256": "af31757ced4ffc08009960d069189aeac5333f0a30b745456851322a7e6d72b2",
+        "Rows": 165579,
+        "FirstRaw": "2026-04-01 00:00:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      },
+      {
+        "Symbol": "EURAUD",
+        "Filename": "EURAUD_M1_201501020900_201612302359.csv",
+        "SHA256": "587d6d7c11bca10d0bb96e4bff05eac296afb91feed92d9b5e29825bae23b7cc",
+        "Rows": 744141,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "EURAUD",
+        "Filename": "EURAUD_M1_201701020002_201812282357.csv",
+        "SHA256": "36626a6760e81ab3d200b20d331b70176ad8974d5f79cf136e0ce40127789cad",
+        "Rows": 741016,
+        "FirstRaw": "2017-01-02 00:02:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "EURAUD",
+        "Filename": "EURAUD_M1_201901020600_202012310000.csv",
+        "SHA256": "056f1b85b797862e81e27037fe8b0de192e631bf595b4d45a51104909817d092",
+        "Rows": 743164,
+        "FirstRaw": "2019-01-02 06:00:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURAUD",
+        "Filename": "EURAUD_M1_202101040002_202212302354.csv",
+        "SHA256": "83a444c425953805d57b8b854966e136982159f2e5aa034b044d42a0c4abd726",
+        "Rows": 745832,
+        "FirstRaw": "2021-01-04 00:02:00",
+        "LastRaw": "2022-12-30 23:54:00"
+      },
+      {
+        "Symbol": "EURAUD",
+        "Filename": "EURAUD_M1_202301020708_202412310000.csv",
+        "SHA256": "081a57b3e7e5d2e419d1f8f10bf27148cb7ec73b96f2339f423889757245c48c",
+        "Rows": 743086,
+        "FirstRaw": "2023-01-02 07:08:00",
+        "LastRaw": "2024-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURAUD",
+        "Filename": "EURAUD_M1_202501010000_202512310000.csv",
+        "SHA256": "f76a558640c5950395b3a5cda30ed34cf21d148877e9485cbcc723e70ac0ea31",
+        "Rows": 369429,
+        "FirstRaw": "2025-01-01 00:00:00",
+        "LastRaw": "2025-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURAUD",
+        "Filename": "EURAUD_M1_202601020000_202603310000.csv",
+        "SHA256": "ae3e85583bf6a8ded09c8861b689ae62cdec14be8bfe11630f4f584860784d8f",
+        "Rows": 88724,
+        "FirstRaw": "2026-01-02 00:00:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "EURAUD",
+        "Filename": "EURAUD_M1_202604010000_202609090000_RECHECK.csv",
+        "SHA256": "10b10d038198b69cfdd50938e33fb438ea63b89b6c49f850e2044aa70452305a",
+        "Rows": 165583,
+        "FirstRaw": "2026-04-01 00:00:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      },
+      {
+        "Symbol": "GBPAUD",
+        "Filename": "GBPAUD_M1_201501020900_201612302359.csv",
+        "SHA256": "966b21fcb5b6a12f1acd35c51f856efa91f66ce9b68aa3fe0c89443f165427a1",
+        "Rows": 744178,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "GBPAUD",
+        "Filename": "GBPAUD_M1_201701020002_201812282357.csv",
+        "SHA256": "fa6a79d346664ff71c6aee688afdc38e82bd7dbf22b45ed961bc96336543da2a",
+        "Rows": 739465,
+        "FirstRaw": "2017-01-02 00:02:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "GBPAUD",
+        "Filename": "GBPAUD_M1_201901020629_202012310000_RECHECK.csv",
+        "SHA256": "9c4508e7653505967ed123631bcab3ca0199c5dfb4c022bce4b7d1e7475ba00d",
+        "Rows": 730933,
+        "FirstRaw": "2019-01-02 06:29:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPAUD",
+        "Filename": "GBPAUD_M1_202101040002_202212302355.csv",
+        "SHA256": "ea17e097a2c68bf75eac28912ad9e71bc9fe476d1bf7a4e2a9eee3016bb2422f",
+        "Rows": 745669,
+        "FirstRaw": "2021-01-04 00:02:00",
+        "LastRaw": "2022-12-30 23:55:00"
+      },
+      {
+        "Symbol": "GBPAUD",
+        "Filename": "GBPAUD_M1_202301020717_202412310000.csv",
+        "SHA256": "2cabe22e048ff90efb211f47acfddfd081e37d2c4a68050cdbe26662e5fb4bc8",
+        "Rows": 743003,
+        "FirstRaw": "2023-01-02 07:17:00",
+        "LastRaw": "2024-12-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPAUD",
+        "Filename": "GBPAUD_M1_202501020001_202512310000.csv",
+        "SHA256": "19584c749bfd4d0fa3ad86c9b7f288fa071fef0bba32a790d39799e79c9538e2",
+        "Rows": 369464,
+        "FirstRaw": "2025-01-02 00:01:00",
+        "LastRaw": "2025-12-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPAUD",
+        "Filename": "GBPAUD_M1_202601020000_202603310000.csv",
+        "SHA256": "d0643b7a001b2897b6489adf341ec77f9c7093f56bfd373dca271142811de077",
+        "Rows": 88703,
+        "FirstRaw": "2026-01-02 00:00:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPAUD",
+        "Filename": "GBPAUD_M1_202604010000_202609090000.csv",
+        "SHA256": "983eb0a718c3ee8f726e1c16042474a409238ed58b4add315f3aa14f82a5b510",
+        "Rows": 165569,
+        "FirstRaw": "2026-04-01 00:00:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      },
+      {
+        "Symbol": "EURUSD",
+        "Filename": "EURUSD_M1_201501020900_201612302359.csv",
+        "SHA256": "7fa08fa9548fee911dd75bdc041a7aee4226e65dce3f3d5c723a27fa52d6ed30",
+        "Rows": 744037,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "EURUSD",
+        "Filename": "EURUSD_M1_201701020000_201812282357.csv",
+        "SHA256": "e288a1b05e996fde95ea98c062782cb3a44156eee7610ae1459e29fbc9f2e625",
+        "Rows": 740913,
+        "FirstRaw": "2017-01-02 00:00:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "EURUSD",
+        "Filename": "EURUSD_M1_201901020600_202012310000.csv",
+        "SHA256": "b4ac058766bcbbd7aa52f3b747ab335848b3c3f3eb3a19ba5e2e0542d2498e23",
+        "Rows": 743191,
+        "FirstRaw": "2019-01-02 06:00:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURUSD",
+        "Filename": "EURUSD_M1_202101040001_202212302354.csv",
+        "SHA256": "572b984443272c5220114ff91417e3bb860231558b367e36dbc1d232e5e24cf1",
+        "Rows": 746018,
+        "FirstRaw": "2021-01-04 00:01:00",
+        "LastRaw": "2022-12-30 23:54:00"
+      },
+      {
+        "Symbol": "EURUSD",
+        "Filename": "EURUSD_M1_202301020702_202412310000.csv",
+        "SHA256": "51b8c65b74581c24682ac6f38aa74317da104fd8c6ddf09df111029da33a7836",
+        "Rows": 743131,
+        "FirstRaw": "2023-01-02 07:02:00",
+        "LastRaw": "2024-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURUSD",
+        "Filename": "EURUSD_M1_202501020000_202512310000.csv",
+        "SHA256": "d22831f809e3837a1b6a510e3aa009296db67e35c8b00e46f660d71241905fa4",
+        "Rows": 369201,
+        "FirstRaw": "2025-01-02 00:00:00",
+        "LastRaw": "2025-12-31 00:00:00"
+      },
+      {
+        "Symbol": "EURUSD",
+        "Filename": "EURUSD_M1_202601020000_202603310000.csv",
+        "SHA256": "86d75cd477e83141341c40b92dcffc774a6c62f3adad966bce027fcc9a35e43e",
+        "Rows": 88752,
+        "FirstRaw": "2026-01-02 00:00:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "EURUSD",
+        "Filename": "EURUSD_M1_202604010000_202609090000_RECHECK.csv",
+        "SHA256": "99edf17b9d4f6b775445e034ac38d1f8d5686e58c6224b2a09ca76fd1532a29f",
+        "Rows": 165596,
+        "FirstRaw": "2026-04-01 00:00:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      },
+      {
+        "Symbol": "GBPUSD",
+        "Filename": "GBPUSD_M1_201501020900_201612302359.csv",
+        "SHA256": "a4f8dab09679b6fd00feacfbb7d47a52e439036ddc4df9c0cece02b4f400ce99",
+        "Rows": 743986,
+        "FirstRaw": "2015-01-02 09:00:00",
+        "LastRaw": "2016-12-30 23:59:00"
+      },
+      {
+        "Symbol": "GBPUSD",
+        "Filename": "GBPUSD_M1_201701020001_201812282357.csv",
+        "SHA256": "d635d5fc8f47fd54ecaf20fe76d84f86e12c099b4e3fa04e0bb50328d2036925",
+        "Rows": 740796,
+        "FirstRaw": "2017-01-02 00:01:00",
+        "LastRaw": "2018-12-28 23:57:00"
+      },
+      {
+        "Symbol": "GBPUSD",
+        "Filename": "GBPUSD_M1_201901020600_202012310000.csv",
+        "SHA256": "886bd363c0702f507c6caf49dccd629c90620b180020a88069bd73d0df2798e7",
+        "Rows": 743162,
+        "FirstRaw": "2019-01-02 06:00:00",
+        "LastRaw": "2020-12-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPUSD",
+        "Filename": "GBPUSD_M1_202101040002_202212302355.csv",
+        "SHA256": "3fe821b9428ee8afef8363650fd09171b61fd2887f616527c65667b86879b32e",
+        "Rows": 745823,
+        "FirstRaw": "2021-01-04 00:02:00",
+        "LastRaw": "2022-12-30 23:55:00"
+      },
+      {
+        "Symbol": "GBPUSD",
+        "Filename": "GBPUSD_M1_202301020702_202412310000.csv",
+        "SHA256": "27e25eaf1a2ffe4fa3d68b35d36855d71f539390f794449b9e19ea1bdda5947e",
+        "Rows": 742974,
+        "FirstRaw": "2023-01-02 07:02:00",
+        "LastRaw": "2024-12-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPUSD",
+        "Filename": "GBPUSD_M1_202501020000_202512302359.csv",
+        "SHA256": "6c9ebe600631c12036818653f5aa11bf9222df7d8db1ad45d3e361e9e0c9c112",
+        "Rows": 369434,
+        "FirstRaw": "2025-01-02 00:00:00",
+        "LastRaw": "2025-12-30 23:59:00"
+      },
+      {
+        "Symbol": "GBPUSD",
+        "Filename": "GBPUSD_M1_202601020001_202603310000.csv",
+        "SHA256": "cc3f4b1f6a37a18532cf6f9679b943c69cdc32a90136f3f883b1ee2a6037678b",
+        "Rows": 88566,
+        "FirstRaw": "2026-01-02 00:01:00",
+        "LastRaw": "2026-03-31 00:00:00"
+      },
+      {
+        "Symbol": "GBPUSD",
+        "Filename": "GBPUSD_M1_202604010000_202609090000_RECHECK.csv",
+        "SHA256": "cbf533e42b6d5df66ac2c364ba3ce50a8f69c2dee18a112aa916748f5910c1d3",
+        "Rows": 165589,
+        "FirstRaw": "2026-04-01 00:00:00",
+        "LastRaw": "2026-09-09 00:00:00"
+      }
+    ],
+    "CandidateIDs": [
+      "B7S1:AUDJPY:LONG:MON:E0765:D1:X0720:H1395",
+      "B7S1:AUDJPY:LONG:MON:E0730:D1:X0720:H1430",
+      "B7S1:AUDJPY:LONG:MON:E0830:D1:X0720:H1330",
+      "B7S1:AUDJPY:LONG:MON:E0765:D1:X0535:H1210",
+      "B7S1:AUDJPY:LONG:MON:E0695:D1:X0530:H1275",
+      "B7S1:AUDJPY:LONG:MON:E0675:D1:X0595:H1360",
+      "B7S1:AUDJPY:LONG:MON:E0825:D1:X0815:H1430",
+      "B7S1:AUDJPY:LONG:MON:E0765:D1:X0610:H1285",
+      "B7S1:AUDUSD:LONG:MON:E0775:D1:X0750:H1415",
+      "B7S1:AUDUSD:LONG:MON:E0850:D1:X0750:H1340",
+      "B7S1:AUDUSD:LONG:MON:E0815:D1:X0750:H1375",
+      "B7S1:AUDUSD:LONG:MON:E0780:D1:X0720:H1380",
+      "B7S1:AUDUSD:LONG:MON:E0860:D1:X0720:H1300",
+      "B7S1:AUDUSD:LONG:MON:E0960:D1:X0750:H1230",
+      "B7S1:AUDUSD:LONG:MON:E0925:D1:X0750:H1265",
+      "B7S1:AUDUSD:LONG:MON:E0820:D1:X0700:H1320",
+      "B7S1:EURAUD:SHORT:MON:E0755:D1:X0365:H1050",
+      "B7S1:EURAUD:SHORT:MON:E1200:D1:X0365:H0605",
+      "B7S1:EURAUD:SHORT:MON:E1060:D1:X0365:H0745",
+      "B7S1:EURAUD:SHORT:MON:E1135:D1:X0365:H0670",
+      "B7S1:EURAUD:SHORT:MON:E1200:D1:X0425:H0665",
+      "B7S1:EURAUD:LONG:THU:E0365:D0:X0600:H0235",
+      "B7S1:EURAUD:LONG:FRI:E0120:D1:X0075:H1395",
+      "B7S1:EURAUD:SHORT:MON:E1100:D1:X0365:H0705",
+      "B7S1:EURJPY:LONG:MON:E0765:D1:X0720:H1395",
+      "B7S1:EURJPY:LONG:MON:E0425:D1:X0220:H1235",
+      "B7S1:EURJPY:LONG:MON:E0730:D1:X0720:H1430",
+      "B7S1:EURJPY:LONG:MON:E0765:D1:X0535:H1210",
+      "B7S1:EURJPY:LONG:MON:E0655:D1:X0355:H1140",
+      "B7S1:EURJPY:LONG:MON:E0610:D1:X0555:H1385",
+      "B7S1:EURJPY:LONG:MON:E0715:D1:X0555:H1280",
+      "B7S1:EURJPY:LONG:MON:E0825:D1:X0720:H1335",
+      "B7S1:EURUSD:LONG:TUE:E0365:D0:X1280:H0915",
+      "B7S1:EURUSD:LONG:TUE:E0365:D0:X1155:H0790",
+      "B7S1:EURUSD:SHORT:FRI:E0900:D0:X1370:H0470",
+      "B7S1:EURUSD:LONG:TUE:E0365:D0:X1115:H0750",
+      "B7S1:EURUSD:SHORT:TUE:E1375:D1:X1270:H1335",
+      "B7S1:EURUSD:LONG:MON:E0945:D1:X0750:H1245",
+      "B7S1:EURUSD:LONG:TUE:E0365:D0:X1245:H0880",
+      "B7S1:EURUSD:LONG:TUE:E0365:D0:X1195:H0830",
+      "B7S1:GBPAUD:SHORT:MON:E1140:D1:X0370:H0670",
+      "B7S1:GBPAUD:SHORT:MON:E1200:D1:X0370:H0610",
+      "B7S1:GBPAUD:SHORT:MON:E1275:D1:X0370:H0535",
+      "B7S1:GBPAUD:SHORT:MON:E1235:D1:X0370:H0575",
+      "B7S1:GBPAUD:SHORT:WED:E0115:D0:X1370:H1255",
+      "B7S1:GBPAUD:SHORT:MON:E0905:D1:X0365:H0900",
+      "B7S1:GBPAUD:LONG:TUE:E0360:D0:X1420:H1060",
+      "B7S1:GBPAUD:SHORT:WED:E0135:D1:X0115:H1420",
+      "B7S1:GBPJPY:LONG:MON:E0820:D1:X0810:H1430",
+      "B7S1:GBPJPY:LONG:MON:E0820:D1:X0755:H1375",
+      "B7S1:GBPJPY:LONG:MON:E0765:D1:X0755:H1430",
+      "B7S1:GBPJPY:LONG:MON:E0820:D1:X0720:H1340",
+      "B7S1:GBPJPY:LONG:MON:E0765:D1:X0720:H1395",
+      "B7S1:GBPJPY:LONG:MON:E0835:D1:X0790:H1395",
+      "B7S1:GBPJPY:LONG:MON:E0730:D1:X0720:H1430",
+      "B7S1:GBPJPY:LONG:MON:E0870:D1:X0810:H1380",
+      "B7S1:GBPUSD:LONG:MON:E0785:D1:X0750:H1405",
+      "B7S1:GBPUSD:LONG:MON:E0785:D1:X0785:H1440",
+      "B7S1:GBPUSD:LONG:MON:E0815:D1:X0730:H1355",
+      "B7S1:GBPUSD:LONG:TUE:E0365:D0:X1120:H0755",
+      "B7S1:GBPUSD:LONG:MON:E0850:D1:X0750:H1340",
+      "B7S1:GBPUSD:LONG:MON:E0820:D1:X0785:H1405",
+      "B7S1:GBPUSD:LONG:TUE:E0370:D0:X1180:H0810",
+      "B7S1:GBPUSD:LONG:MON:E0945:D1:X0945:H1440",
+      "B7S1:USDJPY:LONG:MON:E0765:D1:X0355:H1030",
+      "B7S1:USDJPY:LONG:MON:E0730:D1:X0355:H1065",
+      "B7S1:USDJPY:LONG:MON:E0800:D1:X0355:H0995",
+      "B7S1:USDJPY:LONG:MON:E0835:D1:X0355:H0960",
+      "B7S1:USDJPY:LONG:MON:E0695:D1:X0355:H1100",
+      "B7S1:USDJPY:LONG:MON:E0870:D1:X0355:H0925",
+      "B7S1:USDJPY:LONG:MON:E0910:D1:X0355:H0885",
+      "B7S1:USDJPY:LONG:MON:E0765:D1:X0250:H0925"
+    ]
+  },
+  "ProducerFiles": [
+    {
+      "Path": "research_inputs/b7/full_research_prespec.json",
+      "SHA256": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea"
+    },
+    {
+      "Path": "research_inputs/b7/u06_config.json",
+      "SHA256": "cdbd6f2347eb628b93a520ac7221c61ff39451861f8bedd91797dd87f5b230ba"
+    },
+    {
+      "Path": "research_inputs/b7/u06_selected72_input.json",
+      "SHA256": "09b5b5ec4944474e02eb51e8b6fce8e5b3193857d759b9c08fbfdb31d8b8fa1a"
+    },
+    {
+      "Path": "research_inputs/b7/expected_m1_manifest.csv",
+      "SHA256": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a"
+    },
+    {
+      "Path": "results/b7/stage1/source_checkpoint_audit.json",
+      "SHA256": "3db47c30905893b8af730a3b18c01e90aeb15b5f508fffaa439cbc380bf909b2"
+    }
+  ],
+  "EnvironmentPolicy": "Same producer/current Python major.minor only; exact NumPy2.3.5/pandas2.2.3; producer patch retained in audit",
+  "ExecutionAuthorized": false
+}
