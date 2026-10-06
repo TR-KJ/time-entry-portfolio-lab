@@ -1,0 +1,132 @@
+{
+  "Status": "PASS",
+  "OriginalImplementationSHA": "abe588cf14c225f1cc8f9f991700fbe815618cc2",
+  "ConditionsFreezeSHA": "5dbac7af2d41aa912308868e6ad1a6dbf7cdd107",
+  "ByteIdenticalFiles": [
+    {
+      "Path": "docs/b7/full_research_conditions_freeze.md",
+      "SHA256": "e4cc4f594ca5b350cdc2fdcace5930d17a856779fa2d7461df31d9e288330823",
+      "Bytes": 38695
+    },
+    {
+      "Path": "docs/b7/stage1_conditions_freeze.md",
+      "SHA256": "cdcacd33a47983520188ed9581477996d56ef5d3d7703b74aea0108c7f2176e3",
+      "Bytes": 11255
+    },
+    {
+      "Path": "research_inputs/b7/b6_reference_manifest.csv",
+      "SHA256": "8a149ea43feecc1e007bb210c96164b868a4cc417d621bac9575b69787f4f78f",
+      "Bytes": 8998
+    },
+    {
+      "Path": "research_inputs/b7/b6_sl_reference.csv",
+      "SHA256": "9aee1ae097cc8d106e7017f89cc1d779c575a718fb86a0bebb2c3dcd9508bb38",
+      "Bytes": 258
+    },
+    {
+      "Path": "research_inputs/b7/expected_m1_manifest.csv",
+      "SHA256": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a",
+      "Bytes": 11556
+    },
+    {
+      "Path": "research_inputs/b7/full_research_prespec.json",
+      "SHA256": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea",
+      "Bytes": 68639
+    },
+    {
+      "Path": "research_inputs/b7/sl_grid_proposal.csv",
+      "SHA256": "6f3f0a76dbb01908eefb563fc8545d930847c4ac6b753edbb77609233062c489",
+      "Bytes": 348
+    },
+    {
+      "Path": "research_inputs/b7/stage0_protocol.json",
+      "SHA256": "d0425de445b1a1390ee74fcf3c446d0f83c324fb019ba38e3254325f37171293",
+      "Bytes": 4708
+    },
+    {
+      "Path": "research_inputs/b7/stage1_prespec.json",
+      "SHA256": "1449bfe9e9fc066ce4a59cc156e8247cc67e11522d9cdfb007cafefaf69d05e5",
+      "Bytes": 10202
+    },
+    {
+      "Path": "research_inputs/b7/stage1_runtime_config.json",
+      "SHA256": "c1b4e78c522e1ed39ce77bf2596264d4bcf46a74cb3412b88a7c32a96aa67fe5",
+      "Bytes": 3316
+    },
+    {
+      "Path": "src/research/b7/__init__.py",
+      "SHA256": "df5f29c3c2e7417979058c84bde568cf792649b83cbb6f1283f80017655b71fa",
+      "Bytes": 22
+    },
+    {
+      "Path": "src/research/b7/calibration.py",
+      "SHA256": "9e52440a884cf77d46726f8c5ead3e1341af9b184bc58e3ffb699a762a57eb4e",
+      "Bytes": 2535
+    },
+    {
+      "Path": "src/research/b7/compatibility.py",
+      "SHA256": "cfa74644604466dc7847f681a5c16227db3a262852e88c5aa1c903e36b3d79c9",
+      "Bytes": 3459
+    },
+    {
+      "Path": "src/research/b7/execution.py",
+      "SHA256": "362c5fd53e35f43a6effa6c3f4ca9a34c6a41652828be0ce49cfef60670bcbf1",
+      "Bytes": 1220
+    },
+    {
+      "Path": "src/research/b7/stage0_audit.py",
+      "SHA256": "968dc7b331d45d80d184ed0d65fdab2e052b5b74b333351da6bfb463ed2cda70",
+      "Bytes": 9672
+    },
+    {
+      "Path": "src/research/b7/stage1.py",
+      "SHA256": "cd68d0d2b85027f0b0f6eb3cc83ca1cf40305cb87c19d6bc6dd0303b7e4a0327",
+      "Bytes": 7831
+    },
+    {
+      "Path": "src/research/b7/stage1_contract.py",
+      "SHA256": "971dc6538ac43e8f0a88fe54c83e3c0dde6dc003b789c21f4845dcd0e0d6ec7a",
+      "Bytes": 3875
+    },
+    {
+      "Path": "src/research/b7/stage1_family.py",
+      "SHA256": "8c06afc2ac7e6412d03b305d63fd09e37a2cd28d7e0b46cd2f128877160b120a",
+      "Bytes": 3540
+    },
+    {
+      "Path": "src/research/b7/stage1_input.py",
+      "SHA256": "12582f9096c5ccc99b6e4e1b6feed1412d8351694dce76f32a256f929e77429a",
+      "Bytes": 4960
+    },
+    {
+      "Path": "src/research/b7/stage1_metrics.py",
+      "SHA256": "c0201aec494b172ea20793fab2114e82ddb36a2b4f7ceda6077009b80eee4ac5",
+      "Bytes": 3171
+    },
+    {
+      "Path": "src/research/b7/stage1_reference.py",
+      "SHA256": "62f40ce3b76fb5f898788c284e940c65f9da3ba32b426b96192a51b38c2880a8",
+      "Bytes": 2353
+    },
+    {
+      "Path": "src/research/b7/stage1_runtime.py",
+      "SHA256": "69bc5a1864f04f995122331e7d3fb3cd755d041504841786c40ffcc411206edc",
+      "Bytes": 16852
+    },
+    {
+      "Path": "src/research/b7/stage1_smoke.py",
+      "SHA256": "fd9d9c77690bf73e0ddf50da78c413e9de7ef480a309dd3eb9c63b57b5585b5f",
+      "Bytes": 1670
+    }
+  ],
+  "NormalResumeExactIdentity": "UNCHANGED",
+  "ResearchConditions": "UNCHANGED",
+  "U03U04OutputEquivalence": "SYNTHETIC_BYTE_IDENTICAL",
+  "WorkProductionEnvironmentRejected": true,
+  "UserBackupAccessed": false,
+  "FormalResultsOpened": false,
+  "UserBackupFinalized": false,
+  "Stage1FinalizeOnlyExecutionAuthorized": false,
+  "FutureDriveMirroring": "NOT_IMPLEMENTED",
+  "ReleaseManifestRefresh": "Metadata hashes refreshed; existing normal runtime code and original manifest membership unchanged"
+}

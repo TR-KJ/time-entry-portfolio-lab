@@ -57,3 +57,7 @@ Stage1ConditionsFrozen = true; Stage1ImplementationAuthorized = true under the s
 ## Stage1 Implementation Only release
 
 The explicit subsequent user instruction authorizes Stage1 engine/tests/bounded compatibility smoke/notebook/runtime infrastructure only. See stage1_implementation.md and results/b7/stage1_implementation. Status is FROZEN_READY_FOR_CHAT_REVIEW after checks. Formal execution still requires a separate Chat confirmation and Colab barriers; the historical full-prespec authorization fields record their original Freeze, while run_status.json and stage1_runtime_config.json record the current implementation-only authorization. No research conditions or old Freeze artifacts changed.
+
+## Completed90-job Finalize-Only implementation
+
+The user reports that the Colab full sweep completed90 jobs and a validated checkpoint backup was saved before finalization finished. This subsequent Work implements recovery only; the real backup and candidate results have not been accessed. See stage1_finalize_only.md. Original producer is abe588cf14c225f1cc8f9f991700fbe815618cc2 with Python3.13.15. The new dedicated finalizer allows Python3.13 patch differences only, while normal resume remains byte-identical and exact-identity only. Stage1FinalizeOnlyImplementationStatus=FROZEN_READY_FOR_CHAT_REVIEW; Stage1FinalizeOnlyExecutionAuthorized=false. Research conditions, B01 and Stage0 remain unchanged.

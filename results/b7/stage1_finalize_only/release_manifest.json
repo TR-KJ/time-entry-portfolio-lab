@@ -1,7 +1,8 @@
 {
-  "Scope": "B7_STAGE1_IMPLEMENTATION_ONLY",
+  "Scope": "B7_STAGE1_FINALIZE_ONLY_IMPLEMENTATION",
   "SelfExcluded": true,
   "ConditionsFreezeSHA": "5dbac7af2d41aa912308868e6ad1a6dbf7cdd107",
+  "OriginalImplementationSHA": "abe588cf14c225f1cc8f9f991700fbe815618cc2",
   "Files": [
     {
       "Path": "docs/b7/b01_provenance_review.md",
@@ -44,6 +45,11 @@
       "Bytes": 11255
     },
     {
+      "Path": "docs/b7/stage1_finalize_only.md",
+      "SHA256": "e274332c077bfa832aa095c6466c079c4fd1cc4a05e68c3f0aeeb8095d7cebca",
+      "Bytes": 8446
+    },
+    {
       "Path": "docs/b7/stage1_implementation.md",
       "SHA256": "5b197c65778c70bdecc6c36a16319582f69a44e10559d0b6a7109f0e3e776127",
       "Bytes": 10222
@@ -84,6 +90,11 @@
       "Bytes": 4708
     },
     {
+      "Path": "research_inputs/b7/stage1_finalize_only_config.json",
+      "SHA256": "a26f87c5b072be4ec7ef86fe68b44986c325a005120e173876889a1fbc5a1629",
+      "Bytes": 34171
+    },
+    {
       "Path": "research_inputs/b7/stage1_prespec.json",
       "SHA256": "1449bfe9e9fc066ce4a59cc156e8247cc67e11522d9cdfb007cafefaf69d05e5",
       "Bytes": 10202
@@ -104,34 +115,19 @@
       "Bytes": 2583
     },
     {
-      "Path": "results/b7/stage1_implementation/benchmark.json",
-      "SHA256": "7ee5e1a6e0ff639f479d86ca7e663b20b98358dac7e102f7823e5453ff721e4b",
-      "Bytes": 267
+      "Path": "results/b7/stage1_finalize_only/freeze_audit.json",
+      "SHA256": "cc65e9ecea88590be85ad26d7a6f92141fef7eb035193872010600d120841854",
+      "Bytes": 4617
     },
     {
-      "Path": "results/b7/stage1_implementation/bounded_smoke.json",
-      "SHA256": "59510dc6279e786e4459c9a19a8682d8fa8e3951d1c666ff299780ab88e4a593",
-      "Bytes": 13359
+      "Path": "results/b7/stage1_finalize_only/test_results.json",
+      "SHA256": "8a746b8775579ed208e79cf8c32b4af240f86803229b15009c598b32790cbb4c",
+      "Bytes": 8987
     },
     {
-      "Path": "results/b7/stage1_implementation/environment.json",
-      "SHA256": "aed4cad13b7b93e15b4bbd07772e2736249e8e586d858c0deebf5b4c384e1f3c",
-      "Bytes": 67
-    },
-    {
-      "Path": "results/b7/stage1_implementation/freeze_audit.json",
-      "SHA256": "8c55ccf0887b3640d7edd891f5a4697c10ea9b7e5a9988f2c116b73e0acbf9e6",
-      "Bytes": 2552
-    },
-    {
-      "Path": "results/b7/stage1_implementation/input_barrier.json",
-      "SHA256": "31af5aac4f305b236eff463572016504cb245050421098d11ddc5d0d5cda72c0",
-      "Bytes": 20786
-    },
-    {
-      "Path": "results/b7/stage1_implementation/test_results.json",
-      "SHA256": "eea338db6289a10ef678903068e039286e8bd3038bb797dba7cbe5350a675906",
-      "Bytes": 6856
+      "Path": "results/b7/stage1_implementation/release_manifest.json",
+      "SHA256": "02a1d10625dcd9604c1df64e25cee601598a3278144553d0f5660c4e49b84398",
+      "Bytes": 8044
     },
     {
       "Path": "src/research/b7/__init__.py",
@@ -154,11 +150,6 @@
       "Bytes": 1220
     },
     {
-      "Path": "src/research/b7/reference/b6_execution.py",
-      "SHA256": "82663372d5ad1d7da9b44926627a24cbcbb7fb7aa2519126e61eb18997a21252",
-      "Bytes": 3711
-    },
-    {
       "Path": "src/research/b7/stage0_audit.py",
       "SHA256": "968dc7b331d45d80d184ed0d65fdab2e052b5b74b333351da6bfb463ed2cda70",
       "Bytes": 9672
@@ -177,6 +168,11 @@
       "Path": "src/research/b7/stage1_family.py",
       "SHA256": "8c06afc2ac7e6412d03b305d63fd09e37a2cd28d7e0b46cd2f128877160b120a",
       "Bytes": 3540
+    },
+    {
+      "Path": "src/research/b7/stage1_finalize_only.py",
+      "SHA256": "04331ef3230cb7acd20e1b832226398c1074071edfc9e71935522e70c3f38cc5",
+      "Bytes": 16791
     },
     {
       "Path": "src/research/b7/stage1_input.py",
@@ -204,11 +200,6 @@
       "Bytes": 1670
     },
     {
-      "Path": "src/research/daily_stop_baseline_revalidation.py",
-      "SHA256": "08b9717a3a94a0066e7ef7ebfa0f4802cbc84ae0570c3b875d96729877f4e216",
-      "Bytes": 26163
-    },
-    {
       "Path": "tests/test_b7_audit.py",
       "SHA256": "ea87968859d4e949545281741ff7611dd957f6af03a9723ca1ca37f3b3f2acd0",
       "Bytes": 4597
@@ -222,6 +213,11 @@
       "Path": "tests/test_b7_stage1_execution.py",
       "SHA256": "ee6cdb79e6680d0c98090d40b8c17afc4db697599da529f235efcd22c61affac",
       "Bytes": 8175
+    },
+    {
+      "Path": "tests/test_b7_stage1_finalize_only.py",
+      "SHA256": "2e0c243b42825cb3909852fbd3c4b8d5d135946c612d4ab2df20d623ba3f26f5",
+      "Bytes": 15275
     },
     {
       "Path": "tests/test_b7_stage1_metrics_family.py",
