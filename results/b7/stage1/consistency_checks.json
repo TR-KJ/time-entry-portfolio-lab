@@ -1,0 +1,24 @@
+{
+  "Status": "PASS",
+  "Checks": [
+    "COMPLETE_HASHES",
+    "ALL_MANIFEST_HASHES_BYTES",
+    "ZIP_EVERY_MEMBER_HASH_BYTES_CRC",
+    "IDENTITY_CROSSCHECK",
+    "90_JOB_AUDIT_HASH_BOUND_361_PATHS",
+    "SELECTED_SCHEMA_UNIQUENESS_RANKS",
+    "SELECTED_EQUALS_FAMILY_TOP8",
+    "DISTRIBUTIONS_RECOUNTED"
+  ],
+  "B7Tests": {
+    "Status": "PASS",
+    "Count": 108,
+    "Seconds": 11.651,
+    "Python": "3.12.14",
+    "Data": "synthetic tests only"
+  },
+  "ResearchCodeTestsConditions": "BYTE_IDENTICAL_TO_FINALIZER_FREEZE",
+  "U06AndLater": "NOT_RUN",
+  "Validation": "NOT_RUN",
+  "Monitor": "NOT_RUN"
+}

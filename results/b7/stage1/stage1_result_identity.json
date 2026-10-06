@@ -1,0 +1,18 @@
+{
+  "Status": "COMPLETE_STAGE1_ONLY_FROZEN",
+  "Stage1ResultFrozen": true,
+  "Stage1ExecutionComplete": true,
+  "ConditionsFreezeSHA": "5dbac7af2d41aa912308868e6ad1a6dbf7cdd107",
+  "OriginalImplementationSHA": "abe588cf14c225f1cc8f9f991700fbe815618cc2",
+  "FinalizerImplementationSHA": "a585e8a0ec73ed34fa0d5918fe373b4e4940ee01",
+  "ArchivePath": "/MyDrive/b7_stage1_finalize_20261006",
+  "SelectedInput": {
+    "Path": "selected_top8.json",
+    "SHA256": "b77baa21fc23da8ddf9ce6ad00bb863384d7b88b9c0b506d49b63bbc04b9370b",
+    "Bytes": 12600180
+  },
+  "JobRecomputation": false,
+  "SourceAuditScope": "Frozen finalizer audit evidence; source checkpoint data not reread; zero-error/completeness enforced by reviewed finalizer validator before PASS",
+  "ResultAudit": "PASS",
+  "NextStageAuthorized": false
+}

@@ -1,0 +1,80 @@
+{
+  "SelfExcluded": true,
+  "Files": [
+    {
+      "Path": "docs/b7/stage1_result_freeze.md",
+      "SHA256": "ee7ae0aebcd0ce6a7eb8adaa09065f75c2473f8d130e8326b63829e25d340fd0",
+      "Bytes": 5531
+    },
+    {
+      "Path": "research_inputs/b7/stage1_selected_representatives.json",
+      "SHA256": "401b651da48b918c0503351bf25d2c32507bc8ae02e767a245e29dc539407719",
+      "Bytes": 103276
+    },
+    {
+      "Path": "research_inputs/b7/stage1_selected_top8.reference.json",
+      "SHA256": "8b9df05d47e137039e689b5ef03e615afff5f8c7068aabbf065e563456c66ba3",
+      "Bytes": 643
+    },
+    {
+      "Path": "results/b7/stage1/COMPLETE.json",
+      "SHA256": "f4761d74ce7853ac8cf164d22ca3b62d318c697d3d7575a5f187164795ec6fb8",
+      "Bytes": 200
+    },
+    {
+      "Path": "results/b7/stage1/artifact_manifest.json",
+      "SHA256": "4172d2f83b46c13c00cd0fe42ae2ef4bf3325934cec31102c2df8a944cd3af52",
+      "Bytes": 1118
+    },
+    {
+      "Path": "results/b7/stage1/consistency_checks.json",
+      "SHA256": "85ca3b88acd21ee93f362834695af848f383319bc63710001f6da833411beb69",
+      "Bytes": 603
+    },
+    {
+      "Path": "results/b7/stage1/finalize_environment.json",
+      "SHA256": "6d276f4d31930552310ab35d0c59b61d3bd570dc9449f45dd1c68d62199ce2a9",
+      "Bytes": 54
+    },
+    {
+      "Path": "results/b7/stage1/finalize_identity.json",
+      "SHA256": "62249da352daea7dfa9da43e7e2eedaac1106ed272e9e7df2ca012e11af7a1b4",
+      "Bytes": 658
+    },
+    {
+      "Path": "results/b7/stage1/finalize_preflight.json",
+      "SHA256": "878b57b2cc4cc4e6eadcd74588c9a30fa08a6ec0624a369e5a8ab55886f19e86",
+      "Bytes": 381
+    },
+    {
+      "Path": "results/b7/stage1/progress.json",
+      "SHA256": "1df34694c48d8d65f5de493c8b83fd82872b86c6ea2e502a8336ed1b701b9504",
+      "Bytes": 93
+    },
+    {
+      "Path": "results/b7/stage1/source_checkpoint_audit.json",
+      "SHA256": "3db47c30905893b8af730a3b18c01e90aeb15b5f508fffaa439cbc380bf909b2",
+      "Bytes": 44997
+    },
+    {
+      "Path": "results/b7/stage1/stage1_archive_manifest.json",
+      "SHA256": "d0ae0206ab58e1b3cb9ce47a1fc43319d22ed85189ecaaa007bd52c1634b1c42",
+      "Bytes": 3333
+    },
+    {
+      "Path": "results/b7/stage1/stage1_result_identity.json",
+      "SHA256": "e781a08cac7f2e166de1fba21c9082395ff7f4a2ab9b6fef2f8700856a3cee45",
+      "Bytes": 808
+    },
+    {
+      "Path": "results/b7/stage1/stage1_result_summary.json",
+      "SHA256": "8c6f11e276e6a6db6563b54cc006f3ea2d7369bbd477535747a5381f2f66983a",
+      "Bytes": 770
+    },
+    {
+      "Path": "results/b7/stage1/stage1_review.json",
+      "SHA256": "67488aa0ead706b2a51ed5651841c7f494851e3d2d897dc1bcabf6598ff603d4",
+      "Bytes": 621
+    }
+  ]
+}

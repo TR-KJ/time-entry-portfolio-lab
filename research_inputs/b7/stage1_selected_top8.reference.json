@@ -1,0 +1,10 @@
+{
+  "Status": "FROZEN_EXACT_STAGE1_SELECTED_INPUT",
+  "DriveArchive": "/MyDrive/b7_stage1_finalize_20261006",
+  "Path": "selected_top8.json",
+  "SHA256": "b77baa21fc23da8ddf9ce6ad00bb863384d7b88b9c0b506d49b63bbc04b9370b",
+  "Bytes": 12600180,
+  "SelectedCount": 72,
+  "Use": "Full original selected_top8.json, including all family members, is the authoritative later-stage input. Verify this SHA256 and Bytes before use. The representatives file is a derived summary only.",
+  "StorageReason": "12,600,180-byte member-expanded JSON retained in audited Drive archive; small representative records and exact full-input hash frozen in GitHub."
+}

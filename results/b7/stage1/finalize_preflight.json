@@ -1,0 +1,1 @@
+{"FinalizerEnvironment":{"NumPy":"2.3.5","Python":"3.13.16","pandas":"2.2.3"},"FinalizerImplementationSHA":"a585e8a0ec73ed34fa0d5918fe373b4e4940ee01","Status":"PASS","Tests":{"Output":"----------------------------------------------------------------------\nRan 108 tests in 37.667s\n\nOK\nLoaded USDJPY: 2 rows | 2020-02-04 10:00:00 -> 2020-07-07 09:00:00 JST\n","Status":"PASS"}}

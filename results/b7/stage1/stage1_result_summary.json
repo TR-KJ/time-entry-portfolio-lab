@@ -1,0 +1,45 @@
+{
+  "SelectedCount": 72,
+  "PairSelected": {
+    "AUDJPY": 8,
+    "AUDUSD": 8,
+    "EURAUD": 8,
+    "EURJPY": 8,
+    "EURUSD": 8,
+    "GBPAUD": 8,
+    "GBPJPY": 8,
+    "GBPUSD": 8,
+    "USDJPY": 8
+  },
+  "Direction": {
+    "LONG": 57,
+    "SHORT": 15
+  },
+  "AnchorWeekday": {
+    "MON": 58,
+    "THU": 1,
+    "FRI": 2,
+    "TUE": 9,
+    "WED": 2
+  },
+  "PositiveYearCount": {
+    "4": 72
+  },
+  "Families": 12638,
+  "FamilyCounts": {
+    "AUDJPY": 1697,
+    "AUDUSD": 1074,
+    "EURAUD": 1647,
+    "EURJPY": 1783,
+    "EURUSD": 1333,
+    "GBPAUD": 1055,
+    "GBPJPY": 1593,
+    "GBPUSD": 705,
+    "USDJPY": 1751
+  },
+  "PlateauRecords": 739598,
+  "PlateauPassRecords": 647576,
+  "SourceJobCount": 90,
+  "EvaluatedStructures": 7335360,
+  "EvaluatedVariants": 44012160
+}
