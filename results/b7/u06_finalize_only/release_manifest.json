@@ -400,8 +400,8 @@
     },
     {
       "Path": "tests/test_b7_u06_finalize_only.py",
-      "SHA256": "d21721d55090a572ef8a5d781868c64add8ea34863ae24bd8355b8b01ecc7912",
-      "Bytes": 14536
+      "SHA256": "ff766c4bf957a27b35e46ad884d194fa1aef925229f7bea4b4f1cbb76ef22580",
+      "Bytes": 15910
     }
   ]
 }

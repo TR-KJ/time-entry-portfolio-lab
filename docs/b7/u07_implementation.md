@@ -70,3 +70,13 @@ Bounded actual smoke is fixed independently of the56 schedules: USDJPY/EURUSD,20
 Both notebooks have all RUN flags False and empty approvals/SHA pins by default. Normal notebook separates mount/install/checkout/input/M1/tests/smoke/preflight/formal/resume/finalize/archive. Dedicated recovery notebook does not include data-load/evaluator-test/smoke cells. Formal run and recovery require different explicit approvals.
 
 Status: U06ResultFrozen=true; U07ConditionsFrozen=true; U07ImplementationAuthorized=true; U07ImplementationStatus=FROZEN_READY_FOR_CHAT_REVIEW; U07ExecutionAuthorized=false; U07Executed=false. Stop for Chat review; no formal run is authorized by this release.
+
+## Colab path portability correction
+
+Base Implementation Freeze: `6dadb449d94787eeb899099e0ff6d9d4be0e6100`. This correction changes only the synthetic Path mapper in `tests/test_b7_u06_finalize_only.py`, adds a regression, and refreshes test evidence/release manifests/documentation. No production source, config, input, research condition or approval semantics change.
+
+The prior fixture redirected every `/content/...` path into its temporary tree. On Colab this also redirected repository configs when the real checkout was under `/content/<repo>`. The fixture now maps only `/content`, `/content/out`, and `/content/drive` with its descendants. Other paths remain real pathlib paths, without hard-coding a repository directory name.
+
+The added regression patches synthetic ROOT to two different `/content/<repo>` locations and verifies config, release-manifest and frozen-artifact paths remain unchanged. It also verifies synthetic API paths map correctly and similar prefixes do not. The old mapper fails this regression. All291 B7 tests pass with0 failures/errors and0 skips on Work Python3.12.14/NumPy2.3.5/pandas2.2.3; Colab Python3.13.16 was reported by the user and was not rerun here. `portability_fix_audit.json` records byte identity against the base Freeze.
+
+No new actual-data smoke or formal performance evaluation is performed for this test-only correction. Earlier bounded-smoke evidence remains historical and unchanged. U07ImplementationStatus remains FROZEN_READY_FOR_CHAT_REVIEW; U07ExecutionAuthorized=false; U07Executed=false. After Chat review, use the new corrected Implementation Freeze SHA for both the explicit Producer pin and checked-out reviewed SHA. No SHA pin is inferred from source checkpoints.

@@ -10,6 +10,16 @@ ENV=dict(Python='3.13.15',NumPy='2.3.5',pandas='2.2.3')
 CURRENT=dict(ENV,Python='3.13.16')
 PROOF=dict(Status='PASS',FinalizerImplementationSHA='a'*40,FinalizerEnvironment=CURRENT)
 
+def synthetic_colab_path(content, path):
+    """Map only this public-API fixture's paths; leave real repo paths alone."""
+    path = Path(path)
+    if path in (Path('/content'), Path('/content/out')):
+        return content if path == Path('/content') else content/'out'
+    drive = Path('/content/drive')
+    if path == drive or drive in path.parents:
+        return content/'drive'/path.relative_to(drive)
+    return path
+
 class FinalizeOnly(unittest.TestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name);self.source=self.root/'source';self.source.mkdir();e,self.records=f.expected_identity();self.identity=dict(e,Environment=ENV)
@@ -146,13 +156,25 @@ class FinalizeOnly(unittest.TestCase):
     def test_public_api_no_recomputation(self):
         import shutil
         content=self.root.resolve()/'content';drive=content/'drive';drive.mkdir(parents=True);source=drive/'source';shutil.copytree(self.source,source)
-        realpath=Path
-        def mapped(p):
-            s=str(p)
-            return content/s.removeprefix('/content/').lstrip('/') if s.startswith('/content/') else (content if s=='/content' else realpath(p))
+        def mapped(p):return synthetic_colab_path(content,p)
         with self.traps(),patch.object(f,'Path',side_effect=mapped),patch.object(f,'current_preflight',return_value=PROOF),patch.dict(f.os.environ,{'COLAB_RELEASE_TAG':'synthetic'}):
             result=f.finalize_from_completed_jobs('/content/drive/source','/content/out','a'*40,f.APPROVAL)
         self.assertEqual(result['CompletedJobs'],72)
+    def test_public_api_mapper_preserves_colab_repo_paths(self):
+        content=self.root/'content'
+        with patch.object(f,'Path',side_effect=lambda p:synthetic_colab_path(content,p)):
+            for name in ('time-entry-portfolio-lab-u07','another-checkout'):
+                # Reproduce ROOT under /content independently of this host's ROOT.
+                repo=Path('/content')/name
+                with patch.object(f,'ROOT',repo):
+                    for rel in ('research_inputs/b7/u06_finalize_only_config.json',
+                                'results/b7/u06_finalize_only/release_manifest.json',
+                                'research_inputs/b7/u06_selected72_input.json'):
+                        self.assertEqual(f.Path(f.ROOT/rel),repo/rel)
+            for path in ('/content/drive-other/config.json','/content/output/config.json'):
+                self.assertEqual(f.Path(path),Path(path))
+            for path in ('/content','/content/drive','/content/drive/source','/content/out'):
+                self.assertEqual(f.Path(path),content/Path(path).relative_to('/content'))
     def test_preflight_guards(self):
         original=f.read
         def read(p):return dict(Status='PASS',Total=1,Failed=0,Skipped=0) if Path(p).name=='test_results.json' else original(p)

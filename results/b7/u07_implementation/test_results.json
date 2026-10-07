@@ -1,10 +1,10 @@
 {
   "Status": "PASS",
-  "Total": 290,
-  "Passed": 290,
+  "Total": 291,
+  "Passed": 291,
   "Failed": 0,
   "Skipped": 0,
-  "Seconds": 27.825,
+  "Seconds": 28.3,
   "Environment": {
     "Python": "3.12.14",
     "NumPy": "2.3.5",
@@ -212,6 +212,7 @@
     "test_b7_u06_finalize_only.FinalizeOnly.test_preflight_guards",
     "test_b7_u06_finalize_only.FinalizeOnly.test_producer_byte_identity",
     "test_b7_u06_finalize_only.FinalizeOnly.test_producer_mismatch",
+    "test_b7_u06_finalize_only.FinalizeOnly.test_public_api_mapper_preserves_colab_repo_paths",
     "test_b7_u06_finalize_only.FinalizeOnly.test_public_api_no_recomputation",
     "test_b7_u06_finalize_only.FinalizeOnly.test_source_mutation_rejected",
     "test_b7_u06_finalize_only.FinalizeOnly.test_staging_and_partial_root_ignored",
