@@ -1,0 +1,259 @@
+{
+  "ArchivePath": "/MyDrive/b7_u06_20261007_01_archive",
+  "CheckpointPath": "/MyDrive/b7_u06_20261007_01_checkpoints",
+  "Checks": [
+    "COMPLETE_HASHES",
+    "MANIFEST_HASHES_BYTES",
+    "ALL_ZIP_MEMBERS_HASHES_BYTES_CRC",
+    "EXACT_PRODUCER_IDENTITY",
+    "ACTUAL_72_DRIVE_CHECKPOINTS",
+    "ARCHIVE_EQUALS_CHECKPOINT_OUTPUTS",
+    "PAIR_SL_TP_R_INDEPENDENT_RECOUNTS"
+  ],
+  "Files": [
+    {
+      "Bytes": 197,
+      "Path": "COMPLETE.json",
+      "SHA256": "959643113ea9f82beb6634b3c90a3df022bccf9f670cb59f893a5e04011a5306"
+    },
+    {
+      "Bytes": 696369,
+      "Path": "archive.zip",
+      "SHA256": "85ca1279b9479be6ec4d483586e8bd1ce503978ff438be5bdd2359a946b12b58"
+    },
+    {
+      "Bytes": 726,
+      "Path": "artifact_manifest.json",
+      "SHA256": "a520d8d1c46c9d88d6b3d28763a82f899dd9dd29ce32b9af8c632560c7ad2117"
+    },
+    {
+      "Bytes": 6023664,
+      "Path": "candidate_results.json",
+      "SHA256": "ebbf6d65d5c00419cf88cf2379543be0389bf31d272b9d970bce5c7ff5ea4123"
+    },
+    {
+      "Bytes": 10568,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "9056e7cfbd95dd7ed4b47f23cd0100a9891cf7591af5078cba10c47b5d8e7c3a"
+    },
+    {
+      "Bytes": 20481,
+      "Path": "input_identity.json",
+      "SHA256": "c5a50dd802f5f79b2a100a8afa79eb5c676486b5f7a873efa9b30cc939a1f78d"
+    },
+    {
+      "Bytes": 282,
+      "Path": "pair_summary.json",
+      "SHA256": "8f279cfe220a254639b56480b230f3e6ff6fe9e62c26b9ebca25c2f33d37fbf6"
+    },
+    {
+      "Bytes": 20997,
+      "Path": "preflight.json",
+      "SHA256": "995e57f633428f811b87d7cfd8a444c55cf4bffb188f6968f1b7cb0104bd15e1"
+    },
+    {
+      "Bytes": 164,
+      "Path": "review.json",
+      "SHA256": "2feca228d135e94c46081c0cf859a4d3da657a924e11ace2164c06fa8171a854"
+    }
+  ],
+  "Status": "PASS",
+  "Summary": {
+    "DROP_U06_SL": 16,
+    "FiniteTP": 13,
+    "FiniteTPDistribution": {
+      "55": 1,
+      "65": 2,
+      "120": 1,
+      "140": 4,
+      "165": 3,
+      "240": 2
+    },
+    "FiniteTPR": [
+      {
+        "Count": 2,
+        "R": 2.1538461538461537,
+        "SL": 65,
+        "Symbol": "AUDJPY",
+        "TP": 140
+      },
+      {
+        "Count": 1,
+        "R": 2.1818181818181817,
+        "SL": 55,
+        "Symbol": "AUDUSD",
+        "TP": 120
+      },
+      {
+        "Count": 2,
+        "R": 2.1538461538461537,
+        "SL": 65,
+        "Symbol": "AUDUSD",
+        "TP": 140
+      },
+      {
+        "Count": 2,
+        "R": 2.1818181818181817,
+        "SL": 110,
+        "Symbol": "EURAUD",
+        "TP": 240
+      },
+      {
+        "Count": 3,
+        "R": 2.2,
+        "SL": 75,
+        "Symbol": "EURJPY",
+        "TP": 165
+      },
+      {
+        "Count": 1,
+        "R": 0.5,
+        "SL": 110,
+        "Symbol": "GBPAUD",
+        "TP": 55
+      },
+      {
+        "Count": 1,
+        "R": 0.52,
+        "SL": 125,
+        "Symbol": "GBPAUD",
+        "TP": 65
+      },
+      {
+        "Count": 1,
+        "R": 0.5,
+        "SL": 130,
+        "Symbol": "GBPAUD",
+        "TP": 65
+      }
+    ],
+    "InputCandidates": 72,
+    "NoReplacement": true,
+    "PASS_U06": 56,
+    "PairCounts": {
+      "AUDJPY": {
+        "DROP_U06_SL": 0,
+        "PASS_U06": 8
+      },
+      "AUDUSD": {
+        "DROP_U06_SL": 1,
+        "PASS_U06": 7
+      },
+      "EURAUD": {
+        "DROP_U06_SL": 0,
+        "PASS_U06": 8
+      },
+      "EURJPY": {
+        "DROP_U06_SL": 0,
+        "PASS_U06": 8
+      },
+      "EURUSD": {
+        "DROP_U06_SL": 0,
+        "PASS_U06": 8
+      },
+      "GBPAUD": {
+        "DROP_U06_SL": 2,
+        "PASS_U06": 6
+      },
+      "GBPJPY": {
+        "DROP_U06_SL": 0,
+        "PASS_U06": 8
+      },
+      "GBPUSD": {
+        "DROP_U06_SL": 6,
+        "PASS_U06": 2
+      },
+      "USDJPY": {
+        "DROP_U06_SL": 7,
+        "PASS_U06": 1
+      }
+    },
+    "PairSLDistribution": {
+      "AUDJPY": {
+        "60": 1,
+        "65": 7
+      },
+      "AUDUSD": {
+        "55": 1,
+        "60": 1,
+        "65": 5
+      },
+      "EURAUD": {
+        "110": 8
+      },
+      "EURJPY": {
+        "75": 8
+      },
+      "EURUSD": {
+        "80": 8
+      },
+      "GBPAUD": {
+        "105": 1,
+        "110": 2,
+        "125": 1,
+        "130": 1,
+        "165": 1
+      },
+      "GBPJPY": {
+        "95": 8
+      },
+      "GBPUSD": {
+        "75": 1,
+        "80": 1
+      },
+      "USDJPY": {
+        "60": 1
+      }
+    },
+    "PairTPDistribution": {
+      "AUDJPY": {
+        "140": 2,
+        "TP_NONE": 6
+      },
+      "AUDUSD": {
+        "120": 1,
+        "140": 2,
+        "TP_NONE": 4
+      },
+      "EURAUD": {
+        "240": 2,
+        "TP_NONE": 6
+      },
+      "EURJPY": {
+        "165": 3,
+        "TP_NONE": 5
+      },
+      "EURUSD": {
+        "TP_NONE": 8
+      },
+      "GBPAUD": {
+        "55": 1,
+        "65": 2,
+        "TP_NONE": 3
+      },
+      "GBPJPY": {
+        "TP_NONE": 8
+      },
+      "GBPUSD": {
+        "TP_NONE": 2
+      },
+      "USDJPY": {
+        "TP_NONE": 1
+      }
+    },
+    "SLDistribution": {
+      "55": 1,
+      "60": 3,
+      "65": 12,
+      "75": 9,
+      "80": 9,
+      "95": 8,
+      "105": 1,
+      "110": 10,
+      "125": 1,
+      "130": 1,
+      "165": 1
+    },
+    "TP_NONE": 43
+  }
+}

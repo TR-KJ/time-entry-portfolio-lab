@@ -1,0 +1,80 @@
+{
+  "SelfExcluded": true,
+  "Files": [
+    {
+      "Path": "docs/b7/u06_result_freeze.md",
+      "SHA256": "e302ccf43bbff833231144683f5a4c18f23215082bd19bd30f781a5a0b84905f",
+      "Bytes": 4954
+    },
+    {
+      "Path": "research_inputs/b7/u07_input.reference.json",
+      "SHA256": "9fc2c4202d67f9bc67461ffc93c736dcca0099a916786de93a08a530fcf3e986",
+      "Bytes": 625
+    },
+    {
+      "Path": "research_inputs/b7/u07_selected56_input.json",
+      "SHA256": "fbb78686e8a767bb8fbaa903e9b89eee99d9c856b2182d29f1953bb51273fe39",
+      "Bytes": 34529
+    },
+    {
+      "Path": "results/b7/u06/COMPLETE.json",
+      "SHA256": "959643113ea9f82beb6634b3c90a3df022bccf9f670cb59f893a5e04011a5306",
+      "Bytes": 197
+    },
+    {
+      "Path": "results/b7/u06/artifact_manifest.json",
+      "SHA256": "a520d8d1c46c9d88d6b3d28763a82f899dd9dd29ce32b9af8c632560c7ad2117",
+      "Bytes": 726
+    },
+    {
+      "Path": "results/b7/u06/checkpoint_audit.json",
+      "SHA256": "9056e7cfbd95dd7ed4b47f23cd0100a9891cf7591af5078cba10c47b5d8e7c3a",
+      "Bytes": 10568
+    },
+    {
+      "Path": "results/b7/u06/consistency_checks.json",
+      "SHA256": "68db214076eaee1bc15c59efcf75b7317fc4a2bdb1dcd38cdba6d03b9d401e8c",
+      "Bytes": 27889
+    },
+    {
+      "Path": "results/b7/u06/drive_checkpoint_audit.json",
+      "SHA256": "bae7d3e9e3620bbf58dc274b0625abb75e6934e4b584f58301763da01c8030c4",
+      "Bytes": 33159
+    },
+    {
+      "Path": "results/b7/u06/input_identity.json",
+      "SHA256": "c5a50dd802f5f79b2a100a8afa79eb5c676486b5f7a873efa9b30cc939a1f78d",
+      "Bytes": 20481
+    },
+    {
+      "Path": "results/b7/u06/pair_summary.json",
+      "SHA256": "8f279cfe220a254639b56480b230f3e6ff6fe9e62c26b9ebca25c2f33d37fbf6",
+      "Bytes": 282
+    },
+    {
+      "Path": "results/b7/u06/preflight.json",
+      "SHA256": "995e57f633428f811b87d7cfd8a444c55cf4bffb188f6968f1b7cb0104bd15e1",
+      "Bytes": 20997
+    },
+    {
+      "Path": "results/b7/u06/u06_archive_manifest.json",
+      "SHA256": "b923279c81b8305e929cdb3cf821bb5e28bfced79bca5ec9129577ea8e08446a",
+      "Bytes": 5166
+    },
+    {
+      "Path": "results/b7/u06/u06_result_identity.json",
+      "SHA256": "2b8a0d578e3dd7e1802e084511569c15552dd2fb1159d6c3a3fff8d8b28e9164",
+      "Bytes": 1128
+    },
+    {
+      "Path": "results/b7/u06/u06_result_summary.json",
+      "SHA256": "f7e1fd1682498f1dfab0ded96239be55fbb9606aa28069a127c4af46047bfcb0",
+      "Bytes": 2972
+    },
+    {
+      "Path": "results/b7/u06/u06_review.json",
+      "SHA256": "2feca228d135e94c46081c0cf859a4d3da657a924e11ace2164c06fa8171a854",
+      "Bytes": 164
+    }
+  ]
+}
