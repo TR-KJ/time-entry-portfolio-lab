@@ -26,9 +26,9 @@
       "SHA256": "640e3ec6027967e360b4ffb5e65dd1ed07d80a733aa66cdcca99559d81f05b0e"
     },
     {
-      "Bytes": 13968,
+      "Bytes": 15037,
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "58cc4a7a4de52f2866c34eed212686efb7b975864dc57e553f982814e8cc0747"
+      "SHA256": "a585b5f97673f8c80c7a69fbe4cc631ca4608f86660bd2abf4ebd51a70139834"
     },
     {
       "Bytes": 9372,
@@ -156,9 +156,9 @@
       "SHA256": "0f3df745dd609af1877b1246c63fd4414107def21f67753334d0bcb98150996d"
     },
     {
-      "Bytes": 3333,
+      "Bytes": 3640,
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "1d5ba572c5da09700f2c5c298eafdb385ec4185bf49912113d45e1077128c197"
+      "SHA256": "ca44a607046cdfd1964a7223d19db156967c6a00bb020a046f96949fd789d86a"
     },
     {
       "Bytes": 348,

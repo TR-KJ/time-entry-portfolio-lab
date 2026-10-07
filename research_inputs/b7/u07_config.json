@@ -1,0 +1,103 @@
+{
+  "SchemaVersion": 1,
+  "Scope": "U07_IMPLEMENTATION_ONLY",
+  "U06ResultFreezeSHA": "c526dc1bb49d168376e5cb4858174524c0a63f7a",
+  "InputSHA256": "fbb78686e8a767bb8fbaa903e9b89eee99d9c856b2182d29f1953bb51273fe39",
+  "CandidateCount": 56,
+  "NoReplacement": true,
+  "DiscoveryBounds": [
+    "2020-01-01",
+    "2024-01-01"
+  ],
+  "U07": {
+    "FixedAcrossWeekdays": [
+      "Pair",
+      "Direction",
+      "Entry",
+      "Exit",
+      "SL",
+      "TP"
+    ],
+    "IndividualDiagnostics": [
+      "Trades",
+      "Wins",
+      "Losses",
+      "ZeroPips",
+      "AvgPips",
+      "TotalPips",
+      "PFpips",
+      "MaxDDPips",
+      "annual metrics",
+      "PositiveYearCount",
+      "NegativeYearCount"
+    ],
+    "COREGateRef": "GateDefinitions.U01Equivalent",
+    "SUPPORTGateRef": "GateDefinitions.U02Individual",
+    "SUPPORT": "Not CORE but passes SUPPORT gate",
+    "Other": "NON_SUPPORT",
+    "Anchor": "U04 family representative Entry weekday; must remain CORE after formal SL/TP, otherwise DROP",
+    "Sets": {
+      "W0": "Anchor only",
+      "W1": "All CORE",
+      "W2": "All CORE + SUPPORT",
+      "W3": "All Mon-Fri"
+    },
+    "DeduplicateSets": true,
+    "MaximumSets": 4,
+    "ArbitrarySubsetSearchAllowed": false,
+    "FormalSetGateRef": "GateDefinitions.U01Equivalent",
+    "Best": "Formal PASS set with maximum MedianAnnualAvgPips",
+    "PlateauAllRequired": [
+      "Set MedianAnnualAvgPips >= Best MedianAnnualAvgPips * 0.80",
+      "Set PositiveYearCount >= Best PositiveYearCount"
+    ],
+    "Selection": "Most active weekdays in plateau",
+    "TiePriority": [
+      "W3",
+      "W2",
+      "W1",
+      "W0"
+    ]
+  },
+  "BestTieSupplement": {
+    "Source": "Explicit user decision 2026-10-07 before U07 execution",
+    "BestRanking": [
+      "MedianAnnualAvgPips DESC",
+      "PositiveYearCount DESC",
+      "W3 > W2 > W1 > W0"
+    ],
+    "PlateauUnchanged": true,
+    "FinalSelectionUnchanged": true
+  },
+  "FrozenSources": {
+    "research_inputs/b7/u07_selected56_input.json": "fbb78686e8a767bb8fbaa903e9b89eee99d9c856b2182d29f1953bb51273fe39",
+    "results/b7/u06/drive_checkpoint_audit.json": "bae7d3e9e3620bbf58dc274b0625abb75e6934e4b584f58301763da01c8030c4",
+    "results/b7/u06/input_identity.json": "c5a50dd802f5f79b2a100a8afa79eb5c676486b5f7a873efa9b30cc939a1f78d",
+    "research_inputs/b7/u06_selected72_input.json": "09b5b5ec4944474e02eb51e8b6fce8e5b3193857d759b9c08fbfdb31d8b8fa1a",
+    "research_inputs/b7/full_research_prespec.json": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea",
+    "research_inputs/b7/expected_m1_manifest.csv": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a"
+  },
+  "FinalizeProducerPin": "Caller must explicitly supply reviewed producer SHA equal to clean checked-out Implementation Freeze SHA; source identity must equal it. Never infer producer pin from source.",
+  "Smoke": {
+    "Symbols": [
+      "USDJPY",
+      "EURUSD"
+    ],
+    "Bounds": [
+      "2020-02-03 09:00",
+      "2020-02-07 09:35"
+    ],
+    "EntryMinute": 540,
+    "HoldingMinutes": 30,
+    "Directions": [
+      "LONG",
+      "SHORT"
+    ],
+    "SLPips": 15,
+    "TPPips": [
+      null,
+      10
+    ],
+    "Formal56Used": false
+  }
+}

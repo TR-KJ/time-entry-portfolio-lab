@@ -1,0 +1,11 @@
+{
+  "Status": "PASS",
+  "CandidateCount": 56,
+  "UniqueCandidateCount": 56,
+  "U06ResultFreezeSHA": "c526dc1bb49d168376e5cb4858174524c0a63f7a",
+  "U07InputSHA256": "fbb78686e8a767bb8fbaa903e9b89eee99d9c856b2182d29f1953bb51273fe39",
+  "SourceCandidateCheckpointHashes": "56/56 exact against frozen U06 Drive audit",
+  "AnchorSource": "Frozen Schedule.Weekday",
+  "NoReplacement": true,
+  "FormalPerformanceEvaluated": false
+}

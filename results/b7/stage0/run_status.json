@@ -48,7 +48,7 @@
   "NewPerformanceResultsOpened": true,
   "FullResearchPrespec": "research_inputs/b7/full_research_prespec.json",
   "FullResearchConditions": "docs/b7/full_research_conditions_freeze.md",
-  "NextAuthorizationRequired": "Separate instruction for B7 U07 Implementation Only",
+  "NextAuthorizationRequired": "Separate Chat approval after U07 Implementation Freeze review, then Google Colab U07 formal run",
   "Stage1ImplementationStatus": "FROZEN",
   "ImplementationDocumentation": "docs/b7/stage1_implementation.md",
   "Stage1FinalizeOnlyImplementationStatus": "FROZEN",
@@ -70,10 +70,16 @@
   "U06": "COMPLETE_U06_ONLY_FROZEN",
   "U06ResultFrozen": true,
   "U06ExecutionComplete": true,
-  "U07ImplementationAuthorized": false,
+  "U07ImplementationAuthorized": true,
   "U07Executed": false,
   "U07AndLaterExecuted": false,
   "NoReplacement": true,
   "U06ArchiveAudited": true,
-  "U06DriveCheckpointAudited": true
+  "U06DriveCheckpointAudited": true,
+  "U07ConditionsFrozen": true,
+  "U07ImplementationStatus": "FROZEN_READY_FOR_CHAT_REVIEW",
+  "U07ExecutionAuthorized": false,
+  "U07FinalizeOnlyImplementationStatus": "FROZEN_READY_FOR_CHAT_REVIEW",
+  "U08ImplementationAuthorized": false,
+  "U08Executed": false
 }
