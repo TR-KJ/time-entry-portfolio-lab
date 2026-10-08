@@ -1,0 +1,1102 @@
+{
+  "ActiveWeekdayCount": {
+    "1": 55,
+    "2": 0,
+    "3": 1,
+    "4": 0,
+    "5": 0
+  },
+  "All280Classification": {
+    "CORE": 85,
+    "NON_SUPPORT": 181,
+    "SUPPORT": 14
+  },
+  "AnchorCORE": 56,
+  "AnchorOnly": 55,
+  "CandidateWeekdaySummary": [
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDJPY:LONG:MON:E0765:D1:X0720:H1395",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 1,
+      "SetName": "W2",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDJPY:LONG:MON:E0730:D1:X0720:H1430",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 2,
+      "SetName": "W2",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDJPY:LONG:MON:E0830:D1:X0720:H1330",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 3,
+      "SetName": "W2",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDJPY:LONG:MON:E0765:D1:X0535:H1210",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 4,
+      "SetName": "W2",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDJPY:LONG:MON:E0695:D1:X0530:H1275",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 5,
+      "SetName": "W2",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDJPY:LONG:MON:E0675:D1:X0595:H1360",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 6,
+      "SetName": "W2",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDJPY:LONG:MON:E0825:D1:X0815:H1430",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 7,
+      "SetName": "W2",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDJPY:LONG:MON:E0765:D1:X0610:H1285",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 8,
+      "SetName": "W2",
+      "Symbol": "AUDJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDUSD:LONG:MON:E0775:D1:X0750:H1415",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 1,
+      "SetName": "W2",
+      "Symbol": "AUDUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDUSD:LONG:MON:E0850:D1:X0750:H1340",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 2,
+      "SetName": "W2",
+      "Symbol": "AUDUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDUSD:LONG:MON:E0815:D1:X0750:H1375",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 3,
+      "SetName": "W2",
+      "Symbol": "AUDUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDUSD:LONG:MON:E0780:D1:X0720:H1380",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 4,
+      "SetName": "W2",
+      "Symbol": "AUDUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDUSD:LONG:MON:E0860:D1:X0720:H1300",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 5,
+      "SetName": "W2",
+      "Symbol": "AUDUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDUSD:LONG:MON:E0960:D1:X0750:H1230",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 6,
+      "SetName": "W2",
+      "Symbol": "AUDUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:AUDUSD:LONG:MON:E0820:D1:X0700:H1320",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 8,
+      "SetName": "W2",
+      "Symbol": "AUDUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURAUD:SHORT:MON:E0755:D1:X0365:H1050",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 1,
+      "SetName": "W0",
+      "Symbol": "EURAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURAUD:SHORT:MON:E1200:D1:X0365:H0605",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 2,
+      "SetName": "W0",
+      "Symbol": "EURAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURAUD:SHORT:MON:E1060:D1:X0365:H0745",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 3,
+      "SetName": "W0",
+      "Symbol": "EURAUD"
+    },
+    {
+      "ActiveWeekdayCount": 3,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURAUD:SHORT:MON:E1135:D1:X0365:H0670",
+      "FormalWeekdays": [
+        0,
+        1,
+        2
+      ],
+      "PairRank": 4,
+      "SetName": "W1",
+      "Symbol": "EURAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURAUD:SHORT:MON:E1200:D1:X0425:H0665",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 5,
+      "SetName": "W0",
+      "Symbol": "EURAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 3,
+      "CandidateID": "B7S1:EURAUD:LONG:THU:E0365:D0:X0600:H0235",
+      "FormalWeekdays": [
+        3
+      ],
+      "PairRank": 6,
+      "SetName": "W0",
+      "Symbol": "EURAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 4,
+      "CandidateID": "B7S1:EURAUD:LONG:FRI:E0120:D1:X0075:H1395",
+      "FormalWeekdays": [
+        4
+      ],
+      "PairRank": 7,
+      "SetName": "W0",
+      "Symbol": "EURAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURAUD:SHORT:MON:E1100:D1:X0365:H0705",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 8,
+      "SetName": "W0",
+      "Symbol": "EURAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURJPY:LONG:MON:E0765:D1:X0720:H1395",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 1,
+      "SetName": "W2",
+      "Symbol": "EURJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURJPY:LONG:MON:E0425:D1:X0220:H1235",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 2,
+      "SetName": "W0",
+      "Symbol": "EURJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURJPY:LONG:MON:E0730:D1:X0720:H1430",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 3,
+      "SetName": "W2",
+      "Symbol": "EURJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURJPY:LONG:MON:E0765:D1:X0535:H1210",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 4,
+      "SetName": "W1",
+      "Symbol": "EURJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURJPY:LONG:MON:E0655:D1:X0355:H1140",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 5,
+      "SetName": "W0",
+      "Symbol": "EURJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURJPY:LONG:MON:E0610:D1:X0555:H1385",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 6,
+      "SetName": "W0",
+      "Symbol": "EURJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURJPY:LONG:MON:E0715:D1:X0555:H1280",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 7,
+      "SetName": "W0",
+      "Symbol": "EURJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURJPY:LONG:MON:E0825:D1:X0720:H1335",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 8,
+      "SetName": "W2",
+      "Symbol": "EURJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1280:H0915",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 1,
+      "SetName": "W2",
+      "Symbol": "EURUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1155:H0790",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 2,
+      "SetName": "W1",
+      "Symbol": "EURUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 4,
+      "CandidateID": "B7S1:EURUSD:SHORT:FRI:E0900:D0:X1370:H0470",
+      "FormalWeekdays": [
+        4
+      ],
+      "PairRank": 3,
+      "SetName": "W2",
+      "Symbol": "EURUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1115:H0750",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 4,
+      "SetName": "W1",
+      "Symbol": "EURUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:EURUSD:SHORT:TUE:E1375:D1:X1270:H1335",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 5,
+      "SetName": "W2",
+      "Symbol": "EURUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:EURUSD:LONG:MON:E0945:D1:X0750:H1245",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 6,
+      "SetName": "W2",
+      "Symbol": "EURUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1245:H0880",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 7,
+      "SetName": "W2",
+      "Symbol": "EURUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1195:H0830",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 8,
+      "SetName": "W2",
+      "Symbol": "EURUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1140:D1:X0370:H0670",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 1,
+      "SetName": "W0",
+      "Symbol": "GBPAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1200:D1:X0370:H0610",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 2,
+      "SetName": "W0",
+      "Symbol": "GBPAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1275:D1:X0370:H0535",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 3,
+      "SetName": "W0",
+      "Symbol": "GBPAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1235:D1:X0370:H0575",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 4,
+      "SetName": "W2",
+      "Symbol": "GBPAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 2,
+      "CandidateID": "B7S1:GBPAUD:SHORT:WED:E0115:D0:X1370:H1255",
+      "FormalWeekdays": [
+        2
+      ],
+      "PairRank": 5,
+      "SetName": "W2",
+      "Symbol": "GBPAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:GBPAUD:LONG:TUE:E0360:D0:X1420:H1060",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 7,
+      "SetName": "W1",
+      "Symbol": "GBPAUD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPJPY:LONG:MON:E0820:D1:X0810:H1430",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 1,
+      "SetName": "W1",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPJPY:LONG:MON:E0820:D1:X0755:H1375",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 2,
+      "SetName": "W1",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPJPY:LONG:MON:E0765:D1:X0755:H1430",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 3,
+      "SetName": "W1",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPJPY:LONG:MON:E0820:D1:X0720:H1340",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 4,
+      "SetName": "W1",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPJPY:LONG:MON:E0765:D1:X0720:H1395",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 5,
+      "SetName": "W1",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPJPY:LONG:MON:E0835:D1:X0790:H1395",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 6,
+      "SetName": "W0",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPJPY:LONG:MON:E0730:D1:X0720:H1430",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 7,
+      "SetName": "W0",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:GBPJPY:LONG:MON:E0870:D1:X0810:H1380",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 8,
+      "SetName": "W0",
+      "Symbol": "GBPJPY"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0365:D0:X1120:H0755",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 4,
+      "SetName": "W1",
+      "Symbol": "GBPUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 1,
+      "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0370:D0:X1180:H0810",
+      "FormalWeekdays": [
+        1
+      ],
+      "PairRank": 7,
+      "SetName": "W1",
+      "Symbol": "GBPUSD"
+    },
+    {
+      "ActiveWeekdayCount": 1,
+      "AnchorWeekday": 0,
+      "CandidateID": "B7S1:USDJPY:LONG:MON:E0835:D1:X0355:H0960",
+      "FormalWeekdays": [
+        0
+      ],
+      "PairRank": 4,
+      "SetName": "W0",
+      "Symbol": "USDJPY"
+    }
+  ],
+  "CanonicalSetName": {
+    "W0": 18,
+    "W1": 12,
+    "W2": 26,
+    "W3": 0
+  },
+  "DROP_U07_ANCHOR_NOT_CORE": 0,
+  "ExpandedCandidate": {
+    "AnchorWeekday": 0,
+    "CandidateID": "B7S1:EURAUD:SHORT:MON:E1135:D1:X0365:H0670",
+    "FormalWeekdays": [
+      0,
+      1,
+      2
+    ],
+    "PairRank": 4,
+    "SetName": "W1",
+    "Symbol": "EURAUD",
+    "WeekdayDiagnostics": [
+      {
+        "Classification": "CORE",
+        "Metrics": {
+          "Annual": {
+            "2020": {
+              "AvgPips": 7.488235294116731,
+              "Losses": 23,
+              "MaxDDPips": 588.0000000000082,
+              "PFState": "FINITE",
+              "PFpips": 1.2939501231526702,
+              "TotalPips": 381.8999999999533,
+              "Trades": 51,
+              "Wins": 28,
+              "ZeroPips": 0
+            },
+            "2021": {
+              "AvgPips": 10.4372549019602,
+              "Losses": 17,
+              "MaxDDPips": 119.90000000000046,
+              "PFState": "FINITE",
+              "PFpips": 1.9563420768953674,
+              "TotalPips": 532.2999999999702,
+              "Trades": 51,
+              "Wins": 34,
+              "ZeroPips": 0
+            },
+            "2022": {
+              "AvgPips": 0.3519999999992083,
+              "Losses": 24,
+              "MaxDDPips": 261.1000000000095,
+              "PFState": "FINITE",
+              "PFpips": 1.0150995195607073,
+              "TotalPips": 17.599999999960414,
+              "Trades": 50,
+              "Wins": 26,
+              "ZeroPips": 0
+            },
+            "2023": {
+              "AvgPips": 17.631999999998783,
+              "Losses": 18,
+              "MaxDDPips": 136.40000000000197,
+              "PFState": "FINITE",
+              "PFpips": 2.5228882363100715,
+              "TotalPips": 881.5999999999391,
+              "Trades": 50,
+              "Wins": 32,
+              "ZeroPips": 0
+            }
+          },
+          "AvgPips": 8.9772277227714,
+          "Losses": 82,
+          "MaxDDPips": 588.0000000000082,
+          "MedianAnnualAvgPips": 8.962745098038466,
+          "NegativeYearCount": 0,
+          "PFState": "FINITE",
+          "PFpips": 1.5036802488680914,
+          "PositiveYearCount": 4,
+          "TotalPips": 1813.3999999998227,
+          "Trades": 202,
+          "Wins": 120,
+          "WorstYearAvgPips": 0.3519999999992083,
+          "ZeroPips": 0
+        },
+        "Weekday": 0
+      },
+      {
+        "Classification": "CORE",
+        "Metrics": {
+          "Annual": {
+            "2020": {
+              "AvgPips": 4.570588235293176,
+              "Losses": 24,
+              "MaxDDPips": 352.60000000000815,
+              "PFState": "FINITE",
+              "PFpips": 1.2230622009568868,
+              "TotalPips": 233.09999999995196,
+              "Trades": 51,
+              "Wins": 27,
+              "ZeroPips": 0
+            },
+            "2021": {
+              "AvgPips": 4.837254901959868,
+              "Losses": 23,
+              "MaxDDPips": 261.3000000000308,
+              "PFState": "FINITE",
+              "PFpips": 1.3014786753023901,
+              "TotalPips": 246.69999999995326,
+              "Trades": 51,
+              "Wins": 28,
+              "ZeroPips": 0
+            },
+            "2022": {
+              "AvgPips": 4.825490196077424,
+              "Losses": 24,
+              "MaxDDPips": 323.9000000000056,
+              "PFState": "FINITE",
+              "PFpips": 1.2016882478281792,
+              "TotalPips": 246.09999999994864,
+              "Trades": 51,
+              "Wins": 27,
+              "ZeroPips": 0
+            },
+            "2023": {
+              "AvgPips": 12.123999999999182,
+              "Losses": 17,
+              "MaxDDPips": 239.70000000000692,
+              "PFState": "FINITE",
+              "PFpips": 1.8445249373083763,
+              "TotalPips": 606.1999999999591,
+              "Trades": 50,
+              "Wins": 33,
+              "ZeroPips": 0
+            }
+          },
+          "AvgPips": 6.562068965516321,
+          "Losses": 88,
+          "MaxDDPips": 352.60000000000815,
+          "MedianAnnualAvgPips": 4.831372549018646,
+          "NegativeYearCount": 0,
+          "PFState": "FINITE",
+          "PFpips": 1.3504327466918649,
+          "PositiveYearCount": 4,
+          "TotalPips": 1332.0999999998132,
+          "Trades": 203,
+          "Wins": 115,
+          "WorstYearAvgPips": 4.570588235293176,
+          "ZeroPips": 0
+        },
+        "Weekday": 1
+      },
+      {
+        "Classification": "CORE",
+        "Metrics": {
+          "Annual": {
+            "2020": {
+              "AvgPips": -1.1745098039224215,
+              "Losses": 26,
+              "MaxDDPips": 369.5000000000046,
+              "PFState": "FINITE",
+              "PFpips": 0.9494685338282078,
+              "TotalPips": -59.9000000000435,
+              "Trades": 51,
+              "Wins": 25,
+              "ZeroPips": 0
+            },
+            "2021": {
+              "AvgPips": 10.021568627450065,
+              "Losses": 18,
+              "MaxDDPips": 191.9000000000014,
+              "PFState": "FINITE",
+              "PFpips": 1.7523921684085697,
+              "TotalPips": 511.0999999999533,
+              "Trades": 51,
+              "Wins": 33,
+              "ZeroPips": 0
+            },
+            "2022": {
+              "AvgPips": 14.03529411764617,
+              "Losses": 22,
+              "MaxDDPips": 268.8000000000012,
+              "PFState": "FINITE",
+              "PFpips": 1.5876847290639964,
+              "TotalPips": 715.7999999999547,
+              "Trades": 51,
+              "Wins": 29,
+              "ZeroPips": 0
+            },
+            "2023": {
+              "AvgPips": 2.2705882352931055,
+              "Losses": 26,
+              "MaxDDPips": 366.70000000000744,
+              "PFState": "FINITE",
+              "PFpips": 1.1088039086723156,
+              "TotalPips": 115.79999999994837,
+              "Trades": 51,
+              "Wins": 25,
+              "ZeroPips": 0
+            }
+          },
+          "AvgPips": 6.28823529411673,
+          "Losses": 92,
+          "MaxDDPips": 369.5000000000046,
+          "MedianAnnualAvgPips": 6.146078431371586,
+          "NegativeYearCount": 1,
+          "PFState": "FINITE",
+          "PFpips": 1.3093320472630312,
+          "PositiveYearCount": 3,
+          "TotalPips": 1282.799999999813,
+          "Trades": 204,
+          "Wins": 112,
+          "WorstYearAvgPips": -1.1745098039224215,
+          "ZeroPips": 0
+        },
+        "Weekday": 2
+      },
+      {
+        "Classification": "SUPPORT",
+        "Metrics": {
+          "Annual": {
+            "2020": {
+              "AvgPips": 5.551999999999214,
+              "Losses": 24,
+              "MaxDDPips": 375.6000000000046,
+              "PFState": "FINITE",
+              "PFpips": 1.2008973802286564,
+              "TotalPips": 277.5999999999607,
+              "Trades": 50,
+              "Wins": 26,
+              "ZeroPips": 0
+            },
+            "2021": {
+              "AvgPips": -5.476470588236622,
+              "Losses": 29,
+              "MaxDDPips": 428.6000000000666,
+              "PFState": "FINITE",
+              "PFpips": 0.7354863149918963,
+              "TotalPips": -279.3000000000677,
+              "Trades": 51,
+              "Wins": 22,
+              "ZeroPips": 0
+            },
+            "2022": {
+              "AvgPips": 0.2411764705872391,
+              "Losses": 21,
+              "MaxDDPips": 286.5000000000015,
+              "PFState": "FINITE",
+              "PFpips": 1.0081532546731735,
+              "TotalPips": 12.299999999949193,
+              "Trades": 51,
+              "Wins": 30,
+              "ZeroPips": 0
+            },
+            "2023": {
+              "AvgPips": 8.374509803920624,
+              "Losses": 21,
+              "MaxDDPips": 311.50000000000995,
+              "PFState": "FINITE",
+              "PFpips": 1.4100422427034816,
+              "TotalPips": 427.0999999999518,
+              "Trades": 51,
+              "Wins": 30,
+              "ZeroPips": 0
+            }
+          },
+          "AvgPips": 2.1561576354669665,
+          "Losses": 95,
+          "MaxDDPips": 645.8000000001341,
+          "MedianAnnualAvgPips": 2.896588235293226,
+          "NegativeYearCount": 1,
+          "PFState": "FINITE",
+          "PFpips": 1.0877523607128823,
+          "PositiveYearCount": 3,
+          "TotalPips": 437.69999999979416,
+          "Trades": 203,
+          "Wins": 108,
+          "WorstYearAvgPips": -5.476470588236622,
+          "ZeroPips": 0
+        },
+        "Weekday": 3
+      },
+      {
+        "Classification": "NON_SUPPORT",
+        "Metrics": {
+          "Annual": {
+            "2020": {
+              "AvgPips": -10.856250000001026,
+              "Losses": 9,
+              "MaxDDPips": 395.5000000000084,
+              "PFState": "FINITE",
+              "PFpips": 0.6198292843072577,
+              "TotalPips": -173.70000000001642,
+              "Trades": 16,
+              "Wins": 7,
+              "ZeroPips": 0
+            },
+            "2021": {
+              "AvgPips": -2.5875000000008406,
+              "Losses": 10,
+              "MaxDDPips": 197.4000000000019,
+              "PFState": "FINITE",
+              "PFpips": 0.8946028513237964,
+              "TotalPips": -41.40000000001345,
+              "Trades": 16,
+              "Wins": 6,
+              "ZeroPips": 0
+            },
+            "2022": {
+              "AvgPips": 2.0117647058814963,
+              "Losses": 11,
+              "MaxDDPips": 253.70000000000437,
+              "PFState": "FINITE",
+              "PFpips": 1.0812158632153521,
+              "TotalPips": 34.19999999998544,
+              "Trades": 17,
+              "Wins": 6,
+              "ZeroPips": 0
+            },
+            "2023": {
+              "AvgPips": 6.1117647058810585,
+              "Losses": 8,
+              "MaxDDPips": 258.6000000000098,
+              "PFState": "FINITE",
+              "PFpips": 1.2866997792493808,
+              "TotalPips": 103.899999999978,
+              "Trades": 17,
+              "Wins": 9,
+              "ZeroPips": 0
+            }
+          },
+          "AvgPips": -1.1666666666676755,
+          "Losses": 38,
+          "MaxDDPips": 496.50000000003365,
+          "MedianAnnualAvgPips": null,
+          "NegativeYearCount": 2,
+          "PFState": "FINITE",
+          "PFpips": 0.9528532941464208,
+          "PositiveYearCount": 2,
+          "TotalPips": -77.00000000006658,
+          "Trades": 66,
+          "Wins": 28,
+          "WorstYearAvgPips": -10.856250000001026,
+          "ZeroPips": 0
+        },
+        "Weekday": 4
+      }
+    ]
+  },
+  "FinalActiveWeekdayFrequency": {
+    "0": 43,
+    "1": 10,
+    "2": 2,
+    "3": 1,
+    "4": 2
+  },
+  "FormalWeekdaySets": [
+    {
+      "Count": 42,
+      "FormalWeekdays": [
+        0
+      ]
+    },
+    {
+      "Count": 1,
+      "FormalWeekdays": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "Count": 9,
+      "FormalWeekdays": [
+        1
+      ]
+    },
+    {
+      "Count": 1,
+      "FormalWeekdays": [
+        2
+      ]
+    },
+    {
+      "Count": 1,
+      "FormalWeekdays": [
+        3
+      ]
+    },
+    {
+      "Count": 2,
+      "FormalWeekdays": [
+        4
+      ]
+    }
+  ],
+  "InputCandidates": 56,
+  "NoReplacement": true,
+  "NonAnchor224Classification": {
+    "CORE": 29,
+    "NON_SUPPORT": 181,
+    "SUPPORT": 14
+  },
+  "PASS_U07": 56,
+  "PairCounts": {
+    "AUDJPY": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 8
+    },
+    "AUDUSD": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 7
+    },
+    "EURAUD": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 8
+    },
+    "EURJPY": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 8
+    },
+    "EURUSD": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 8
+    },
+    "GBPAUD": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 6
+    },
+    "GBPJPY": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 8
+    },
+    "GBPUSD": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 2
+    },
+    "USDJPY": {
+      "DROP_U07_ANCHOR_NOT_CORE": 0,
+      "PASS_U07": 1
+    }
+  },
+  "WeekdayClassification": {
+    "0": {
+      "CORE": 43,
+      "NON_SUPPORT": 13,
+      "SUPPORT": 0
+    },
+    "1": {
+      "CORE": 24,
+      "NON_SUPPORT": 27,
+      "SUPPORT": 5
+    },
+    "2": {
+      "CORE": 10,
+      "NON_SUPPORT": 40,
+      "SUPPORT": 6
+    },
+    "3": {
+      "CORE": 5,
+      "NON_SUPPORT": 49,
+      "SUPPORT": 2
+    },
+    "4": {
+      "CORE": 3,
+      "NON_SUPPORT": 52,
+      "SUPPORT": 1
+    }
+  }
+}
