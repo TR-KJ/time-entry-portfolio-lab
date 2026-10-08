@@ -1,0 +1,29 @@
+{
+  "Status": "COMPLETE_U08_ONLY_FROZEN",
+  "U08ResultFrozen": true,
+  "U08ExecutionComplete": true,
+  "RunID": "b7_u08_20261008_01",
+  "ProducerImplementationSHA": "0b33aa5ff6ff769b11212e9b8593242fb71c680c",
+  "U07ResultFreezeSHA": "21140269596584575677421934399122614f6cd6",
+  "ConditionsFreezeSHA": "5dbac7af2d41aa912308868e6ad1a6dbf7cdd107",
+  "U08InputSHA256": "7c49b9cd0374b57f4da78eb784aa646050cba507b0ff037e303085a61deb7616",
+  "ProducerEnvironment": {
+    "NumPy": "2.3.5",
+    "Python": "3.13.16",
+    "pandas": "2.2.3"
+  },
+  "ProducerIdentitySHA256": "f86e3a06c9c4811d31d28e06fbbb902a87852c235148c3488f8c3217ef7c630a",
+  "ArchivePath": "/MyDrive/b7_u08_20261008_01_archive",
+  "CheckpointPath": "/MyDrive/b7_u08_20261008_01_checkpoints",
+  "CandidateResults": {
+    "Bytes": 2301721,
+    "Path": "candidate_results.json",
+    "SHA256": "d46fa97f66e4ee642c057eecb212d1762ff6a947d550c3f13faf5070115d4d6f"
+  },
+  "U09Input": {
+    "Path": "research_inputs/b7/u09_selected54_input.json",
+    "SHA256": "8faa886c3d1a72e8020688b8931481d81d1df637d63b0b368e0171b8d1dce2ca",
+    "Bytes": 99948
+  },
+  "NoReplacement": true
+}

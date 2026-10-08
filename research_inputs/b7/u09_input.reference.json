@@ -1,0 +1,25 @@
+{
+  "Status": "FROZEN_INPUT_ONLY",
+  "CandidateCount": 54,
+  "NoReplacement": true,
+  "U08ProducerImplementationSHA": "0b33aa5ff6ff769b11212e9b8593242fb71c680c",
+  "U08Archive": "/MyDrive/b7_u08_20261008_01_archive",
+  "U08CheckpointRoot": "/MyDrive/b7_u08_20261008_01_checkpoints",
+  "CandidateResults": {
+    "Bytes": 2301721,
+    "Path": "candidate_results.json",
+    "SHA256": "d46fa97f66e4ee642c057eecb212d1762ff6a947d550c3f13faf5070115d4d6f"
+  },
+  "ArchiveZIP": {
+    "Bytes": 376441,
+    "Path": "archive.zip",
+    "SHA256": "a435b887892e0f8107234dd4d1b9a5a64987bf98a33737b548ae2e79a0564e75"
+  },
+  "FrozenInput": {
+    "Path": "research_inputs/b7/u09_selected54_input.json",
+    "SHA256": "8faa886c3d1a72e8020688b8931481d81d1df637d63b0b368e0171b8d1dce2ca",
+    "Bytes": 99948
+  },
+  "U09ImplementationAuthorized": false,
+  "U09Executed": false
+}

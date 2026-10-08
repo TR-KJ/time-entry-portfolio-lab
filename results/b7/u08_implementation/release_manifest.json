@@ -30,8 +30,8 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "60087f555b2ac3e48222a17eaaac2b1c3de89105bd6e4c1ca7ab59ccfed1baac",
-      "Bytes": 17409
+      "SHA256": "85c327fe749484adde0bd52bd6d6502d89eb374f4f63c1b85bcc690fe2e67004",
+      "Bytes": 19126
     },
     {
       "Path": "docs/b7/stage0_validation.md",
@@ -225,32 +225,32 @@
     },
     {
       "Path": "results/b7/stage0/artifact_manifest.json",
-      "SHA256": "943aa5630cd3b612ff9e12ee4c3a96d561765caa36e49dee4c84b3b48ddd85fe",
+      "SHA256": "6f13e8312d5e281773ef53a598b8832d2e99f6f11c1108518b484b7437df15c0",
       "Bytes": 7679
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "698164de2de03ec3fcdc1651d208394445f8b20b3aa89bc72567d536907521dc",
-      "Bytes": 4042
+      "SHA256": "1f3d7c1c0bf32ef6afb6670b93979214e2e2e4880524bfd919277cd09d641943",
+      "Bytes": 4170
     },
     {
       "Path": "results/b7/stage1_finalize_only/release_manifest.json",
-      "SHA256": "5102192da800a7aa63e9355b5371727ebf7be328a258a43ec6d7b3f40ba8327a",
+      "SHA256": "61c822532710be1b854cc6e0fe6d9dce2dd3e1cf220c01795bd447470f5c4d15",
       "Bytes": 7919
     },
     {
       "Path": "results/b7/stage1_implementation/release_manifest.json",
-      "SHA256": "2c4ad91a057b5fdf4c9cf43e2c17bb4891cb9731a111a962bf8f9fc6345b0b4f",
+      "SHA256": "266e6426bc3f55b7998bc3295d532cba6407cbc3ebe277277accc0a866c37788",
       "Bytes": 8044
     },
     {
       "Path": "results/b7/u06_finalize_only/release_manifest.json",
-      "SHA256": "f4f2fb629f9861767bfcfc8203c8dfaf7dd02b6c63e891b617c9d4e87657fa00",
+      "SHA256": "7822065dee3d14a310de4a110e140bd826f04ff84a249b20cd3c00826070fd2b",
       "Bytes": 13910
     },
     {
       "Path": "results/b7/u06_implementation/release_manifest.json",
-      "SHA256": "e99acdc5fa77cf28ba740aa8c56c50922433c5ce93441f75006f227a0a99de18",
+      "SHA256": "4f8a998c91dc9a35a9ec532ee5197b1656995f30df3337522d729331e63594aa",
       "Bytes": 13214
     },
     {
@@ -325,7 +325,7 @@
     },
     {
       "Path": "results/b7/u07_implementation/release_manifest.json",
-      "SHA256": "d688ba9cc7553d34c0343c3d8ae8c2c8a841f32e4bca7d512ec9f691e00acd7f",
+      "SHA256": "07b8979f136d9d401c2d8baf9838ab520a7544e75daddf1389e007d7fb24c47d",
       "Bytes": 17259
     },
     {

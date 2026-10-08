@@ -1,0 +1,2358 @@
+{
+  "ArchivePath": "/MyDrive/b7_u08_20261008_01_archive",
+  "CheckpointPath": "/MyDrive/b7_u08_20261008_01_checkpoints",
+  "Checks": [
+    "COMPLETE_HASHES",
+    "MANIFEST_HASHES_BYTES",
+    "ALL_ZIP_MEMBERS_HASHES_BYTES_CRC",
+    "EXACT_PRODUCER_ENVIRONMENT_IDENTITY",
+    "ACTUAL_56_DRIVE_JOBS_169_TRUSTED_FILES",
+    "ARCHIVE_EQUALS_CHECKPOINTS",
+    "ALL_REQUESTED_INDEPENDENT_RECOUNTS",
+    "FIXED_INPUT_FIELDS_UNCHANGED",
+    "DROP_NO_FALLBACK_NO_MONTH",
+    "PASS54_DOM0",
+    "MONTH_NO_ADDED_GATE",
+    "BOUND_PF_MEDIAN_SUPPLEMENT",
+    "U09_EXACT_PASS54_PROJECTION",
+    "SOURCE_UNCHANGED"
+  ],
+  "Files": [
+    {
+      "Bytes": 197,
+      "Path": "COMPLETE.json",
+      "SHA256": "1bc84ac298001a0d52b939380a410b83ab3d68c80ff024f3df20c89f66ae46fb"
+    },
+    {
+      "Bytes": 376441,
+      "Path": "archive.zip",
+      "SHA256": "a435b887892e0f8107234dd4d1b9a5a64987bf98a33737b548ae2e79a0564e75"
+    },
+    {
+      "Bytes": 1081,
+      "Path": "artifact_manifest.json",
+      "SHA256": "33227a1ca651e76818d8865478e79627589f4487d29269054f438abf250c348d"
+    },
+    {
+      "Bytes": 12690,
+      "Path": "calendar_summary.json",
+      "SHA256": "211fb8d1a12ad0dd36f561f0fb7f343100fc43ddb50429bf70308602b0fe64b3"
+    },
+    {
+      "Bytes": 2301721,
+      "Path": "candidate_results.json",
+      "SHA256": "d46fa97f66e4ee642c057eecb212d1762ff6a947d550c3f13faf5070115d4d6f"
+    },
+    {
+      "Bytes": 8230,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "a9fa293e76955149b1fec5c946206456a89380d514536912bcbcbc25745add18"
+    },
+    {
+      "Bytes": 58,
+      "Path": "dom_summary.json",
+      "SHA256": "ad84c3c2537e594a54726e3d8c7c8c88bca43df014dc787f0181c173bb4be385"
+    },
+    {
+      "Bytes": 19597,
+      "Path": "input_identity.json",
+      "SHA256": "f9e4de991db104f6a92ea0a64d9f4a7282e259ef4baede0772bfa48209205cc0"
+    },
+    {
+      "Bytes": 159,
+      "Path": "month_summary.json",
+      "SHA256": "2835f8a39efebdb3ae5d2864d06e4b3d6eee755ad986560776d679005b050dda"
+    },
+    {
+      "Bytes": 246,
+      "Path": "pair_summary.json",
+      "SHA256": "4079996ab0fc289012181bfbed975dc79e8f05f00cb6146d0a71e7dbcf47ee71"
+    },
+    {
+      "Bytes": 20380,
+      "Path": "preflight.json",
+      "SHA256": "b3568b75ac23abf979e5f292d6f2fe73044cf585d7f4a0731f8b3e5ccc422394"
+    },
+    {
+      "Bytes": 175,
+      "Path": "review.json",
+      "SHA256": "a2e722c4ebede183272f64bb840b29f53bfeff6c43b40344d59754de6f801a31"
+    }
+  ],
+  "Status": "PASS",
+  "Summary": {
+    "CalendarFreeze": [
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:AUDJPY:LONG:MON:E0765:D1:X0720:H1395",
+        "PairRank": 1,
+        "Symbol": "AUDJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDJPY:LONG:MON:E0730:D1:X0720:H1430",
+        "PairRank": 2,
+        "Symbol": "AUDJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:AUDJPY:LONG:MON:E0830:D1:X0720:H1330",
+        "PairRank": 3,
+        "Symbol": "AUDJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDJPY:LONG:MON:E0765:D1:X0535:H1210",
+        "PairRank": 4,
+        "Symbol": "AUDJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDJPY:LONG:MON:E0695:D1:X0530:H1275",
+        "PairRank": 5,
+        "Symbol": "AUDJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDJPY:LONG:MON:E0675:D1:X0595:H1360",
+        "PairRank": 6,
+        "Symbol": "AUDJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDJPY:LONG:MON:E0825:D1:X0815:H1430",
+        "PairRank": 7,
+        "Symbol": "AUDJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDJPY:LONG:MON:E0765:D1:X0610:H1285",
+        "PairRank": 8,
+        "Symbol": "AUDJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1,
+            3
+          ]
+        },
+        "CandidateID": "B7S1:AUDUSD:LONG:MON:E0775:D1:X0750:H1415",
+        "PairRank": 1,
+        "Symbol": "AUDUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDUSD:LONG:MON:E0850:D1:X0750:H1340",
+        "PairRank": 2,
+        "Symbol": "AUDUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDUSD:LONG:MON:E0815:D1:X0750:H1375",
+        "PairRank": 3,
+        "Symbol": "AUDUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1,
+            3
+          ]
+        },
+        "CandidateID": "B7S1:AUDUSD:LONG:MON:E0780:D1:X0720:H1380",
+        "PairRank": 4,
+        "Symbol": "AUDUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDUSD:LONG:MON:E0860:D1:X0720:H1300",
+        "PairRank": 5,
+        "Symbol": "AUDUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDUSD:LONG:MON:E0960:D1:X0750:H1230",
+        "PairRank": 6,
+        "Symbol": "AUDUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:AUDUSD:LONG:MON:E0820:D1:X0700:H1320",
+        "PairRank": 8,
+        "Symbol": "AUDUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:EURAUD:SHORT:MON:E0755:D1:X0365:H1050",
+        "PairRank": 1,
+        "Symbol": "EURAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:EURAUD:SHORT:MON:E1200:D1:X0365:H0605",
+        "PairRank": 2,
+        "Symbol": "EURAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:EURAUD:SHORT:MON:E1060:D1:X0365:H0745",
+        "PairRank": 3,
+        "Symbol": "EURAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0,
+            1,
+            2
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1,
+            3
+          ]
+        },
+        "CandidateID": "B7S1:EURAUD:SHORT:MON:E1135:D1:X0365:H0670",
+        "PairRank": 4,
+        "Symbol": "EURAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1,
+            3
+          ]
+        },
+        "CandidateID": "B7S1:EURAUD:SHORT:MON:E1200:D1:X0425:H0665",
+        "PairRank": 5,
+        "Symbol": "EURAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            3
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:EURAUD:LONG:THU:E0365:D0:X0600:H0235",
+        "PairRank": 6,
+        "Symbol": "EURAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            4
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            6
+          ]
+        },
+        "CandidateID": "B7S1:EURAUD:LONG:FRI:E0120:D1:X0075:H1395",
+        "PairRank": 7,
+        "Symbol": "EURAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1,
+            3
+          ]
+        },
+        "CandidateID": "B7S1:EURAUD:SHORT:MON:E1100:D1:X0365:H0705",
+        "PairRank": 8,
+        "Symbol": "EURAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:EURJPY:LONG:MON:E0765:D1:X0720:H1395",
+        "PairRank": 1,
+        "Symbol": "EURJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            9
+          ]
+        },
+        "CandidateID": "B7S1:EURJPY:LONG:MON:E0425:D1:X0220:H1235",
+        "PairRank": 2,
+        "Symbol": "EURJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:EURJPY:LONG:MON:E0730:D1:X0720:H1430",
+        "PairRank": 3,
+        "Symbol": "EURJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            2
+          ]
+        },
+        "CandidateID": "B7S1:EURJPY:LONG:MON:E0765:D1:X0535:H1210",
+        "PairRank": 4,
+        "Symbol": "EURJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            2
+          ]
+        },
+        "CandidateID": "B7S1:EURJPY:LONG:MON:E0655:D1:X0355:H1140",
+        "PairRank": 5,
+        "Symbol": "EURJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            2
+          ]
+        },
+        "CandidateID": "B7S1:EURJPY:LONG:MON:E0610:D1:X0555:H1385",
+        "PairRank": 6,
+        "Symbol": "EURJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            2
+          ]
+        },
+        "CandidateID": "B7S1:EURJPY:LONG:MON:E0715:D1:X0555:H1280",
+        "PairRank": 7,
+        "Symbol": "EURJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            2
+          ]
+        },
+        "CandidateID": "B7S1:EURJPY:LONG:MON:E0825:D1:X0720:H1335",
+        "PairRank": 8,
+        "Symbol": "EURJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            1
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            7,
+            1
+          ]
+        },
+        "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1280:H0915",
+        "PairRank": 1,
+        "Symbol": "EURUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            1
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            7,
+            1
+          ]
+        },
+        "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1155:H0790",
+        "PairRank": 2,
+        "Symbol": "EURUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            12
+          ],
+          "FormalWeekdays": [
+            4
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            11,
+            7
+          ]
+        },
+        "CandidateID": "B7S1:EURUSD:SHORT:FRI:E0900:D0:X1370:H0470",
+        "PairRank": 3,
+        "Symbol": "EURUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            1
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            7,
+            3
+          ]
+        },
+        "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1115:H0750",
+        "PairRank": 4,
+        "Symbol": "EURUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:EURUSD:LONG:MON:E0945:D1:X0750:H1245",
+        "PairRank": 6,
+        "Symbol": "EURUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            1
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            7
+          ]
+        },
+        "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1245:H0880",
+        "PairRank": 7,
+        "Symbol": "EURUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1140:D1:X0370:H0670",
+        "PairRank": 1,
+        "Symbol": "GBPAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1200:D1:X0370:H0610",
+        "PairRank": 2,
+        "Symbol": "GBPAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1275:D1:X0370:H0535",
+        "PairRank": 3,
+        "Symbol": "GBPAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            1
+          ]
+        },
+        "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1235:D1:X0370:H0575",
+        "PairRank": 4,
+        "Symbol": "GBPAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            2
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPAUD:SHORT:WED:E0115:D0:X1370:H1255",
+        "PairRank": 5,
+        "Symbol": "GBPAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            1
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPAUD:LONG:TUE:E0360:D0:X1420:H1060",
+        "PairRank": 7,
+        "Symbol": "GBPAUD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPJPY:LONG:MON:E0820:D1:X0810:H1430",
+        "PairRank": 1,
+        "Symbol": "GBPJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPJPY:LONG:MON:E0820:D1:X0755:H1375",
+        "PairRank": 2,
+        "Symbol": "GBPJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPJPY:LONG:MON:E0765:D1:X0755:H1430",
+        "PairRank": 3,
+        "Symbol": "GBPJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPJPY:LONG:MON:E0820:D1:X0720:H1340",
+        "PairRank": 4,
+        "Symbol": "GBPJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPJPY:LONG:MON:E0765:D1:X0720:H1395",
+        "PairRank": 5,
+        "Symbol": "GBPJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPJPY:LONG:MON:E0835:D1:X0790:H1395",
+        "PairRank": 6,
+        "Symbol": "GBPJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPJPY:LONG:MON:E0730:D1:X0720:H1430",
+        "PairRank": 7,
+        "Symbol": "GBPJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": []
+        },
+        "CandidateID": "B7S1:GBPJPY:LONG:MON:E0870:D1:X0810:H1380",
+        "PairRank": 8,
+        "Symbol": "GBPJPY"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            1
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            3,
+            6
+          ]
+        },
+        "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0365:D0:X1120:H0755",
+        "PairRank": 4,
+        "Symbol": "GBPUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            1
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            7
+          ]
+        },
+        "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0370:D0:X1180:H0810",
+        "PairRank": 7,
+        "Symbol": "GBPUSD"
+      },
+      {
+        "CalendarFreeze": {
+          "FormalDOMBuckets": [
+            "D1",
+            "D2",
+            "D3"
+          ],
+          "FormalMonths": [
+            1,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "FormalWeekdays": [
+            0
+          ],
+          "OFFBuckets": [],
+          "OFFMonths": [
+            2
+          ]
+        },
+        "CandidateID": "B7S1:USDJPY:LONG:MON:E0835:D1:X0355:H0960",
+        "PairRank": 4,
+        "Symbol": "USDJPY"
+      }
+    ],
+    "ComparisonSupplement": {
+      "MedianStrictImprovement": "Both non-null and candidate > baseline; either null is false; unchanged stage1_metrics semantics",
+      "MonthFinalU01Gate": false,
+      "NewSampleGate": false,
+      "PFOffCondition": "PFState FINITE and PFpips < 1; finite zero compares normally",
+      "PFStrictImprovement": "Both PFState FINITE and candidate PFpips > baseline PFpips; all other states false",
+      "Source": "Explicit user supplement before U08 implementation/run"
+    },
+    "DOMAdoptedStates": {
+      "DOM0": 54,
+      "DOM1": 2,
+      "DOM2": 0
+    },
+    "DOMFinalGateDROP": 2,
+    "DOMFinalGatePASS": 54,
+    "DROP_U08_DOM_FINAL_GATE": 2,
+    "DropDetails": [
+      {
+        "AdoptedState": "DOM1",
+        "CandidateID": "B7S1:EURUSD:SHORT:TUE:E1375:D1:X1270:H1335",
+        "DOM0Fallback": false,
+        "DOM1Adoption": {
+          "Adopt": true,
+          "Checks": {
+            "AvgPips": true,
+            "MaxDDPips": true,
+            "MedianAnnualAvgPips": true,
+            "PFpips": true,
+            "PositiveYearCount": true
+          }
+        },
+        "FailedGateChecks": [
+          "TotalTrades"
+        ],
+        "FinalMetrics": {
+          "Annual": {
+            "2020": {
+              "AvgPips": 4.3029411764706325,
+              "Losses": 12,
+              "MaxDDPips": 134.7999999999993,
+              "PFState": "FINITE",
+              "PFpips": 1.349331423113661,
+              "TotalPips": 146.3000000000015,
+              "Trades": 34,
+              "Wins": 22,
+              "ZeroPips": 0
+            },
+            "2021": {
+              "AvgPips": 12.370588235294049,
+              "Losses": 9,
+              "MaxDDPips": 43.40000000000009,
+              "PFState": "FINITE",
+              "PFpips": 3.824714573539259,
+              "TotalPips": 420.59999999999764,
+              "Trades": 34,
+              "Wins": 25,
+              "ZeroPips": 0
+            },
+            "2022": {
+              "AvgPips": 10.72941176470623,
+              "Losses": 15,
+              "MaxDDPips": 178.3,
+              "PFState": "FINITE",
+              "PFpips": 1.9764453961456465,
+              "TotalPips": 364.80000000001183,
+              "Trades": 34,
+              "Wins": 19,
+              "ZeroPips": 0
+            },
+            "2023": {
+              "AvgPips": 4.114285714285708,
+              "Losses": 20,
+              "MaxDDPips": 111.6000000000005,
+              "PFState": "FINITE",
+              "PFpips": 1.2896218825422363,
+              "TotalPips": 143.99999999999977,
+              "Trades": 35,
+              "Wins": 15,
+              "ZeroPips": 0
+            }
+          },
+          "AvgPips": 7.8518248175183265,
+          "Losses": 56,
+          "MaxDDPips": 197.5999999999974,
+          "MedianAnnualAvgPips": 7.516176470588431,
+          "NegativeYearCount": 0,
+          "PFState": "FINITE",
+          "PFpips": 1.7477928397636502,
+          "PositiveYearCount": 4,
+          "TotalPips": 1075.7000000000107,
+          "Trades": 137,
+          "Wins": 81,
+          "WorstYearAvgPips": 4.114285714285708,
+          "ZeroPips": 0
+        },
+        "GateChecks": {
+          "AnnualTrades": true,
+          "AvgPips": true,
+          "Losses": true,
+          "PFpips": true,
+          "PositiveYearCount": true,
+          "TotalTrades": false
+        },
+        "MonthEvaluated": false,
+        "OFFBuckets": [
+          "D1"
+        ],
+        "PairRank": 5,
+        "Symbol": "EURUSD"
+      },
+      {
+        "AdoptedState": "DOM1",
+        "CandidateID": "B7S1:EURUSD:LONG:TUE:E0365:D0:X1195:H0830",
+        "DOM0Fallback": false,
+        "DOM1Adoption": {
+          "Adopt": true,
+          "Checks": {
+            "AvgPips": true,
+            "MaxDDPips": true,
+            "MedianAnnualAvgPips": true,
+            "PFpips": true,
+            "PositiveYearCount": true
+          }
+        },
+        "FailedGateChecks": [
+          "TotalTrades"
+        ],
+        "FinalMetrics": {
+          "Annual": {
+            "2020": {
+              "AvgPips": 12.988235294117644,
+              "Losses": 12,
+              "MaxDDPips": 96.09999999999889,
+              "PFState": "FINITE",
+              "PFpips": 2.5516514406184156,
+              "TotalPips": 441.59999999999985,
+              "Trades": 34,
+              "Wins": 22,
+              "ZeroPips": 0
+            },
+            "2021": {
+              "AvgPips": 6.688235294117511,
+              "Losses": 18,
+              "MaxDDPips": 112.59999999999826,
+              "PFState": "FINITE",
+              "PFpips": 1.8699311400152758,
+              "TotalPips": 227.39999999999537,
+              "Trades": 34,
+              "Wins": 16,
+              "ZeroPips": 0
+            },
+            "2022": {
+              "AvgPips": 12.98181818181818,
+              "Losses": 15,
+              "MaxDDPips": 128.3,
+              "PFState": "FINITE",
+              "PFpips": 2.1018518518518667,
+              "TotalPips": 428.4,
+              "Trades": 33,
+              "Wins": 18,
+              "ZeroPips": 0
+            },
+            "2023": {
+              "AvgPips": 9.451428571428506,
+              "Losses": 13,
+              "MaxDDPips": 63.5000000000052,
+              "PFState": "FINITE",
+              "PFpips": 2.4376358105171585,
+              "TotalPips": 330.79999999999774,
+              "Trades": 35,
+              "Wins": 22,
+              "ZeroPips": 0
+            }
+          },
+          "AvgPips": 10.501470588235243,
+          "Losses": 58,
+          "MaxDDPips": 128.30000000000007,
+          "MedianAnnualAvgPips": 11.216623376623343,
+          "NegativeYearCount": 0,
+          "PFState": "FINITE",
+          "PFpips": 2.226027985234783,
+          "PositiveYearCount": 4,
+          "TotalPips": 1428.199999999993,
+          "Trades": 136,
+          "Wins": 78,
+          "WorstYearAvgPips": 6.688235294117511,
+          "ZeroPips": 0
+        },
+        "GateChecks": {
+          "AnnualTrades": true,
+          "AvgPips": true,
+          "Losses": true,
+          "PFpips": true,
+          "PositiveYearCount": true,
+          "TotalTrades": false
+        },
+        "MonthEvaluated": false,
+        "OFFBuckets": [
+          "D1"
+        ],
+        "PairRank": 8,
+        "Symbol": "EURUSD"
+      }
+    ],
+    "InputCandidates": 56,
+    "MonthAdoptedStates": {
+      "M0": 17,
+      "M1": 27,
+      "M2": 10
+    },
+    "MonthEvaluated": 54,
+    "MonthFinalGateAdded": false,
+    "NoReplacement": true,
+    "OFFMonthCombinations": [
+      {
+        "Count": 17,
+        "OFFMonths": []
+      },
+      {
+        "Count": 17,
+        "OFFMonths": [
+          1
+        ]
+      },
+      {
+        "Count": 5,
+        "OFFMonths": [
+          1,
+          3
+        ]
+      },
+      {
+        "Count": 1,
+        "OFFMonths": [
+          6
+        ]
+      },
+      {
+        "Count": 1,
+        "OFFMonths": [
+          9
+        ]
+      },
+      {
+        "Count": 6,
+        "OFFMonths": [
+          2
+        ]
+      },
+      {
+        "Count": 2,
+        "OFFMonths": [
+          7,
+          1
+        ]
+      },
+      {
+        "Count": 1,
+        "OFFMonths": [
+          11,
+          7
+        ]
+      },
+      {
+        "Count": 1,
+        "OFFMonths": [
+          7,
+          3
+        ]
+      },
+      {
+        "Count": 2,
+        "OFFMonths": [
+          7
+        ]
+      },
+      {
+        "Count": 1,
+        "OFFMonths": [
+          3,
+          6
+        ]
+      }
+    ],
+    "OFFMonthCount": {
+      "0": 17,
+      "1": 27,
+      "2": 10
+    },
+    "OFFMonthFrequency": {
+      "1": 24,
+      "10": 0,
+      "11": 1,
+      "12": 0,
+      "2": 6,
+      "3": 7,
+      "4": 0,
+      "5": 0,
+      "6": 2,
+      "7": 6,
+      "8": 0,
+      "9": 1
+    },
+    "PASS54AllDOM0": true,
+    "PASS_U08": 54,
+    "PairCounts": {
+      "AUDJPY": {
+        "DROP_U08_DOM_FINAL_GATE": 0,
+        "PASS_U08": 8
+      },
+      "AUDUSD": {
+        "DROP_U08_DOM_FINAL_GATE": 0,
+        "PASS_U08": 7
+      },
+      "EURAUD": {
+        "DROP_U08_DOM_FINAL_GATE": 0,
+        "PASS_U08": 8
+      },
+      "EURJPY": {
+        "DROP_U08_DOM_FINAL_GATE": 0,
+        "PASS_U08": 8
+      },
+      "EURUSD": {
+        "DROP_U08_DOM_FINAL_GATE": 2,
+        "PASS_U08": 6
+      },
+      "GBPAUD": {
+        "DROP_U08_DOM_FINAL_GATE": 0,
+        "PASS_U08": 6
+      },
+      "GBPJPY": {
+        "DROP_U08_DOM_FINAL_GATE": 0,
+        "PASS_U08": 8
+      },
+      "GBPUSD": {
+        "DROP_U08_DOM_FINAL_GATE": 0,
+        "PASS_U08": 2
+      },
+      "USDJPY": {
+        "DROP_U08_DOM_FINAL_GATE": 0,
+        "PASS_U08": 1
+      }
+    },
+    "PairMonthCombinations": {
+      "AUDJPY": [
+        {
+          "Count": 2,
+          "OFFMonths": []
+        },
+        {
+          "Count": 6,
+          "OFFMonths": [
+            1
+          ]
+        }
+      ],
+      "AUDUSD": [
+        {
+          "Count": 2,
+          "OFFMonths": [
+            1,
+            3
+          ]
+        },
+        {
+          "Count": 5,
+          "OFFMonths": [
+            1
+          ]
+        }
+      ],
+      "EURAUD": [
+        {
+          "Count": 3,
+          "OFFMonths": [
+            1
+          ]
+        },
+        {
+          "Count": 3,
+          "OFFMonths": [
+            1,
+            3
+          ]
+        },
+        {
+          "Count": 1,
+          "OFFMonths": []
+        },
+        {
+          "Count": 1,
+          "OFFMonths": [
+            6
+          ]
+        }
+      ],
+      "EURJPY": [
+        {
+          "Count": 2,
+          "OFFMonths": []
+        },
+        {
+          "Count": 1,
+          "OFFMonths": [
+            9
+          ]
+        },
+        {
+          "Count": 5,
+          "OFFMonths": [
+            2
+          ]
+        }
+      ],
+      "EURUSD": [
+        {
+          "Count": 2,
+          "OFFMonths": [
+            7,
+            1
+          ]
+        },
+        {
+          "Count": 1,
+          "OFFMonths": [
+            11,
+            7
+          ]
+        },
+        {
+          "Count": 1,
+          "OFFMonths": [
+            7,
+            3
+          ]
+        },
+        {
+          "Count": 1,
+          "OFFMonths": []
+        },
+        {
+          "Count": 1,
+          "OFFMonths": [
+            7
+          ]
+        }
+      ],
+      "GBPAUD": [
+        {
+          "Count": 3,
+          "OFFMonths": []
+        },
+        {
+          "Count": 3,
+          "OFFMonths": [
+            1
+          ]
+        }
+      ],
+      "GBPJPY": [
+        {
+          "Count": 8,
+          "OFFMonths": []
+        }
+      ],
+      "GBPUSD": [
+        {
+          "Count": 1,
+          "OFFMonths": [
+            3,
+            6
+          ]
+        },
+        {
+          "Count": 1,
+          "OFFMonths": [
+            7
+          ]
+        }
+      ],
+      "USDJPY": [
+        {
+          "Count": 1,
+          "OFFMonths": [
+            2
+          ]
+        }
+      ]
+    },
+    "TotalMonthStops": 47
+  },
+  "ZIPMembers": [
+    {
+      "Bytes": 12690,
+      "CRC32": 3593815296,
+      "Path": "calendar_summary.json",
+      "SHA256": "211fb8d1a12ad0dd36f561f0fb7f343100fc43ddb50429bf70308602b0fe64b3"
+    },
+    {
+      "Bytes": 2301721,
+      "CRC32": 3427207415,
+      "Path": "candidate_results.json",
+      "SHA256": "d46fa97f66e4ee642c057eecb212d1762ff6a947d550c3f13faf5070115d4d6f"
+    },
+    {
+      "Bytes": 8230,
+      "CRC32": 1132589868,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "a9fa293e76955149b1fec5c946206456a89380d514536912bcbcbc25745add18"
+    },
+    {
+      "Bytes": 58,
+      "CRC32": 127194596,
+      "Path": "dom_summary.json",
+      "SHA256": "ad84c3c2537e594a54726e3d8c7c8c88bca43df014dc787f0181c173bb4be385"
+    },
+    {
+      "Bytes": 19597,
+      "CRC32": 2979038917,
+      "Path": "input_identity.json",
+      "SHA256": "f9e4de991db104f6a92ea0a64d9f4a7282e259ef4baede0772bfa48209205cc0"
+    },
+    {
+      "Bytes": 159,
+      "CRC32": 1429018564,
+      "Path": "month_summary.json",
+      "SHA256": "2835f8a39efebdb3ae5d2864d06e4b3d6eee755ad986560776d679005b050dda"
+    },
+    {
+      "Bytes": 246,
+      "CRC32": 2813684397,
+      "Path": "pair_summary.json",
+      "SHA256": "4079996ab0fc289012181bfbed975dc79e8f05f00cb6146d0a71e7dbcf47ee71"
+    },
+    {
+      "Bytes": 20380,
+      "CRC32": 3816862998,
+      "Path": "preflight.json",
+      "SHA256": "b3568b75ac23abf979e5f292d6f2fe73044cf585d7f4a0731f8b3e5ccc422394"
+    },
+    {
+      "Bytes": 175,
+      "CRC32": 603851366,
+      "Path": "review.json",
+      "SHA256": "a2e722c4ebede183272f64bb840b29f53bfeff6c43b40344d59754de6f801a31"
+    },
+    {
+      "Bytes": 1081,
+      "CRC32": 2212479129,
+      "Path": "artifact_manifest.json",
+      "SHA256": "33227a1ca651e76818d8865478e79627589f4487d29269054f438abf250c348d"
+    },
+    {
+      "Bytes": 197,
+      "CRC32": 1246245631,
+      "Path": "COMPLETE.json",
+      "SHA256": "1bc84ac298001a0d52b939380a410b83ab3d68c80ff024f3df20c89f66ae46fb"
+    }
+  ]
+}
