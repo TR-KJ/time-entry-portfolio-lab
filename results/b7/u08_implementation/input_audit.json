@@ -1,0 +1,11 @@
+{
+  "Status": "PASS",
+  "CandidateCount": 56,
+  "UniqueCandidateCount": 56,
+  "U07ResultFreezeSHA": "21140269596584575677421934399122614f6cd6",
+  "U08InputSHA256": "7c49b9cd0374b57f4da78eb784aa646050cba507b0ff037e303085a61deb7616",
+  "SourceCandidateCheckpointHashes": "56/56 exact against frozen U07 Drive audit",
+  "FormalWeekdays": "Exact U07 Result projection; immutable",
+  "NoReplacement": true,
+  "FormalPerformanceEvaluated": false
+}

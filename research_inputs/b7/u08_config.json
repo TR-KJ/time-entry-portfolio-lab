@@ -1,0 +1,181 @@
+{
+  "SchemaVersion": 1,
+  "Scope": "U08_IMPLEMENTATION_ONLY",
+  "U07ResultFreezeSHA": "21140269596584575677421934399122614f6cd6",
+  "U07ProducerSHA": "9adeef8514fb76efec70a2cc46ce85e306ea0597",
+  "InputSHA256": "7c49b9cd0374b57f4da78eb784aa646050cba507b0ff037e303085a61deb7616",
+  "CandidateCount": 56,
+  "NoReplacement": true,
+  "DiscoveryBounds": [
+    "2020-01-01",
+    "2024-01-01"
+  ],
+  "CalendarBasis": "Planned Entry JST date",
+  "U08": {
+    "DOM": {
+      "Prerequisite": "U07 frozen",
+      "Buckets": {
+        "D1": [
+          1,
+          10
+        ],
+        "D2": [
+          11,
+          20
+        ],
+        "D3": "21 through EOM"
+      },
+      "MinimumSample": {
+        "OverallCandidateTradeFraction": 0.2,
+        "EachYearCandidateTradeFraction": 0.2
+      },
+      "OFFAllRequired": [
+        "Minimum sample satisfied",
+        "TotalPips < 0",
+        "AvgPips < 0",
+        "PFpips < 1.00",
+        "NegativeYearCount >= 3 of 4"
+      ],
+      "OFFCandidatesFrozenAt": "Initial three-bucket diagnostics; no new OFF candidate after exclusion",
+      "OFFRanking": [
+        "NegativeYearCount DESC",
+        "AvgPips ASC",
+        "PFpips ASC",
+        "TotalPips ASC",
+        "D1 before D2 before D3"
+      ],
+      "Comparisons": {
+        "DOM0": "All ON",
+        "DOM1": "Worst eligible OFF bucket disabled",
+        "DOM2": "Top two eligible OFF buckets disabled"
+      },
+      "ExhaustiveSevenSubsetsAllowed": false,
+      "SequentialAdoption": {
+        "StrictlyImprove": [
+          "AvgPips",
+          "PFpips",
+          "MedianAnnualAvgPips"
+        ],
+        "DoNotWorsen": [
+          "PositiveYearCount",
+          "MaxDDPips"
+        ],
+        "AdditionalAbsoluteImprovementFloor": null
+      },
+      "Sequence": "DOM1 must improve DOM0; DOM2 must further improve adopted DOM1; otherwise retain preceding set",
+      "MaximumOFFBuckets": 2,
+      "OneActiveBucketAllowed": true,
+      "FinalGateRef": "GateDefinitions.U01Equivalent",
+      "FinalGateFailure": "CANDIDATE_DROP"
+    },
+    "Month": {
+      "Prerequisite": "DOM frozen",
+      "Diagnostics": [
+        "Trades",
+        "Wins",
+        "Losses",
+        "AvgPips",
+        "TotalPips",
+        "PFpips",
+        "MaxDDPips",
+        "2020-2023 annual TotalPips",
+        "PositiveYearCount",
+        "NegativeYearCount"
+      ],
+      "MinimumSample": {
+        "FourYearTrades": 16,
+        "TradesEachYear": 3
+      },
+      "OFFAllRequired": [
+        "Minimum sample satisfied",
+        "Four-year TotalPips < 0",
+        "PFpips < 1.00",
+        "NegativeYearCount >= 3 of 4"
+      ],
+      "OFFCandidatesFrozenAt": "M0 initial twelve-month diagnostics; no additions after exclusions",
+      "LOMO": "Diagnose each of all twelve leave-one-month-out cases",
+      "OFFCandidateLOMORequired": {
+        "StrictlyImprove": [
+          "AvgPips",
+          "PFpips",
+          "MedianAnnualAvgPips"
+        ],
+        "DoNotWorsen": [
+          "PositiveYearCount",
+          "MaxDDPips"
+        ],
+        "AdditionalAbsoluteImprovementFloor": null
+      },
+      "OFFRanking": [
+        "NegativeYearCount DESC",
+        "AvgPips ASC",
+        "PFpips ASC",
+        "TotalPips ASC",
+        "MonthNumber ASC"
+      ],
+      "Comparisons": {
+        "M0": "No month OFF",
+        "M1": "Worst formal OFF candidate month OFF",
+        "M2": "Top two formal OFF candidate months OFF"
+      },
+      "M2Adoption": "Must further satisfy the same improvement conditions relative to M1",
+      "MaximumOFFMonths": 2,
+      "Exhaustive4095SearchAllowed": false
+    },
+    "Completion": "Freeze Weekday, DOM and Month stop as Calendar Freeze; no return after 1m/Event"
+  },
+  "ComparisonSupplement": {
+    "Source": "Explicit user supplement before U08 implementation/run",
+    "PFStrictImprovement": "Both PFState FINITE and candidate PFpips > baseline PFpips; all other states false",
+    "PFOffCondition": "PFState FINITE and PFpips < 1; finite zero compares normally",
+    "MedianStrictImprovement": "Both non-null and candidate > baseline; either null is false; unchanged stage1_metrics semantics",
+    "NewSampleGate": false,
+    "MonthFinalU01Gate": false
+  },
+  "FrozenSources": {
+    "research_inputs/b7/u08_selected56_input.json": "7c49b9cd0374b57f4da78eb784aa646050cba507b0ff037e303085a61deb7616",
+    "research_inputs/b7/u07_selected56_input.json": "fbb78686e8a767bb8fbaa903e9b89eee99d9c856b2182d29f1953bb51273fe39",
+    "results/b7/u07/input_identity.json": "c104b08d13061f5e76a390df133dfe72e451af422171fc6ebfa973411aa1ad7a",
+    "results/b7/u07/drive_checkpoint_audit.json": "1b7bed0e801eb29edcc4a268e4a2a6fce936a90dacda03a20097480b28711ef0",
+    "results/b7/u07/u07_result_summary.json": "d3382ce868ebffe9c750c686d847e88d90dadf1e1d573a0b832b493a4a3fef4d",
+    "results/b7/u07/u07_archive_manifest.json": "642ff0fe3b670adcf434b9d46925405a24fee6056839aa7ad8b1ad4d10553553",
+    "research_inputs/b7/expected_m1_manifest.csv": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a",
+    "research_inputs/b7/full_research_prespec.json": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea"
+  },
+  "FinalizeProducerPin": "Explicit reviewed Producer SHA equals checked-out HEAD; never derive from source",
+  "Smoke": {
+    "Symbols": [
+      "USDJPY",
+      "EURUSD"
+    ],
+    "Bounds": [
+      "2020-01-07 09:00",
+      "2020-02-25 09:35"
+    ],
+    "Days": [
+      "2020-01-07",
+      "2020-01-14",
+      "2020-01-21",
+      "2020-02-04",
+      "2020-02-11",
+      "2020-02-25"
+    ],
+    "EntryMinute": 540,
+    "HoldingMinutes": 30,
+    "FormalWeekdays": [
+      1
+    ],
+    "Directions": [
+      "LONG",
+      "SHORT"
+    ],
+    "SLPips": 15,
+    "TPPips": [
+      null,
+      10
+    ],
+    "Formal56Used": false,
+    "PerformanceSaved": false,
+    "FullSearch": false
+  }
+}
