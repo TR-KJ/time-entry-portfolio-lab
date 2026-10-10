@@ -1,0 +1,18 @@
+{
+  "SelfExcluded": true,
+  "Scope": "CONDITIONS_ONLY",
+  "Files": [
+    {
+      "Path": "research_inputs/b7/u09_supplemental_prespec.json",
+      "SHA256": "cefa5aed9fc820c8bbf4dd4a57622263cd2443bc8509f8016f62bb20e76a92f3",
+      "Bytes": 11483
+    },
+    {
+      "Path": "docs/b7/u09_supplemental_conditions_freeze.md",
+      "SHA256": "62ccab0b7f987a54ab8a8f9f346e890afb7eae98fd013f9c92c39109393fc806",
+      "Bytes": 9810
+    }
+  ],
+  "ProductionCodeChanged": false,
+  "U09Executed": false
+}

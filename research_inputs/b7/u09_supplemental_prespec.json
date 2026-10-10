@@ -1,0 +1,49 @@
+{
+  "SchemaVersion": 1,
+  "Scope": "U09_SUPPLEMENTAL_CONDITIONS_ONLY",
+  "OriginalConditionsFreezeSHA": "5dbac7af2d41aa912308868e6ad1a6dbf7cdd107",
+  "U08ResultFreezeSHA": "382f351c169da48e1fe4eadf31fc858bbd57eed0",
+  "U09InputSHA256": "8faa886c3d1a72e8020688b8931481d81d1df637d63b0b368e0171b8d1dce2ca",
+  "DecisionIDs": [
+    "U09-S01",
+    "U09-S02"
+  ],
+  "NoFormalU09ResultViewed": true,
+  "U09Executed": false,
+  "ValidationPerformance": "NOT_RUN",
+  "MonitorPerformance": "NOT_RUN",
+  "PFMedian": {
+    "Population": "Schedule-valid, FINITE, non-null; include Formal FAIL",
+    "Excluded": [
+      "INF",
+      "UNDEFINED",
+      "null"
+    ],
+    "EvenMedian": "Arithmetic mean of middle two unrounded values",
+    "SentinelOrStateOrdering": false,
+    "EmptyRankingFiniteSet": "STOP_INVARIANT_VIOLATION"
+  },
+  "AvgMedian": {
+    "Population": "All schedule-valid including Formal FAIL",
+    "ValidNullCountsInValidAndRatioDenominator": true,
+    "ValidNullPointFormalPASS": false,
+    "AnyValidNullMedian": null,
+    "AnyValidNullPlateauPASS": false,
+    "NullReason": "UNDEFINED_VALID_NEIGHBOR_AVG",
+    "InvalidExcluded": true,
+    "NullExclusionOrSubstitution": false,
+    "FormalPASSCenterNull": "STOP_INVARIANT_VIOLATION",
+    "AnchorUsesSameSemantics": true,
+    "AnchorMinimumValidCountGate": null,
+    "UndefinedAnchorBaseline": "Retain original anchor without DROP/fallback/extension"
+  },
+  "DecisionPrecedence": [
+    "ANCHOR_RETAINED_NO_1M_PLATEAU",
+    "ANCHOR_RETAINED_BEST_IS_ANCHOR",
+    "ANCHOR_RETAINED_UNDEFINED_ANCHOR_BASELINE",
+    "ANCHOR_RETAINED_INSUFFICIENT_IMPROVEMENT",
+    "FINE_TUNED"
+  ],
+  "OtherConditionsUnchanged": true,
+  "NormativeUserInstruction": "STOP判断は正しいです。\n\n正式U09結果を一切見ていない現時点で、\n未定義だった2点を以下の内容で事前Freezeします。\n\n今回はまず、\n\n# B7 U09 Supplemental Conditions Freeze\n\nを作成・commit・pushし、\nそのFreezeを新しいU09実装の追加Source of Truthとしてbindしたうえで、\n前回依頼した\n\n# B7 U09 Implementation Only\n## 1-minute Entry / Exit Fine Tune\n\nを再開してください。\n\nformal U09は絶対に実行しないでください。\n\n---\n\n# 1. 既存Freezeを変更しない\n\n既存：\n\nConditions Freeze：\n\n5dbac7af2d41aa912308868e6ad1a6dbf7cdd107\n\nU08 Result Freeze：\n\n382f351c169da48e1fe4eadf31fc858bbd57eed0\n\nU09 input SHA256：\n\n8faa886c3d1a72e8020688b8931481d81d1df637d63b0b368e0171b8d1dce2ca\n\nは不変です。\n\n特に、\n\nresearch_inputs/b7/full_research_prespec.json\ndocs/b7/full_research_conditions_freeze.md\n\nを内容変更して既存SHAを壊さないでください。\n\n今回の2点は別のSupplemental Freezeとして追加してください。\n\n推奨：\n\ndocs/b7/u09_supplemental_conditions_freeze.md\n\nresearch_inputs/b7/u09_supplemental_prespec.json\n\n合理的な名称変更可。\n\n---\n\n# 2. Supplemental Decision U09-S01\n## Neighborhood Median PFpips\n\nU09 ranking第2項：\n\nNeighborhood Median PFpips\n\nは、各center neighborhoodの\n\n**schedule-valid points**\n\nのうち、\n\nPFState == \"FINITE\"\n\nかつ\n\nPFpips != null\n\nのpointだけをnumeric medianの算出集合とする。\n\nFormal PASS / Formal FAILは問わない。\n\nしたがって、\n\n- Formal FAILでもFINITE PFなら含む\n- INFは除外\n- UNDEFINEDは除外\n- PFpips=nullは除外\n\nとする。\n\n禁止：\n\n- INFを巨大数へ置換\n- UNDEFINEDを0へ置換\n- PFState独自ranking\n- INF > FINITE等のstate ordering追加\n- Formal PASS pointsだけに限定\n- result-dependent rule追加\n\nMedianはunrounded numeric valueで計算。\n\n偶数個の場合は通常のnumeric median、\nすなわち中央2値の算術平均。\n\n---\n\n# 3. PF finite-set empty handling\n\nPlateau ranking対象centerはFormal PASS必須なので、\ncenter自身は：\n\nPFState = FINITE\nPFpips >= 1.10\n\nであるはずです。\n\nしたがって通常、\nNeighborhood Median PFpipsのFINITE集合は\n最低1件存在します。\n\nもしranking対象centerでFINITE集合が空なら、\n\nfallback値を作らず、\n\n**invariant violationとしてSTOP**\n\nしてください。\n\n---\n\n# 4. Supplemental Decision U09-S02\n## all-valid Neighborhood Median AvgPips\n\nFrozen Plateau条件：\n\nAll-valid Neighborhood Median AvgPips\n\nについて、\n\nschedule-valid neighborhood pointは、\nFormal PASS / FAILにかかわらず\nall-valid集合のmemberです。\n\n---\n\n# 5. AvgPips=null pointのstatus\n\nschedule-validだが、\n\nAvgPips = null\n\nのpointは、\n\n**schedule validのまま**\n\nです。\n\ninvalidへ変更しない。\n\nしたがって：\n\n- ValidPointCountに含む\n- Formal PASS ratio denominatorに含む\n- Point Gate上はFAIL\n\nとする。\n\n0 trades等を理由に\nschedule-invalid扱いしてはいけない。\n\n---\n\n# 6. Plateau Median Avgのnull semantics\n\nNeighborhoodのschedule-valid pointに\n\nAvgPips = null\n\nが1件でも存在する場合、\n\n**AllValidMedianAvgPips = undefined**\n\nとする。\n\n以下は禁止：\n\n- nullをMedian集合から除外\n- nullを0に置換\n- nullを極小値に置換\n- forward fill\n- interpolation\n\nこの場合、\n\nそのcenterは：\n\n**PlateauPASS = false**\n\nとする。\n\n理由をartifactへ明示：\n\nUNDEFINED_VALID_NEIGHBOR_AVG\n\n等のdeterministic reasonを保存。\n\n名称は合理的変更可。\n\n---\n\n# 7. Center AvgPips\n\nCenter Formal PASSがPlateauの前提なので、\nPlateau候補center自身は、\n\nTrades >=150\nAvgPips >0\n\nであり、\nCenter AvgPipsはdefinedである必要があります。\n\nCenter Formal PASSなのにAvgPips=nullなら\nschema/invariant errorとしてSTOP。\n\n---\n\n# 8. Anchor Neighborhood Median AvgPips\n\nFine Tune adoptionのbaseline：\n\nOriginal Five-Minute Anchor Neighborhood Median AvgPips\n\nにも同じall-valid null semanticsを適用。\n\nすなわちAnchor neighborhoodの\nschedule-valid pointに\nAvgPips=nullが1件でもあれば、\n\nAnchorNeighborhoodMedianAvgPips\n=\nundefined\n\nとする。\n\nnull除外・0置換は禁止。\n\n---\n\n# 9. Anchor baseline undefined時\n\nAnchor baselineがundefinedの場合、\n\nFine Tune変更に必要な：\n\nBestNeighborhoodMedianAvgPips\n-\nAnchorNeighborhoodMedianAvgPips\n\nを証明できない。\n\nしたがって、\n\n**時刻変更は採用しない。**\n\nOriginal Five-Minute Anchorを維持する。\n\nCandidate DROPではない。\n\n探索延長しない。\n\n別のranked plateau candidateへfallbackしない。\n\nCalendar / SL / TPへ戻らない。\n\n推奨decision reason：\n\nANCHOR_RETAINED_UNDEFINED_ANCHOR_BASELINE\n\n名称は合理的変更可。\n\nこれは新しいperformance Gateではなく、\n\n「Fine Tune変更にはFrozen improvement条件を満たした証拠が必要」\n\nという保守的な採用判定。\n\n---\n\n# 10. Decision precedence\n\n最終decisionは概念上：\n\nA.\nPlateau PASS centerが0\n→ ANCHOR_RETAINED_NO_1M_PLATEAU\n\nB.\nPlateau PASS centerあり、\nBest centerがAnchor 0/0\n→ ANCHOR_RETAINED_BEST_IS_ANCHOR\n\nC.\nBest centerが非Anchorだが\nAnchorNeighborhoodMedianAvgPips undefined\n→ ANCHOR_RETAINED_UNDEFINED_ANCHOR_BASELINE\n\nD.\nAnchor baseline definedだが\nrequired improvement未達\n→ ANCHOR_RETAINED_INSUFFICIENT_IMPROVEMENT\n\nE.\nrequired improvement達成\n→ FINE_TUNED\n\nとする。\n\nrank2以下へのfallback禁止。\n\n---\n\n# 11. Anchor neighborhood valid count\n\nAnchor baseline自体について、\n新しいMinimumValidPoints=4等のGateは追加しない。\n\nFrozen MinimumValidPoints=4は\nPlateau PASS判定の条件。\n\nAnchor baselineは、\n\nschedule-valid neighborhood pointsについて\nAvgPipsがすべてdefinedなら\n通常のall-valid medianを計算。\n\n1件でもnullなら前項どおりundefined。\n\n---\n\n# 12. Invalid pointとの区別\n\nschedule-invalid point：\n\nMedian集合から完全除外。\n\nschedule-valid / AvgPips=null point：\n\nValidPointCountには含むが、\nall-valid Avg medianをundefinedにする。\n\nこの違いをtestsで固定。\n\n---\n\n# 13. Supplemental Freeze identity\n\nSupplemental artifactには最低限：\n\n- Original Conditions Freeze SHA\n- U08 Result Freeze SHA\n- U09 input SHA\n- Decision IDs U09-S01 / U09-S02\n- No formal U09 result viewed\n- U09Executed=false\n- Validation/Monitor NOT_RUN\n\nを記録。\n\nSupplemental prespec自体のSHA256も固定。\n\n---\n\n# 14. Supplemental Freeze commit\n\nまず条件だけをcommit / push。\n\nproduction code変更なし。\n\n正式result生成なし。\n\n推奨commit message：\n\nFreeze B7 U09 supplemental median semantics\n\ncommit後、\n\n- Supplemental Freeze SHA\n- supplemental prespec SHA256\n- remote SHA = local HEAD\n- working tree clean\n\nを確認。\n\n---\n\n# 15. その後U09 Implementation Onlyを再開\n\nSupplemental Freeze commitを\nU09 Implementationの追加prerequisiteとしてbind。\n\nU09 formal identityは最低限：\n\n- Original Conditions Freeze\n- U09 Supplemental Conditions Freeze\n- U08 Result Freeze\n- U09 input SHA\n- M1 manifest\n- 72 M1 identities\n- ordered54 CandidateIDs\n- environment\n\nを固定。\n\n---\n\n# 16. 追加tests — PF Median\n\n最低限：\n\n- all FINITE\n- FINITE + INF\n- FINITE + UNDEFINED\n- FINITE + null\n- Formal FAILだがFINITEは含む\n- INFをsentinel化しない\n- UNDEFINEDをstate順位化しない\n- even-number finite median\n- unrounded median\n- finite set emptyはSTOP\n\n---\n\n# 17. 追加tests — Avg null\n\n最低限：\n\n- valid Avg nullはValidPointCountに含む\n- valid Avg nullはFormal PASS ratio denominatorに含む\n- invalid pointはdenominatorから除外\n- valid Avg nullが1件 → Plateau FAIL\n- nullを0置換しない\n- nullをMedian集合から除外しない\n- Anchor neighborhood null → baseline undefined\n- baseline undefined → Anchor retain\n- baseline undefined → Candidate DROPしない\n- baseline undefined → rank2 fallbackしない\n- baseline undefined → search extensionしない\n\n---\n\n# 18. 既存U09 Implementation依頼はその他すべて維持\n\n前回のU09 Implementation Only promptの：\n\n- ±5分\n- 1分刻み\n- 最大121\n- invalid semantics\n- Point Gate\n- 3×3 Plateau\n- 2/3\n- 80%\n- ranking\n- L1\n- Anchor retain threshold\n- no re-anchor\n- Candidate dropなし\n- reference / optimized\n- Drive checkpoint\n- normal resume\n- Finalize-Only\n- Colab approval guards\n- formal U09未実行\n\n等は変更しない。\n\n---\n\n# 19. U09 Implementation Freeze報告\n\n最終的にChatへ：\n\n1. U09 Supplemental Conditions Freeze SHA\n2. supplemental prespec SHA256\n3. U09 Implementation Freeze SHA\n4. Original Conditions Freeze SHA\n5. U08 Result Freeze SHA\n6. U09 input SHA\n7. U09-S01実装内容\n8. PF median finite-only確認\n9. INF/UNDEFINED/null非numeric処理確認\n10. U09-S02実装内容\n11. valid-nullのcount semantics\n12. Plateau null処理\n13. Anchor baseline null処理\n14. decision precedence\n15. added tests\n16. Total tests PASS/FAIL/SKIP\n17. bounded actual smoke\n18. formal54未実行\n19. 正式FineTune結果未閲覧\n20. U10以降未実行\n21. Validation/Monitor未実行\n22. remote SHA = local HEAD\n23. working tree clean\n\nを報告。\n\nここで停止してください。"
+}
