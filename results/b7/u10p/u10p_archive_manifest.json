@@ -1,0 +1,308 @@
+{
+  "ArchivePath": "/MyDrive/b7_u10p_20261010_01_archive",
+  "AuditEnvironmentPolicy": "Read-only persisted-source audit; producer environment validated as recorded; no execution/finalizer invoked",
+  "CheckpointPath": "/MyDrive/b7_u10p_20261010_01_checkpoints",
+  "Checks": [
+    "COMPLETE_HASHES",
+    "MANIFEST_EXACT_HASH_BYTES",
+    "ZIP_ORDER_HASH_BYTES_CRC_BYTE_IDENTITY",
+    "PRODUCER_IDENTITY_ENVIRONMENT",
+    "PRODUCER_ANCESTRY_FROZEN_CONTRACT",
+    "40_EXACT_JOBS_121_TRUSTED_FILES",
+    "ORDERED_ARCHIVE_EQUALS_DRIVE",
+    "INDEPENDENT_STATUS_PAIR_MODE_WTL_RECOUNTS",
+    "STRUCTURAL_APPLICABILITY",
+    "PERSISTED_ADOPTION_ARITHMETIC_AND_INVENTORY",
+    "SELECTED3_EXACT_METRICS",
+    "P0_BARRIER40",
+    "FIXED_TRADE_UNIVERSE40",
+    "ALL160_MODE_STREAM_HASHES",
+    "SAVED_SELECTION_CONSISTENCY_NO_RERANK",
+    "FUTURE_CANDIDATE_FREEZE_ORDERED40_EXACT_PROJECTION",
+    "NO_M1_OR_PERFORMANCE_RECOMPUTATION",
+    "SOURCE_UNCHANGED"
+  ],
+  "Files": [
+    {
+      "Bytes": 198,
+      "Path": "COMPLETE.json",
+      "SHA256": "27a0082d884aebb22098db62476ba5ae25c65a3d3388b5f23c395bf627fd8c9b"
+    },
+    {
+      "Bytes": 4086669,
+      "Path": "archive.zip",
+      "SHA256": "bec4573590af7e4d94e664dc8de0871acc0ec7d4e201de9ccdb4179dbc5b625a"
+    },
+    {
+      "Bytes": 1095,
+      "Path": "artifact_manifest.json",
+      "SHA256": "1803365132a91680084ac5b3c4cd4c41d34611659024a959237ad992569d2e9f"
+    },
+    {
+      "Bytes": 34537399,
+      "Path": "candidate_results.json",
+      "SHA256": "6ecb60257a900b2d0fcc6610bdbf55e9719256825695b4d337de993e2b14a3ca"
+    },
+    {
+      "Bytes": 5892,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "519ba7f98066422dbc012d52d27011f94257b365fe8baf8c98d954dd292dc9da"
+    },
+    {
+      "Bytes": 53700,
+      "Path": "input_identity.json",
+      "SHA256": "6a48e0283231ecd781d3d220602018f6d5c3f5a1ec3e6770d9f5025f66014a01"
+    },
+    {
+      "Bytes": 3714,
+      "Path": "mode_summary.json",
+      "SHA256": "f748166740b78d0f33e21bb86800ce8ae91098677bc3d21486b4baad68f3bab5"
+    },
+    {
+      "Bytes": 202,
+      "Path": "pair_summary.json",
+      "SHA256": "62e08fc537c2f2a424d9c80f92251df498ccf2723cb7488a91008e57d12fb828"
+    },
+    {
+      "Bytes": 54533,
+      "Path": "preflight.json",
+      "SHA256": "f7f52a2c053663c16a6d1dbe17d78b8325bd8287844180ab2663f65d8ddd2c06"
+    },
+    {
+      "Bytes": 271,
+      "Path": "protection_summary.json",
+      "SHA256": "63405e91b4ac913a76a7918efaf8ef519d469dff727bce5ad5b61fb07b60606e"
+    },
+    {
+      "Bytes": 150,
+      "Path": "review.json",
+      "SHA256": "8be112ae236b6d26db7e51871dcf272f8266e9697a6b998b99a495bb888747a9"
+    },
+    {
+      "Bytes": 873,
+      "Path": "winner_to_loser_summary.json",
+      "SHA256": "b98b16488678a62d42ea58e3f2d6a99638508b182d232c3f2f0110f6726fc8b4"
+    }
+  ],
+  "ProducerEnvironment": {
+    "NumPy": "2.3.5",
+    "Python": "3.13.16",
+    "pandas": "2.2.3"
+  },
+  "Status": "PASS",
+  "Summary": {
+    "CandidateCount": 40,
+    "Counts": {
+      "PASS_U10P": 40
+    },
+    "NoCandidateDrop": true,
+    "NoReplacement": true,
+    "P0RetentionReasons": {
+      "ALL_PROTECTION_MODES_NOT_APPLICABLE": 2,
+      "NO_PROTECTION_MODE_PASS": 35
+    },
+    "PairCounts": {
+      "AUDJPY": 4,
+      "AUDUSD": 0,
+      "EURAUD": 7,
+      "EURJPY": 8,
+      "EURUSD": 5,
+      "GBPAUD": 5,
+      "GBPJPY": 8,
+      "GBPUSD": 2,
+      "USDJPY": 1
+    },
+    "PairModes": {
+      "AUDJPY": {
+        "P0": 4
+      },
+      "EURAUD": {
+        "P0": 7
+      },
+      "EURJPY": {
+        "P0": 8
+      },
+      "EURUSD": {
+        "P0": 5
+      },
+      "GBPAUD": {
+        "P0": 4,
+        "P2": 1
+      },
+      "GBPJPY": {
+        "P0": 8
+      },
+      "GBPUSD": {
+        "P1": 2
+      },
+      "USDJPY": {
+        "P0": 1
+      }
+    },
+    "ProtectionModeCounts": {
+      "P0": 37,
+      "P1": 2,
+      "P2": 1,
+      "P3": 0
+    },
+    "SelectedProtectionCandidates": [
+      {
+        "AllAdoptionChecksTrue": true,
+        "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1200:D1:X0370:H0610",
+        "FormalProtectionMode": "P2",
+        "P0Metrics": {
+          "MaxDDPips": 443.69999999999254,
+          "MedianAnnualAvgPips": 16.677913968547777,
+          "PFpips": 1.8344978310540216,
+          "PositiveYearCount": 3,
+          "TotalPips": 2520.100000000034
+        },
+        "P0WinnerToLoser": 8,
+        "PairRank": 2,
+        "RankedPASSModes": [
+          "P2"
+        ],
+        "ReductionCount": 5,
+        "ReductionFraction": 0.625,
+        "SelectedMetrics": {
+          "MaxDDPips": 411.7999999999897,
+          "MedianAnnualAvgPips": 17.140957446808653,
+          "PFpips": 2.0402689442122632,
+          "PositiveYearCount": 3,
+          "TotalPips": 2862.300000000034
+        },
+        "SelectedWinnerToLoser": 3,
+        "Symbol": "GBPAUD"
+      },
+      {
+        "AllAdoptionChecksTrue": true,
+        "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0365:D0:X1120:H0755",
+        "FormalProtectionMode": "P1",
+        "P0Metrics": {
+          "MaxDDPips": 246.70000000000073,
+          "MedianAnnualAvgPips": 10.708988095237142,
+          "PFpips": 2.050666965586693,
+          "PositiveYearCount": 4,
+          "TotalPips": 1874.5999999998367
+        },
+        "P0WinnerToLoser": 7,
+        "PairRank": 4,
+        "RankedPASSModes": [
+          "P1"
+        ],
+        "ReductionCount": 7,
+        "ReductionFraction": 1.0,
+        "SelectedMetrics": {
+          "MaxDDPips": 246.70000000000073,
+          "MedianAnnualAvgPips": 11.029181184668015,
+          "PFpips": 2.1279321544567473,
+          "PositiveYearCount": 4,
+          "TotalPips": 1875.2999999998478
+        },
+        "SelectedWinnerToLoser": 0,
+        "Symbol": "GBPUSD"
+      },
+      {
+        "AllAdoptionChecksTrue": true,
+        "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0370:D0:X1180:H0810",
+        "FormalProtectionMode": "P1",
+        "P0Metrics": {
+          "MaxDDPips": 395.50000000002194,
+          "MedianAnnualAvgPips": 7.769494949494041,
+          "PFpips": 1.5357722377931151,
+          "PositiveYearCount": 3,
+          "TotalPips": 1452.799999999842
+        },
+        "P0WinnerToLoser": 7,
+        "PairRank": 7,
+        "RankedPASSModes": [
+          "P1"
+        ],
+        "ReductionCount": 7,
+        "ReductionFraction": 1.0,
+        "SelectedMetrics": {
+          "MaxDDPips": 369.60000000002094,
+          "MedianAnnualAvgPips": 8.275454545453686,
+          "PFpips": 1.5777008419229783,
+          "PositiveYearCount": 4,
+          "TotalPips": 1468.399999999855
+        },
+        "SelectedWinnerToLoser": 0,
+        "Symbol": "GBPUSD"
+      }
+    ],
+    "U01Failures": {
+      "P1": 0,
+      "P2": 0,
+      "P3": 0
+    }
+  },
+  "ZIPMembers": [
+    {
+      "Bytes": 34537399,
+      "CRC32": 1208066235,
+      "Path": "candidate_results.json",
+      "SHA256": "6ecb60257a900b2d0fcc6610bdbf55e9719256825695b4d337de993e2b14a3ca"
+    },
+    {
+      "Bytes": 5892,
+      "CRC32": 4096591380,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "519ba7f98066422dbc012d52d27011f94257b365fe8baf8c98d954dd292dc9da"
+    },
+    {
+      "Bytes": 53700,
+      "CRC32": 1813472285,
+      "Path": "input_identity.json",
+      "SHA256": "6a48e0283231ecd781d3d220602018f6d5c3f5a1ec3e6770d9f5025f66014a01"
+    },
+    {
+      "Bytes": 3714,
+      "CRC32": 1715434880,
+      "Path": "mode_summary.json",
+      "SHA256": "f748166740b78d0f33e21bb86800ce8ae91098677bc3d21486b4baad68f3bab5"
+    },
+    {
+      "Bytes": 202,
+      "CRC32": 4007665056,
+      "Path": "pair_summary.json",
+      "SHA256": "62e08fc537c2f2a424d9c80f92251df498ccf2723cb7488a91008e57d12fb828"
+    },
+    {
+      "Bytes": 54533,
+      "CRC32": 209451968,
+      "Path": "preflight.json",
+      "SHA256": "f7f52a2c053663c16a6d1dbe17d78b8325bd8287844180ab2663f65d8ddd2c06"
+    },
+    {
+      "Bytes": 271,
+      "CRC32": 3710201844,
+      "Path": "protection_summary.json",
+      "SHA256": "63405e91b4ac913a76a7918efaf8ef519d469dff727bce5ad5b61fb07b60606e"
+    },
+    {
+      "Bytes": 150,
+      "CRC32": 3317057745,
+      "Path": "review.json",
+      "SHA256": "8be112ae236b6d26db7e51871dcf272f8266e9697a6b998b99a495bb888747a9"
+    },
+    {
+      "Bytes": 873,
+      "CRC32": 1955425389,
+      "Path": "winner_to_loser_summary.json",
+      "SHA256": "b98b16488678a62d42ea58e3f2d6a99638508b182d232c3f2f0110f6726fc8b4"
+    },
+    {
+      "Bytes": 1095,
+      "CRC32": 2862306879,
+      "Path": "artifact_manifest.json",
+      "SHA256": "1803365132a91680084ac5b3c4cd4c41d34611659024a959237ad992569d2e9f"
+    },
+    {
+      "Bytes": 198,
+      "CRC32": 1096644140,
+      "Path": "COMPLETE.json",
+      "SHA256": "27a0082d884aebb22098db62476ba5ae25c65a3d3388b5f23c395bf627fd8c9b"
+    }
+  ]
+}

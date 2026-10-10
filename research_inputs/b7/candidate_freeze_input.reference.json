@@ -1,0 +1,32 @@
+{
+  "Status": "PREPARED_INPUT_ONLY",
+  "CandidateCount": 40,
+  "NoReplacement": true,
+  "U10PResultFreezeReference": "Containing Git commit",
+  "U10PProducerImplementationSHA": "dc12531b559aaa7a821626e4813a2d291125efe4",
+  "FrozenInput": {
+    "Path": "research_inputs/b7/candidate_freeze_selected40_input.json",
+    "SHA256": "ceacffaaf085cb3470b28548328315dfed9d817e53f368043f54b3583017b328",
+    "Bytes": 254958
+  },
+  "SourceArchive": "/MyDrive/b7_u10p_20261010_01_archive",
+  "SourceCheckpointRoot": "/MyDrive/b7_u10p_20261010_01_checkpoints",
+  "CandidateResults": {
+    "Bytes": 34537399,
+    "Path": "candidate_results.json",
+    "SHA256": "6ecb60257a900b2d0fcc6610bdbf55e9719256825695b4d337de993e2b14a3ca"
+  },
+  "ArchiveZIP": {
+    "Bytes": 4086669,
+    "Path": "archive.zip",
+    "SHA256": "bec4573590af7e4d94e664dc8de0871acc0ec7d4e201de9ccdb4179dbc5b625a"
+  },
+  "SourceManifest": {
+    "Bytes": 1095,
+    "Path": "artifact_manifest.json",
+    "SHA256": "1803365132a91680084ac5b3c4cd4c41d34611659024a959237ad992569d2e9f"
+  },
+  "CandidateFreezeExecuted": false,
+  "ValidationPerformance": "NOT_RUN",
+  "MonitorPerformance": "NOT_RUN"
+}

@@ -1,0 +1,147 @@
+{
+  "CandidateCount": 40,
+  "Counts": {
+    "PASS_U10P": 40
+  },
+  "NoCandidateDrop": true,
+  "NoReplacement": true,
+  "P0RetentionReasons": {
+    "ALL_PROTECTION_MODES_NOT_APPLICABLE": 2,
+    "NO_PROTECTION_MODE_PASS": 35
+  },
+  "PairCounts": {
+    "AUDJPY": 4,
+    "AUDUSD": 0,
+    "EURAUD": 7,
+    "EURJPY": 8,
+    "EURUSD": 5,
+    "GBPAUD": 5,
+    "GBPJPY": 8,
+    "GBPUSD": 2,
+    "USDJPY": 1
+  },
+  "PairModes": {
+    "AUDJPY": {
+      "P0": 4
+    },
+    "EURAUD": {
+      "P0": 7
+    },
+    "EURJPY": {
+      "P0": 8
+    },
+    "EURUSD": {
+      "P0": 5
+    },
+    "GBPAUD": {
+      "P0": 4,
+      "P2": 1
+    },
+    "GBPJPY": {
+      "P0": 8
+    },
+    "GBPUSD": {
+      "P1": 2
+    },
+    "USDJPY": {
+      "P0": 1
+    }
+  },
+  "ProtectionModeCounts": {
+    "P0": 37,
+    "P1": 2,
+    "P2": 1,
+    "P3": 0
+  },
+  "SelectedProtectionCandidates": [
+    {
+      "AllAdoptionChecksTrue": true,
+      "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1200:D1:X0370:H0610",
+      "FormalProtectionMode": "P2",
+      "P0Metrics": {
+        "MaxDDPips": 443.69999999999254,
+        "MedianAnnualAvgPips": 16.677913968547777,
+        "PFpips": 1.8344978310540216,
+        "PositiveYearCount": 3,
+        "TotalPips": 2520.100000000034
+      },
+      "P0WinnerToLoser": 8,
+      "PairRank": 2,
+      "RankedPASSModes": [
+        "P2"
+      ],
+      "ReductionCount": 5,
+      "ReductionFraction": 0.625,
+      "SelectedMetrics": {
+        "MaxDDPips": 411.7999999999897,
+        "MedianAnnualAvgPips": 17.140957446808653,
+        "PFpips": 2.0402689442122632,
+        "PositiveYearCount": 3,
+        "TotalPips": 2862.300000000034
+      },
+      "SelectedWinnerToLoser": 3,
+      "Symbol": "GBPAUD"
+    },
+    {
+      "AllAdoptionChecksTrue": true,
+      "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0365:D0:X1120:H0755",
+      "FormalProtectionMode": "P1",
+      "P0Metrics": {
+        "MaxDDPips": 246.70000000000073,
+        "MedianAnnualAvgPips": 10.708988095237142,
+        "PFpips": 2.050666965586693,
+        "PositiveYearCount": 4,
+        "TotalPips": 1874.5999999998367
+      },
+      "P0WinnerToLoser": 7,
+      "PairRank": 4,
+      "RankedPASSModes": [
+        "P1"
+      ],
+      "ReductionCount": 7,
+      "ReductionFraction": 1.0,
+      "SelectedMetrics": {
+        "MaxDDPips": 246.70000000000073,
+        "MedianAnnualAvgPips": 11.029181184668015,
+        "PFpips": 2.1279321544567473,
+        "PositiveYearCount": 4,
+        "TotalPips": 1875.2999999998478
+      },
+      "SelectedWinnerToLoser": 0,
+      "Symbol": "GBPUSD"
+    },
+    {
+      "AllAdoptionChecksTrue": true,
+      "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0370:D0:X1180:H0810",
+      "FormalProtectionMode": "P1",
+      "P0Metrics": {
+        "MaxDDPips": 395.50000000002194,
+        "MedianAnnualAvgPips": 7.769494949494041,
+        "PFpips": 1.5357722377931151,
+        "PositiveYearCount": 3,
+        "TotalPips": 1452.799999999842
+      },
+      "P0WinnerToLoser": 7,
+      "PairRank": 7,
+      "RankedPASSModes": [
+        "P1"
+      ],
+      "ReductionCount": 7,
+      "ReductionFraction": 1.0,
+      "SelectedMetrics": {
+        "MaxDDPips": 369.60000000002094,
+        "MedianAnnualAvgPips": 8.275454545453686,
+        "PFpips": 1.5777008419229783,
+        "PositiveYearCount": 4,
+        "TotalPips": 1468.399999999855
+      },
+      "SelectedWinnerToLoser": 0,
+      "Symbol": "GBPUSD"
+    }
+  ],
+  "U01Failures": {
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  }
+}

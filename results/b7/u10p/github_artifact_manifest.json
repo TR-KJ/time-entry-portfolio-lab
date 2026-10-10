@@ -1,0 +1,125 @@
+{
+  "SelfExcluded": true,
+  "Files": [
+    {
+      "Path": "docs/b7/u10p_result_freeze.md",
+      "SHA256": "77fd906e07dcfdf8399de94c19e6768e90b8d5194e6c8edd7154362eef28e924",
+      "Bytes": 10659
+    },
+    {
+      "Path": "research_inputs/b7/candidate_freeze_input.reference.json",
+      "SHA256": "051647d709a112edd4b0ce690032c7adcd57859944bf02a94821d55aa3171dcf",
+      "Bytes": 1148
+    },
+    {
+      "Path": "research_inputs/b7/candidate_freeze_selected40_input.json",
+      "SHA256": "ceacffaaf085cb3470b28548328315dfed9d817e53f368043f54b3583017b328",
+      "Bytes": 254958
+    },
+    {
+      "Path": "results/b7/u10p/COMPLETE.json",
+      "SHA256": "27a0082d884aebb22098db62476ba5ae25c65a3d3388b5f23c395bf627fd8c9b",
+      "Bytes": 198
+    },
+    {
+      "Path": "results/b7/u10p/adoption_gate_audit.json",
+      "SHA256": "648afecb974b3b72a93b54f1b5bb0810b6a2ada74daddfd28d43bfa732603b72",
+      "Bytes": 37024
+    },
+    {
+      "Path": "results/b7/u10p/applicability_audit.json",
+      "SHA256": "20810542263ee27219d2e058661ecd74c012b2caeed3fe2521953870e5a0563d",
+      "Bytes": 19972
+    },
+    {
+      "Path": "results/b7/u10p/artifact_manifest.json",
+      "SHA256": "1803365132a91680084ac5b3c4cd4c41d34611659024a959237ad992569d2e9f",
+      "Bytes": 1095
+    },
+    {
+      "Path": "results/b7/u10p/checkpoint_audit.json",
+      "SHA256": "519ba7f98066422dbc012d52d27011f94257b365fe8baf8c98d954dd292dc9da",
+      "Bytes": 5892
+    },
+    {
+      "Path": "results/b7/u10p/consistency_checks.json",
+      "SHA256": "917fcd93cf5d535deab9ca2ae1631f7ac47b26a177fb4f8580e843f66bdd47ae",
+      "Bytes": 40377
+    },
+    {
+      "Path": "results/b7/u10p/drive_checkpoint_audit.json",
+      "SHA256": "525472a597516994ac486ea8d3aa152e87c9a5c19bf6b5623b9905912baedecb",
+      "Bytes": 18651
+    },
+    {
+      "Path": "results/b7/u10p/input_identity.json",
+      "SHA256": "6a48e0283231ecd781d3d220602018f6d5c3f5a1ec3e6770d9f5025f66014a01",
+      "Bytes": 53700
+    },
+    {
+      "Path": "results/b7/u10p/mode_recount.json",
+      "SHA256": "f748166740b78d0f33e21bb86800ce8ae91098677bc3d21486b4baad68f3bab5",
+      "Bytes": 3714
+    },
+    {
+      "Path": "results/b7/u10p/mode_summary.json",
+      "SHA256": "f748166740b78d0f33e21bb86800ce8ae91098677bc3d21486b4baad68f3bab5",
+      "Bytes": 3714
+    },
+    {
+      "Path": "results/b7/u10p/pair_summary.json",
+      "SHA256": "62e08fc537c2f2a424d9c80f92251df498ccf2723cb7488a91008e57d12fb828",
+      "Bytes": 202
+    },
+    {
+      "Path": "results/b7/u10p/preflight.json",
+      "SHA256": "f7f52a2c053663c16a6d1dbe17d78b8325bd8287844180ab2663f65d8ddd2c06",
+      "Bytes": 54533
+    },
+    {
+      "Path": "results/b7/u10p/protection_mode_recount.json",
+      "SHA256": "63405e91b4ac913a76a7918efaf8ef519d469dff727bce5ad5b61fb07b60606e",
+      "Bytes": 271
+    },
+    {
+      "Path": "results/b7/u10p/protection_summary.json",
+      "SHA256": "63405e91b4ac913a76a7918efaf8ef519d469dff727bce5ad5b61fb07b60606e",
+      "Bytes": 271
+    },
+    {
+      "Path": "results/b7/u10p/test_results.json",
+      "SHA256": "3f42f7eb91832ee5baa8cbd451f4f5d0d61d86ad8338bec6e6d4365a044e5b28",
+      "Bytes": 47757
+    },
+    {
+      "Path": "results/b7/u10p/u10p_archive_manifest.json",
+      "SHA256": "a2ae903b8d69c18f2a1f4e9389cf455235a71534d2de9a8ff91304151835d5ac",
+      "Bytes": 8681
+    },
+    {
+      "Path": "results/b7/u10p/u10p_result_identity.json",
+      "SHA256": "4c95ed05672eee80b024f9a166de97cc077801227c43a80bed7608e15ae23964",
+      "Bytes": 68866
+    },
+    {
+      "Path": "results/b7/u10p/u10p_result_summary.json",
+      "SHA256": "b55def67853e748659a2c2db8b3336e3a1c41dfbd144d260445c1b047f6f62a3",
+      "Bytes": 3432
+    },
+    {
+      "Path": "results/b7/u10p/u10p_review.json",
+      "SHA256": "8be112ae236b6d26db7e51871dcf272f8266e9697a6b998b99a495bb888747a9",
+      "Bytes": 150
+    },
+    {
+      "Path": "results/b7/u10p/winner_to_loser_recount.json",
+      "SHA256": "b98b16488678a62d42ea58e3f2d6a99638508b182d232c3f2f0110f6726fc8b4",
+      "Bytes": 873
+    },
+    {
+      "Path": "results/b7/u10p/winner_to_loser_summary.json",
+      "SHA256": "b98b16488678a62d42ea58e3f2d6a99638508b182d232c3f2f0110f6726fc8b4",
+      "Bytes": 873
+    }
+  ]
+}
