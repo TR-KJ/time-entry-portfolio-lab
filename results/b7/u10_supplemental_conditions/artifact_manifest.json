@@ -1,0 +1,15 @@
+{
+  "SelfExcluded": true,
+  "Files": [
+    {
+      "Path": "research_inputs/b7/u10_supplemental_prespec.json",
+      "SHA256": "5dc8c39e2e1bb2ab85c893e8769d601e4cb8d1a295e56bf543c6a6643d92130b",
+      "Bytes": 2523
+    },
+    {
+      "Path": "docs/b7/u10_supplemental_conditions_freeze.md",
+      "SHA256": "0f199a204237e84f131a024e54225f7457c2f731324c83e1481ccb4de62d3fa5",
+      "Bytes": 1577
+    }
+  ]
+}
