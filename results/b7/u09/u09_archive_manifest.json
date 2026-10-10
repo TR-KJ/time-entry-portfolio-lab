@@ -1,0 +1,219 @@
+{
+  "ArchivePath": "/MyDrive/b7_u09_20261010_01_archive",
+  "CheckpointPath": "/MyDrive/b7_u09_20261010_01_checkpoints",
+  "Checks": [
+    "COMPLETE_HASHES",
+    "MANIFEST_HASHES_BYTES",
+    "ZIP_EXACT_ORDER_HASH_BYTES_CRC",
+    "PRODUCER_FULL_IDENTITY_ENVIRONMENT",
+    "FREEZE_ANCESTRY_INDEPENDENT_SUPPLEMENT",
+    "54_JOBS_163_TRUSTED_FILES",
+    "ORDERED_ARCHIVE_EQUALS_DRIVE",
+    "DECISIONS_PAIRS_SHIFTS_BOUNDARY_EXACT",
+    "121_POINT_PERSISTED_SCHEMA_RANK1_ANCHOR",
+    "RETAINED31_EXACT_FINE23_BEST_EXACT",
+    "UNROUNDED_THRESHOLD_MARGIN_ARITHMETIC",
+    "S01_S02_PRODUCER_BINDING",
+    "NO_RANK2_REANCHOR_EXTENSION_RECOMPUTATION",
+    "U10_EXACT_PROJECTION_NO_PERFORMANCE",
+    "SOURCE_UNCHANGED"
+  ],
+  "Files": [
+    {
+      "Bytes": 197,
+      "Path": "COMPLETE.json",
+      "SHA256": "68228ca851ff58d0bc6d6d158076f1efcd5d3e63cde7b0777dd1246a1c0bbcf3"
+    },
+    {
+      "Bytes": 2930914,
+      "Path": "archive.zip",
+      "SHA256": "e559d35c2382d3cb60fad71e0eb0882daa41383d700938dd9ed69668bf260fff"
+    },
+    {
+      "Bytes": 967,
+      "Path": "artifact_manifest.json",
+      "SHA256": "be4dfc0fdf78cb83bdf633c7502ae4d57f651930b77b154183089c584b32120b"
+    },
+    {
+      "Bytes": 20203743,
+      "Path": "candidate_results.json",
+      "SHA256": "eb0d52ea6869ea4be131ce5fbae968a34a97913b4e2107eacd75211aedb67505"
+    },
+    {
+      "Bytes": 7937,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "71fbde6e9f0393b2365e95acc5be6525b49d5740b02601fdc376750528f17ca4"
+    },
+    {
+      "Bytes": 156,
+      "Path": "decision_summary.json",
+      "SHA256": "e7c782239cf6f8f2e4d8e025ca786afe0f554aa08e46cd2e431a24216029b338"
+    },
+    {
+      "Bytes": 19683,
+      "Path": "input_identity.json",
+      "SHA256": "82d1605ecc03a62439b00cb3af1cca15bd6767c0fb881e79de0d73822e15bc20"
+    },
+    {
+      "Bytes": 218,
+      "Path": "pair_summary.json",
+      "SHA256": "222b832ec5f7580a35961d9ab8e30751568d838ceabfa2a53c36127d814ad7a3"
+    },
+    {
+      "Bytes": 20379,
+      "Path": "preflight.json",
+      "SHA256": "3d8eb80af3ccc020f644b845097e04800c9e5399e042d3387c003a5fdf3bf196"
+    },
+    {
+      "Bytes": 147,
+      "Path": "review.json",
+      "SHA256": "062775e3ded08ad7f12b465738978041fcf402384b4a2d55937b23391ef3074b"
+    },
+    {
+      "Bytes": 13140,
+      "Path": "shift_summary.json",
+      "SHA256": "6dd5551c71465a9f570b61d85e453c859737b6570b6503f16eac4099ee55e06d"
+    }
+  ],
+  "Status": "PASS",
+  "Summary": {
+    "AllCandidatesHavePlateauAndDefinedBaseline": true,
+    "AnchorRetained": 31,
+    "DROP": 0,
+    "Decisions": {
+      "ANCHOR_RETAINED_BEST_IS_ANCHOR": 3,
+      "ANCHOR_RETAINED_INSUFFICIENT_IMPROVEMENT": 28,
+      "ANCHOR_RETAINED_NO_1M_PLATEAU": 0,
+      "ANCHOR_RETAINED_UNDEFINED_ANCHOR_BASELINE": 0,
+      "FINE_TUNED": 23
+    },
+    "FineTuned": 23,
+    "InputCandidates": 54,
+    "NoReplacement": true,
+    "PASS_U09": 54,
+    "PairDecisionColumns": [
+      "Total",
+      "FINE_TUNED",
+      "INSUFFICIENT",
+      "BEST_IS_ANCHOR"
+    ],
+    "PairDecisions": {
+      "AUDJPY": [
+        8,
+        3,
+        5,
+        0
+      ],
+      "AUDUSD": [
+        7,
+        2,
+        5,
+        0
+      ],
+      "EURAUD": [
+        8,
+        6,
+        2,
+        0
+      ],
+      "EURJPY": [
+        8,
+        3,
+        4,
+        1
+      ],
+      "EURUSD": [
+        6,
+        4,
+        2,
+        0
+      ],
+      "GBPAUD": [
+        6,
+        3,
+        3,
+        0
+      ],
+      "GBPJPY": [
+        8,
+        1,
+        6,
+        1
+      ],
+      "GBPUSD": [
+        2,
+        1,
+        1,
+        0
+      ],
+      "USDJPY": [
+        1,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "ZIPMembers": [
+    {
+      "Bytes": 20203743,
+      "CRC32": 2881966962,
+      "Path": "candidate_results.json",
+      "SHA256": "eb0d52ea6869ea4be131ce5fbae968a34a97913b4e2107eacd75211aedb67505"
+    },
+    {
+      "Bytes": 7937,
+      "CRC32": 472122756,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "71fbde6e9f0393b2365e95acc5be6525b49d5740b02601fdc376750528f17ca4"
+    },
+    {
+      "Bytes": 156,
+      "CRC32": 32020095,
+      "Path": "decision_summary.json",
+      "SHA256": "e7c782239cf6f8f2e4d8e025ca786afe0f554aa08e46cd2e431a24216029b338"
+    },
+    {
+      "Bytes": 19683,
+      "CRC32": 1653175379,
+      "Path": "input_identity.json",
+      "SHA256": "82d1605ecc03a62439b00cb3af1cca15bd6767c0fb881e79de0d73822e15bc20"
+    },
+    {
+      "Bytes": 218,
+      "CRC32": 157142354,
+      "Path": "pair_summary.json",
+      "SHA256": "222b832ec5f7580a35961d9ab8e30751568d838ceabfa2a53c36127d814ad7a3"
+    },
+    {
+      "Bytes": 20379,
+      "CRC32": 2025700919,
+      "Path": "preflight.json",
+      "SHA256": "3d8eb80af3ccc020f644b845097e04800c9e5399e042d3387c003a5fdf3bf196"
+    },
+    {
+      "Bytes": 147,
+      "CRC32": 548998251,
+      "Path": "review.json",
+      "SHA256": "062775e3ded08ad7f12b465738978041fcf402384b4a2d55937b23391ef3074b"
+    },
+    {
+      "Bytes": 13140,
+      "CRC32": 3428123286,
+      "Path": "shift_summary.json",
+      "SHA256": "6dd5551c71465a9f570b61d85e453c859737b6570b6503f16eac4099ee55e06d"
+    },
+    {
+      "Bytes": 967,
+      "CRC32": 4178667665,
+      "Path": "artifact_manifest.json",
+      "SHA256": "be4dfc0fdf78cb83bdf633c7502ae4d57f651930b77b154183089c584b32120b"
+    },
+    {
+      "Bytes": 197,
+      "CRC32": 4217521646,
+      "Path": "COMPLETE.json",
+      "SHA256": "68228ca851ff58d0bc6d6d158076f1efcd5d3e63cde7b0777dd1246a1c0bbcf3"
+    }
+  ]
+}

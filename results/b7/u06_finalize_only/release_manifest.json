@@ -30,8 +30,8 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "88d7801fa79dc71690cbf98c13a560a8d4626562eda0b655e2ada7cc134818bd",
-      "Bytes": 20241
+      "SHA256": "1c43830086fb717a83cdde27141312a38ce1231a29f3d4272a52f59c8178f0b2",
+      "Bytes": 22188
     },
     {
       "Path": "docs/b7/stage0_validation.md",
@@ -155,13 +155,13 @@
     },
     {
       "Path": "results/b7/stage0/artifact_manifest.json",
-      "SHA256": "c180337b1c77a0ce6e3697ff6ae479f91be1d03e77b969bb91649f437ca5301b",
+      "SHA256": "4cdceadbcd6f33353036b2a0e565a8b30ed2890b7572a7cc51f5785d91991da0",
       "Bytes": 7679
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "9687d5058412a8af6b53013b48aa552f8ee7992be6e3bfb281ac6e98e03cab81",
-      "Bytes": 4644
+      "SHA256": "dd891d02fd45d36b9026b9e18058329744984eefd29522679ca3428dec1997a8",
+      "Bytes": 4794
     },
     {
       "Path": "results/b7/stage1/COMPLETE.json",
@@ -230,12 +230,12 @@
     },
     {
       "Path": "results/b7/stage1_finalize_only/release_manifest.json",
-      "SHA256": "d3dd3b08c690b168ce418402f3689c674a15b114c80a67bf3ad1791765e420d9",
+      "SHA256": "dd5abca443f34f329df4ecd64137ad899d36f10570d040171fb8aa58bd93fef0",
       "Bytes": 7919
     },
     {
       "Path": "results/b7/stage1_implementation/release_manifest.json",
-      "SHA256": "4848acf2ca9a69f42cc893b7387e6520c6c67697371c5fec1e50dbab1e34e59a",
+      "SHA256": "56182b143ff1c56dd6bbf9e54ee6b515c6b72e8974e01c25787fa4e71c3a4d53",
       "Bytes": 8044
     },
     {
@@ -250,7 +250,7 @@
     },
     {
       "Path": "results/b7/u06_implementation/release_manifest.json",
-      "SHA256": "16a7a1a8b52b9ca5387cd75cc80ac775efda1eb3961666d5e530e716f880219d",
+      "SHA256": "d7f7cbf39079b9fa727321fd573c37c0b4d8d907359cb750a692e5e97208cebb",
       "Bytes": 13214
     },
     {

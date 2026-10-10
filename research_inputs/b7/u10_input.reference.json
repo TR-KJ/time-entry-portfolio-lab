@@ -1,0 +1,35 @@
+{
+  "Status": "FROZEN_INPUT_ONLY",
+  "CandidateCount": 54,
+  "NoReplacement": true,
+  "FormalEventMode": "E2",
+  "ModeChosenBeforeResults": true,
+  "CalendarSourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+  "U09ResultFreezeReference": "Commit containing this reference and frozen projection",
+  "U09ProducerImplementationSHA": "345a0e8ef659bcd601b73a6475c4613a04ff4337",
+  "U09Archive": "/MyDrive/b7_u09_20261010_01_archive",
+  "U09CheckpointRoot": "/MyDrive/b7_u09_20261010_01_checkpoints",
+  "CandidateResults": {
+    "Bytes": 20203743,
+    "Path": "candidate_results.json",
+    "SHA256": "eb0d52ea6869ea4be131ce5fbae968a34a97913b4e2107eacd75211aedb67505"
+  },
+  "ArchiveZIP": {
+    "Bytes": 2930914,
+    "Path": "archive.zip",
+    "SHA256": "e559d35c2382d3cb60fad71e0eb0882daa41383d700938dd9ed69668bf260fff"
+  },
+  "SourceManifest": {
+    "Bytes": 967,
+    "Path": "artifact_manifest.json",
+    "SHA256": "be4dfc0fdf78cb83bdf633c7502ae4d57f651930b77b154183089c584b32120b"
+  },
+  "FrozenInput": {
+    "Path": "research_inputs/b7/u10_selected54_input.json",
+    "SHA256": "ea64a5145c08db79d6122c24c6ab875c190739b816275ae4bd443510d9571744",
+    "Bytes": 156934
+  },
+  "U10ImplementationAuthorized": false,
+  "U10Executed": false,
+  "U10PerformanceEvaluated": false
+}

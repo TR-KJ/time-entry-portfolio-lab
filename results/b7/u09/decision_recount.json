@@ -1,0 +1,78 @@
+{
+  "AllCandidatesHavePlateauAndDefinedBaseline": true,
+  "AnchorRetained": 31,
+  "DROP": 0,
+  "Decisions": {
+    "ANCHOR_RETAINED_BEST_IS_ANCHOR": 3,
+    "ANCHOR_RETAINED_INSUFFICIENT_IMPROVEMENT": 28,
+    "ANCHOR_RETAINED_NO_1M_PLATEAU": 0,
+    "ANCHOR_RETAINED_UNDEFINED_ANCHOR_BASELINE": 0,
+    "FINE_TUNED": 23
+  },
+  "FineTuned": 23,
+  "InputCandidates": 54,
+  "NoReplacement": true,
+  "PASS_U09": 54,
+  "PairDecisionColumns": [
+    "Total",
+    "FINE_TUNED",
+    "INSUFFICIENT",
+    "BEST_IS_ANCHOR"
+  ],
+  "PairDecisions": {
+    "AUDJPY": [
+      8,
+      3,
+      5,
+      0
+    ],
+    "AUDUSD": [
+      7,
+      2,
+      5,
+      0
+    ],
+    "EURAUD": [
+      8,
+      6,
+      2,
+      0
+    ],
+    "EURJPY": [
+      8,
+      3,
+      4,
+      1
+    ],
+    "EURUSD": [
+      6,
+      4,
+      2,
+      0
+    ],
+    "GBPAUD": [
+      6,
+      3,
+      3,
+      0
+    ],
+    "GBPJPY": [
+      8,
+      1,
+      6,
+      1
+    ],
+    "GBPUSD": [
+      2,
+      1,
+      1,
+      0
+    ],
+    "USDJPY": [
+      1,
+      0,
+      0,
+      1
+    ]
+  }
+}
