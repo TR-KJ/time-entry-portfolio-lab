@@ -1,0 +1,140 @@
+{
+  "SchemaVersion": 1,
+  "Scope": "U09_IMPLEMENTATION_ONLY",
+  "U08ResultFreezeSHA": "382f351c169da48e1fe4eadf31fc858bbd57eed0",
+  "SupplementalFreezeSHA": "1466a2c3e8b3d523233c45d665a6cac21e974393",
+  "SupplementalPrespecSHA256": "cefa5aed9fc820c8bbf4dd4a57622263cd2443bc8509f8016f62bb20e76a92f3",
+  "InputSHA256": "8faa886c3d1a72e8020688b8931481d81d1df637d63b0b368e0171b8d1dce2ca",
+  "CandidateCount": 54,
+  "NoReplacement": true,
+  "DiscoveryBounds": [
+    "2020-01-01",
+    "2024-01-01"
+  ],
+  "U09": {
+    "Prerequisite": "Calendar Freeze",
+    "Fixed": [
+      "Pair",
+      "Direction",
+      "SL",
+      "TP",
+      "Weekday",
+      "DOM",
+      "Month stop"
+    ],
+    "Search": {
+      "EntryRadiusMinutes": 5,
+      "ExitRadiusMinutes": 5,
+      "StepMinutes": 1,
+      "MaximumPoints": 121,
+      "Anchor": "Original five-minute anchor",
+      "ExtensionAllowed": false
+    },
+    "InvalidIf": [
+      "Entry date/weekday changes",
+      "Exit day offset changes",
+      "Holding outside 30-1440 minutes",
+      "Execution schedule invalid"
+    ],
+    "InvalidTreatment": "Exclude; not FAIL",
+    "PointGateRef": "GateDefinitions.U01Equivalent",
+    "Plateau": {
+      "EntryRadiusMinutes": 1,
+      "ExitRadiusMinutes": 1,
+      "CenterIncluded": true,
+      "MaximumPoints": 9,
+      "CenterMustFormalPASS": true,
+      "MinimumValidPoints": 4,
+      "MinimumFormalPASSRatio": {
+        "Numerator": 2,
+        "Denominator": 3
+      },
+      "AllValidMedianAvgPipsMinCenterMultiplier": 0.8,
+      "FAILPointsIncludedInMedian": true
+    },
+    "Ranking": [
+      "Neighborhood Median AvgPips DESC",
+      "Neighborhood Median PFpips DESC",
+      "Center MedianAnnualAvgPips DESC",
+      "L1 distance from five-minute anchor ASC",
+      "fixed key"
+    ],
+    "L1": "abs(EntryShiftMinutes) + abs(ExitShiftMinutes)",
+    "ChangeRequiredImprovement": "Best 1m Neighborhood Median AvgPips - five-minute-anchor Neighborhood Median AvgPips >= max(0.05 pips/trade, anchor Neighborhood Median AvgPips * 0.025)",
+    "InsufficientImprovement": "Retain five-minute anchor",
+    "NoPlateau": "ANCHOR_RETAINED_NO_1M_PLATEAU; retain anchor, not DROP",
+    "ReanchorAllowed": false
+  },
+  "FixedKey": [
+    "Symbol",
+    "Direction LONG before SHORT",
+    "AnchorWeekday",
+    "Shifted EntryMinute",
+    "Shifted ExitDayOffset",
+    "Shifted ExitMinute",
+    "Shifted HoldingMinutes",
+    "Original CandidateID"
+  ],
+  "FrozenSources": {
+    "research_inputs/b7/u09_selected54_input.json": "8faa886c3d1a72e8020688b8931481d81d1df637d63b0b368e0171b8d1dce2ca",
+    "research_inputs/b7/u08_selected56_input.json": "7c49b9cd0374b57f4da78eb784aa646050cba507b0ff037e303085a61deb7616",
+    "research_inputs/b7/u09_supplemental_prespec.json": "cefa5aed9fc820c8bbf4dd4a57622263cd2443bc8509f8016f62bb20e76a92f3",
+    "docs/b7/u09_supplemental_conditions_freeze.md": "62ccab0b7f987a54ab8a8f9f346e890afb7eae98fd013f9c92c39109393fc806",
+    "results/b7/u08/input_identity.json": "f9e4de991db104f6a92ea0a64d9f4a7282e259ef4baede0772bfa48209205cc0",
+    "results/b7/u08/drive_checkpoint_audit.json": "0556d1451cec7aa0b68aec1d76fc5ae186ee0f40e42092df2af1c80d48daaec1",
+    "results/b7/u08/u08_result_summary.json": "0aeaa0798b9cd6f152130e1d7931b39841f392867074311852d6cec68e53c2e0",
+    "results/b7/u08/u08_archive_manifest.json": "6ede76807e2d227a50d64f227846642e38cb110a51f1335426a8ee779bcdea2c",
+    "research_inputs/b7/expected_m1_manifest.csv": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a",
+    "research_inputs/b7/full_research_prespec.json": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea"
+  },
+  "Smoke": {
+    "Symbols": [
+      "USDJPY",
+      "EURUSD"
+    ],
+    "Bounds": [
+      "2020-01-07 08:55",
+      "2020-02-25 09:40"
+    ],
+    "Days": [
+      "2020-01-07",
+      "2020-01-14",
+      "2020-01-21",
+      "2020-02-04",
+      "2020-02-11",
+      "2020-02-25"
+    ],
+    "EntryMinute": 540,
+    "HoldingMinutes": 35,
+    "FormalWeekdays": [
+      1
+    ],
+    "FormalDOMBuckets": [
+      "D1",
+      "D2",
+      "D3"
+    ],
+    "FormalMonths": [
+      1,
+      2
+    ],
+    "Shifts": [
+      -1,
+      0,
+      1
+    ],
+    "Directions": [
+      "LONG",
+      "SHORT"
+    ],
+    "SLPips": 15,
+    "TPPips": [
+      null,
+      10
+    ],
+    "Formal54Used": false,
+    "FormalScheduleProduced": false,
+    "PerformanceSaved": false,
+    "FullSearch": false
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "Status": "PASS",
+  "CandidateCount": 54,
+  "UniqueCandidateCount": 54,
+  "U08ResultFreezeSHA": "382f351c169da48e1fe4eadf31fc858bbd57eed0",
+  "U09InputSHA256": "8faa886c3d1a72e8020688b8931481d81d1df637d63b0b368e0171b8d1dce2ca",
+  "SupplementalFreezeSHA": "1466a2c3e8b3d523233c45d665a6cac21e974393",
+  "SupplementalPrespecSHA256": "cefa5aed9fc820c8bbf4dd4a57622263cd2443bc8509f8016f62bb20e76a92f3",
+  "SourceCandidateCheckpointHashes": "54/54 exact against U08 frozen Drive audit",
+  "CalendarFreeze": "Exact frozen U08 PASS54 projection; order preserved",
+  "NoReplacement": true,
+  "FormalPerformanceEvaluated": false
+}
