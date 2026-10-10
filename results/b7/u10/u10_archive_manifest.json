@@ -1,0 +1,211 @@
+{
+  "ArchivePath": "/MyDrive/b7_u10_20261010_01_archive",
+  "CheckpointPath": "/MyDrive/b7_u10_20261010_01_checkpoints",
+  "Checks": [
+    "COMPLETE_HASHES",
+    "MANIFEST_EXACT_HASH_BYTES",
+    "ZIP_ORDER_HASH_BYTES_CRC",
+    "PRODUCER_IDENTITY_ENVIRONMENT",
+    "ANCESTRY_CONDITIONS_ONLY_SUPPLEMENT",
+    "CALENDAR_SUPPLEMENT_BINDING",
+    "54_EXACT_JOBS_163_TRUSTED_FILES",
+    "ORDERED_ARCHIVE_EQUALS_DRIVE",
+    "INDEPENDENT_STATUS_PAIR_MODE_EVENT_RECOUNTS",
+    "SUBSET_AND_MULTI_EVENT_REMOVE_ONCE_PERSISTED_COUNTS",
+    "INDEPENDENT_PERSISTED_E2_GATE_ARITHMETIC",
+    "DROP14_EXACT_IDS_REASONS_SHORTFALL",
+    "PASS40_ALL_GATES_MINIMA",
+    "U10P_ORDERED40_EXACT_PROJECTION",
+    "NO_M1_PERFORMANCE_RECOMPUTATION",
+    "SOURCE_UNCHANGED"
+  ],
+  "Files": [
+    {
+      "Bytes": 197,
+      "Path": "COMPLETE.json",
+      "SHA256": "ef481e492a5f61b0ada424169706aa5f8ae51073982c856364229acab44c3621"
+    },
+    {
+      "Bytes": 87842,
+      "Path": "archive.zip",
+      "SHA256": "ef4d6f24e0c6da5c477b3f3daf56e1e76a46b87b1961bf514f66c45d35ae2ca5"
+    },
+    {
+      "Bytes": 1080,
+      "Path": "artifact_manifest.json",
+      "SHA256": "f6b81af455ba4203addd07eb400b8ee84e97ada3c08ed324577b1db0fb4f74ba"
+    },
+    {
+      "Bytes": 420509,
+      "Path": "candidate_results.json",
+      "SHA256": "735d5bcba1cc393b1d0739cbd3b5ec2b822a96f84825cb530f65443e525c53a2"
+    },
+    {
+      "Bytes": 7937,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "301aa18c91c23d7b9a6bf2eeed84ff0121b8ff405f44e6ed6e51413515f44f60"
+    },
+    {
+      "Bytes": 3815,
+      "Path": "event_summary.json",
+      "SHA256": "0850b392e36866acd5a92d6c752704bd61abf51c15186249c9a617e06d9b328c"
+    },
+    {
+      "Bytes": 35173,
+      "Path": "input_identity.json",
+      "SHA256": "8ea6e08a80b6f7efb897748e5fca86cd4c06a06cd923e3c2a156657ee277371d"
+    },
+    {
+      "Bytes": 2820,
+      "Path": "mode_summary.json",
+      "SHA256": "e2f59336543dface75afe518d1058b9b63dc630616a90bce50c2094eb25ee0a9"
+    },
+    {
+      "Bytes": 310,
+      "Path": "pair_summary.json",
+      "SHA256": "d990c61fea088b697f6f70e0d60b80d47d652796bd8ebcc3b7d21f7020f4c824"
+    },
+    {
+      "Bytes": 35929,
+      "Path": "preflight.json",
+      "SHA256": "26ec57f3cf0468556eaef585fd5fe9a476e45a01cabe833644cd4ea9dfb0bd2f"
+    },
+    {
+      "Bytes": 169,
+      "Path": "review.json",
+      "SHA256": "361833635c087de7d8a71769ca16c4222be52889c14fc65e44d67a0177139451"
+    },
+    {
+      "Bytes": 113,
+      "Path": "status_summary.json",
+      "SHA256": "d1131711ca95ebb0c3207bf3fd5173f641009ea20bc32cb1aef877aba43660c0"
+    }
+  ],
+  "Status": "PASS",
+  "Summary": {
+    "DROP_U10_E2_GATE": 14,
+    "FormalEventMode": "E2",
+    "InputCandidates": 54,
+    "NoReplacement": true,
+    "PASSMinimum": {
+      "AnnualTrades": 31,
+      "Losses": 59,
+      "PFpips": 1.3345222120206284,
+      "PositiveYearCount": 3,
+      "TotalTrades": 154
+    },
+    "PASS_U10": 40,
+    "Pairs": {
+      "AUDJPY": {
+        "DROP_U10_E2_GATE": 4,
+        "PASS_U10": 4
+      },
+      "AUDUSD": {
+        "DROP_U10_E2_GATE": 7
+      },
+      "EURAUD": {
+        "DROP_U10_E2_GATE": 1,
+        "PASS_U10": 7
+      },
+      "EURJPY": {
+        "PASS_U10": 8
+      },
+      "EURUSD": {
+        "DROP_U10_E2_GATE": 1,
+        "PASS_U10": 5
+      },
+      "GBPAUD": {
+        "DROP_U10_E2_GATE": 1,
+        "PASS_U10": 5
+      },
+      "GBPJPY": {
+        "PASS_U10": 8
+      },
+      "GBPUSD": {
+        "PASS_U10": 2
+      },
+      "USDJPY": {
+        "PASS_U10": 1
+      }
+    },
+    "U10PCounts": {
+      "AUDJPY": 4,
+      "AUDUSD": 0,
+      "EURAUD": 7,
+      "EURJPY": 8,
+      "EURUSD": 5,
+      "GBPAUD": 5,
+      "GBPJPY": 8,
+      "GBPUSD": 2,
+      "USDJPY": 1
+    }
+  },
+  "ZIPMembers": [
+    {
+      "Bytes": 420509,
+      "CRC32": 2705460259,
+      "Path": "candidate_results.json",
+      "SHA256": "735d5bcba1cc393b1d0739cbd3b5ec2b822a96f84825cb530f65443e525c53a2"
+    },
+    {
+      "Bytes": 7937,
+      "CRC32": 2533123770,
+      "Path": "checkpoint_audit.json",
+      "SHA256": "301aa18c91c23d7b9a6bf2eeed84ff0121b8ff405f44e6ed6e51413515f44f60"
+    },
+    {
+      "Bytes": 3815,
+      "CRC32": 3230363127,
+      "Path": "event_summary.json",
+      "SHA256": "0850b392e36866acd5a92d6c752704bd61abf51c15186249c9a617e06d9b328c"
+    },
+    {
+      "Bytes": 35173,
+      "CRC32": 3113567876,
+      "Path": "input_identity.json",
+      "SHA256": "8ea6e08a80b6f7efb897748e5fca86cd4c06a06cd923e3c2a156657ee277371d"
+    },
+    {
+      "Bytes": 2820,
+      "CRC32": 2229197646,
+      "Path": "mode_summary.json",
+      "SHA256": "e2f59336543dface75afe518d1058b9b63dc630616a90bce50c2094eb25ee0a9"
+    },
+    {
+      "Bytes": 310,
+      "CRC32": 1009989534,
+      "Path": "pair_summary.json",
+      "SHA256": "d990c61fea088b697f6f70e0d60b80d47d652796bd8ebcc3b7d21f7020f4c824"
+    },
+    {
+      "Bytes": 35929,
+      "CRC32": 2335973245,
+      "Path": "preflight.json",
+      "SHA256": "26ec57f3cf0468556eaef585fd5fe9a476e45a01cabe833644cd4ea9dfb0bd2f"
+    },
+    {
+      "Bytes": 169,
+      "CRC32": 1413109607,
+      "Path": "review.json",
+      "SHA256": "361833635c087de7d8a71769ca16c4222be52889c14fc65e44d67a0177139451"
+    },
+    {
+      "Bytes": 113,
+      "CRC32": 2629650401,
+      "Path": "status_summary.json",
+      "SHA256": "d1131711ca95ebb0c3207bf3fd5173f641009ea20bc32cb1aef877aba43660c0"
+    },
+    {
+      "Bytes": 1080,
+      "CRC32": 2244341267,
+      "Path": "artifact_manifest.json",
+      "SHA256": "f6b81af455ba4203addd07eb400b8ee84e97ada3c08ed324577b1db0fb4f74ba"
+    },
+    {
+      "Bytes": 197,
+      "CRC32": 450315033,
+      "Path": "COMPLETE.json",
+      "SHA256": "ef481e492a5f61b0ada424169706aa5f8ae51073982c856364229acab44c3621"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "SelfExcluded": true,
+  "Files": [
+    {
+      "Path": "docs/b7/u10_result_freeze.md",
+      "SHA256": "9bea6fc0ea48a6af9318c40f78675f82de042b9b371580a0473589ba812378c2",
+      "Bytes": 11746
+    },
+    {
+      "Path": "research_inputs/b7/u10p_input.reference.json",
+      "SHA256": "c70cde78df11a3116b957fe5bce885cd432d187d4efa6e34c2e09cac25e0ff78",
+      "Bytes": 1147
+    },
+    {
+      "Path": "research_inputs/b7/u10p_selected40_input.json",
+      "SHA256": "7bce58b58102be11d8fe2debe4212b47a52cc685d10b044a9f7663e5b0bad11f",
+      "Bytes": 188634
+    },
+    {
+      "Path": "results/b7/u10/COMPLETE.json",
+      "SHA256": "ef481e492a5f61b0ada424169706aa5f8ae51073982c856364229acab44c3621",
+      "Bytes": 197
+    },
+    {
+      "Path": "results/b7/u10/artifact_manifest.json",
+      "SHA256": "f6b81af455ba4203addd07eb400b8ee84e97ada3c08ed324577b1db0fb4f74ba",
+      "Bytes": 1080
+    },
+    {
+      "Path": "results/b7/u10/checkpoint_audit.json",
+      "SHA256": "301aa18c91c23d7b9a6bf2eeed84ff0121b8ff405f44e6ed6e51413515f44f60",
+      "Bytes": 7937
+    },
+    {
+      "Path": "results/b7/u10/consistency_checks.json",
+      "SHA256": "2a7c14ea80ec56ca306a9f78ea9d94ac74db8c04dd34a67597af1da2f01b4620",
+      "Bytes": 50561
+    },
+    {
+      "Path": "results/b7/u10/drive_checkpoint_audit.json",
+      "SHA256": "4b0b7d29ae58b04d5f4e93a1e1c07100c428849193146ee6e3cb2e06e910ce68",
+      "Bytes": 24996
+    },
+    {
+      "Path": "results/b7/u10/drop_gate_audit.json",
+      "SHA256": "25d2a20a90b892d9253090781e5055d0efc6628c335d0f7ea047c9072ccb172b",
+      "Bytes": 4852
+    },
+    {
+      "Path": "results/b7/u10/event_recount.json",
+      "SHA256": "0850b392e36866acd5a92d6c752704bd61abf51c15186249c9a617e06d9b328c",
+      "Bytes": 3815
+    },
+    {
+      "Path": "results/b7/u10/event_summary.json",
+      "SHA256": "0850b392e36866acd5a92d6c752704bd61abf51c15186249c9a617e06d9b328c",
+      "Bytes": 3815
+    },
+    {
+      "Path": "results/b7/u10/input_identity.json",
+      "SHA256": "8ea6e08a80b6f7efb897748e5fca86cd4c06a06cd923e3c2a156657ee277371d",
+      "Bytes": 35173
+    },
+    {
+      "Path": "results/b7/u10/mode_recount.json",
+      "SHA256": "e2f59336543dface75afe518d1058b9b63dc630616a90bce50c2094eb25ee0a9",
+      "Bytes": 2820
+    },
+    {
+      "Path": "results/b7/u10/mode_summary.json",
+      "SHA256": "e2f59336543dface75afe518d1058b9b63dc630616a90bce50c2094eb25ee0a9",
+      "Bytes": 2820
+    },
+    {
+      "Path": "results/b7/u10/multi_event_audit.json",
+      "SHA256": "462575c69abc2aa12fee471df57bebd399ca2c086e43c0e4bb01b6a7a9c6c2cd",
+      "Bytes": 2899
+    },
+    {
+      "Path": "results/b7/u10/pair_summary.json",
+      "SHA256": "d990c61fea088b697f6f70e0d60b80d47d652796bd8ebcc3b7d21f7020f4c824",
+      "Bytes": 310
+    },
+    {
+      "Path": "results/b7/u10/pass_gate_audit.json",
+      "SHA256": "a1a3130b96d05e5bbc59f68d06b1e3595863a0ac85e9f4d9aca4a13887e3d2de",
+      "Bytes": 11928
+    },
+    {
+      "Path": "results/b7/u10/preflight.json",
+      "SHA256": "26ec57f3cf0468556eaef585fd5fe9a476e45a01cabe833644cd4ea9dfb0bd2f",
+      "Bytes": 35929
+    },
+    {
+      "Path": "results/b7/u10/status_recount.json",
+      "SHA256": "e5f65e97d84e0beeb3919878a17ba7db4cd3e4aabd254d8778656d6914d2ac27",
+      "Bytes": 431
+    },
+    {
+      "Path": "results/b7/u10/status_summary.json",
+      "SHA256": "d1131711ca95ebb0c3207bf3fd5173f641009ea20bc32cb1aef877aba43660c0",
+      "Bytes": 113
+    },
+    {
+      "Path": "results/b7/u10/test_results.json",
+      "SHA256": "1fecd189cb73b888426f635438bfee8e0e78930ace3895c9eb79459ba7696b82",
+      "Bytes": 40666
+    },
+    {
+      "Path": "results/b7/u10/u10_archive_manifest.json",
+      "SHA256": "c16c2c1cdc49adff1800486f28acd632acba85a646c073d5bbf69aeb18b7d355",
+      "Bytes": 5715
+    },
+    {
+      "Path": "results/b7/u10/u10_result_identity.json",
+      "SHA256": "1c74c3c5cb79bb0ee537b19a23356fab26e31d6f193c3d59116d9473d1785e1d",
+      "Bytes": 46953
+    },
+    {
+      "Path": "results/b7/u10/u10_result_summary.json",
+      "SHA256": "f1e4990b24fd0303294291258902088fc22a636c266c8c7f50f1d03aab7be3dd",
+      "Bytes": 978
+    },
+    {
+      "Path": "results/b7/u10/u10_review.json",
+      "SHA256": "361833635c087de7d8a71769ca16c4222be52889c14fc65e44d67a0177139451",
+      "Bytes": 169
+    }
+  ]
+}

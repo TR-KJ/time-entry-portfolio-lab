@@ -1,0 +1,58 @@
+{
+  "DROP_U10_E2_GATE": 14,
+  "FormalEventMode": "E2",
+  "InputCandidates": 54,
+  "NoReplacement": true,
+  "PASSMinimum": {
+    "AnnualTrades": 31,
+    "Losses": 59,
+    "PFpips": 1.3345222120206284,
+    "PositiveYearCount": 3,
+    "TotalTrades": 154
+  },
+  "PASS_U10": 40,
+  "Pairs": {
+    "AUDJPY": {
+      "DROP_U10_E2_GATE": 4,
+      "PASS_U10": 4
+    },
+    "AUDUSD": {
+      "DROP_U10_E2_GATE": 7
+    },
+    "EURAUD": {
+      "DROP_U10_E2_GATE": 1,
+      "PASS_U10": 7
+    },
+    "EURJPY": {
+      "PASS_U10": 8
+    },
+    "EURUSD": {
+      "DROP_U10_E2_GATE": 1,
+      "PASS_U10": 5
+    },
+    "GBPAUD": {
+      "DROP_U10_E2_GATE": 1,
+      "PASS_U10": 5
+    },
+    "GBPJPY": {
+      "PASS_U10": 8
+    },
+    "GBPUSD": {
+      "PASS_U10": 2
+    },
+    "USDJPY": {
+      "PASS_U10": 1
+    }
+  },
+  "U10PCounts": {
+    "AUDJPY": 4,
+    "AUDUSD": 0,
+    "EURAUD": 7,
+    "EURJPY": 8,
+    "EURUSD": 5,
+    "GBPAUD": 5,
+    "GBPJPY": 8,
+    "GBPUSD": 2,
+    "USDJPY": 1
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "Status": "FROZEN_INPUT_ONLY",
+  "CandidateCount": 40,
+  "NoReplacement": true,
+  "FormalEventMode": "E2",
+  "U10ResultFreezeReference": "Containing Git commit",
+  "U10ProducerImplementationSHA": "ca3affff0c210e4a4cda9aae98ca8a9928db9489",
+  "FrozenInput": {
+    "Path": "research_inputs/b7/u10p_selected40_input.json",
+    "SHA256": "7bce58b58102be11d8fe2debe4212b47a52cc685d10b044a9f7663e5b0bad11f",
+    "Bytes": 188634
+  },
+  "SourceArchive": "/MyDrive/b7_u10_20261010_01_archive",
+  "SourceCheckpointRoot": "/MyDrive/b7_u10_20261010_01_checkpoints",
+  "CandidateResults": {
+    "Bytes": 420509,
+    "Path": "candidate_results.json",
+    "SHA256": "735d5bcba1cc393b1d0739cbd3b5ec2b822a96f84825cb530f65443e525c53a2"
+  },
+  "ArchiveZIP": {
+    "Bytes": 87842,
+    "Path": "archive.zip",
+    "SHA256": "ef4d6f24e0c6da5c477b3f3daf56e1e76a46b87b1961bf514f66c45d35ae2ca5"
+  },
+  "SourceManifest": {
+    "Bytes": 1080,
+    "Path": "artifact_manifest.json",
+    "SHA256": "f6b81af455ba4203addd07eb400b8ee84e97ada3c08ed324577b1db0fb4f74ba"
+  },
+  "U10PImplementationAuthorized": false,
+  "U10PExecuted": false,
+  "U10PPerformanceEvaluated": false
+}
