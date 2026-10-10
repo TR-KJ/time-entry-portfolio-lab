@@ -1,0 +1,197 @@
+{
+  "Scope": "U10P_IMPLEMENTATION_ONLY",
+  "U10ResultFreezeSHA": "488553634c3923f5ef561a7db777d1b0b2ff5796",
+  "U10ProducerSHA": "ca3affff0c210e4a4cda9aae98ca8a9928db9489",
+  "InputSHA256": "7bce58b58102be11d8fe2debe4212b47a52cc685d10b044a9f7663e5b0bad11f",
+  "InputObjectSHA256": "16105209109bf8d064d2161215254889553ef245d4546c8ec671ad7e5e36948f",
+  "EventCalendarSHA256": "7a1bdaeab45aa72ad9098386707e452f280d99f37d2c0fb5f4c512805a72d8eb",
+  "CalendarSourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+  "FrozenU10PContract": {
+    "Activation": "Effective from next M1 bar after trigger confirmed; never infer within-bar High/Low order",
+    "AdoptionAllRequired": {
+      "DoNotWorsen": [
+        "TotalPips",
+        "PFpips",
+        "MedianAnnualAvgPips",
+        "PositiveYearCount",
+        "MaxDDPips"
+      ],
+      "GateRef": "GateDefinitions.U01Equivalent",
+      "WinnerToLoserReductionCountMin": 5,
+      "WinnerToLoserReductionFractionMin": 0.2
+    },
+    "DiagnosticReachR": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "FrozenBefore": [
+      "Pair",
+      "Direction",
+      "Entry",
+      "Exit",
+      "SL",
+      "TP",
+      "Weekday",
+      "DOM",
+      "Month",
+      "1m result",
+      "Event E2"
+    ],
+    "Modes": {
+      "P0": {
+        "Protection": false
+      },
+      "P1": {
+        "Lock": "Break Even",
+        "LockR": 0,
+        "TriggerR": 0.5
+      },
+      "P2": {
+        "LockR": 0.25,
+        "TriggerR": 0.75
+      },
+      "P3": {
+        "LockR": 0.5,
+        "TriggerR": 1.0
+      }
+    },
+    "NoPASSMode": "P0",
+    "NoReturnToEarlierConditions": true,
+    "OtherTriggerLockSearchAllowed": false,
+    "Position": "After E2, before Candidate Freeze",
+    "RNormalization": "Formal SL pips; diagnostic/trigger normalization only, not B7 Candidate ranking",
+    "Ranking": [
+      "WinnerToLoser reduction count DESC",
+      "MaxDDPips ASC",
+      "PFpips DESC",
+      "TotalPips DESC",
+      "P1 before P2 before P3"
+    ],
+    "TP": "Frozen TP unchanged; mark NOT_APPLICABLE if TP executes before protection can matter, including TP=0.5R with P1",
+    "TradeDiagnostics": {
+      "FinalPips": "Formal exit result",
+      "GivebackPips": "MFE - FinalPips",
+      "MAE": "Maximum adverse excursion in pips during holding",
+      "MFE": "Maximum favorable excursion in pips during holding"
+    },
+    "TrailingWidthSweepAllowed": false,
+    "WinnerToLoser": "MFE >= 0.50R AND FinalPips < 0",
+    "WinnerToLoserOutputs": [
+      "Count",
+      "Fraction",
+      "Giveback"
+    ]
+  },
+  "FormalExecutionAuthorized": false,
+  "Formalization": {
+    "MFE_MAE": "Raw high/low relative to spread-adjusted entry; nonnegative; entry through actual close inclusive; unrounded",
+    "Giveback": "MFEpips - FinalPips",
+    "WinnerToLoserFraction": "Count / Trades if Trades > 0 else null",
+    "StructuralNA": "finite FormalTP <= TriggerR * FormalSL",
+    "Activation": "Next existing M1 bar after trigger; static lock; SL first; stop-level fill",
+    "Comparison": "Unrounded inclusive no-worsen and reduction thresholds; finite PF and defined median invariant after U01 PASS",
+    "NoCandidateDrop": true
+  },
+  "Smoke": {
+    "Symbols": [
+      "AUDUSD",
+      "EURJPY"
+    ],
+    "Days": [
+      "2020-01-10",
+      "2020-01-14",
+      "2020-01-21",
+      "2020-01-23",
+      "2020-01-29",
+      "2020-01-30",
+      "2020-02-04"
+    ],
+    "Bounds": [
+      "2020-01-10 00:00",
+      "2020-02-05 23:59"
+    ],
+    "Directions": [
+      "LONG",
+      "SHORT"
+    ],
+    "TPPips": [
+      null,
+      10
+    ],
+    "SLPips": 10,
+    "Schedules": [
+      {
+        "EntryMinute": 540,
+        "ExitMinute": 1380,
+        "ExitDayOffset": 0,
+        "HoldingMinutes": 840
+      },
+      {
+        "EntryMinute": 1380,
+        "ExitMinute": 240,
+        "ExitDayOffset": 1,
+        "HoldingMinutes": 300
+      }
+    ],
+    "FormalWeekdays": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "FormalDOMBuckets": [
+      "D1",
+      "D2",
+      "D3"
+    ],
+    "FormalMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "FrozenSources": {
+    "research_inputs/b7/expected_m1_manifest.csv": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a",
+    "research_inputs/b7/full_research_prespec.json": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea",
+    "research_inputs/b7/u10_event_calendar.json": "7a1bdaeab45aa72ad9098386707e452f280d99f37d2c0fb5f4c512805a72d8eb",
+    "research_inputs/b7/u10_selected54_input.json": "ea64a5145c08db79d6122c24c6ab875c190739b816275ae4bd443510d9571744",
+    "research_inputs/b7/u10_supplemental_prespec.json": "5dc8c39e2e1bb2ab85c893e8769d601e4cb8d1a295e56bf543c6a6643d92130b",
+    "research_inputs/b7/u10p_input.reference.json": "c70cde78df11a3116b957fe5bce885cd432d187d4efa6e34c2e09cac25e0ff78",
+    "research_inputs/b7/u10p_selected40_input.json": "7bce58b58102be11d8fe2debe4212b47a52cc685d10b044a9f7663e5b0bad11f",
+    "results/b7/u10/COMPLETE.json": "ef481e492a5f61b0ada424169706aa5f8ae51073982c856364229acab44c3621",
+    "results/b7/u10/artifact_manifest.json": "f6b81af455ba4203addd07eb400b8ee84e97ada3c08ed324577b1db0fb4f74ba",
+    "results/b7/u10/checkpoint_audit.json": "301aa18c91c23d7b9a6bf2eeed84ff0121b8ff405f44e6ed6e51413515f44f60",
+    "results/b7/u10/consistency_checks.json": "2a7c14ea80ec56ca306a9f78ea9d94ac74db8c04dd34a67597af1da2f01b4620",
+    "results/b7/u10/drive_checkpoint_audit.json": "4b0b7d29ae58b04d5f4e93a1e1c07100c428849193146ee6e3cb2e06e910ce68",
+    "results/b7/u10/drop_gate_audit.json": "25d2a20a90b892d9253090781e5055d0efc6628c335d0f7ea047c9072ccb172b",
+    "results/b7/u10/event_recount.json": "0850b392e36866acd5a92d6c752704bd61abf51c15186249c9a617e06d9b328c",
+    "results/b7/u10/event_summary.json": "0850b392e36866acd5a92d6c752704bd61abf51c15186249c9a617e06d9b328c",
+    "results/b7/u10/github_artifact_manifest.json": "fc01b243e56b03ea6e26613ddb57714fc4b54be5e1bcdbb7b581669ffb82722e",
+    "results/b7/u10/input_identity.json": "8ea6e08a80b6f7efb897748e5fca86cd4c06a06cd923e3c2a156657ee277371d",
+    "results/b7/u10/mode_recount.json": "e2f59336543dface75afe518d1058b9b63dc630616a90bce50c2094eb25ee0a9",
+    "results/b7/u10/mode_summary.json": "e2f59336543dface75afe518d1058b9b63dc630616a90bce50c2094eb25ee0a9",
+    "results/b7/u10/multi_event_audit.json": "462575c69abc2aa12fee471df57bebd399ca2c086e43c0e4bb01b6a7a9c6c2cd",
+    "results/b7/u10/pair_summary.json": "d990c61fea088b697f6f70e0d60b80d47d652796bd8ebcc3b7d21f7020f4c824",
+    "results/b7/u10/pass_gate_audit.json": "a1a3130b96d05e5bbc59f68d06b1e3595863a0ac85e9f4d9aca4a13887e3d2de",
+    "results/b7/u10/preflight.json": "26ec57f3cf0468556eaef585fd5fe9a476e45a01cabe833644cd4ea9dfb0bd2f",
+    "results/b7/u10/status_recount.json": "e5f65e97d84e0beeb3919878a17ba7db4cd3e4aabd254d8778656d6914d2ac27",
+    "results/b7/u10/status_summary.json": "d1131711ca95ebb0c3207bf3fd5173f641009ea20bc32cb1aef877aba43660c0",
+    "results/b7/u10/test_results.json": "1fecd189cb73b888426f635438bfee8e0e78930ace3895c9eb79459ba7696b82",
+    "results/b7/u10/u10_archive_manifest.json": "c16c2c1cdc49adff1800486f28acd632acba85a646c073d5bbf69aeb18b7d355",
+    "results/b7/u10/u10_result_identity.json": "1c74c3c5cb79bb0ee537b19a23356fab26e31d6f193c3d59116d9473d1785e1d",
+    "results/b7/u10/u10_result_summary.json": "f1e4990b24fd0303294291258902088fc22a636c266c8c7f50f1d03aab7be3dd",
+    "results/b7/u10/u10_review.json": "361833635c087de7d8a71769ca16c4222be52889c14fc65e44d67a0177139451"
+  }
+}

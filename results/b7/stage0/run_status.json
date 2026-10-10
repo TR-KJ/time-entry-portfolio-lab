@@ -48,7 +48,7 @@
   "NewPerformanceResultsOpened": true,
   "FullResearchPrespec": "research_inputs/b7/full_research_prespec.json",
   "FullResearchConditions": "docs/b7/full_research_conditions_freeze.md",
-  "NextAuthorizationRequired": "Separate B7 U10-P Implementation Only instruction",
+  "NextAuthorizationRequired": "Chat review then separate explicit Colab U10-P execution approval",
   "Stage1ImplementationStatus": "FROZEN",
   "ImplementationDocumentation": "docs/b7/stage1_implementation.md",
   "Stage1FinalizeOnlyImplementationStatus": "FROZEN",
@@ -114,7 +114,7 @@
   "U10ConditionsFrozen": true,
   "U10ImplementationStatus": "FROZEN",
   "U10ExecutionAuthorized": false,
-  "U10PImplementationAuthorized": false,
+  "U10PImplementationAuthorized": true,
   "U10PExecuted": false,
   "U10SupplementalConditionsFreezeSHA": "e34099b9c807df1f145f96ca92c2443fe552fa36",
   "U10SupplementalPrespecSHA256": "5dc8c39e2e1bb2ab85c893e8769d601e4cb8d1a295e56bf543c6a6643d92130b",
@@ -126,5 +126,10 @@
   "U10PAndLaterExecuted": false,
   "CandidateFreezeExecuted": false,
   "U10ArchiveAudited": true,
-  "U10DriveCheckpointAudited": true
+  "U10DriveCheckpointAudited": true,
+  "U10PConditionsFrozen": true,
+  "U10PImplementationStatus": "FROZEN_READY_FOR_CHAT_REVIEW",
+  "U10PExecutionAuthorized": false,
+  "U10PFinalizeOnlyImplementationStatus": "FROZEN_READY_FOR_CHAT_REVIEW",
+  "U10PFinalizeOnlyExecutionAuthorized": false
 }

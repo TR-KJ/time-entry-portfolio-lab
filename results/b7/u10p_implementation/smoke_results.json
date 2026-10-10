@@ -1,0 +1,26 @@
+{
+  "Status": "PASS",
+  "FixedScheduleReplays": 16,
+  "E2TradeCases": 56,
+  "ModeTradeCases": 224,
+  "Bounds": [
+    "2020-01-10 00:00",
+    "2020-02-05 23:59"
+  ],
+  "Days": [
+    "2020-01-10",
+    "2020-01-14",
+    "2020-01-21",
+    "2020-01-23",
+    "2020-01-29",
+    "2020-01-30",
+    "2020-02-04"
+  ],
+  "Comparison": "EXACT_P0_STREAM_IDS_HASH_METRICS_ENTRY_SLTP_MFE_MAE_REACH_GIVEBACK_TRIGGER_ACTIVATION_LOCK_HIT_CLOSE_PIPS_REASON_WTL_DD_ANNUAL_GATE_COMPARATORS_REDUCTION_ADOPTION_RANKING_FALLBACK",
+  "Formal40Used": false,
+  "FormalProtectionModeProduced": false,
+  "FormalU10PPerformanceSaved": false,
+  "Full40Run": false,
+  "ValidationUsed": false,
+  "MonitorUsed": false
+}

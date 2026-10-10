@@ -1,0 +1,75 @@
+{
+  "Status": "FROZEN_READY_FOR_CHAT_REVIEW",
+  "U10ResultFreezeSHA": "488553634c3923f5ef561a7db777d1b0b2ff5796",
+  "U10PInputSHA256": "7bce58b58102be11d8fe2debe4212b47a52cc685d10b044a9f7663e5b0bad11f",
+  "CandidateCount": 40,
+  "PairCounts": {
+    "USDJPY": 1,
+    "EURJPY": 8,
+    "GBPJPY": 8,
+    "AUDJPY": 4,
+    "AUDUSD": 0,
+    "EURAUD": 7,
+    "GBPAUD": 5,
+    "EURUSD": 5,
+    "GBPUSD": 2
+  },
+  "NoReplacement": true,
+  "P0StreamAndFullMetricsBarrier": true,
+  "FinalizeTrustedFiles": 121,
+  "NormalResumePythonPatchExact": true,
+  "FinalizePythonMajorMinorExactPatchFlexible": true,
+  "NumPy": "2.3.5",
+  "pandas": "2.2.3",
+  "Tests": {
+    "Status": "PASS",
+    "Total": 725,
+    "Passed": 725,
+    "Failed": 0,
+    "Errors": 0,
+    "Skipped": 0,
+    "Seconds": 125.63,
+    "Environment": {
+      "Python": "3.12.14",
+      "NumPy": "2.3.5",
+      "pandas": "2.2.3"
+    },
+    "FixtureScope": "Synthetic only; no actual data or formal U10-P performance evaluation"
+  },
+  "Smoke": {
+    "Status": "PASS",
+    "FixedScheduleReplays": 16,
+    "E2TradeCases": 56,
+    "ModeTradeCases": 224,
+    "Bounds": [
+      "2020-01-10 00:00",
+      "2020-02-05 23:59"
+    ],
+    "Days": [
+      "2020-01-10",
+      "2020-01-14",
+      "2020-01-21",
+      "2020-01-23",
+      "2020-01-29",
+      "2020-01-30",
+      "2020-02-04"
+    ],
+    "Comparison": "EXACT_P0_STREAM_IDS_HASH_METRICS_ENTRY_SLTP_MFE_MAE_REACH_GIVEBACK_TRIGGER_ACTIVATION_LOCK_HIT_CLOSE_PIPS_REASON_WTL_DD_ANNUAL_GATE_COMPARATORS_REDUCTION_ADOPTION_RANKING_FALLBACK",
+    "Formal40Used": false,
+    "FormalProtectionModeProduced": false,
+    "FormalU10PPerformanceSaved": false,
+    "Full40Run": false,
+    "ValidationUsed": false,
+    "MonitorUsed": false
+  },
+  "U10PConditionsFrozen": true,
+  "U10PImplementationAuthorized": true,
+  "U10PExecutionAuthorized": false,
+  "U10PExecuted": false,
+  "Formal40Used": false,
+  "FormalProtectionResultsViewed": false,
+  "CandidateFreezeExecuted": false,
+  "ValidationPerformance": "NOT_RUN",
+  "MonitorPerformance": "NOT_RUN",
+  "PriorProductionConditionsInputsResultsUnchanged": true
+}
