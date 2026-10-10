@@ -1,0 +1,92 @@
+{
+  "Status": "PASS",
+  "CalendarSourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+  "SourcePath": "src/portfolio_backtest_v1_2_add_aussie_logic.py",
+  "SourceBlobSHA": "f087a22554fb920e2c7230b0626e72f654376358",
+  "SourceSHA256": "4b71f6b7b1cdbe3266cd9b7cefae37811781561016a013a34d7c8c84247ef32d",
+  "EventCalendarSHA256": "7a1bdaeab45aa72ad9098386707e452f280d99f37d2c0fb5f4c512805a72d8eb",
+  "Events": [
+    {
+      "CanonicalEventName": "AUD_CPI",
+      "SourceArray": "AUD_CPI_DATES",
+      "TotalSourceDates": 48,
+      "DiscoveryDates": 16,
+      "ExtractedArraySHA256": "e730cd8ba6d9b68718ff93bcc0703203f5d1fc817f39217277cfc91016816d55",
+      "EventDateJSTMapping": "SAME_CALENDAR_DAY",
+      "FixedJST": "10:30",
+      "WindowPlusMinusMinutes": 120
+    },
+    {
+      "CanonicalEventName": "BOE",
+      "SourceArray": "BOE_DATES",
+      "TotalSourceDates": 106,
+      "DiscoveryDates": 34,
+      "ExtractedArraySHA256": "ceb7c410a9a0e1f5ef67f3fb9d20f60247ffd206bf1486e24402fca9080b5fe5",
+      "EventDateJSTMapping": "SAME_CALENDAR_DAY",
+      "FixedJST": "21:00",
+      "WindowPlusMinusMinutes": 120
+    },
+    {
+      "CanonicalEventName": "BOJ",
+      "SourceArray": "BOJ_DATES",
+      "TotalSourceDates": 103,
+      "DiscoveryDates": 33,
+      "ExtractedArraySHA256": "c0b0f42a33c3b0909dbf4852ec546b791495531b413772943fb8fc5a76c7b818",
+      "EventDateJSTMapping": "SAME_CALENDAR_DAY",
+      "FixedJST": "12:00",
+      "WindowPlusMinusMinutes": 180
+    },
+    {
+      "CanonicalEventName": "ECB",
+      "SourceArray": "ECB_DATES",
+      "TotalSourceDates": 96,
+      "DiscoveryDates": 32,
+      "ExtractedArraySHA256": "81cd06a203fc087095d063dff740cce50235be016df0ce2a65d3539b9be33c72",
+      "EventDateJSTMapping": "SAME_CALENDAR_DAY",
+      "FixedJST": "21:15",
+      "WindowPlusMinusMinutes": 120
+    },
+    {
+      "CanonicalEventName": "FOMC",
+      "SourceArray": "FOMC_DATES",
+      "TotalSourceDates": 97,
+      "DiscoveryDates": 33,
+      "ExtractedArraySHA256": "4bb890e9e87692ebd1a8a1ea9d04943c94cc401fde62f58013efb8cf64711f09",
+      "EventDateJSTMapping": "SOURCE_PLUS_ONE_CALENDAR_DAY",
+      "FixedJST": "03:00",
+      "WindowPlusMinusMinutes": 180
+    },
+    {
+      "CanonicalEventName": "RBA",
+      "SourceArray": "RBA_DATES",
+      "TotalSourceDates": 123,
+      "DiscoveryDates": 44,
+      "ExtractedArraySHA256": "a1393154b8b4048dd85ea6ffc1898c026be92e808d4e829a0b0e6308bdebb972",
+      "EventDateJSTMapping": "SAME_CALENDAR_DAY",
+      "FixedJST": "13:30",
+      "WindowPlusMinusMinutes": 120
+    },
+    {
+      "CanonicalEventName": "US_CPI",
+      "SourceArray": "US_CPI_DATES",
+      "TotalSourceDates": 144,
+      "DiscoveryDates": 48,
+      "ExtractedArraySHA256": "891233f5aa74c6e52a7296cd43ab18ee389ae9529be8c25ca5f04e5ea799e9b6",
+      "EventDateJSTMapping": "SAME_CALENDAR_DAY",
+      "FixedJST": "21:30",
+      "WindowPlusMinusMinutes": 120
+    },
+    {
+      "CanonicalEventName": "US_NFP",
+      "SourceArray": "US_NFP_DATES",
+      "TotalSourceDates": 144,
+      "DiscoveryDates": 48,
+      "ExtractedArraySHA256": "cdd8ead1c812486dacaf7416a9a5ddf9ef60940e407db085ad1807f36cda1b90",
+      "EventDateJSTMapping": "SAME_CALENDAR_DAY",
+      "FixedJST": "21:30",
+      "WindowPlusMinusMinutes": 120
+    }
+  ],
+  "AUDCPILegacyLookupUsed": false,
+  "NoFormalU10ResultViewed": true
+}

@@ -1,0 +1,197 @@
+{
+  "Scope": "U10_IMPLEMENTATION_ONLY",
+  "CandidateCount": 54,
+  "NoReplacement": true,
+  "DiscoveryBounds": [
+    "2020-01-01",
+    "2024-01-01"
+  ],
+  "FormalEventMode": "E2",
+  "U09ResultFreezeSHA": "ee4406aa910a8cc13bfe57590ed6ea97faea18f4",
+  "U09ProducerSHA": "345a0e8ef659bcd601b73a6475c4613a04ff4337",
+  "InputSHA256": "ea64a5145c08db79d6122c24c6ab875c190739b816275ae4bd443510d9571744",
+  "InputObjectSHA256": "a84b767e690021d855105986c155e6ac4a4746eb1338e9bd4f036d8b523fb19d",
+  "U10SupplementalFreezeSHA": "e34099b9c807df1f145f96ca92c2443fe552fa36",
+  "SupplementalPrespecSHA256": "5dc8c39e2e1bb2ab85c893e8769d601e4cb8d1a295e56bf543c6a6643d92130b",
+  "EventCalendarSHA256": "7a1bdaeab45aa72ad9098386707e452f280d99f37d2c0fb5f4c512805a72d8eb",
+  "CalendarSourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+  "FrozenEventContract": {
+    "FormalMode": "E2",
+    "ModeChosenBeforeResults": true,
+    "OptimizationStage": false,
+    "CalendarSourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+    "Reuse": "B6 audited frozen calendar infrastructure only",
+    "B6CandidateCStrategyMatrixAllowed": false,
+    "HistoricalReleaseTimeReconstructionAllowed": false,
+    "FixedDiscoveryEvents": {
+      "FOMC": {
+        "FixedJST": "03:00",
+        "WindowPlusMinusMinutes": 180
+      },
+      "US_NFP": {
+        "FixedJST": "21:30",
+        "WindowPlusMinusMinutes": 120
+      },
+      "US_CPI": {
+        "FixedJST": "21:30",
+        "WindowPlusMinusMinutes": 120
+      },
+      "BOJ": {
+        "FixedJST": "12:00",
+        "WindowPlusMinusMinutes": 180
+      },
+      "BOE": {
+        "FixedJST": "21:00",
+        "WindowPlusMinusMinutes": 120
+      },
+      "ECB": {
+        "FixedJST": "21:15",
+        "WindowPlusMinusMinutes": 120
+      },
+      "RBA": {
+        "FixedJST": "13:30",
+        "WindowPlusMinusMinutes": 120
+      },
+      "AUD_CPI": {
+        "FixedJST": "10:30",
+        "WindowPlusMinusMinutes": 120
+      }
+    },
+    "Modes": {
+      "E0": "No exclusions",
+      "E1": "Pair constituent central banks",
+      "E2": "E1 + US_NFP + US_CPI + AUD_CPI only for AUD pairs"
+    },
+    "CurrencyCentralBank": {
+      "USD": "FOMC",
+      "JPY": "BOJ",
+      "EUR": "ECB",
+      "GBP": "BOE",
+      "AUD": "RBA"
+    },
+    "Overlap": {
+      "TradeInterval": "Planned Entry through planned Time Exit, even with earlier SL/TP exit",
+      "EndpointsInclusive": true,
+      "MultipleEvents": "Remove trade once"
+    },
+    "DiagnosticsModes": [
+      "E0",
+      "E1",
+      "E2"
+    ],
+    "Diagnostics": [
+      "Trades",
+      "RemovedTrades",
+      "Retention",
+      "AvgPips",
+      "TotalPips",
+      "PFpips",
+      "MaxDDPips",
+      "annual metrics"
+    ],
+    "DiagnosticsNotAdoptionGates": [
+      "Retention >= 80%",
+      "Removed >= 20",
+      "Improvement from E0"
+    ],
+    "FormalPostE2GateRef": "GateDefinitions.U01Equivalent",
+    "PostE2Failure": "CANDIDATE_DROP",
+    "FallbackToE0E1Allowed": false
+  },
+  "FallbackAllowed": false,
+  "Smoke": {
+    "Symbols": [
+      "AUDUSD",
+      "EURJPY"
+    ],
+    "Days": [
+      "2020-01-10",
+      "2020-01-14",
+      "2020-01-21",
+      "2020-01-23",
+      "2020-01-29",
+      "2020-01-30",
+      "2020-02-04"
+    ],
+    "Bounds": [
+      "2020-01-10 00:00",
+      "2020-02-05 23:59"
+    ],
+    "Directions": [
+      "LONG",
+      "SHORT"
+    ],
+    "TPPips": [
+      null,
+      10
+    ],
+    "SLPips": 10,
+    "Schedules": [
+      {
+        "EntryMinute": 540,
+        "ExitMinute": 1380,
+        "ExitDayOffset": 0,
+        "HoldingMinutes": 840
+      },
+      {
+        "EntryMinute": 1380,
+        "ExitMinute": 240,
+        "ExitDayOffset": 1,
+        "HoldingMinutes": 300
+      }
+    ],
+    "FormalWeekdays": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "FormalDOMBuckets": [
+      "D1",
+      "D2",
+      "D3"
+    ],
+    "FormalMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "FrozenSources": {
+    "research_inputs/b7/full_research_prespec.json": "d096117239ad5acf9fdfbd1092056c9eb625feffbba2cc659ea33f4566537cea",
+    "research_inputs/b7/u09_supplemental_prespec.json": "cefa5aed9fc820c8bbf4dd4a57622263cd2443bc8509f8016f62bb20e76a92f3",
+    "research_inputs/b7/u10_supplemental_prespec.json": "5dc8c39e2e1bb2ab85c893e8769d601e4cb8d1a295e56bf543c6a6643d92130b",
+    "research_inputs/b7/u10_selected54_input.json": "ea64a5145c08db79d6122c24c6ab875c190739b816275ae4bd443510d9571744",
+    "research_inputs/b7/u09_selected54_input.json": "8faa886c3d1a72e8020688b8931481d81d1df637d63b0b368e0171b8d1dce2ca",
+    "results/b7/u09/shift_recount.json": "37bdb3d51be45952102d690b7711f2ac31a3ab80e0ee6c0c684ccee775baf042",
+    "results/b7/u09/improvement_margin_audit.json": "02d26bde8544cb4f9b25337c3846280deec7c6c8d02738458ea6b2b1be7f52ff",
+    "results/b7/u09/boundary_finetune.json": "355791c865ce4c7911bda6d515581508b415806ec17ceb7550acabbc0c3368fc",
+    "results/b7/u09/decision_recount.json": "89496b2fa1ee209b45019cca3370290e11e9eecd47ef651e2c8e7fc3ebf62e20",
+    "results/b7/u09/u09_archive_manifest.json": "e3512de85316f9caa921a0dcb6903a2534fd6012052755576d9eb8849323f310",
+    "results/b7/u09/checkpoint_audit.json": "71fbde6e9f0393b2365e95acc5be6525b49d5740b02601fdc376750528f17ca4",
+    "results/b7/u09/input_identity.json": "82d1605ecc03a62439b00cb3af1cca15bd6767c0fb881e79de0d73822e15bc20",
+    "results/b7/u09/drive_checkpoint_audit.json": "03704244cf3fbc04277bc2139215f41ad8c75d0c3607fd3a2d7c5cb5d452e98b",
+    "results/b7/u09/github_artifact_manifest.json": "d8ffb7bbc8d6f048933d1258dcd99b074cd6d18a807ec3e187b848262be0456d",
+    "results/b7/u09/u09_review.json": "062775e3ded08ad7f12b465738978041fcf402384b4a2d55937b23391ef3074b",
+    "results/b7/u09/COMPLETE.json": "68228ca851ff58d0bc6d6d158076f1efcd5d3e63cde7b0777dd1246a1c0bbcf3",
+    "results/b7/u09/decision_summary.json": "e7c782239cf6f8f2e4d8e025ca786afe0f554aa08e46cd2e431a24216029b338",
+    "results/b7/u09/artifact_manifest.json": "be4dfc0fdf78cb83bdf633c7502ae4d57f651930b77b154183089c584b32120b",
+    "results/b7/u09/u09_result_identity.json": "5d1dc4860c021e7e5be043a5551e284b33c2487754bb0827a5beb3231cfd822f",
+    "results/b7/u09/u09_result_summary.json": "89496b2fa1ee209b45019cca3370290e11e9eecd47ef651e2c8e7fc3ebf62e20",
+    "results/b7/u09/shift_summary.json": "6dd5551c71465a9f570b61d85e453c859737b6570b6503f16eac4099ee55e06d",
+    "results/b7/u09/consistency_checks.json": "35ee431faa03552b36bc852ef494f49dec5f2a7c0dd07d6019a2537a9f86d980",
+    "results/b7/u09/preflight.json": "3d8eb80af3ccc020f644b845097e04800c9e5399e042d3387c003a5fdf3bf196",
+    "results/b7/u09/pair_summary.json": "222b832ec5f7580a35961d9ab8e30751568d838ceabfa2a53c36127d814ad7a3",
+    "results/b7/u09/test_results.json": "5be9d9df7a40ae7b19dad094ac9b5b87119813b336ad98ff0753adb8d1c61703"
+  }
+}

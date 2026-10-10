@@ -1,0 +1,25 @@
+{
+  "Status": "PASS",
+  "FixedScheduleReplays": 16,
+  "E0TradeCases": 112,
+  "Bounds": [
+    "2020-01-10 00:00",
+    "2020-02-05 23:59"
+  ],
+  "Days": [
+    "2020-01-10",
+    "2020-01-14",
+    "2020-01-21",
+    "2020-01-23",
+    "2020-01-29",
+    "2020-01-30",
+    "2020-02-04"
+  ],
+  "Comparison": "EXACT_E0_TRADES_PLANNED_TIMES_CLOSE_PIPS_EVENTS_WINDOWS_OVERLAPS_REMOVED_IDS_RETAINED_IDS_METRICS_ANNUAL_PF_DD_GATE_STATUS",
+  "Formal54Used": false,
+  "FormalCandidateStatusProduced": false,
+  "FormalU10PerformanceSaved": false,
+  "Full54Run": false,
+  "ValidationUsed": false,
+  "MonitorUsed": false
+}
