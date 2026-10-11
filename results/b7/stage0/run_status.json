@@ -48,7 +48,7 @@
   "NewPerformanceResultsOpened": true,
   "FullResearchPrespec": "research_inputs/b7/full_research_prespec.json",
   "FullResearchConditions": "docs/b7/full_research_conditions_freeze.md",
-  "NextAuthorizationRequired": "Separate B7 Monitor Implementation Only instruction; Monitor execution not authorized",
+  "NextAuthorizationRequired": "Chat review then separate explicit Colab Monitor execution approval",
   "Stage1ImplementationStatus": "FROZEN",
   "ImplementationDocumentation": "docs/b7/stage1_implementation.md",
   "Stage1FinalizeOnlyImplementationStatus": "FROZEN",
@@ -156,9 +156,10 @@
   "ValidationFAIL": 18,
   "ValidationInsufficientSample": 0,
   "MonitorInputPrepared": true,
-  "MonitorImplementationAuthorized": false,
+  "MonitorImplementationAuthorized": true,
   "MonitorExecutionAuthorized": false,
   "MonitorExecuted": false,
   "PostValidationRetuningAllowed": false,
-  "ValidationOverrideAllowed": false
+  "ValidationOverrideAllowed": false,
+  "MonitorImplementationStatus": "FROZEN_READY_FOR_CHAT_REVIEW"
 }

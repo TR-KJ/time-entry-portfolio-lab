@@ -1,0 +1,12 @@
+{
+  "Status": "PASS",
+  "RawExecutionComparisons": 360,
+  "SelectedPipelineComparisons": 16,
+  "Formal22Used": false,
+  "ActualMonitorRowsUsed": false,
+  "FormalMonitorPerformanceSaved": false,
+  "Full22Run": false,
+  "ValidationStatusChanged": false,
+  "Synthetic2026Only": true,
+  "PerformanceValuesPublished": false
+}

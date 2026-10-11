@@ -1,0 +1,58 @@
+{
+  "Status": "PASS",
+  "ParentU11ResultFreezeSHA": "08db85612fa76773a3f7e3bbaefd91c84877db22",
+  "CandidateFreezeSHA": "ebfe204d3561b064c1b4dc98d2fd417631dcc009",
+  "U11ProducerImplementationSHA": "f763cfd25d79d59a1ba823de5493e8535c575e55",
+  "MonitorInputSHA256": "677aa3a9a18e9b8b46dcf7900ad9d4adbcc8a9bd0bf5e057b22e7e839fd434d2",
+  "MonitorInputObjectSHA256": "bd4eca4cf0aa5b0bace249ff61259f290f5c495d6f335fc71651a01b215bf3c9",
+  "MonitorInputBytes": 260069,
+  "OrderedCandidateIDsSHA256": "4b01d82da2a7ce33a02fd9c660455447a2b4b98f9ed72933bdc6ad2d7f0d9f1f",
+  "OrderedUnique22": true,
+  "CandidateCount": 22,
+  "PairCounts": {
+    "AUDJPY": 4,
+    "AUDUSD": 0,
+    "EURAUD": 6,
+    "EURJPY": 4,
+    "EURUSD": 0,
+    "GBPAUD": 3,
+    "GBPJPY": 5,
+    "GBPUSD": 0,
+    "USDJPY": 0
+  },
+  "ProtectionModeCounts": {
+    "P0": 21,
+    "P1": 0,
+    "P2": 1,
+    "P3": 0
+  },
+  "ValidationPASSOnly": true,
+  "FAIL18Absent": true,
+  "StrategyImmutable": true,
+  "SourceTrustedFilesSHA256": "743fbc17f2b6ed4a1a9320b086fdf081e6d93194ba8d90050932a62b8bbc1061",
+  "SourceCandidateResultsSHA256": "1a9e70d18ea1a36a4b8d4a3887b866bc4f14525368b93f4d83f15d63cee667cf",
+  "EventCalendarSHA256": "7a1bdaeab45aa72ad9098386707e452f280d99f37d2c0fb5f4c512805a72d8eb",
+  "CalendarSourceCommit": "173be2a114dad6bd183a0a1515581528850f0850",
+  "CandidateFingerprints": {
+    "CandidateSetSHA256": "0fc2a24c248057bf4b7fa5ba1b9413cbb49725bead885372d8f3104c67d432d5",
+    "DiscoveryBaselineSHA256": "00abcf9491b6b275da0204be5444c0a1973557fbd4c976c4de61ab84b85fb40c",
+    "EnvironmentExecutionSHA256": "37cac03494b06353b47e0a33d289d4d7fca35ffb1628b2090bec9e9f1bad4dee",
+    "ProtectionMappingSHA256": "7a2097c0de2db8cfa27b5da54867af4ecd0bbf3ac002ec81dd92de3cdd196ee6",
+    "ScheduleMappingSHA256": "f58977252feedd00b32122ed31cf076ff91221e93c2c7b73f02a2e367d340d62",
+    "SelectedStreamMappingSHA256": "eb1e8057df483fbb86536c0be62448c38898f27792f605e34bd0665955ac0192"
+  },
+  "MonitorPeriod": "[2026-01-01, 2026-09-10) JST",
+  "MonitorStatus": "OBSERVED_ONLY",
+  "NoReplacement": true,
+  "ValidationOverrideAllowed": false,
+  "PostValidationRetuningAllowed": false,
+  "MonitorExecuted": false,
+  "MonitorPerformance": "NOT_RUN",
+  "M1Audit": "Frozen manifest metadata identity only in Work; 72 actual-file audits required by Colab preflight",
+  "M1ManifestSHA256": "6bdead8061fcbe3cf792e9ea0e0dcd8f869057aa5a8fc78c572d23f4ae49d15a",
+  "Environment": {
+    "Python": "3.12.14",
+    "NumPy": "2.3.5",
+    "pandas": "2.2.3"
+  }
+}

@@ -30,8 +30,8 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "b79b3e3b0d2f75088e2c8f43cc257e7a97aa8c570270cf3eb73a3d14ea94aa41",
-      "Bytes": 39414
+      "SHA256": "05c4e0dbd8f99e2a737b44a213347b371706314b748041f5f2add548d00f0ab9",
+      "Bytes": 42856
     },
     {
       "Path": "docs/b7/stage0_validation.md",
@@ -155,13 +155,13 @@
     },
     {
       "Path": "results/b7/stage0/artifact_manifest.json",
-      "SHA256": "2343a25c171ea13777d916acf0eca437a309efeb7cbcbb6a6ad19b5531f79672",
+      "SHA256": "9e5b9d48226698e7788afb4b15aa891ec59d3413fa8ddc936b22c22af055bffe",
       "Bytes": 7679
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "9060ec3addc7b0d32c4c10f3d4046a9fcb113e6f1dbf4949535ab15da4b41fac",
-      "Bytes": 6856
+      "SHA256": "d950210307cc800e229b0200be7dbe394956acb6e5b91d999572ecade59fde75",
+      "Bytes": 6902
     },
     {
       "Path": "results/b7/stage1/COMPLETE.json",
@@ -230,12 +230,12 @@
     },
     {
       "Path": "results/b7/stage1_finalize_only/release_manifest.json",
-      "SHA256": "37e6e95099064314774c1b77cca756f315272b521faf87954ba493e74ad2254e",
+      "SHA256": "446e76a11e9f7081e1ba3f2fbe4306abc8f9645b19f9a028a6800ba3ad22ef24",
       "Bytes": 7919
     },
     {
       "Path": "results/b7/stage1_implementation/release_manifest.json",
-      "SHA256": "91d33a8ae12f031507659b8ff5438cd39e1cc8297c0f835b392bab6446246bcd",
+      "SHA256": "305d1fa0e7d545396e38c6e4a39e48d5ee739eef57d0274ad056f2aa383cd1fd",
       "Bytes": 8044
     },
     {
@@ -250,7 +250,7 @@
     },
     {
       "Path": "results/b7/u06_implementation/release_manifest.json",
-      "SHA256": "f35e40e6888363b3be68abb002bfcf0e6b7dffb739a7ebec945539ef40073abc",
+      "SHA256": "5f1481e7e22009940b796af7c7d29c03ff8edf65925a7613cad7a9fb79fba317",
       "Bytes": 13214
     },
     {
@@ -365,8 +365,8 @@
     },
     {
       "Path": "tests/test_b7_audit.py",
-      "SHA256": "ea87968859d4e949545281741ff7611dd957f6af03a9723ca1ca37f3b3f2acd0",
-      "Bytes": 4597
+      "SHA256": "a5f26da95873b3b6346c384f2a9fd48947ccd9bed1b1aa581aa183e13bd81fd7",
+      "Bytes": 4690
     },
     {
       "Path": "tests/test_b7_compatibility.py",

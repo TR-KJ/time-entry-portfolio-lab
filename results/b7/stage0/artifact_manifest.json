@@ -26,9 +26,9 @@
       "SHA256": "640e3ec6027967e360b4ffb5e65dd1ed07d80a733aa66cdcca99559d81f05b0e"
     },
     {
-      "Bytes": 39414,
+      "Bytes": 42856,
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "b79b3e3b0d2f75088e2c8f43cc257e7a97aa8c570270cf3eb73a3d14ea94aa41"
+      "SHA256": "05c4e0dbd8f99e2a737b44a213347b371706314b748041f5f2add548d00f0ab9"
     },
     {
       "Bytes": 9372,
@@ -156,9 +156,9 @@
       "SHA256": "0f3df745dd609af1877b1246c63fd4414107def21f67753334d0bcb98150996d"
     },
     {
-      "Bytes": 6856,
+      "Bytes": 6902,
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "9060ec3addc7b0d32c4c10f3d4046a9fcb113e6f1dbf4949535ab15da4b41fac"
+      "SHA256": "d950210307cc800e229b0200be7dbe394956acb6e5b91d999572ecade59fde75"
     },
     {
       "Bytes": 348,
@@ -211,9 +211,9 @@
       "SHA256": "968dc7b331d45d80d184ed0d65fdab2e052b5b74b333351da6bfb463ed2cda70"
     },
     {
-      "Bytes": 4597,
+      "Bytes": 4690,
       "Path": "tests/test_b7_audit.py",
-      "SHA256": "ea87968859d4e949545281741ff7611dd957f6af03a9723ca1ca37f3b3f2acd0"
+      "SHA256": "a5f26da95873b3b6346c384f2a9fd48947ccd9bed1b1aa581aa183e13bd81fd7"
     },
     {
       "Bytes": 7096,

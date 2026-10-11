@@ -53,6 +53,7 @@ class B7AuditTests(unittest.TestCase):
         c=json.loads((ROOT/'results/b7/stage0/run_status.json').read_text())
         self.assertEqual(c['BrokerIdentity'],'HISTORICAL_NOT_FULLY_CERTIFIED');self.assertEqual(c['Stage0'],'PASS_WITH_PROVENANCE_LIMITATION')
         self.assertEqual(c['B01'],'CLEAR_WITH_LIMITATION');self.assertFalse(c['Stage1ExecutionAuthorized'])
-        self.assertEqual(c['ValidationPerformance'],'NOT_RUN');self.assertEqual(c['MonitorPerformance'],'NOT_RUN')
+        self.assertEqual(c['ValidationPerformance'],'COMPLETE_FROZEN');self.assertTrue(c['U11ResultFrozen'])
+        self.assertEqual(c['MonitorPerformance'],'NOT_RUN');self.assertFalse(c['MonitorExecuted'])
 
 if __name__=='__main__':unittest.main()
