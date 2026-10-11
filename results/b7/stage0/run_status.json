@@ -48,7 +48,7 @@
   "NewPerformanceResultsOpened": true,
   "FullResearchPrespec": "research_inputs/b7/full_research_prespec.json",
   "FullResearchConditions": "docs/b7/full_research_conditions_freeze.md",
-  "NextAuthorizationRequired": "Separate B7 Candidate Freeze instruction; U11 and Monitor not authorized",
+  "NextAuthorizationRequired": "Separate B7 U11 Validation Implementation Only instruction",
   "Stage1ImplementationStatus": "FROZEN",
   "ImplementationDocumentation": "docs/b7/stage1_implementation.md",
   "Stage1FinalizeOnlyImplementationStatus": "FROZEN",
@@ -123,7 +123,7 @@
   "U10": "COMPLETE_U10_ONLY_FROZEN",
   "U10ResultFrozen": true,
   "U10ExecutionComplete": true,
-  "CandidateFreezeExecuted": false,
+  "CandidateFreezeExecuted": true,
   "U10ArchiveAudited": true,
   "U10DriveCheckpointAudited": true,
   "U10PConditionsFrozen": true,
@@ -135,7 +135,13 @@
   "U10PResultFrozen": true,
   "U10PExecutionComplete": true,
   "CandidateFreezeInputPrepared": true,
-  "CandidateFreezeAndLaterExecuted": false,
   "U10PArchiveAudited": true,
-  "U10PDriveCheckpointAudited": true
+  "U10PDriveCheckpointAudited": true,
+  "CandidateFreeze": "COMPLETE_CANDIDATE_FREEZE_FROZEN",
+  "CandidateFreezeResultFrozen": true,
+  "CandidateFreezeSourceInputSHA256": "ceacffaaf085cb3470b28548328315dfed9d817e53f368043f54b3583017b328",
+  "U11Executed": false,
+  "U11ExecutionAuthorized": false,
+  "U11ImplementationAuthorized": false,
+  "U11InputPrepared": true
 }

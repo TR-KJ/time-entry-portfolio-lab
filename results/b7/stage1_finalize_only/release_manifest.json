@@ -31,8 +31,8 @@
     },
     {
       "Path": "docs/b7/source_of_truth.md",
-      "SHA256": "766ac9f5c0970a3aca62fe9ce1266987d194aa8922ca3945826bedd714cca99b",
-      "Bytes": 30961
+      "SHA256": "920361ed1ec24bd140aa3efee367bf3925e2267db91d0878fe41c11ef7afcd99",
+      "Bytes": 33974
     },
     {
       "Path": "docs/b7/stage0_validation.md",
@@ -106,13 +106,13 @@
     },
     {
       "Path": "results/b7/stage0/artifact_manifest.json",
-      "SHA256": "181a5d6977986c56172c84df529faa5d779f2589e0e0668ddbffbbe260e0bc11",
+      "SHA256": "23d1d88c2ca6d8ef2c7c8fe346b2e4c690d8f7e4a9901b279863921f98fe5cd5",
       "Bytes": 7679
     },
     {
       "Path": "results/b7/stage0/run_status.json",
-      "SHA256": "2988bbdea9bbf2d4a4ba4c7f0f9d2043737b6ee0473e5227afdc36623614b555",
-      "Bytes": 5914
+      "SHA256": "6d2dc5bcf34248d5d37507d9f68b2edbf9a92554fce5ada5f4c13f5bbc5d2986",
+      "Bytes": 6184
     },
     {
       "Path": "results/b7/stage1_finalize_only/freeze_audit.json",
@@ -126,7 +126,7 @@
     },
     {
       "Path": "results/b7/stage1_implementation/release_manifest.json",
-      "SHA256": "0cf210ab9d1921343bfdae72316eabcdf31b2c707abf8e6a65e77685fd57ae85",
+      "SHA256": "268b3b63db72a62f3ac68988c821d0023b27583af9a758116269a6221d1b4504",
       "Bytes": 8044
     },
     {
