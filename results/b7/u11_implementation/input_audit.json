@@ -1,0 +1,58 @@
+{
+  "Status": "PASS",
+  "CandidateFreezeSHA": "ebfe204d3561b064c1b4dc98d2fd417631dcc009",
+  "U11InputSHA256": "0a9db7f5d65191cd88153199470034a78286880920960442b9e300d0fbb18ed4",
+  "U11InputObjectSHA256": "b0ad97127368ec624f4c29cc3be711d3fa35d04d263da4950fd92355e8b95ec8",
+  "CandidateCount": 40,
+  "OrderedUnique40": true,
+  "PairCounts": {
+    "USDJPY": 1,
+    "EURJPY": 8,
+    "GBPJPY": 8,
+    "AUDJPY": 4,
+    "AUDUSD": 0,
+    "EURAUD": 7,
+    "GBPAUD": 5,
+    "EURUSD": 5,
+    "GBPUSD": 2
+  },
+  "ProtectionCounts": {
+    "P0": 37,
+    "P1": 2,
+    "P2": 1,
+    "P3": 0
+  },
+  "SelectedProtectionMapping": [
+    {
+      "CandidateID": "B7S1:GBPAUD:SHORT:MON:E1200:D1:X0370:H0610",
+      "Symbol": "GBPAUD",
+      "PairRank": 2,
+      "FormalProtectionMode": "P2"
+    },
+    {
+      "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0365:D0:X1120:H0755",
+      "Symbol": "GBPUSD",
+      "PairRank": 4,
+      "FormalProtectionMode": "P1"
+    },
+    {
+      "CandidateID": "B7S1:GBPUSD:LONG:TUE:E0370:D0:X1180:H0810",
+      "Symbol": "GBPUSD",
+      "PairRank": 7,
+      "FormalProtectionMode": "P1"
+    }
+  ],
+  "Fingerprints": {
+    "CandidateSetSHA256": "0fc2a24c248057bf4b7fa5ba1b9413cbb49725bead885372d8f3104c67d432d5",
+    "DiscoveryBaselineSHA256": "00abcf9491b6b275da0204be5444c0a1973557fbd4c976c4de61ab84b85fb40c",
+    "EnvironmentExecutionSHA256": "37cac03494b06353b47e0a33d289d4d7fca35ffb1628b2090bec9e9f1bad4dee",
+    "ProtectionMappingSHA256": "7a2097c0de2db8cfa27b5da54867af4ecd0bbf3ac002ec81dd92de3cdd196ee6",
+    "ScheduleMappingSHA256": "f58977252feedd00b32122ed31cf076ff91221e93c2c7b73f02a2e367d340d62",
+    "SelectedStreamMappingSHA256": "eb1e8057df483fbb86536c0be62448c38898f27792f605e34bd0665955ac0192"
+  },
+  "FrozenU11ContractExact": true,
+  "EventCalendarSHA256": "7a1bdaeab45aa72ad9098386707e452f280d99f37d2c0fb5f4c512805a72d8eb",
+  "FrozenEnvironmentAndExecutionExact": true,
+  "PerformanceRead": false,
+  "PerformanceComputed": false
+}
